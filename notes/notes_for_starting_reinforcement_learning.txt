@@ -1,0 +1,10 @@
+Notes from re-reading paper 3
+-----------------------------
+
+Training a NN-based transmitter using a policy gradient was explored in [12].
+(C. de Vrieze, S. Barratt, D. Tsai, and A. Sahai, “Cooperative multi-
+agent reinforcement learning for low-level wireless communication,”
+arXiv preprint arXiv:1801.04541, Jan. 2018.)
+I should look in here in case they have a github or anything.
+
+

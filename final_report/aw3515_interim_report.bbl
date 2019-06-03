@@ -1,0 +1,160 @@
+\begin{thebibliography}{10}
+
+\bibitem{oShea}
+T.~O'Shea and J.~Hoydis, ``An introduction to deep learning for the physical
+  layer,'' {\em IEEE Trans. on Cogn. Commun. Netw.}, vol.~3, pp.~563--575, July
+  2017.
+
+\bibitem{Aoudia}
+F.~A. Aoudia and J.~Hoydis, ``End-to-end learning of communications systems
+  without a channel model,'' {\em Nokia Bell Labs}, Apr. 2018.
+
+\bibitem{ChannelEncodingOptimality}
+A.~Goldsmith, ``"joint source/channel coding for wireless channels.",'' {\em
+  Proc. IEEE Vehicular Technol. Conf.}, vol.~2, pp.~614--618, 1995.
+
+\bibitem{EE3CommsSystemsNotesL4}
+A.~Manikas, ``Lecture 4: An overview of fundamentals: Wireless channels,'' in
+  {\em Imperial College EE303 Communications Systems Course}, Nov 2017.
+
+\bibitem{oShea0}
+T.~J. O'Shea, K.~Karra, and T.~C. Clancy, ``Learning to communicate: Channel
+  auto-encoders, domain specific regularizers, and attention,'' in {\em 2016
+  IEEE International Symposium on Signal Processing and Information Technology
+  (ISSPIT)}, pp.~223--228, Dec 2016.
+
+\bibitem{NonLinearities}
+T.~Schenk, ``"rf imperfections in high-rate wireless systems: Impact and
+  digital compensation.",'' {\em Springer Science \& Business Media}, 2008.
+
+\bibitem{NonOptimalRayleigh}
+E.~Zehavi, ``"8-psk trellis codes for a rayleigh channel,",'' {\em IEEE Trans.
+  Commun.}, vol.~40, no.~5, pp.~873--884, 1992.
+
+\bibitem{RnnTuringComplete}
+H.~T. Siegelmann and E.~D. Sontag, ``On the computational power of neural
+  nets,'' {\em J. Comput. Syst. Sci.}, vol.~50, no.~1, pp.~132--150, 1995.
+
+\bibitem{NeuralProgramInterpreters}
+S.~Reed and N.~de~Freitas, ``Neural programmer-interpreters,'' in {\em
+  International Conference on Learning Representations (ICLR)}, 2016.
+
+\bibitem{NnUniversalApproximators}
+Stinchcombe and White, ``Universal approximation using feedforward networks
+  with non-sigmoid hidden layer activation functions,'' in {\em International
+  1989 Joint Conference on Neural Networks}, pp.~613--617 vol.1, 1989.
+
+\bibitem{FpgaGpuBetterUtilisation}
+E.~Nurvitadhi, D.~Sheffield, J.~Sim, A.~Mishra, G.~Venkatesh, and D.~Marr,
+  ``Accelerating binarized neural networks: Comparison of fpga, cpu, gpu, and
+  asic,'' in {\em IEEE journal}, pp.~77--84, 12 2016.
+
+\bibitem{WiredAppleNeuralEngine}
+T.~Simonite, ``Apple's latest iphones are packed with ai smarts,'' {\em Wired
+  Magazine}, Dec 2018.
+
+\bibitem{NnLowFp}
+I.~{Hubara}, M.~{Courbariaux}, D.~{Soudry}, R.~{El- Yaniv}, and Y.~{Bengio},
+  ``{Quantized Neural Networks: Training Neural Networks with Low Precision
+  Weights and Activations},'' {\em arXiv e-prints}, p.~arXiv:1609.07061, Sept.
+  2016.
+
+\bibitem{Eyeriss}
+Y.~Chen, T.~Krishna, J.~S. Emer, and V.~Sze, ``Eyeriss: An energy-efficient
+  reconfigurable accelerator for deep convolutional neural networks,'' {\em
+  IEEE Journal of Solid-State Circuits}, vol.~52, pp.~127--138, Jan 2017.
+
+\bibitem{GpuIncreasedThroughput}
+R.~Raina, A.~Madhavan, and A.~Y. Ng, ``Large-scale deep unsupervised learning
+  using graphics processors,'' in {\em Proceedings of the 26th Annual
+  International Conference on Machine Learning}, ICML '09, (New York, NY, USA),
+  pp.~873--880, ACM, 2009.
+
+\bibitem{Clerkx}
+E.~P. M.~Varasteh and B.~Clerckx, ``A learning approach to wireless information
+  and power transfer signal and system design,'' {\em IEEE}, Oct. 2018.
+
+\bibitem{WirelessTextbookC2}
+D.~Tse and P.~Vishwanath, ``Fundamentals of wireless communication,'' in {\em
+  Fundamentals of Wireless Communication}, ch.~2, pp.~10--48, Cambridge
+  University Press, 2005.
+
+\bibitem{AppsOfNnToComms}
+M.~Ibnkahla, ``Applications of neural networks to digital communications – a
+  survey,'' {\em Signal Processing}, vol.~80, no.~7, pp.~1185 -- 1215, 2000.
+
+\bibitem{AppsNnToCognitiveRadios}
+M.~Bkassiny, Y.~Li, and S.~K. Jayaweera, ``A survey on machine-learning
+  techniques in cognitive radios,'' {\em IEEE Communications Surveys
+  Tutorials}, vol.~15, pp.~1136--1159, Third 2013.
+
+\bibitem{AppsNnBeliefPropogation}
+E.~Nachmani, Y.~Be'ery, and D.~Burshtein, ``Learning to decode linear codes
+  using deep learning,'' {\em CoRR}, vol.~abs/1607.04793, 2016.
+
+\bibitem{AppsRnnBeliefPropogation}
+E.~Nachmani, E.~Marciano, D.~Burshtein, and Y.~Be'ery, ``{RNN} decoding of
+  linear block codes,'' {\em CoRR}, vol.~abs/1702.07560, 2017.
+
+\bibitem{AppsNnDeepMimoDetection}
+N.~Samuel, T.~Diskin, and A.~Wiesel, ``Deep mimo detection,'' in {\em 2017 IEEE
+  18th International Workshop on Signal Processing Advances in Wireless
+  Communications (SPAWC)}, pp.~1--5, July 2017.
+
+\bibitem{AppsNnDeepUnfolding}
+J.~R. Hershey, J.~L. Roux, and F.~Weninger, ``Deep unfolding: Model-based
+  inspiration of novel deep architectures,'' {\em CoRR}, vol.~abs/1409.2574,
+  2014.
+
+\bibitem{AppsMimoBlindDetection}
+Y.~Jeon, S.~Hong, and N.~Lee, ``Blind detection for {MIMO} systems with
+  low-resolution adcs using supervised learning,'' {\em CoRR},
+  vol.~abs/1610.07693, 2016.
+
+\bibitem{AppsMolecularComms}
+N.~Farsad and A.~J. Goldsmith, ``Detection algorithms for communication systems
+  using deep learning,'' {\em CoRR}, vol.~abs/1705.08044, 2017.
+
+\bibitem{AppsResourceAllocation}
+H.~Sun, X.~Chen, Q.~Shi, M.~Hong, X.~Fu, and N.~D. Sidiropoulos, ``Learning to
+  optimize: Training deep neural networks for wireless resource management,''
+  {\em CoRR}, vol.~abs/1705.09412, 2017.
+
+\bibitem{AppsDlChannelDecoding}
+T.~Gruber, S.~Cammerer, J.~Hoydis, and S.~ten Brink, ``On deep learning-based
+  channel decoding,'' {\em CoRR}, vol.~abs/1701.07738, 2017.
+
+\bibitem{AppsRadioBasisFunctions}
+T.~J. O'Shea, J.~Corgan, and T.~C. Clancy, ``Unsupervised representation
+  learning of structured radio communication signals,'' {\em CoRR},
+  vol.~abs/1604.07078, 2016.
+
+\bibitem{AppsCnnRadioEfficiency}
+T.~J. O'Shea and J.~Corgan, ``Convolutional radio modulation recognition
+  networks,'' {\em CoRR}, vol.~abs/1602.04105, 2016.
+
+\bibitem{WirelessTextbookC5}
+D.~Tse and P.~Vishwanath, ``Fundamentals of wireless communication,'' in {\em
+  Fundamentals of Wireless Communication}, ch.~5, pp.~166--227, Cambridge
+  University Press, 2005.
+
+\bibitem{ShortBlockLengthNonOptimality}
+Y.~Polyanskiy, H.~V. Poor, and S.~Verdu, ``Channel coding rate in the finite
+  blocklength regime,'' {\em IEEE Transactions on Information Theory}, vol.~56,
+  pp.~2307--2359, May 2010.
+
+\bibitem{DeepsigOmnisig}
+T.~O'Shea, ``Deepsig: Omnisig.'' \url{https://www.deepsig.io/omnisig/}.
+\newblock Accessed: 21-01-2019.
+
+\bibitem{DeepsigOmniphy}
+T.~O'Shea, ``Deepsig: Omniphy.'' \url{https://www.deepsig.io/omniphy/}.
+\newblock Accessed: 21-01-2019.
+
+\bibitem{TensorflowBenchmarking}
+A.~Lazorenko, ``A medium corporation: Tensorflow performance testing, cpu vs
+  gpu.''
+  \url{https://medium.com/@andriylazorenko/tensorflow-performance-test-cpu-vs-gpu-79fcd39170c}.
+\newblock Accessed: 01-11-2019.
+
+\end{thebibliography}

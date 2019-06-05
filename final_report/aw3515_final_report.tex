@@ -115,6 +115,7 @@ Autoencoders are a technique used in deep learning (DL) for encoding and compres
 Normally with autoencoders $n < k$, because the autoencoder is finding a compressed form of $\mathcal{M}$ which maintains the information content, while reducing the number of bits used. However in this paper because there is noise added in middle layer, as shown in Figure \ref{fig:oSheaAutoencoderLayout}, $n \geq k$ to increase robustness of the transmitted signal to noise (minimise information loss).
 
 \subsubsection{Project deliverables continued}
+\label{sec:deliverables}
 
 Moving back to the O'Shea paper, it should be noted that all the following deliverables were written off by the project supervisor and so were not attempted, they are just described to give a better understanding of the O'Shea paper. 
 
@@ -519,61 +520,20 @@ In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal ma
 
 This suggests that there is an error within the regularisation layer, however this bug is still in the process of being fixed. This is the current task which is being worked on, and when finished, after some minor modifications the model should be scale and so could be compared to BPSK and Hamming encoding to complete the first deliverable.
 
-\subsection{Planned progress}
-    
-The first objective in the Gantt chart from Figure \ref{fig:GanttChart} has mainly been completed, however the other objectives all still need to be completed. This section will lay out a plan for when these objectives are expected to be completed and how long they are expected to take.
-
-Finishing the autoencoder based model is expected to have been finished by the 13th of February, and the comparison of this model against current methods including DBPSK and Hamming encoding is expected to have been completed by the 15th of February. This is a hard deadline as there is a presentation to the project supervisors group on the morning of the 15th.
-
-The following two deliverables have been given lots of time to complete despite not being expected to have large development content needed. This is because they span over the spring term which is very heavily loaded with coursework deadlines and an exam. Because of this the time allotted to specific deliverables decreases from the 26th of March. This will be the Easter holidays and so the author will only have two exams to revise for on top of the project, as opposed to the three coursework namodules and an exam module which are all in the spring term. 
-
-The plan is to finish the fourth deliverable bt the 25th of April, so all the deliverables from the first paper by the end of the Easter holiday (25th of April), there will then be a weeks break to solely focus on exams. 
-
-From after Easter there is a three week block to write the reinforcement learning model, which the project supervisor advised would be difficult, and compare it's performance to other models and current state of the art. This block finishes on the 26th of May.
-
-There is a deadline for the first draft of the final report and abstract to be submitted on the 3rd of June, so the week between the 27th of May to the 3rd of June has been set aside purely for writing this first draft of the report. The following two and a half weeks until the submission deadline on the 19th of June have been set aside for continuing to write and then finish the report.
-
-These estimates are not particularly optimistic, lots of extra time has been built into the estimates after the presentation on the 15th of February. The author plans to dedicate one day per week to the project, with specific goals for each day to ensure consistent progress with the project.
-
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/gantt_chart.png}
-\end{center}
-   \caption{A gantt chart showing planed progress through deliverables. }
-\label{fig:GanttChart}
-\end{figure}
-
 \FloatBarrier
-\section{Evaluation Plan}
+\section{Evaluation Strategy}
 
-The two main deliverables are to reproduce the results from two papers ~\cite{oShea,Aoudia}, so evaluation plan is relatively simple. The main deliverables are:
+The two main deliverables are to reproduce the results from two papers ~\cite{oShea,Aoudia} as laid out in Section \ref{sec:deliverables}. Conswequently assessing the completeness of the above deliverables should be relatively simple, in that the results produced can be compared with the results that are being reproduced, and if they are the same then the deliverable is complete.
 
-\begin{enumerate}
-    \item Make an autoencoder model and compare it's performance to DBPSK and Hamming encoding across a range of SNRs.
-    \item Produce a pair of adversarial networks both aiming to maximise their capacity, then show this is equivalent to a optimising one big NN with a joint loss function.
-    \item Add an RTN network as a method for adding some expert features to the NN and then measure convergence speed compared to the autoencoder method and compare performance across a range SNRs.
-    \item The last deliverable in the O'Shea paper is comparing the performance of a CNN relative to other receiver classification methods across a range of SNRs.
-    \item Reproduce the model from ~\cite{Aoudia} which uses the alternate training method. The compare the performance of this model against current state of the art and the autoencoder method across a range of SNRs for an AWGN and an RBF channel.
-\end{enumerate}
+For both papers performance of models was assessed by comparing the results of the code to the graphical results in the paper as there are no numerical results provided. Extra testing and validation was done along the way to check the the models were giving reasonable results. Strategies for this included plotting constellation diagrams, testing the system with no noise and using unit tests for BPSK and Hamming encoding methods.
 
-Assessing the completeness of the above deliverables should be relatively simple, in that the results produced can be compared with the results that are being reproduced, and if they are the same then the deliverable is complete.
+To ensure written code was correct, code written for previous deliverables was used for testing new code, producing results for learned systems and current state of the art, to give ball park figures to check the code was roughly working. Then each small function was tested thoroughly to ensure the overall system was working. Where it was hard to predict whether the results made sense they were checked against theoretical estimations, and if there was still uncertainty the project supervisors was consulted. 
 
-The author also recently found a github repository which reproduces the results from the first (O'Shea \etal) paper. Consequently the code from this repository can be used to verify this project's code works, potentially by first producing a testbench which can then be used to test all subsequent models work. It should be noted though that this repository is written using a different python library to the library (Keras) that must be used for this project so it cannot be copied.
+Some extra comparisons which will be completed if there is time for evaluation of whether the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit and current state of the art codes such as turbo and LDPC codes for an AWGN channel.
 
-When the program has been written the github repository can be used to produce a testbench, which can then bus used to test the program. However before this can be done the legitimacy of the source code must be verified and so the results of the testbench must be compared to those of the report which is being reproduced.
+The generality of a particular architecture of learned communication system will be evaluated by comparing the learned networks and current state of the art across common fading channels such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. This would better evaluate the generality of a learned communction system than has so far been done in the literature.
 
-The first repository was discovered by accident, but after brief research, a repository for the second paper ~\cite{Aoudia} has not been found. For this paper comparing the results of the code to the graphical results in the paper will have to be sufficient as there are no numerical results provided.
-
-Some extra comparisons that is aimed to be completed on top of the main deliverables are comparing the learned systems to Shannon's theoretical capacity limit and current state of the art codes such as turbo and LDPC codes for an AWGN channel.
-
-Additional comparisons which are aimed to be done are comparing the learned networks and current state of the art across common fading channels such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. After which it is aimed to do the same for some rare or hard to model channels. These are where the learned communication system should have the biggest advantage and so it should be interesting to see if they can deliver on their potential.
-
-If the main deliverables are finished then further research will be started by investigating adding an RTN layer to the receiver of the reinforcement learning model. The project supervisor had stated that
-if section is reached then he will decide which of the two areas is most current between reinforcement learning and SWIPT and further research will be continued into this area. The details of these deliverables are described in the project specification, however as these will be new areas a different method of evaluating the success and validity of the results.
-
-The code I have written for previous deliverables will be used, producing results for learned systems and current state of the art, to give ball park figures to check the code is roughly working. Then each small function will be tested thoroughly to ensure the overall system is working. 
-
-It is hard to predict whether the results make sense, but they will be checked against theoretical estimations and if there is still uncertainty the project supervisors will be consulted. 
+This generality could be further evaluated by doing the same for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
 
 \FloatBarrier
 \section{Ethical, Legal and Safety Plan}
@@ -661,7 +621,37 @@ Fires                          & Often work with laptop plugged in & 1          
 \section{Evaluation}
 
 \FloatBarrier
-\section{Conclusions and Further Work}
+\section{Conclusions}
+
+
+\FloatBarrier
+\section{Further Work}
+
+REWORD THIS STUFF INTO FUTURE WORK
+
+\textit{
+Some extra comparisons which will be completed if there is time to check that the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit and current state of the art codes such as turbo and LDPC codes for an AWGN channel.
+}
+
+\textit{
+Another additional comparison which may be done if there is time is to compare the learned networks and current state of the art across common fading channels such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. This would better assess the generality of a learned communction system than has so far been done in the literature.
+}
+
+\textit{
+After which ideally the same could be done for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
+}
+
+\textit{
+If the main deliverables are finished then further research will be started by investigating adding an RTN layer to the receiver of the reinforcement learning model. The project supervisor had stated that
+if section is reached then he will decide which of the two areas is most current between reinforcement learning and SWIPT and further research will be continued into this area. The details of these deliverables are described in the project specification, however as these will be new areas a different method of evaluating the success and validity of the results.
+}
+
+\begin{itemize}
+   \item Remember that slow fading with short block lengths was a potentially advantageous environment for learned communication systems
+   \item Also cities with very complicated environments, lots of multipaths, no direct lines of sight, stationary and significant large scale would be an environment where the learned communication system would likely do well.
+   \item Look at the "Types of fading" section for more details.
+\end{itemize}
+
 
 \FloatBarrier
 \appendix

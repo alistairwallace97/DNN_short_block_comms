@@ -412,31 +412,27 @@ This is fine if you are pre-training the network for a stationary channel you ca
     \item The first paper I am replicating claims there had not been much adoption of ML in commercial use ~\cite{oShea}. (Because of unspecified reasons "listed above")
 \end{itemize}
 
-The main commercial competition I have found is a start-up called DeepSig. One of it's two co-founders is Tim O'Shea, the co-author of the two founding papers on the subject of end-to-end learned communication systems. They currently have two commercial products OmniSIG and OmniPHY.
+The O'Shea paper~\cite{oShea} being replicated claimed there had not been much adoption of ML in commercial use ~\cite{oShea}, which at the time of writing was true, however this has now changed. After some research the main commercial competition found was a start-up called DeepSig. One of it's two co-founders was Tim O'Shea, the co-author of the two founding papers on the subject of end-to-end learned communication systems. It currently has two commercial products OmniSIG and OmniPHY.
 
-OmniSIG is a software package that allows training and monitoring of a communication system on a range of hardware devices. The package claims to often provide a 4-10 dB improvement and 10x reductions in computational complexity ~\cite{DeepsigOmnisig}. 
+OmniSIG is a software package that allows training and monitoring of a communication system on a range of hardware devices. The package claims to often provide a 4-10 dB improvement and 10x reductions in computational complexity ~\cite{DeepsigOmnisig}. OmniPHY seems to be similar system however the information on DeepSig's website is not very informative about what the product does, other than it learns a communication system, much like the OmniSig~\cite{DeepsigOmniphy}. DeepSig appears to be in it's infancy, and the author has been unable to find any other companies which are working in this area, suggesting it is still a very new corporate area. Additionally it is not entirely surprising that DeepSig seems to be the first, as it's founder is one of the founders of the field. 
 
-OmniPHY seems to be similar system however the information on their website is not very informative about what the product does, other than it learns a communication system, much like the OmniSig~\cite{DeepsigOmniphy}.
+If this report was producing a commercial application then such intellectually established competition would be quite worrying. So while only producing an academic report is being produced, it makes the research arguably less valuable as there is less chance for a company to get an early monopoly on the market. 
 
-DeepSig appears to be in it's infancy, and I have been unable to find any other companies which are working in this area. It is not entirely surprising that DeepSig seems to be the first, as it's founder is one of the founders of the field. 
-
-If I was producing a commercial application then such intellectually established competition would be quite worrying. So while I am only producing an academic report, it makes the research arguably less valuable as there is less chance for a company to get an early monopoly on the market. 
-
-Due to the nature of the project being to reproduce the results of two existing papers, there are by definition competing papers. Alongside the two papers that I am reproducing ~\cite{oShea,Aoudia} there are also several existing papers which have applied similar methods to similar problems.
-
-However few papers have learned a whole end-to-end communication system and the ones that have have been analysed in greater detail above.
+On the subject of competing papers and academics, due to the nature of the project being to reproduce the results of two existing papers, there are by definition competing papers. Alongside the two papers that have been reproduced here ~\cite{oShea,Aoudia} there are also several existing papers which have applied similar methods to similar problems. However few papers have learned a whole end-to-end communication system and the ones that have have been analysed in greater detail above.
 
 \subsection{Analysis of necessary software tools}
 
-I was asked to do my project in python and so this is why I chose python as the language to use. I am using python 3.6.8 because at the date of starting it is the latest version of python that supports Tensorflow and Keras. 
+One of the project specifications given to the author was to do the project in python and so this is why the python language was chosen. Although given a free choice python would still have been selected due to the large amount of high quality machine learning libraries available in python, such as Keras and Tensorflow. Another reason is that the large python community contributes to faster debugging and more support. Python 3.6.8 is being used because at the date of starting it is the latest version of python that supports Tensorflow and Keras. 
 
-The main software tool that I will be using is Keras, with a Tensorflow backend. These are both open source machine learning libraries designed to make machine learning easier at a higher level. Allowing users to describe complicated networks in many fewer lines of code. The reason that I have chosen Keras is that the two paper's I am reproducing both specify that they used Keras~\cite{oShea,Aoudia}. 
+The main software tool that being used is Keras with a Tensorflow backend. These are both open source machine learning libraries designed to make machine learning easier at a higher level. Allowing users to describe complicated networks in many fewer lines of code. The other reason that Keras has been chosed is that the two paper's being reproduced both specify that they used Keras~\cite{oShea,Aoudia}. 
 
 \subsection{Analysis of necessary hardware}
 
-The main hardware specification is what device do I need to be able to train and test my Keras model on. However any modern cpu core will be able to run Keras. It would be significantly faster to train and test on a graphical processing unit (GPU) as shown here~\cite{TensorflowBenchmarking}. But you can still run tensorflow and keras on a simple cpu, and this requirement will be satisfied by any modern laptop or desktop. 
+The main hardware specification is what device is needed to be able to train and test Keras models on. While any modern cpu core will be able to run Keras, it would be significantly faster to train and test on a graphical processing unit (GPU) as shown here~\cite{TensorflowBenchmarking}. But tensorflow and keras can still run on a simple cpu, and this requirement will be satisfied by any modern laptop or desktop. 
 
-The hardware I have chosen to use is my HP Spectre with an Intel I7 6500u. I have chosen to use this because of the convenience of it being my own laptop.
+The hardware which has been chosen to use is a HP Spectre with an Intel I7 6500u. This was chosen because of the convenience of it being the author's own laptop. This hardware has been used for the majority of the code development and running. However training of large models or many models has been run on an amazon web services (AWS) g3.4xlarge instance to take advantage of the speed up associated with using a GPU.
+
+A g3.4xlarge is equipped with 16 high frequency Intel Xeon E5-2686 v4 (Broadwell) processors and one NVIDIA Tesla M60 GPU, with 2048 parallel processing cores and 8 GiB of video memory. This significantly increased the speed of training models. This instance was selected because of it's high quality GPU, but also because of the author's familiarity with it from a fourth year course.
 
 \FloatBarrier
 \section{Implementation Plan}

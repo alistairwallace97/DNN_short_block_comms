@@ -202,31 +202,27 @@ A general background will be given on the technology area, before specific secti
 
 \subsection{General background}
 
-The first end-to-end learned communications system was from O'Shea \etal ~\cite{oShea,oShea0}. However machine learning had been applied to many jobs within receivers prior to this. Many of these applications such as "channel identification and equalization, coding and decoding, vector quantization, image processing, nonlinear filtering, spread spectrum applications" and cognitive radios have been summarised in ~\cite{AppsOfNnToComms, AppsNnToCognitiveRadios}. However research supports ~\cite{oShea}'s claim that none of these methods had significant commercial success or adoption.
+The first end-to-end learned communications system was from O'Shea \etal ~\cite{oShea,oShea0}. However machine learning had been applied to many jobs within receivers prior to this. Many of these applications such as ``channel identification and equalization, coding and decoding, vector quantization, image processing, nonlinear filtering, spread spectrum applications" and cognitive radios have been summarised in ~\cite{AppsOfNnToComms, AppsNnToCognitiveRadios}. However research supports ~\cite{oShea}'s claim that none of these methods had significant commercial success or adoption.
 
 There has been a sharp rise in the number of applications of NNs to communications, probably largely due to the massive increase in access to open source machine learning libraries such as Tensorflow, Keras and Theano. This has been aided by the impressive and well publicised DL based improvements in computer vision. From this there has naturally been increased research into whether these benefits could be applied to the field of communications.
 
 Applying DL to communications has been approached in two distinct ways. One way is that researchers have tried to apply DL to communications is by improving current algorithms and methods using DL the other is directly replacing the systems. 
 
-Some examples of the first group are improving belief propagation of code words with both feed forward~\cite{AppsNnBeliefPropogation} and recurrent neural networks~\cite{AppsRnnBeliefPropogation}. With the RNN version giving significantly lower complexity while maintaining performance.
+Some examples of the first group are improving belief propagation of code words with both feed forward~\cite{AppsNnBeliefPropogation} and recurrent neural networks~\cite{AppsRnnBeliefPropogation}. With the RNN version giving significantly lower complexity whilst maintaining performance. Another example was that applying DL to MIMO detection gave "state of the art accuracy with significantly lower complexity" in ~\cite{AppsNnDeepMimoDetection}. The previous three examples all built on the novel work of ~\cite{AppsNnDeepUnfolding} in applying expert knowledge to NNs.
 
-Another example was that applying DL to MIMO detection gave "state of the art accuracy with significantly lower complexity" in ~\cite{AppsNnDeepMimoDetection}. The previous three examples all built on the novel work of ~\cite{AppsNnDeepUnfolding} in applying expert knowledge to NNs.
+The second approach, of incorporating DL into communications by replacing the existing methods is the more relevant segment to this report. Initial research into the area was kick-started by a group of papers published during 2016-2017. One example is ~\cite{AppsMimoBlindDetection}, where a sequence of pilot bits were sent across the unknown channel during training to build a non-linear channel model. ~\cite{AppsMolecularComms} applied DNNs to molecular communication where the channel model cannot be modelled mathematically and ~\cite{AppsResourceAllocation} used a DNN to model resource allocation for wireless communication as an unknown linear function, giving "orders of magnitude" speed up compared to state of the art optimisation algorithms.
 
-The second approach of incorporating DL into communications by replacing the existing methods is the segment more relevant to this paper. Initial research into the area was kick-started by a group of papers published during 2016-2017. One example is ~\cite{AppsMimoBlindDetection}, where a sequence of pilot bits were sent across the unknown channel during training to build a non-linear channel model. ~\cite{AppsMolecularComms} applied DNNs to molecular communication where the channel model cannot be modelled mathematically and ~\cite{AppsResourceAllocation} used a DNN to model resource allocation for wireless communication as an unknown linear function, giving "orders of magnitude" speed up compared to state of the art optimisation algorithms.
+There has also been some initial research into end-to-end learned communication systems in ~\cite{oShea,oShea0}, with further development of a novel algorithm which uses reinforcement learning to avoid needing a channel model in ~\cite{Aoudia}. Deep learning has also been applied to channel decoding ~\cite{AppsDlChannelDecoding}, radio basis functions ~\cite{AppsRadioBasisFunctions} and improving efficiency in radio transmissions ~\cite{AppsCnnRadioEfficiency}.
 
-There has also been some initial research into end-to-end learned communication systems in ~\cite{oShea,oShea0}, with further development of a novel algorithm which uses reinforcement learning to avoid needing a channel model in ~\cite{Aoudia}. 
+\subsection{Paper 1 - An introduction to deep learning for the physical layer}
 
-Deep learning has also been applied to channel decoding ~\cite{AppsDlChannelDecoding}, radio basis functions ~\cite{AppsRadioBasisFunctions} and improving efficiency in radio transmissions ~\cite{AppsCnnRadioEfficiency}.
+The first paper released on this subject was by O'Shea and Hoydis~\cite{oShea}, in July of 2017. The paper cites that as communications is quite an established field, so improvements have become more marginal and semi-optimal solutions have been found for most problems. Consequently, a deep learning model (DLM) would have to do very well in order to be of any use. 
 
-\subsection{An introduction to deep learning for the physical layer}
+DLM’s have historically had a lot of success in fields such as image processing, where it is very difficult to write and algorithm which recognises or does something, but easy for a DLM. Whereas in communications rigid, mathematically backed algorithms for encoding and decoding signals can often be written, so DLMs have never been needed.
 
-The first paper released on this subject was by O'Shea and Hoydis~\cite{oShea}, in July of 2017. The paper cites that as communications is quite an established field, so improvements have become more marginal and semi-optimal solutions have been found for most problems. Consequently, a DLM (deep learning model) would have to do very well in order to be of any use. 
+First O'Shea and Hoydis demonstrated it was possible to learn a full end-to-end communication system (transmitter, channel and reciever), for a given channel model which is optimised for a chosen loss function, in this case BLER (Block Error Rate). The structure of this model was similar to an autoencoder, however with a noise layer in the middle. The encoder acted as the transmitter, the decoder as the receiver and the noise layer as the channel.
 
-DLM’s have historically had a lot of success in fields such as image processing, where it is very difficult to write and algorithm which recognises or does something, but easy for a DLM. Whereas in communications we can write rigid, mathematically backed algorithms for encoding and decoding signals, so DLMs have never been needed.
-
-First O'Shea and Hoydis demonstrated it is possible to learn a full end-to-end communication system (transmitter, channel and reciever), for a given channel model which is optimised for a chosen loss function, in this case BLER (Block Error Rate).
-
-It was competitive with or outperformed state of the art, in this case Hamming MLD (maximum likelihood decoding), DBPSK, TS-QAM (time sharing quadrature amplitude modulation) and boosted trees. It also offered the potential of being applied to channels where the optimal solutions are not known. 
+The autoencoder based model was competitive with or outperformed state of the art, in this case Hamming MLD (maximum likelihood decoding), DBPSK, TS-QAM (time sharing quadrature amplitude modulation) and boosted trees. It also offered the potential of being applied to channels which were differentiable, but where the optimal solutions were not known. 
 
 \begin{figure}[t]
 \begin{center}
@@ -236,9 +232,7 @@ It was competitive with or outperformed state of the art, in this case Hamming M
 \label{fig:oSheaAutoencoderHamming}
 \end{figure}
 
-The structure of this model is similar to an autoencoder, however with a noise layer in the middle. The encoder acts as the transmitter, the decoder as the receiver and the noise layer as the channel.
-
-O'Shea and Hoydis then extended this to an adversarial network of many Rx Tx pairs competing for capacity. Next showing this is the same as one big MIMO NN which could be optimised in one go with a common or individual performance metric. The jointly learned metric outperformed a TS-QAM system across a range of SNRs as can be seen in \ref{fig:oSheaAutoencoderTsQam}.
+O'Shea and Hoydis then extended this to an adversarial network of many Rx Tx pairs competing for capacity. Next showing this was the same as a single larger MIMO NN which could be optimised in one go with a common or individual performance metric. The jointly learned metric outperformed a TS-QAM system across a range of SNRs as can be seen in \ref{fig:oSheaAutoencoderTsQam}.
 
 \begin{figure}[t]
 \begin{center}
@@ -248,11 +242,11 @@ O'Shea and Hoydis then extended this to an adversarial network of many Rx Tx pai
 \label{fig:oSheaAutoencoderTsQam}
 \end{figure}
 
-It should be noted though that autoencoders are notoriously bad with messages they haven't seen before, and consequently normally have to be trained using all the messages from the set of symbols $M = {1,...,M}$. This stops the method scaling to longer block lengths as there are $2^k$ possible messages in a block of lengths $k$ bits.
+It should be noted though that autoencoders perform notoriously poorly with messages they haven't seen before, consequently they normally have to be trained using all the messages from the set of symbols $M = {1,...,M}$. This stops the method scaling to longer block lengths as there are $2^k$ possible messages in a block of lengths $k$ bits. This scaling is particularly poor as the models in this paper used one-hot encoded inputs and outputs, meaning there must also be $2^k$ nodes and the input and output of the system.
 
 After this the authors added an RTN (radio transfer network). RTNs can perform a predefined correction algorithm, for example multiply by a complex number or convolute with a vector. This can be used as a way in incorporate some expert features into a learned system. This was integrated into the DLM for the end-to-end training process and consistently outperformed the normal NN. 
 
-The learned system with added RTN's performance over a Rayleigh channel, with L=3 fading taps, can be seen in Figure \ref{fig:oSheaRtnRayleigh}. It should also be noted that not only did the RTN consistently outperform current state of the art, it also converged significantly faster than the normal autoencoder. This can be seen in Figure 10 of ~\cite{oShea}.
+The learned system with added RTN's performance over a Rayleigh channel, with 3 ($L = 3$) fading taps, can be seen in Figure \ref{fig:oSheaRtnRayleigh}. It should also be noted that not only did the RTN consistently outperform current state of the art, it also converged significantly faster than the normal autoencoder. This can be seen in Figure 10 of ~\cite{oShea}.
 
 \begin{figure}[t]
 \begin{center}
@@ -262,7 +256,7 @@ The learned system with added RTN's performance over a Rayleigh channel, with L=
 \label{fig:oSheaRtnRayleigh}
 \end{figure}
 
-Lastly they used a CNN (convolutional neural network) on raw coplex valued IQ (in-phase and quaternary) samples and found that it outperformed traditional classification techniques using expert features. This is consistent with the current trend that learned features are better than expert ones. 
+Lastly O'Shea and Hoydis used a convolutional neural network (CNN) on raw coplex valued in-phase and quaternary (IQ) samples and found that it outperformed traditional classification techniques using expert features. This is consistent with the current trend that learned features are better than expert ones. 
 
 \begin{figure}[t]
 \begin{center}
@@ -272,15 +266,14 @@ Lastly they used a CNN (convolutional neural network) on raw coplex valued IQ (i
 \label{fig:oSheaCnnRxClassification}
 \end{figure}
 
-In conclusion, comparison with traditional baselines showed extremely competitive BLER, however the inherent autoencoder lack of scalability makes this method impossible for any long block length communication. This method also requires a differentiable mathematical model for the channel, which is severely limiting as a big opportunity for this technology would be to learn optimal communication systems for channels we can't model. 
+In conclusion, comparison with traditional baselines showed extremely competitive BLER, however the inherent autoencoder lack of scalability makes this method impossible for any long block length communication. This method also requires a differentiable mathematical model for the channel, which is severely limiting as a big opportunity for this technology would be to learn optimal communication systems for channels we can't model. This was still a very promising area though with potential uses of optical communications, where the channel impairments are highly non-linear and notoriously difficult to model and compensate for. Or alternatively unusual or complicated channels.
 
-A very promising area though with potential uses of optical communications, where the channel impairments are highly non-linear and notoriously difficult to model and compensate for. Or alternatively unusual or complicated channels.
+\FloatBarrier
+\subsection{Paper 2 - End-to-end learning of communication systems without a channel model}
 
-\subsection{End-to-end learning of communication systems without a channel model}
+As highlighted in the conclusion of the O'Shea paper, if an autoencoder like NN is used to learn a communication system then the channel model must be  differentiable. This paper ~\cite{Aoudia}, written by Aoudia and Hoydis in April 2018, exclusively set out to remove the need for a channel model. 
 
-As highlighted in the conclusion of the O'Shea paper, normally if you use an autoencoder like a NN to learn a communication system you must have a differentiable channel model. This paper ~\cite{Aoudia}, written by Aoudia and Hoydis in April 2018, exclusively set out to remove the need for a channel model. 
-
-They have a novel algorithm which gets around the problem. The algorithm iterates between the supervised training at the receiver and reinforcement learning (RL) at the transmitter. They showed it works as well as supervised methods using additive white Gaussian noise (AWGN) and using Rayleigh block-fading (RBF) channels. Their method converged slower on AWGN but faster on RBF as can be seen in Figure \ref{fig:AoudiaTrainingSpeeds}. This is the first step towards learning comms systems over any type of channel without and prior assumptions. 
+They produced a novel algorithm which solves the problem by iterating between the supervised training at the receiver and reinforcement learning (RL) at the transmitter. They showed it worked as well as supervised methods using additive white Gaussian noise (AWGN) and using Rayleigh block-fading (RBF) channels. Their method converged slower on AWGN but faster on RBF as can be seen in Figure \ref{fig:AoudiaTrainingSpeeds}. This is the first step towards learning comms systems over any type of channel without any prior assumptions. 
 
 \begin{figure}[t]
 \begin{center}
@@ -290,15 +283,11 @@ They have a novel algorithm which gets around the problem. The algorithm iterate
 \label{fig:AoudiaTrainingSpeeds}
 \end{figure}
 
-The reason this innovation is so important is that channels are normally black boxes, where only the inputs and outputs can be observed. 
+The reason this innovation was so important is that channels are normally black boxes, where only the inputs and outputs can be observed. The authors used a method called "Policy Learning", which is a subsection of RL. RL provides a theoretical foundation for obtaining an estimate of the gradient of an arbitrary loss function with respect to actions taken by an agent. In this case the agent is the transmitter and loss is performance metric provided by the receiver. This would mean knowledge of the channel model and instantaneous channel transfer function is not needed which allows them to train an autoencoder purely from observations. 
 
-The authors used a method called "Policy Learning", which is a subsection of RL. RL provides a theoretical foundation for obtaining an estimate of the gradient of an arbitrary loss function with respect to actions taken by an agent. In this case the agent is the transmitter and loss is performance metric provided by the receiver. This would mean knowledge of the channel model and instantaneous channel transfer function is not needed which allows them to train an autoencoder purely from observations. 
+The "alternating training algorithm" trains the receiver first then the transmitter, alternating between training each side while keeping the parameters for the other side fixed. The receiver is trained using mini-batch stochastic gradient descent (SGD) as in other methods. For training the transmitter a random perturbation vector $\mathbf{w}$ is added. This is done for a whole batch of transmitted messages, these messages are then sent across the channel, and received as normal, the losses are calculated, and then transmitted back to the transmitter along a lossless channel. Finally a normal optimisation step is done using SGD where the loss-gradient is estimated using Equation 4 from ~\cite{Aoudia}. 
 
-The "alternating training algorithm" trains the receiver first then the transmitter, alternating between training each side while keeping the parameters for the other side fixed. 
-
-The receiver is trained using mini-batch stochastic gradient descent (SGD) as in other methods. For training the transmitter a random perturbation vector $\mathbf{w}$ is added. This is done for a whole batch of transmitted messages, these messages are then sent across the channel, and received as normal, the losses are calculated, and then transmitted back to the transmitter along a lossless channel. Finally a normal optimisation step is done using SGD where the loss-gradient is estimated using Equation 4 from ~\cite{Aoudia}. 
-
-The authors found that the alternating method took longer to converge with for and AWGN channel and less time for an RBF channel than the supervised learning method. However it had the same end performance as the supervised method in both cases. This performance can be seen in Figures \ref{fig:AoudiaPerformanceAwgn} and \ref{fig:AoudiaPerformanceRbf}.
+The authors found that the alternating method took longer to converge with for the AWGN channel but less time for the RBF channel than the supervised learning method. However it had the same end performance as the supervised method in both cases. This performance can be seen in Figures \ref{fig:AoudiaPerformanceAwgn} and \ref{fig:AoudiaPerformanceRbf}.
 
 \begin{figure}[t]
 \begin{center}
@@ -316,12 +305,13 @@ The authors found that the alternating method took longer to converge with for a
 \label{fig:AoudiaPerformanceRbf}
 \end{figure}
 
-In conclusion they have shown they can get the same end performance to a fully supervised approach, but without needing a mathematical model of the channel, so it can therefore be applied to any type of channel without prior analysis. 
-Although their algorithm currently requires an additional reliable channel during training to feedback losses from the receiver to the transmitter, this is still a huge step. It also does not solve help the problem of being restricted to short block lengths, and arguably makes it worse in the case of AWGN as the method takes longer to converge even with shorter block lengths.
+In conclusion Aoudia and Hoydis showed that they could achieve the same end performance to a fully supervised approach, but without needing a mathematical model of the channel, so it could therefore be applied to any type of channel without prior analysis. 
+Although their algorithm currently requires an additional reliable channel during training to feedback losses from the receiver to the transmitter, this is still a huge step. It also does not solve help the problem of being restricted to short block lengths, and arguably makes it worse in the case of AWGN as the method takes longer to converge even with shorter block lengths. Lastly it should also be noted that the networks for the AWGN and RBF channels are not actually the same and the RBF network's structure incorporates expert knowledge of the channel. So this method is not as general as it first seems.
 
 However the importance of this step should not be underestimated. It allows learned communication systems to be used on channels which are either unknown, or too complex to model, which is arguably the biggest potential benefit of this technology. 
 
-\subsection{A learning approach to wireless information and power transfer signal and system design}
+\FloatBarrier
+\subsection{Paper 3 - A learning approach to wireless information and power transfer signal and system design}
 
 This paper, written by Varasteh, Piovano and Clerkx has a slightly different focus. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder.
 

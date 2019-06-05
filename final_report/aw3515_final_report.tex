@@ -337,15 +337,11 @@ In conclusion, this paper had some significant and completely new results, for i
 
 \subsection{Background communications theory}
 
-\subsubsection{Type of fading}
+\subsubsection{Types of fading}
 
-Fading can be categorised into large or small scale, fast or slow and flat or frequency selective. Large scale fading is is due to path loss of signal as a function of distance ans shadowing by large objects, such as buildings and hills. Because of it's large spacial size it is usually frequency independent. 
-
-Small scale fading is due to constructive and destructive interference of multiple signal paths between the transmitter and the receiver. This smaller spacial scale is of the order of the carrier wavelength and is therefore a function of frequency. 
+Fading can be categorised into large or small scale, fast or slow and flat or frequency selective. Large scale fading is is due to path loss of signal as a function of distance and shadowing by large objects, such as buildings and hills. Because of it's large spacial size it is usually frequency independent. Small scale fading is due to constructive and destructive interference of multiple signal paths between the transmitter and the receiver. This smaller spacial scale is of the order of the carrier wavelength and is therefore a function of frequency. 
 
 In a learned communication system these factors could be taken account of, and as long as they were stationary an optimal communication system could be learned with no assumptions. Taking advantage of these factors is something a traditional communication would find more difficult.
-
-To explain fast and slow fading we must first explain the meaning of coherence time. Coherence time is the time for which a channel is roughly constant as is shown by the diagram in Figure \ref{fig:coherence_illus}.
 
 \begin{figure}[t]
 \begin{center}
@@ -355,11 +351,7 @@ To explain fast and slow fading we must first explain the meaning of coherence t
 \label{fig:coherence_illus}
 \end{figure}
 
-There is little consensus as to exactly what fast and slow fading means~\cite{WirelessTextbookC2}. One interpretation is that a channel is fast fading if the coherence time is less than the delay requirement of the application, whereas is defined as slow fading if the coherence time is greater than the delay requirement of the application. 
-
-However another definition which is shown in ~\cite{EE3CommsSystemsNotesL4} and is demonstrated in Figure \ref{fig:fast_slow_flat_freq_selec_fading} is that fading is fast if the time per channel symbol ($T_{cs}$) is greater than the coherence time ($T_{coh}$).
-
-However defined either way the main difference between the two is that in fast fading channels you can transmit channel symbols over multiple channel fades, whereas in a slow fading channel you must transmit over that particular fade. This is either to satisfy the delay requirement of the application, or because your $T_{cs}$ is much shorter than your $T_{coh}$. Note that this behaviour depends on the channel characteristics (affects $T_{coh}$), the frequency (affects $T_{cs}$) and the application (sets the delay requirement).
+To explain fast and slow fading we must first explain the meaning of coherence time. Coherence time is the time for which a channel is roughly constant as is shown by the diagram in Figure \ref{fig:coherence_illus}. There is little consensus as to exactly what fast and slow fading means~\cite{WirelessTextbookC2}. One interpretation is that a channel is fast fading if the coherence time is less than the delay requirement of the application, whereas is defined as slow fading if the coherence time is greater than the delay requirement of the application. However another definition which is shown in ~\cite{EE3CommsSystemsNotesL4} and is demonstrated in Figure \ref{fig:fast_slow_flat_freq_selec_fading} is that fading is fast if the time per channel symbol ($T_{cs}$) is greater than the coherence time ($T_{coh}$).
 
 \begin{figure}[t]
 \begin{center}
@@ -369,15 +361,13 @@ However defined either way the main difference between the two is that in fast f
 \label{fig:fast_slow_flat_freq_selec_fading}
 \end{figure}
 
-For instance voice transmission usually has quite a low delay requirement of ${\sim}100$ms~\cite{WirelessTextbookC2}, but in different channels and transmitting at different frequencies could be either slow or fast fading.
+Defined either way the main difference between the two is that in fast fading channels you can transmit channel symbols over multiple channel fades, whereas in a slow fading channel you must transmit over that particular fade. This is either to satisfy the delay requirement of the application, or because your $T_{cs}$ is much shorter than your $T_{coh}$. Note that this behaviour depends on the channel characteristics (affects $T_{coh}$), the frequency (affects $T_{cs}$) and the application (sets the delay requirement). For instance voice transmission usually has quite a low delay requirement of ${\sim}100$ms~\cite{WirelessTextbookC2}, but in different channels and transmitting at different frequencies could be either slow or fast fading.
 
-Flat and frequency selective fading are similarly defined. Fading is flat if $T_{cs}$ is greater than $T_{spread}$. This means that the multi-paths for consecutive channel symbols will not overlap. Frequency selective fading is where the $T_{cs}$ is less than $T_{spread}$ and so multi-paths for consecutive channel symbols will overlap.
+Flat and frequency selective fading are similarly defined as can be seen in Figure \ref{fig:coherence_illus}. Fading is flat if $T_{cs}$ is greater than $T_{spread}$. This means that the multi-paths for consecutive channel symbols will not overlap. Frequency selective fading is where the $T_{cs}$ is less than $T_{spread}$ and so multi-paths for consecutive channel symbols will overlap.
 
 Faster, flatter fading is easier to design a communication system for. In the cases of frequency selective fading, which through the multi-paths depends on the environment, a learned communication system could learn an optimal system. This is another case of something which might be much more difficult to do analytically.
 
-Because of these characteristics it seems likely that a learned communication system would be more suited to a very complex, but stationary environment. A good example of this may be an urban environment with many multi-paths. This would be very hard to model analytically and to do so would likely require assumptions which might make the solution sub-optimal. 
-
-Whereas a learned system would avoid all these assumptions and learn the local optimum for that environment. However note that an urban environment may be too non-stationary for this method to work.
+Because of these characteristics it seems likely that a learned communication system would be more suited to a very complex, but stationary environment. A good example of this may be an urban environment with many multi-paths. This would be very hard to model analytically and to do so would likely require assumptions which might make the solution sub-optimal. Whereas a learned system would avoid all these assumptions and learn the local optimum for that environment. However note that an urban environment may be too non-stationary for this method to work.
 
 \subsubsection{Capacity and block lengths}
 
@@ -391,11 +381,7 @@ Shannon's capacity formula (Equation \ref{eqn:ShannonAwgnCapacity} taken from~\c
 
 AWGN channels are now normally decoded using iterative decoding algorithms which are far faster but have very similar performance to maximum likelihood decoders, such as "turbo" and "low density parity check" (LDPC) codes~\cite{WirelessTextbookC5}. Using LDPC codes much lower error probabilities can be achieved by using longer block lengths~\cite{WirelessTextbookC5} to approach maximum theoretical capacity.
 
-Another driver towards long block lengths is that Shannon's separation theorem proves, that if you separate the source encoding and the channel encoding, then this approach becomes theoretically optimal in the limit of infinitely long block lengths~\cite{ChannelEncodingOptimality}. This has led to most communication being done over very long block lengths. 
-
-\begin{itemize}
-    \item In OFDM if the block length is already very long then coding jointly across sub-carriers cannot increase the rate of reliable communication~\cite{WirelessTextbookC5}.
-\end{itemize}
+Another driver towards long block lengths is that Shannon's separation theorem proves, that if you separate the source encoding and the channel encoding, then this approach becomes theoretically optimal in the limit of infinitely long block lengths~\cite{ChannelEncodingOptimality}. This has led to most communication being done over very long block lengths. In OFDM if the block length is already very long then coding jointly across sub-carriers cannot increase the rate of reliable communication~\cite{WirelessTextbookC5}.
 
 Capacity in fading channels must be thought of in a different way because whatever code is used the bit error probability ($p_e$) cannot be made arbitrarily small because the probability that the channel is in deep fade is non-zero~\cite{WirelessTextbookC5}. Deep fade is strong destructive interference which can result in temporary failure of communications due to a massive drop in channel SNR, so will cause an error whether the signal is encoded or not. It should also be noted that Equation \ref{eqn:FadingVsAwgnCapacity} always holds.
 
@@ -404,31 +390,21 @@ Capacity in fading channels must be thought of in a different way because whatev
     \label{eqn:FadingVsAwgnCapacity}
 \end{equation}
 
-Because the probability of deep fade is non zero the strict sense capacity is zero. instead we find $C_{\epsilon}$ where $P(deep fade) < \epsilon$. 
+Because the probability of deep fade is non zero the strict sense capacity is zero. instead we find $C_{\epsilon}$ where $P(deep fade) < \epsilon$. However despite the fact we think about it differently the conclusion is the same for fast fading (time varying) channels. Because the code-words span several coherence periods the outage probability improves. This is because you can treat the different coherence periods as independent identically distributed (i.i.d) variables. By the law of large numbers their total variance will be lower. Extending this principle we like the block lengths to be long both to average out the effects of the Gaussian noise and the fluctuations of the channel. Hence the same conclusion, long block lengths.
 
-However despite the fact we think about it differently the conclusion is the same for fast fading (time varying) channels. Because the code-words span several coherence periods the outage probability improves. This is because you can treat the different coherence periods as independent identically distributed (i.i.d) variables. By the law of large numbers their total variance will be lower. Extending this principle we like the block lengths to be long both to average out the effects of the Gaussian noise and the fluctuations of the channel. Hence the same conclusion, long block lengths.
+Unfortunately using long block lengths has downsides. Firstly long block lengths give significant coding delays increasing latency even though they maintain throughput. Because of this in applications with tight delay constraints you may still get outage. Secondly for cases common in IoT applications where not much data needs to be send, long block lengths are not necessary and are impractical. 
 
-Unfortunately using long block lengths has downsides. Firstly long block lengths give significant coding delays increasing latency even though they maintain throughput. Because of this in applications with tight delay constraints you may still get outage. 
+Note that the gains in longer block lengths are not as big for slower fading channels, so potentially this could be an area which a learned network of short block length communications systems could do well.
 
-Secondly for cases common in IoT applications where not much data needs to be send, long block lengths are not necessary and are impractical. 
-
-The gains in longer block lengths are not as big for slower fading channels, so potentially this could be an area which a learned network of short block length communications systems could do well.
-
-A problems with this though is that communication systems in slow fading channels often use feedback to the receiver to use \textit{channel inversion} to increase their capacity. Channel inversion is where the transmitter varies the input power to keep the receiver SNR constant~\cite{WirelessTextbookC5}. This can consume huge amounts of power though and so is not appropriate for IoT applications.
-
-If the learned communication system could be adaptable or had a mechanism for feedback from the receiver to the transmitter then it might provide an alternative to channel inversion. Making communication in slow fading channels much more possible for IoT applications.
+A problem with this environment though is that communication systems in slow fading channels often use feedback to the receiver to use \textit{channel inversion} to increase their capacity. Channel inversion is where the transmitter varies the input power to keep the receiver SNR constant~\cite{WirelessTextbookC5}. This can consume huge amounts of power though and so is not appropriate for IoT applications. So, if the learned communication system could be adaptable or had a mechanism for feedback from the receiver to the transmitter then it might provide an alternative to channel inversion. Making communication in slow fading channels much more possible for IoT applications.
 
 For all of these cases above where long block lengths are not feasible, short block lengths are necessary. However the coding techniques used for long block lengths have been shown to be sub-optimal~\cite{ShortBlockLengthNonOptimality} when used with short block lengths. Because of this there is a motivation to learn communications techniques specifically for this area.
 
 \subsection{Additional notes}
 
-This technique has great potential for providing flexible communication across highly non-linear, un-model-able or mathematically insoluble channels.
+This technique has great potential for providing flexible communication across highly non-linear, unmodelable or mathematically insoluble channels. However it should be noted that in the case of non-stationary channels this method does not really have any potential without significant addition. The method could potentially be adapted to become adaptive, however this may be particularly difficult. This is because even in the most advanced form using the reinforcement learning you still require a noiseless channel between the receiver and the transmitter to communicate back what was received. 
 
-However it should be noted that in the case of non-stationary channels this method does not really have any potential without significant addition. The method could potentially be adapted to become adaptive, however this may be particularly difficult. This is because even in the most advanced form using the reinforcement learning you still require a noiseless channel between the receiver and the transmitter to communicate back what was received. 
-
-This is fine if you are pre-training the network for a stationary channel you can train it with a noiseless channel temporarily. However if you are trying to update the weights online then you may lose significant capacity or use valuable resources such as frequency trying to transmit back the received bits to train the transmitter. 
-
-This weakness for non-stationary channels is important as most wireless channels are highly non-stationary. 
+This is fine if you are pre-training the network for a stationary channel you can train it with a noiseless channel temporarily. However if you are trying to update the weights online then you may lose significant capacity or use valuable resources such as frequency trying to transmit back the received bits to train the transmitter. This weakness for non-stationary channels is very important as most wireless channels are highly non-stationary. 
 
 \subsection{Analysis of competing products}
 

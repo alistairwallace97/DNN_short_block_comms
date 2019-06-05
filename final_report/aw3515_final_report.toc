@@ -10,22 +10,22 @@
 \contentsline {subsection}{\numberline {2.3}\hskip -1em.\nobreakspace {}Paper 2 - End-to-end learning of communication systems without a channel model}{13}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}\hskip -1em.\nobreakspace {}Paper 3 - A learning approach to wireless information and power transfer signal and system design}{16}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}\hskip -1em.\nobreakspace {}Background communications theory}{18}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}Type of fading}{18}{subsubsection.2.5.1}
-\contentsline {subsubsection}{\numberline {2.5.2}Capacity and block lengths}{20}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.1}Types of fading}{18}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}Capacity and block lengths}{19}{subsubsection.2.5.2}
 \contentsline {subsection}{\numberline {2.6}\hskip -1em.\nobreakspace {}Additional notes}{21}{subsection.2.6}
-\contentsline {subsection}{\numberline {2.7}\hskip -1em.\nobreakspace {}Analysis of competing products}{22}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.7}\hskip -1em.\nobreakspace {}Analysis of competing products}{21}{subsection.2.7}
 \contentsline {subsection}{\numberline {2.8}\hskip -1em.\nobreakspace {}Analysis of necessary software tools}{22}{subsection.2.8}
 \contentsline {subsection}{\numberline {2.9}\hskip -1em.\nobreakspace {}Analysis of necessary hardware}{22}{subsection.2.9}
-\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace {}Implementation Plan}{23}{section.3}
-\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace {}Current progress}{23}{subsection.3.1}
+\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace {}Implementation Plan}{22}{section.3}
+\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace {}Current progress}{22}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Initial autoencoder model}{23}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}Adding noise at test time}{23}{subsubsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.3}Adding a most likely symbol layer}{23}{subsubsection.3.1.3}
 \contentsline {subsubsection}{\numberline {3.1.4}Making the channel symbols complex numbers}{24}{subsubsection.3.1.4}
 \contentsline {subsection}{\numberline {3.2}\hskip -1em.\nobreakspace {}Planned progress}{25}{subsection.3.2}
 \contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace {}Evaluation Plan}{26}{section.4}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Plan}{28}{section.5}
-\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace {}Ethical considerations}{28}{subsection.5.1}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Plan}{27}{section.5}
+\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace {}Ethical considerations}{27}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace {}Legal consideration}{28}{subsection.5.2}
 \contentsline {subsubsection}{\numberline {5.2.1}Infringing patents}{28}{subsubsection.5.2.1}
 \contentsline {subsubsection}{\numberline {5.2.2}Use of data}{28}{subsubsection.5.2.2}

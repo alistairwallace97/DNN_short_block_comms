@@ -159,11 +159,11 @@ The main twp deliverables are summarised below.
    \end{itemize}
 \end{enumerate}
 
-Any additional work is likely to be one of two options. Either by improving on the work done with reinforcement learning in~\cite{Aoudia}, either tackle the limitations on block lengths, try to improve the convergence time, investigate the systems performance difficult channels or integrating RTNs with the reinforcement learning, as this always improved the results in~\cite{oShea}.
+Any additional work is likely to fall into one of two categories. Either continueing work on focussed solely on information transfer as in the two main papers ~\cite{oShea,Aoudia}. This would focus on a goal like improving on the work done with reinforcement learning in~\cite{Aoudia}, either tackle the limitations on block lengths, try to improve the convergence time, investigate the systems performance difficult channels or integrating RTNs with the reinforcement learning, as this always improved the results in~\cite{oShea}.
 
 The other option would be to be working on simultaneous wireless information and power transfer (SWIPT) systems. Either investigating the effect of block length on rate-power (RP), obtaining a model that features the practical limitations of the rectenna (rectifier-antenna) used in the EH part, or the dependency between delivered power and channel input average input power.
 
-From assessment of the literature the author thinks that it would be better to look into extending the work of reinforcement learning paper, because it better unlocks the potential of this technology. However the supervisor of the project has informed the author that the he will decide based on which area is developing fastest at the time.  
+From assessment of the literature it is thought that it would be better to look into extending the work of reinforcement learning paper, because it better unlocks the potential of this technology. However the supervisor of the project informed the author that the he would decide based on which area was developing fastest at the time.  
 
 From a high level, the project is a software project and so the end deliverables will be a series of python scripts and functions which can learn a full end-to-end communication system. Along side these will be documentation of how to use these functions and scripts as well as comparison of the results produced with the results in the paper's the author is reproducing.
 
@@ -173,17 +173,17 @@ Because of the nature of the project there will not be any hardware produced, al
 
 \subsection{Motivation}
 
-Two reasons for looking into this subject are, the recentness of it's discovery and the exceedingly promising results, both within the field of communications and of the underlying technology. These within field results are particularly impressive in a long established field where the improvements have become more marginal in modern times~\cite{oShea}.
+Two reasons for looking into this subject are, the recentness of it's discovery, and the exceedingly promising results, both within the field of communications and of the underlying technology. These within field results are particularly impressive in the long established field of communications where the improvements have become more marginal in modern times~\cite{oShea}.
 
 Other than the intellectual elegance of a fully learned communication system, there are significant advantages to a fully learned system. 
 
-The first reason is that although for known, ideal, mathematically model-able channels there are often mathematically proven optimal methods, particularly for linear, stationary Gaussian channels. In reality there are many imperfections and non-linearities~\cite{NonLinearities} both in the channel and also in the hardware such as non-linear power amplifiers and finite resolution quantisation. These often cannot be fully accounted for in an analytical solution, leading to sub-optimal performance. Whereas, a fully learned communication system could self-optimise for different hardware configurations and channel environments, with no assumptions about those factors other than stationarity.
+The first reason is that although for known, ideal, mathematically model-able channels there are often mathematically proven optimal methods, (particularly for linear, stationary Gaussian channels), in reality there are many imperfections and non-linearities~\cite{NonLinearities} both in the channel and also in the hardware such as non-linear power amplifiers and finite resolution quantisation. These often cannot be fully accounted for in an analytical solution, leading to sub-optimal performance. Whereas, a fully learned communication system could self-optimise for different hardware configurations and channel environments, with no assumptions about those factors other than stationarity.
 
-Secondly communication systems are normally split into blocks (eg quantisation, modulation, source and channel encoding as shown in Figure \ref{fig:oSheaAutoencoderLayout}). It has been shown that optimising these blocks individually leads to sub-optimal performance, as is shown here in the cases of short block lengths and in use on practical channels~\cite{ChannelEncodingOptimality, NonOptimalRayleigh}.
+Secondly communication systems are normally split into blocks (eg quantisation, modulation, source and channel encoding as shown in Figure \ref{fig:oSheaAutoencoderLayout}). It has been shown that optimising these blocks individually leads to sub-optimal performance, as is shown for the cases of short block lengths and in use on practical channels in ~\cite{ChannelEncodingOptimality, NonOptimalRayleigh} respectively.
 
-A third reason to use NNs is that there have been some impressive demonstrations of the learning ability of both feedforward and recurrent NNs (RNNs), suggesting this is a promising area which we should try applying to communications. Recurrent NNs have been shown to be Turing-complete~\cite{RnnTuringComplete} and more recently there has been some very impressive work done on learning algorithms with RNNs~\cite{NeuralProgramInterpreters}. 
+A third reason to use NNs is that there have been impressive demonstrations of the learning ability of both feedforward and recurrent NNs (RNNs), suggesting these potentialy promising techniques should be applied to the field of communications. Recurrent NNs have been shown to be Turing-complete~\cite{RnnTuringComplete} and more recently there has been some very impressive work done on learning algorithms with RNNs~\cite{NeuralProgramInterpreters}. 
 
-More relevantly, but less recently, feedforward NNs have been shown to be universal function approximaters~\cite{NnUniversalApproximators}. This means that in the limits of width and depth they can approximate any function, even the long and complicated function of a transmitter.
+More relevantly but less recently, feedforward NNs have been shown to be universal function approximaters~\cite{NnUniversalApproximators}. This means that in the limits of width and depth they can approximate any function, even the long and complicated functions of transmitters and receivers.
 
 The combination of these three demonstrations means that a NN should be able to learn any encoding function or algorithm which is optimal, in the limits of width, depth and time. Therefore if the current state of the art methods are really optimal for a given channel, then the NN should converge to these methods, when trained on this channel.
 
@@ -196,7 +196,7 @@ This advantage could be further leveraged by using a chip designed specifically 
 \FloatBarrier
 \section{Background}
 
-Due to the novelty of this subject there are a limited number of papers, with the first being from July 2017. Consequently most initial effort was focused on reading and understanding those three papers ~\cite{oShea, Clerkx, Aoudia}, as well as learning background communications theory from a textbook~\cite{WirelessTextbookC2}. However further but less thorough analysis has been done on a large number of other papers, which are referenced throughout this report. 
+Due to the novelty of this subject there are a limited number of papers, with the first being from July 2017. Consequently most initial effort was focused on reading and understanding the following three papers ~\cite{oShea, Clerkx, Aoudia}, as well as learning background communications theory from a textbook~\cite{WirelessTextbookC2}. However further but less thorough analysis has been done on a large number of other papers, which are referenced throughout this report. 
 
 A general background will be given on the technology area, before specific sections going into the required deeper detail for the papers which are being reproduced and the elements of communication theory which must be understood.
 

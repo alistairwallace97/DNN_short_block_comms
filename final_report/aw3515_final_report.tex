@@ -313,11 +313,9 @@ However the importance of this step should not be underestimated. It allows lear
 \FloatBarrier
 \subsection{Paper 3 - A learning approach to wireless information and power transfer signal and system design}
 
-This paper, written by Varasteh, Piovano and Clerkx has a slightly different focus. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder.
+This paper, written by Varasteh, Piovano and Clerkx has a slightly different focus. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder. This paper on learned SWIPT systems is motivated by the fact that designing SWIPT signals and systems analytically is very cumbersome. 
 
-There is a fundamental trade-off between the information rate and the power rate and so the NNs are optimised using a joint loss function. 
-
-The observed results were inline with previously theoretical results, particularly in that as you raise the demand for energy, the constellation diagram converges to one point a long way out along one of the axes, and the others closely clustering around the origin. However while this is what they would expect from the theory, it would not be possible to find these results theoretically or using numerical methods. So these found constellation, which can be found in Figure \ref{fig:VarastehConstellationDiagrams}, diagrams are novel and significant.
+There is a fundamental trade-off between the information rate and the power rate and so the NNs are optimised using a joint loss function. The observed results were inline with previously known theoretical results, particularly in that as you raise the demand for energy, the constellation diagram converges to one point a long way out along one of the axes, and the others closely clustering around the origin. However while this is what they would expect from the theory, it would not be possible to find these results theoretically or using numerical methods. So these found constellation, which can be found in Figure \ref{fig:VarastehConstellationDiagrams}, diagrams are novel and significant.
 
 \begin{figure}[t]
 \begin{center}
@@ -327,23 +325,15 @@ The observed results were inline with previously theoretical results, particular
 \label{fig:VarastehConstellationDiagrams}
 \end{figure}
 
-To have a good SWIPT is essential to model the energy harvester with a high level of accuracy, which is an antenna and a rectifier with fundamentally non-linear characteristics. In the literature it is usually modelled linearly, using an NN allows it to be modelled non-linearly. 
+To have good SWIPT it is essential to model the energy harvester (EH) with a high level of accuracy, which is an antenna and a rectifier with fundamentally non-linear characteristics. In the literature it is usually modelled linearly, however using an NN allows it to be modelled non-linearly. Interestingly if you model the EH  linearly an analytical study found it prefers single carrier transmissions and also there is no trade-off between information and power transfer.  Whereas non-linear models favour multi-carrier transmission and have a trade-off between the two objectives.
 
-Interestingly if you model the energy harvester (EH) linearly an analytical study found it prefers single carrier transmissions and also there is no trade-off between information and power transfer.  Whereas non-linear models favour multi-carrier transmission and have a trade-off between the two objectives.
+The results were promising, the autoencoders and surpassed the performance of state-of-the-art algorithms. The more channel symbols, the more DC power is received by the receiver. This is because to optimally transmit lots of power the transmitter favours the high probability information symbols around zero, and the low probability information symbols a long way from zero along on of the two axes. The more symbols you have the better it can fit the ideal pdf with all but one clustered symmetrically around the origin.
 
-Part of the motivation for a learned SWIPT system is that designing SWIPT signals and systems analytically is very cumbersome. 
-
-The results were promising, the autoencoders and surpassed the performance of state-of-the-art algorithms.
-
-The more channel symbols, the more DC power is received by the receiver. This is because to optimally transmit lots of power the transmitter favours the high probability information symbols around zero, and the low probability information symbols a long way from zero along on of the two axes. The more symbols you have the better it can fit the ideal pdf with all but one clustered symmetrically around the origin.
-
-The symbols near the origin are called the information symbols, and the one which is far away from the origin is referred to as the power symbol.
-
-Additionally the authors found that as the power demand increases, more of the channel symbols are sacrificed to increase the power delivery. Normally by mapping more of the information symbols to the origin. 
+The symbols near the origin are called the information symbols, and the one far away from the origin is referred to as the power symbol. Additionally the authors found that as the power demand increases, more of the channel symbols are sacrificed to increase the power delivery. Normally by mapping more of the information symbols to the origin. 
 
 Another interesting observation by the authors was that the delivered power was "directly dependent on the channel input average power constraint". This means that two systems trained at the same SNR but with different transmitted powers would have different designs. However they left investigation of this aspect to another paper, along with investigation of the effect of block lengths on delivered power and making a model that features practical limitations of the rectenna non-linearity accurately.
 
-This paper had some significant and completely new results, for instance the constellation diagrams would be impossible to find analytically because of the computational complexity of finding them. But in this paper they were able to find them using machine learning.
+In conclusion, this paper had some significant and completely new results, for instance the constellation diagrams would be impossible to find analytically because of the computational complexity of finding them. But in this paper they were able to find them using machine learning.
 
 \subsection{Background communications theory}
 

@@ -41,7 +41,7 @@
    \rule{\columnwidth}{3pt}
    \vfill
    \centering
-     \includegraphics[width=0.7\columnwidth,height=60mm,keepaspectratio]{../code/figures/cover_photo.png}
+     \includegraphics[width=0.7\columnwidth,height=60mm,keepaspectratio]{../figures/cover_photo.png}
    \vfill
    \setlength{\tabcolsep}{0pt}
 
@@ -92,9 +92,9 @@ This project is on machine learning for communications with short block lengths.
 \label{fig:DNNCommsBlockDiagram}
 \end{figure}
 
-The idea of this research is to replace all the individually optimised modules with one deep neural network (DNN) each for the transmitter and receiver. This involves replacing everything within a blue box in Figure \ref{fig:ClassicalCommsBlockDiagram} with one neural network (NN), as is shown in Figure \ref{fig:DNNCommsBlockDiagram}. 
+The idea of this research is to replace all the individually optimised modules with one deep neural network (DNN) each for the transmitter and receiver. This involves replacing everything within each blue box in Figure \ref{fig:ClassicalCommsBlockDiagram} with one neural network (NN), as is shown in Figure \ref{fig:DNNCommsBlockDiagram}. 
 
-Normally the information goes through two sets of encoding, source encoding to compress the information content, followed by channel encoding to make it robust to channel noise. Whereas using the DNN method all of the communication system's encoding can be learned simultaneously, and the overall communication system can be optimised for hardware non-idealities such as non-linear power amplifiers. It also allows the locally optimal communication system to a given channel to be learnt, without trying to categorise or make assumptions about the channel.
+Normally the information goes through two sets of encoding, source encoding to compress the information content, followed by channel encoding to make it robust to channel noise. Whereas using the DNN method all of the communication system's encoding can be learned simultaneously, and the overall communication system can be optimised for hardware non-idealities such as non-linear power amplifiers. It also allows the locally optimal communication system for a given channel to be learnt, without trying to categorise or make assumptions about the channel.
 
 \subsection{Project deliverables}
 
@@ -102,17 +102,17 @@ The main aim of this project is to reproduce the results from two recent papers 
 
 The two papers originally contributed five deliverables, four from the first and one from the second. However the project supervisor advised that only the first deliverable from each paper were important and so only these deliverables were attempted. 
 
-The first paper, by O'Shea \etal~\cite{oShea}, was only the second paper on the subject, following a paper 8 months earlier by one of the same authors~\cite{oShea0}. The O'Shea paper first demonstrated that an end-to-end communication system could be learned in an autoencoder like method, the structure of this can be seen in Figure \ref{fig:oSheaAutoencoderLayout}. 
+The first paper, by O'Shea \etal~\cite{oShea}, was only the second paper on the subject, following a paper 8 months earlier by one of the same authors~\cite{oShea0}. The O'Shea paper first demonstrated that an end-to-end communication system could be learned in an autoencoder like method, the structure of which can be seen in Figure \ref{fig:oSheaAutoencoderLayout}. 
 
-It trained a range of autoencoders across a range of ($n$,$k$) combinations for which the constellation diagrams and performance over different signal to noise ratios (SNRs). These autoencoders has several different types of regularisations which affected their constellation diagrams. Their performance was compared to non-learned methods of encoding, such as BPSK and QAM for channel encoding and Hamming maximum likelihood and hard decision for source encoding. 
+It trained a range of autoencoders across a range of ($n$,$k$) combinations for which the constellation diagrams and performance over different signal to noise ratios (SNRs). These autoencoders had several different types of regularisations which affected their constellation diagrams. Their performance was compared to non-learned methods of encoding, such as BPSK and QAM for channel encoding and Hamming maximum likelihood and hard decision for source encoding. 
 
 \subsubsection{Side note on autoencoders}
 
-Note that while this would be better suited to the background section, it is necessary to understand the introduction so it has been placed here.
+Note that while this would be better suited to the background section, it is necessary for understanding the introduction, so it has been placed here.
 
 Autoencoders are a technique used in deep learning (DL) for encoding and compressing data. There are two NNs placed end-to-end, as in Figure \ref{fig:oSheaAutoencoderLayout}. The input to the first network is $s \in \mathcal{M} = \{1,2,\dots,M\}$, where each $s$ can be represented by $k$ bits. The encoder (first network, analogous to the transmitter), compresses $s$ to $x \in \mathcal{N} = \{1,2,\dots,N\}$, represented by $n$ bits. The decoder (second network, analogous to the receiver) decodes $x$ back to $\hat{s}$.
 
-Normally with autoencoders $n < k$, because the autoencoder is finding a compressed form of $\mathcal{M}$ which maintains the information content, while reducing the number of bits used. However in this paper because there is noise added in middle layer, as shown in Figure \ref{fig:oSheaAutoencoderLayout}, $n \geq k$ to minimise information loss due to the noise.
+Normally with autoencoders $n < k$, because the autoencoder is finding a compressed form of $\mathcal{M}$ which maintains the information content, while reducing the number of bits used. However in this paper because there is noise added in middle layer, as shown in Figure \ref{fig:oSheaAutoencoderLayout}, $n \geq k$ to increase robustness of the transmitted signal to noise (minimise information loss).
 
 \subsubsection{Project deliverables continued}
 
@@ -129,20 +129,34 @@ The paper then went on to investigate training two adversarial networks, but the
 \label{fig:oSheaAutoencoderLayout}
 \end{figure}
 
-The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results will be my first four deliverables. Each of these sections requires writing some python code and then using this to reproduce the results. The authors stated that Keras "has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. Consequently Keras has also been used here to reproduce the results.
+The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results were the main deliverables. Each of these sections would require writing some python code and then using this to reproduce the graphs and constellation diagrams. The authors stated that Keras "has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. Consequently Keras has also been used here to reproduce the results.
 
 The second paper by Aoudia and Hoydis improves on the first by removing the need for a differentiable model of the channel. This helps access the technologies' main potential, which is learning general and optimal communication systems for unmodelable or analytically insoluble channels. 
 
-This paper only contributes one deliverable though as the authors exclusively solved the problem of implementing reinforcement learning to avoid the need for a differentiable channel model. However it should be noted that supervisor advice says this method's implementation is much more difficult and should not be underestimated.
+This paper exclusively solved the problem of implementing reinforcement learning to avoid the need for a differentiable channel model. However it should be noted that supervisor advice says this method's implementation is much more difficult and should not be underestimated.
 
-The main five deliverables are summarised below.
+The main twp deliverables are summarised below.
 
 \begin{enumerate}
-    \item Make an autoencoder model and compare it's performance to differential binary phase shift key (DBPSK) and Hamming encoding across a range of signal to noise ratios (SNRs)
-    \item Produce a pair of adversarial networks both trying to maximise their capacity, then show this is equivalent to a optimising one larger NN with a joint loss function
-    \item Add an RTN network as a method for adding some expert features to the NN, then compare performance and convergence speeds compared to the autoencoder method across a range of SNRs.
-    \item The last deliverable in the O'Shea paper is using a CNN and comparing it to other receiver classification methods across a range of SNRs
-    \item Reproduce the model from ~\cite{Aoudia} which uses the alternate training method. The compare the performance of this model against current state of the art and the autoencoder method across a range of SNRs for an AWGN and an RBF channel.
+   \item Make an autoencoder model and compare it's performance to differential binary phase shift key (DBPSK) and Hamming encoding across a range of signal to noise ratios (SNRs)
+   \begin{itemize}
+      \item Produce complex channel symbolled (2,2) and (8,8) autoencoders, then obtain their constellation diagrams.
+      \item Produce non-complex channel symbolled (7,4) autoencoder and obtain a t-SNE dimensionally reduced constellation diagram.
+      \item Write encoding and decoding functions for Hamming HD and MLD
+      \item Write encoding and decoding functions for BPSK
+      \item Compare the performance of various encoding methods and debug until Figures 3a,b from ~\cite{oShea} were reproduced.
+   \end{itemize}
+   \item Reproduce the unsupervised reinforcement learning model from ~\cite{Aoudia} which uses the alternate training method. The compare the performance of this model against current state of the art and the autoencoder method across a range of SNRs for an AWGN and an RBF channel.
+   \begin{itemize}
+      \item Produce a custom layer to implement RBF.
+      \item Replicate the paper's supervised model for an RBF channel.
+      \item Compare AWGN model from previous deliverable's performance across range of SNRs to the results from the paper. Next do the same with new supervised RBF model.
+      \item Produce unsupervised model for AWGN channel
+      \item Compare performance of AWGN unsupervised model across range of SNRs.
+      \item Produce unsupervised model for RBF channel
+      \item Compare performance of RBF unsupervised model across range of SNRs.
+      \item Once satisfied all four models are performing as they are reported to have in the paper, assess speed of convergence to correct model for all four AWGN, RBF, supervised and unsupervised models.
+   \end{itemize}
 \end{enumerate}
 
 Any additional work is likely to be one of two options. Either by improving on the work done with reinforcement learning in~\cite{Aoudia}, either tackle the limitations on block lengths, try to improve the convergence time, investigate the systems performance difficult channels or integrating RTNs with the reinforcement learning, as this always improved the results in~\cite{oShea}.

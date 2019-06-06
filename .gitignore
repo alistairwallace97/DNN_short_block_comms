@@ -1,1 +1,6 @@
-data/
+# exclude all the big data files
+data/*
+
+# exception to keep the ./data directory present to avoid errors
+# being caused by the code
+!data/.gitkeep

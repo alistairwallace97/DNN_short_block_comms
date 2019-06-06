@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  6 JUN 2019 00:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  6 JUN 2019 01:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -392,7 +392,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
  (./aw3515_final_report.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 ...nobreakspace {}Evaluation}{30}{section.10}
+l.34 ...and Safety Considerations}{27}{appendix.B}
                                                    [1])
 \tf@toc=\write3
 \openout3 = `aw3515_final_report.toc'.
@@ -521,182 +521,182 @@ Package pdftex.def Info: figures/EE3-03_comms_systems_qpsk_constellation_diagram
 (pdftex.def)             Requested size: 397.48651pt x 267.72412pt.
  [24 <./figures/initial_ae_output.png> <./figures/most_likely_symbol_io.PNG>] [25 <./figures/wrong_constellation_diagram.png> <./figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>] [26
 
-]
+] [27]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 603.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 637.
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Overfull \hbox (13.41345pt too wide) in paragraph at lines 603--603
+Overfull \hbox (13.41345pt too wide) in paragraph at lines 637--637
 []|\OT1/ptm/b/n/10.95 Likelihood
  []
 
 
-Overfull \hbox (7.60867pt too wide) in paragraph at lines 603--603
+Overfull \hbox (7.60867pt too wide) in paragraph at lines 637--637
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/b/n/10.95 Harm
  []
 
 
-Overfull \hbox (10.43355pt too wide) in paragraph at lines 603--603
+Overfull \hbox (10.43355pt too wide) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Repetitive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 strain
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 in-jury
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 603--603
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Eye
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 603--603
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Back
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 User's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 poor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Trip
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 Haz-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Electric
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 637--637
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-LaTeX Warning: Float too large for page by 1.24652pt on input line 606.
+LaTeX Warning: Float too large for page by 1.24652pt on input line 640.
 
-[27] [28] [29] (./aw3515_final_report.bbl [30]
+(./aw3515_final_report.bbl [28] [29]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [31]
+ [30]
 Underfull \hbox (badness 5475) in paragraph at lines 133--135
 []\OT1/ptm/m/n/10.95 T. J. O'Shea and J. Cor-gan, ``Con-vo-lu-tional ra-dio mod-u-la-tion recog-ni-tion net-works,'' \OT1/ptm/m/it/10.95 CoRR\OT1/ptm/m/n/10.95 ,
  []
@@ -710,31 +710,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--159
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 666.
- [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 666.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 648.
+ [31]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 648.
  (./aw3515_final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 666.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 666.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 648.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 648.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 666.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 648.
  ) 
 Here is how much of TeX's memory you used:
- 8039 strings out of 492982
- 121596 string characters out of 6134896
- 315869 words of memory out of 5000000
+ 8038 strings out of 492982
+ 121589 string characters out of 6134896
+ 314869 words of memory out of 5000000
  11327 multiletter control sequences out of 15000+600000
  27503 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,43p,960b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,43p,960b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on aw3515_final_report.pdf (33 pages, 1300929 bytes).
+Output written on aw3515_final_report.pdf (32 pages, 1300943 bytes).
 PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 132 named destinations out of 1000 (max. 500000)
+ 524 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
+ 131 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

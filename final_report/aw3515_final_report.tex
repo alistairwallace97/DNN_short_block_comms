@@ -536,76 +536,6 @@ The generality of a particular architecture of learned communication system will
 This generality could be further evaluated by doing the same for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
 
 \FloatBarrier
-\section{Ethical, Legal and Safety Plan}
-
-\subsection{Ethical considerations}
-
-One interesting ethical consequence of this project is that, if this technology becomes very successful and so very competitive with or superior to current state of the art communications systems, it could reduce the number of jobs for communications engineers. 
-
-If it was possible to just set up a generic transmitter and receiver, then let them train for their environment and then just have them run at optimal performance, there there would not a need for communications engineers to design systems.
-
-While this would be bad for current communications engineers, it would lead to greater productivity and efficiency by companies which would contribute to greater economic growth, which would then trickle back down. So while it may be bad for a minority, it should be better for the majority, therefore overall it is ethically alright. 
-
-However other than this there are no significant ethical implications of this project.
-
-\subsection{Legal consideration}
-
-\subsubsection{Infringing patents}
-
-A search was performed on Espacenet, which was found by direction from the UK government website. This seach of Espacenet was to see if there were any parents which this project might be infringing.
-
-Patents were searched for using related key words, however no patents of similar ideas were found. Consequently the project is likely safe from infringing any patents. If there were any significant commercial consequences of this report then a more thorough search could be carried out through a patent attorney, however this would be expensive and is unlikely to be needed.
-
-The legal alternative to patents for protection of intellectual property is referred to as a "trade secret". However these are only legally binding for company employees who have signed a non disclosure agreement (NDA), or if someone is accessing the information either when they do not have the permission to access it, or they are receiving it from someone who doesn't have the permission to access it. 
-
-Trade secrets become non-binding once the information is publicly available, so as the papers that this paper is reproducing are publicly available it cannot be infringing any trade secrets that the author is unaware of. 
-
-\subsubsection{Use of data}
-
-The other potential legal concern for a project of this type is potentially using someone's data inappropriately while training a machine learning model. For the first part of this project this isn't possible as the model involves training an autoencoder-like model. 
-
-In this method the desired output is the initial input, and that input is any one of the potential combinations of n binary bits. This is where n is the block length. Hence there is no involvement of non-self-generated data and so can be no illegal use of someone else's data.
-
-In the last of the main deliverables where would be developing the reinforcement learning model which could be trained on any samples from any channel there is marginally more of a risk of this.
-
-To counter this risk it will be made sure that these samples are sourced from publicly available sources, so people who have contributed to it will have signed that they consented to having their data collected. 
-
-However it should be made clear that it should be more or less impossible to decode the information that people were sending across a channel from the channel interference samples. To ensure there can be no accusations of this the data and model will be kept private, results will not be shared publicly and there will be no inspection of the channel interference.
-
-\subsubsection{Licences of used libraries}
-
-The Keras library has an MIT lisence, which means that users have the right to "use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software" as long as a copyright notice is place in the code. 
-
-To ensure that this is abided by, if the software from this project is published then Keras will be acknowledged and referenced. Additionally the copyright stamp will be included in the code if it is published. 
-
-\subsection{Safety Plan}
-
-Firstly it should be stated that compared to hardware projects there are no really pressing safety issues. However the relevant safety issues are assessed in Table \ref{tab:RiskAssessment}. 
-%The sources of the first three rows of information in the "Mitigation Plan" section of the table are ~\cite{NhsRepetitiveStrainInjury, EyeStrain, NhsCorrectChainPosture} respectively.
-
-% \FloatBarrier
-
-\begin{table*}[!htbp]
-\resizebox{\textwidth}{!}{
-\centering
-{\small \hfill{}
-\small
-\begin{tabular}{|p{1.2cm}|p{1.5cm}|p{1.3cm}|p{1.2cm}|p{7cm}|}
-\hline
-\textbf{Risk}                  & \textbf{Potential Cause}          & \textbf{Likelihood (/5)} & \textbf{Potential Harm (/5)} & \textbf{Mitigation Plan}                                                                                                                                                                                                                                                       \\ \hline
-Repetitive strain injury (RSI) & Excessive use of laptop           & 4                        & 1                           & I will take regular breaks every 20-60 minutes. If I get RSI then I will identify what movement is causing it and stop this movement. I will also treat it with hot and cold treatment, rest and anti-inflammatories like ibuprofen.  {[}{]}                                    \\ \hline
-Eye Strain                     & Excessive use of laptop           & 4                        & 2                           & To avoid straining my eyes I will try to work with adequate, but not too bright, lighting at all times, and will rest my eyes every twenty minutes. I will also try to keep the screen approximately 20-24 inches away from my eyes and 10-15 inches below my eye line. {[}{]} \\ \hline
-Back Pain                      & User's poor posture               & 2                        & 2                           & I have set my chair at my work station up according to this NHS guide {[}{]} and a will make more effort to sit with correct posture to avoid back pain which might prevent me from working.                                                                                   \\ \hline
-Trip Hazards                  & Often work with laptop plugged in & 1                        & 2                           & I will make sure that my charger lead is as short as possible and does not stretch across any areas where people regularly walk.                                                                                                                                               \\ \hline
-Electric shocks                & Often work with laptop plugged in & 1                        & 5                           & I will be careful when plugging and unplugging my laptop to avoid shocking myself.                                                                                                                                                                                             \\ \hline
-Fires                          & Often work with laptop plugged in & 1                        & 5                           & I will not leave my laptop plugged in unsupervised. I have also checked that my laptop charger has been PAT tested and so I think I have taken reasonable steps.                                                                                                               \\ \hline
-\end{tabular}
-}}
-\caption{Risk assessment in table form}
-\label{tab:RiskAssessment}
-\end{table*}
-
-\FloatBarrier
 \section{Analysis and Design}
 
 \FloatBarrier
@@ -656,6 +586,58 @@ if section is reached then he will decide which of the two areas is most current
 \FloatBarrier
 \appendix
 \section{Appendix}
+
+\section{Ethical, Legal and Safety Considerations}
+
+\subsection{Ethical considerations}
+
+One interesting ethical consequence of this project is that, if this technology were to become very successful and so very competitive with or superior to current state of the art communications systems, it could reduce the number of jobs for communications engineers. If it was possible to just set up a generic transmitter and receiver, then let them train for their environment and then just have them run at optimal performance, there there would not be as much of a need for communications engineers to design systems.
+
+While this would be bad for current communications engineers, it would lead to greater productivity and efficiency by companies which would contribute to greater economic growth, which would then trickle back down. So while it may be bad for a minority, it should be better for the majority, therefore overall it is ethically alright. However other than this there are no significant ethical implications of this project.
+
+\subsection{Legal consideration}
+
+\subsubsection{Infringing patents}
+
+A search was performed on Espacenet, which was found by direction from the UK government website. This seach of Espacenet was to see if there were any parents which this project might be infringing. Patents were searched for using related key words, however no patents of similar ideas were found. Consequently the project is likely safe from infringing any patents. If there were any significant commercial consequences of this report then a more thorough search could be carried out through a patent attorney, however this would be expensive and is unlikely to be needed.
+
+The legal alternative to patents for protection of intellectual property is referred to as a "trade secret". However these are only legally binding for company employees who have signed a non disclosure agreement (NDA), or if someone is accessing the information either when they do not have the permission to access it, or they are receiving it from someone who doesn't have the permission to access it. Trade secrets become non-binding once the information is publicly available, so as the papers that this paper is reproducing are publicly available it cannot be infringing any trade secrets that the author is unaware of. 
+
+\subsubsection{Use of data}
+
+The other potential legal concern for a project of this type is potentially using someone's data inappropriately while training a machine learning model. For the first part of this project this isn't possible as the model involves training an autoencoder-like model. In this method the desired output is the initial input, and that input is any one of the potential combinations of n binary bits. This is where n is the block length. Hence there is no involvement of non-self-generated data and so can be no illegal use of someone else's data.
+
+In the last of the main deliverables where would be developing the reinforcement learning model which could be trained on any samples from any channel there is marginally more of a risk of this. To counter this risk it will be made sure that these samples are sourced from publicly available sources, so people who have contributed to it will have signed that they consented to having their data collected. 
+
+However it should be made clear that it should be more or less impossible to decode the information that people were sending across a channel from the channel interference samples. To ensure there can be no accusations of this the data and model will be kept private, results will not be shared publicly and there will be no inspection of the channel interference.
+
+\subsubsection{Licences of used libraries}
+
+The Keras library has an MIT lisence, which means that users have the right to "use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software" as long as a copyright notice is place in the code. To ensure that this is abided by, if the software from this project is published then Keras will be acknowledged and referenced. Additionally the copyright stamp will be included in the code if it is published. 
+
+\subsection{Safety Plan}
+
+Firstly it should be stated that compared to hardware projects there are no really pressing safety issues. However the relevant safety issues are assessed in Table \ref{tab:RiskAssessment}. 
+
+\begin{table*}[!htbp]
+\resizebox{\textwidth}{!}{
+\centering
+{\small \hfill{}
+\small
+\begin{tabular}{|p{1.2cm}|p{1.5cm}|p{1.3cm}|p{1.2cm}|p{7cm}|}
+\hline
+\textbf{Risk}                  & \textbf{Potential Cause}          & \textbf{Likelihood (/5)} & \textbf{Potential Harm (/5)} & \textbf{Mitigation Plan}                                                                                                                                                                                                                                                       \\ \hline
+Repetitive strain injury (RSI) & Excessive use of laptop           & 4                        & 1                           & I will take regular breaks every 20-60 minutes. If I get RSI then I will identify what movement is causing it and stop this movement. I will also treat it with hot and cold treatment, rest and anti-inflammatories like ibuprofen.  {[}{]}                                    \\ \hline
+Eye Strain                     & Excessive use of laptop           & 4                        & 2                           & To avoid straining my eyes I will try to work with adequate, but not too bright, lighting at all times, and will rest my eyes every twenty minutes. I will also try to keep the screen approximately 20-24 inches away from my eyes and 10-15 inches below my eye line. {[}{]} \\ \hline
+Back Pain                      & User's poor posture               & 2                        & 2                           & I have set my chair at my work station up according to this NHS guide {[}{]} and a will make more effort to sit with correct posture to avoid back pain which might prevent me from working.                                                                                   \\ \hline
+Trip Hazards                  & Often work with laptop plugged in & 1                        & 2                           & I will make sure that my charger lead is as short as possible and does not stretch across any areas where people regularly walk.                                                                                                                                               \\ \hline
+Electric shocks                & Often work with laptop plugged in & 1                        & 5                           & I will be careful when plugging and unplugging my laptop to avoid shocking myself.                                                                                                                                                                                             \\ \hline
+Fires                          & Often work with laptop plugged in & 1                        & 5                           & I will not leave my laptop plugged in unsupervised. I have also checked that my laptop charger has been PAT tested and so I think I have taken reasonable steps.                                                                                                               \\ \hline
+\end{tabular}
+}}
+\caption{Risk assessment in table form}
+\label{tab:RiskAssessment}
+\end{table*}
 
 
 {\small

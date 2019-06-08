@@ -16,25 +16,35 @@
 \contentsline {subsection}{\numberline {2.7}\hskip -1em.\nobreakspace {}Analysis of competing products}{21}{subsection.2.7}
 \contentsline {subsection}{\numberline {2.8}\hskip -1em.\nobreakspace {}Analysis of necessary software tools}{22}{subsection.2.8}
 \contentsline {subsection}{\numberline {2.9}\hskip -1em.\nobreakspace {}Analysis of necessary hardware}{22}{subsection.2.9}
-\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace {}Implementation Plan}{23}{section.3}
-\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace {}Current progress}{23}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Initial autoencoder model}{23}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Adding noise at test time}{23}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Adding a most likely symbol layer}{23}{subsubsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.4}Making the channel symbols complex numbers}{23}{subsubsection.3.1.4}
-\contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace {}Evaluation Strategy}{26}{section.4}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Analysis and Design}{26}{section.5}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Implementation}{26}{section.6}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Testing}{26}{section.7}
-\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Results}{26}{section.8}
-\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Evaluation}{26}{section.9}
-\contentsline {section}{\numberline {10}\hskip -1em.\nobreakspace {}Conclusions}{26}{section.10}
-\contentsline {section}{\numberline {11}\hskip -1em.\nobreakspace {}Further Work}{26}{section.11}
-\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{27}{appendix.A}
-\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{27}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{27}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{27}{subsection.B.2}
-\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{27}{subsubsection.B.2.1}
-\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{28}{subsubsection.B.2.2}
-\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{28}{subsubsection.B.2.3}
-\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{28}{subsection.B.3}
+\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace {}Evaluation Strategy}{23}{section.3}
+\contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace {}Design and Implementation}{23}{section.4}
+\contentsline {subsection}{\numberline {4.1}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{23}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Initial autoencoder model}{23}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Adding noise at test time}{24}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Adding a most likely symbol layer}{24}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}Making the channel symbols complex numbers}{25}{subsubsection.4.1.4}
+\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{26}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Batch normalisation vs l2}{26}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Leaky-Relu over ReLu}{26}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Adding hamming hard decision encoding}{27}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Adding BPSK encoding}{27}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}Comparing different activation functions}{27}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}(7,4) Autoencoder and t-SNE Constellation Diagrams}{27}{subsubsection.4.2.6}
+\contentsline {subsubsection}{\numberline {4.2.7}Adding BPSK (2,2) and (8,8)}{27}{subsubsection.4.2.7}
+\contentsline {subsubsection}{\numberline {4.2.8}Reproducing Figure 3a and 3b from the O'Shea paper}{27}{subsubsection.4.2.8}
+\contentsline {subsubsection}{\numberline {4.2.9}Finding errors}{28}{subsubsection.4.2.9}
+\contentsline {subsubsection}{\numberline {4.2.10}Adding Hamming MLD + MLD explanation}{28}{subsubsection.4.2.10}
+\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace {}Meeting with Morteza}{28}{subsection.4.3}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{29}{section.5}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{29}{section.6}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{29}{section.7}
+\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Conclusions}{29}{section.8}
+\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Further Work}{29}{section.9}
+\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{30}{appendix.A}
+\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{30}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{30}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{30}{subsection.B.2}
+\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{30}{subsubsection.B.2.1}
+\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{30}{subsubsection.B.2.2}
+\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{31}{subsubsection.B.2.3}
+\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{31}{subsection.B.3}

@@ -436,11 +436,25 @@ The hardware which has been chosen to use is a HP Spectre with an Intel I7 6500u
 A g3.4xlarge is equipped with 16 high frequency Intel Xeon E5-2686 v4 (Broadwell) processors and one NVIDIA Tesla M60 GPU, with 2048 parallel processing cores and 8 GiB of video memory. This significantly increased the speed of training models. This instance was selected because of it's high quality GPU, but also because of the author's familiarity with it from a fourth year course.
 
 \FloatBarrier
-\section{Implementation Plan}
+\section{Evaluation Strategy}
 
-This section will first go through the current progress of the project and then will cover the planned progress for the remainder of the project.
+The two main deliverables are to reproduce the results from two papers ~\cite{oShea,Aoudia} as laid out in Section \ref{sec:deliverables}. Conswequently assessing the completeness of the above deliverables should be relatively simple, in that the results produced can be compared with the results that are being reproduced, and if they are the same then the deliverable is complete.
 
-\subsection{Current progress}
+For both papers performance of models was assessed by comparing the results of the code to the graphical results in the paper as there are no numerical results provided. Extra testing and validation was done along the way to check the the models were giving reasonable results. Strategies for this included plotting constellation diagrams, testing the system with no noise and using unit tests for BPSK and Hamming encoding methods.
+
+To ensure written code was correct, code written for previous deliverables was used for testing new code, producing results for learned systems and current state of the art, to give ball park figures to check the code was roughly working. Then each small function was tested thoroughly to ensure the overall system was working. Where it was hard to predict whether the results made sense they were checked against theoretical estimations, and if there was still uncertainty the project supervisors was consulted. 
+
+Some extra comparisons which will be completed if there is time for evaluation of whether the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit and current state of the art codes such as turbo and LDPC codes for an AWGN channel.
+
+The generality of a particular architecture of learned communication system will be evaluated by comparing the learned networks and current state of the art across common fading channels such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. This would better evaluate the generality of a learned communction system than has so far been done in the literature.
+
+This generality could be further evaluated by doing the same for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
+
+
+\FloatBarrier
+\section{Design and Implementation}
+
+\subsection{Paper 1 - Producing an Autoencoder}
 
 Most of the first deliverable has been covered. An autoencoder based communication system that can be trained has been made, however it currently has a bug in that it is not using all of the possible communication symbols. This is suspected to be due to the regularisation method, however has not yet been fixed.
 
@@ -520,26 +534,108 @@ In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal ma
 
 This suggests that there is an error within the regularisation layer, however this bug is still in the process of being fixed. This is the current task which is being worked on, and when finished, after some minor modifications the model should be scale and so could be compared to BPSK and Hamming encoding to complete the first deliverable.
 
-\FloatBarrier
-\section{Evaluation Strategy}
+\subsection{Paper 1 - Producing an Autoencoder}
 
-The two main deliverables are to reproduce the results from two papers ~\cite{oShea,Aoudia} as laid out in Section \ref{sec:deliverables}. Conswequently assessing the completeness of the above deliverables should be relatively simple, in that the results produced can be compared with the results that are being reproduced, and if they are the same then the deliverable is complete.
+\subsubsection{Batch normalisation vs l2}
 
-For both papers performance of models was assessed by comparing the results of the code to the graphical results in the paper as there are no numerical results provided. Extra testing and validation was done along the way to check the the models were giving reasonable results. Strategies for this included plotting constellation diagrams, testing the system with no noise and using unit tests for BPSK and Hamming encoding methods.
+\begin{itemize}
+   \item Changed the normalisation to use the BatchNormalization function 
+   \item Changed the batch size, increased the data size and changed the axis along which BatchRegularization was done
+   \item Found a bug that one layer was being bypassed
+   \item Switched back to original regularisation layer but over a different axis.
+   \item Decided it makes sense to use an l2 regulariser as that reflects a transmitter with a constant power budget
+\end{itemize}
 
-To ensure written code was correct, code written for previous deliverables was used for testing new code, producing results for learned systems and current state of the art, to give ball park figures to check the code was roughly working. Then each small function was tested thoroughly to ensure the overall system was working. Where it was hard to predict whether the results made sense they were checked against theoretical estimations, and if there was still uncertainty the project supervisors was consulted. 
+\subsubsection{Leaky-Relu over ReLu}
 
-Some extra comparisons which will be completed if there is time for evaluation of whether the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit and current state of the art codes such as turbo and LDPC codes for an AWGN channel.
+\begin{itemize}
+   \item The results were very inconsistent, reading suggested this might be to do with the ReLu activation function giving dependence on initialisation values due to neuron death.
+   \item Consequently tried a leaky-relu activation function
+   \item ALSO NAMED ALL LAYERS SO THAT WEIGHTS COULD BE LOADED FROM SAVED MODELS 
+   \item AT THIS POINT I FIRST GOT CORRECT CONSTELLATION DIAGRAMS FOR THE (2,2) CASE.
+   \item AFTER THIS I CHANGED THE PLOT FORMAT TO GIVE BE THE SAME FORMAT AS THE O'SHEA PAPER.
+\end{itemize}
 
-The generality of a particular architecture of learned communication system will be evaluated by comparing the learned networks and current state of the art across common fading channels such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. This would better evaluate the generality of a learned communction system than has so far been done in the literature.
 
-This generality could be further evaluated by doing the same for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
+\subsubsection{Adding hamming hard decision encoding}
 
-\FloatBarrier
-\section{Analysis and Design}
 
-\FloatBarrier
-\section{Implementation}
+\subsubsection{Adding BPSK encoding}
+
+\begin{itemize}
+   \item Original plot of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2) 
+\end{itemize}
+
+
+\subsubsection{Comparing different activation functions}
+
+\begin{itemize}
+   \item Compared four activation functions to see which one had the best verification error.
+   \item Compared the leaky-relu activation function against the tanh activation function and found it marginally outperformed it, therefore proceeded from then on with the leaky-relu activation function. Although normally with leaky-relu for my hidden layers and a tanh layer as my output to capture non-linearity.
+\end{itemize}
+
+\subsubsection{(7,4) Autoencoder and t-SNE Constellation Diagrams}
+
+\begin{itemize}
+   \item Made a (7,4) autoencoder model and compared it's performance against the others.
+   \item Used t-SNE to get constellation diagrams for the (7,4) model, both with and without noise.
+   \item Found the t-SNE method of dimensionality reduction introduces some randomness and so the constellation diagram is slightly different each time.
+   \item Had to normalise the outputs of the t-SNE dimensionality reduction to zero-mean and unit power, despite it's input being stationary satisfying the afore-mentioned conditions
+\end{itemize}
+
+\subsubsection{Adding BPSK (2,2) and (8,8)}
+
+\subsubsection{Reproducing Figure 3a and 3b from the O'Shea paper}
+
+\begin{itemize}
+   \item Produced Figure's 3a and 3b from the O'Shea paper, however the ordering of the capabilities of the encoding methods is not in the right order. The (8,8) and (7,4) autoencoders underperform, and BPSK over performs.
+   \begin{itemize}
+      \item The ordering is odd, I would expect it to be from best to worst: (7,4), (2,2), (8,8). But it is actually currently: (2,2), (7,4), (8,8).
+      \item I have yet to find out what Hamming Maximum Likelihood Decision is.
+   \end{itemize}
+\end{itemize}
+
+\subsubsection{Finding errors}
+
+\begin{itemize}
+   \item Decided that the reason the (8,8) and (7,4) models might be underperforming may be because of a lack of layers, so tried increasing the number of layers and making the final layer of each block have a tanh activation funciton to try and capture non-linearity.
+   \item I realised that my 8$\_$8 was actually and 8$\_$4, so I've adjusted that and I'm retraining the model to see what kind of validation$\_$loss it gets. The best 8$\_$4 accuracy found was 1.06, an initial re-training with no tapering gave a val$\_$loss of 0.0750.
+   \item Trained models with 2,3,4 and 5 layers and tapered layer widths.
+   \begin{itemize}
+      \item Yet to test their performances, they're still training.
+   \end{itemize}
+   \item Realised that the (7,4) model was being unfairly normalised. The (8,8) and (2,2) models are normalised so that they have unit power for each complex channel symbol. Whereas the (7,4) model is being normalised so that it has unit power for all 7 bits. So I need to multiply all the values post normalisation by sqrt(3.5) to make it even.
+   \begin{itemize}
+      \item I need to check if this applies to the BPSK stuff as well.
+   \end{itemize}
+   \item Switched to and AWS notebook so that it trained faster.
+   \item Retrained all models with the sigmas specified to the correct Rr
+   \item Adapt the bpsk$\_$get$\_$bler function so that the transmit power is the same for all of them
+\end{itemize}
+
+\subsubsection{Adding Hamming MLD + MLD explanation}
+
+PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
+
+\subsection{Meeting with Morteza}
+
+\begin{itemize}
+   \item Batch normalise for the (7,4) case
+   \item For BLER convert incorrect symbols anyway then find the BER
+   \item Hamming MLD is just calculate the probability that a given received set of seven channel uses could have come from any of the transmitted symbols, then pick the symbol with the highest posterior probability.
+   \item Set the power normalisation to be n for each row, not 1, that way on average each transmitter bit has 1 unit of power.
+   \item First I set the average power of the complex models to be 1 per bit.
+   \begin{itemize}
+      \item Done for (2,2) -> success, (7,4) no success
+   \end{itemize}
+   \item Next I checked the definition of BLER, I'm pretty sure that my previous definition of BLER. It's defined here:
+   \begin{itemize}
+      \item \begin{verbatim}
+         https://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdfhttps://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdf
+         \end{verbatim}
+      \item "BLER (BLock Error Ratio): ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"
+   \end{itemize}
+\end{itemize}
 
 \FloatBarrier
 \section{Testing}

@@ -23,18 +23,22 @@
 \contentsline {subsubsection}{\numberline {4.1.2}Adding noise at test time}{24}{subsubsection.4.1.2}
 \contentsline {subsubsection}{\numberline {4.1.3}Adding a most likely symbol layer}{24}{subsubsection.4.1.3}
 \contentsline {subsubsection}{\numberline {4.1.4}Making the channel symbols complex numbers}{25}{subsubsection.4.1.4}
-\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{26}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Batch normalisation vs l2}{26}{subsubsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{25}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Batch normalisation vs l2}{25}{subsubsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.2}Leaky-Relu over ReLu}{26}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Adding hamming hard decision encoding}{27}{subsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}Adding BPSK encoding}{27}{subsubsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.5}Comparing different activation functions}{27}{subsubsection.4.2.5}
-\contentsline {subsubsection}{\numberline {4.2.6}(7,4) Autoencoder and t-SNE Constellation Diagrams}{27}{subsubsection.4.2.6}
-\contentsline {subsubsection}{\numberline {4.2.7}Adding BPSK (2,2) and (8,8)}{27}{subsubsection.4.2.7}
-\contentsline {subsubsection}{\numberline {4.2.8}Reproducing Figure 3a and 3b from the O'Shea paper}{27}{subsubsection.4.2.8}
-\contentsline {subsubsection}{\numberline {4.2.9}Finding errors}{28}{subsubsection.4.2.9}
-\contentsline {subsubsection}{\numberline {4.2.10}Adding Hamming MLD + MLD explanation}{28}{subsubsection.4.2.10}
-\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace {}Meeting with Morteza}{28}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace {}Adding non learned encoding}{27}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Adding hamming hard decision encoding}{27}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Adding BPSK encoding}{27}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}Comparing different activation functions}{27}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.4}(7,4) Autoencoder and t-SNE Constellation Diagrams}{27}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}Adding BPSK (2,2) and (8,8)}{27}{subsubsection.4.3.5}
+\contentsline {subsubsection}{\numberline {4.3.6}Adding Hamming MLD + MLD explanation}{27}{subsubsection.4.3.6}
+\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{27}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Initial figures looking wrong}{27}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{28}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{28}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{29}{subsubsection.4.4.4}
+\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{29}{subsection.4.5}
 \contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{29}{section.5}
 \contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{29}{section.6}
 \contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{29}{section.7}
@@ -45,6 +49,6 @@
 \contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{30}{subsection.B.1}
 \contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{30}{subsection.B.2}
 \contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{30}{subsubsection.B.2.1}
-\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{30}{subsubsection.B.2.2}
+\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{31}{subsubsection.B.2.2}
 \contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{31}{subsubsection.B.2.3}
 \contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{31}{subsection.B.3}

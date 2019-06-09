@@ -456,7 +456,7 @@ This generality could be further evaluated by doing the same for some rare or ha
 
 \subsection{Paper 1 - Producing an Autoencoder}
 
-Most of the first deliverable has been covered. An autoencoder based communication system that can be trained has been made, however it currently has a bug in that it is not using all of the possible communication symbols. This is suspected to be due to the regularisation method, however has not yet been fixed.
+An autoencoder based communication system which could be trained was been produced relatively quickly, however it originally contained a bug causing it to not use all of the possible communication symbols. This was suspected to be due to the regularisation method, however was slow to fix.
 
 \subsubsection{Initial autoencoder model}
 
@@ -474,13 +474,11 @@ The model had a single dense layer transmitter, L2 normalisation layer, a Gaussi
 
 \subsubsection{Adding noise at test time}
 
-Clearly no noise has been added in the testing case. This is because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. 
-
-To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer is shown in the appendix. This changed the input output relationship to the one shown in Figure \ref{}.
+Clearly no noise has been added in the testing case. This is because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer is shown in the appendix. This changed the input output relationship to the one shown in Figure \ref{fig:CodeGaussianNoise2}.
 
 \begin{figure}[t]
 \begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/initial_ae_output.png}
+   \includegraphics[width=0.8\linewidth]{figures/ae1_1_with_noise.png}
 \end{center}
    \caption{The input output of the autoencoder model with gaussian noise added at test time. }
 \label{fig:CodeGaussianNoise2}
@@ -488,7 +486,7 @@ To solve this problem a custom layer was added which adds noise both during trai
 
 \subsubsection{Adding a most likely symbol layer}
 
-The output of the the receiver was a softmax layer, which gives an aposteri probability distribution for the symbols which were received. However at test time it is desirable to know the bit error rate, which required discrete bits.
+The output of the receiver was a softmax layer, which gave an aposteri probability distribution for the sent symbol, given the received signal. However at test time it is desirable to know the bit error rate (BER), which requires discrete bits.
 
 To deal with this another custom layer was added to the output of the model which would take in the aposteri probability distribution and output the most likely symbol. An example of input output of this layer is shown in Figure \ref{fig:MostLikelySymbolLayer}.
 
@@ -496,31 +494,27 @@ To deal with this another custom layer was added to the output of the model whic
 \begin{center}
    \includegraphics[width=0.8\linewidth]{figures/most_likely_symbol_io.PNG}
 \end{center}
-   \caption{The input output of the MostLikelySymbol layer. }
+   \caption{The input output of the MostLikelySymbol layer for a randomly generated discrete pdf input. }
 \label{fig:MostLikelySymbolLayer}
 \end{figure}
 
-This layer was originally written using a numpy based function, however this would not compile as part of the Keras model. This was probably because Keras could not differentiate the layer and so could not train the model. So a custom layer was written using Keras Tensorflow back-end functions.
+This layer was originally written using a numpy based function, however this would not compile as part of the Keras model. This was because Keras could not differentiate the layer, which is required when training NNs for back propogation, and so could not train the model. So a custom layer was written using Keras Tensorflow back-end functions which worked.
 
 \subsubsection{Making the channel symbols complex numbers}
 
-Next the channel symbols were turned into complex numbers to represent the in-phase and quaternary sections of the transmitted signal. This required modifying the channel nodes of the model to have an extra dimension, which consequently forced a change in the regularisation layer.
+Next the channel symbols were turned into complex numbers to represent the in-phase and quaternary sections of the transmitted signal. This required modifying the channel nodes of the model to have an extra dimension, which in turn forced a change in the regularisation layer.
 
-This allowed channel symbols to now be meaningfully plotted. Some channel symbols are shown in Figure \ref{fig:WrongConstellationDiagram}.
+This allowed channel symbols to be meaningfully plotted. Some channel symbols are shown in Figure \ref{fig:WrongConstellationDiagram}, but there are clearly only three constellation points, despite the fact there should be four. This was because the model had not learnt the $(1,1)$ channel symbol and so the first and third symbols were mapped to the same channel symbol.
 
 \begin{figure}[t]
 \begin{center}
    \includegraphics[width=0.8\linewidth]{figures/wrong_constellation_diagram.png}
 \end{center}
-   \caption{A constellation diagram produced by a trained model which is clearly wrong. }
+   \caption{A constellation diagram produced by a trained (2,2) model which is clearly wrong. }
 \label{fig:WrongConstellationDiagram}
 \end{figure}
 
-In Figure \ref{fig:WrongConstellationDiagram} there are clearly only three constellation points, despite the fact there should be four. This is actually because the model has not learnt the $(1,1)$ channel symbol and so the first and third symbols have been mapped to the same channel symbol.
-
-This is clearly as error, however it's source has not yet been found and dealt with. Another clear error about this constellation diagram is that the four points are mapped to only binary x and y coordinates. 
-
-A normal constellation diagram would be expected to look more like what is shown in Figure \ref{fig:CommsSystemsConstelDiagEg}.
+This is clearly an error, however it's source has not yet been found and dealt with. Another obvious error in this constellation diagram was that the four points were only mapped to binary x and y coordinates. A normal constellation diagram would be expected to look more like what is shown in Figure \ref{fig:CommsSystemsConstelDiagEg}.
 
 \begin{figure}[t]
 \begin{center}
@@ -530,9 +524,7 @@ A normal constellation diagram would be expected to look more like what is shown
 \label{fig:CommsSystemsConstelDiagEg}
 \end{figure}
 
-In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal magnitude from the origin but are at different phases $90\deg$ apart to maximise separation for a given transmission power. 
-
-This suggests that there is an error within the regularisation layer, however this bug is still in the process of being fixed. This is the current task which is being worked on, and when finished, after some minor modifications the model should be scale and so could be compared to BPSK and Hamming encoding to complete the first deliverable.
+In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal magnitude from the origin but are at different phases $90\deg$ apart to maximise separation for a given transmission power. This suggested that there was an error in the regularisation layer, which led to this being the focus of the next section. 
 
 \subsection{Paper 1 - Producing an Autoencoder}
 
@@ -555,6 +547,8 @@ This suggests that there is an error within the regularisation layer, however th
    \item AT THIS POINT I FIRST GOT CORRECT CONSTELLATION DIAGRAMS FOR THE (2,2) CASE.
    \item AFTER THIS I CHANGED THE PLOT FORMAT TO GIVE BE THE SAME FORMAT AS THE O'SHEA PAPER.
 \end{itemize}
+
+\subsection{Adding non learned encoding}
 
 
 \subsubsection{Adding hamming hard decision encoding}
@@ -585,7 +579,13 @@ This suggests that there is an error within the regularisation layer, however th
 
 \subsubsection{Adding BPSK (2,2) and (8,8)}
 
-\subsubsection{Reproducing Figure 3a and 3b from the O'Shea paper}
+\subsubsection{Adding Hamming MLD + MLD explanation}
+
+PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
+
+\subsection{Reproducing Figure 3a and 3b from the O'Shea paper}
+
+\subsubsection{Initial figures looking wrong}
 
 \begin{itemize}
    \item Produced Figure's 3a and 3b from the O'Shea paper, however the ordering of the capabilities of the encoding methods is not in the right order. The (8,8) and (7,4) autoencoders underperform, and BPSK over performs.
@@ -613,11 +613,7 @@ This suggests that there is an error within the regularisation layer, however th
    \item Adapt the bpsk$\_$get$\_$bler function so that the transmit power is the same for all of them
 \end{itemize}
 
-\subsubsection{Adding Hamming MLD + MLD explanation}
-
-PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
-
-\subsection{Meeting with Morteza}
+\subsubsection{Meeting with Morteza}
 
 \begin{itemize}
    \item Batch normalise for the (7,4) case
@@ -636,6 +632,19 @@ PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
       \item "BLER (BLock Error Ratio): ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"
    \end{itemize}
 \end{itemize}
+
+\subsubsection{Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}
+
+\begin{itemize}
+   \item Retrained 7,4 and 8,8 with scaled channel symbols. Fixed the problem with 7,4 and 8,8 worked first time.
+   \item Replotted graphs and 2,2 and 7,4 look alright, 8,8 is too good due to not a big enough data set so going to rerun on AWS where I have the bigger data set.
+   \item Need to add Hamming MLD today and maybe fix BPSK / Hamming HD.
+   \item Finished Hamming MLD, ran over a small data set and it looks good, going to run over a large data set when I leave at the end of the day.
+   \item Rerunning 8,8 at the moment to get a smoother curve. BPSK underperforms what it does in the O'Shea paper, but with my definition of BLER I am confident I am encoding and decoding it correctly so I'm fine with this.
+   \item Hamming hard decision doesn't look right, it seems to be significantly underperforming. I'm going to come back to this later because I want to move onto reinforcement learning.
+\end{itemize}
+
+\subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
 \FloatBarrier
 \section{Testing}

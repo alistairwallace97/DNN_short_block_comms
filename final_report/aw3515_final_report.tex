@@ -538,6 +538,19 @@ In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal ma
    \item Decided it makes sense to use an l2 regulariser as that reflects a transmitter with a constant power budget
 \end{itemize}
 
+Batch normalisation was briefly investigated, however it was not found to improve the constellation diagrams. After some experimentation with missleading initial results due to a bug of a layer being bypassed and inconsistent results, batch normalisation was rejected in favour of the original l2 normalisation. 
+
+Batch normalisation simulates an average power constraint, however to obtain the QPSK constellation a constant instantaneous power constraint was needed, which was emulated by l2 normalisation in the last layer of the transmitter. This led to the contellation diagrams in Figure \ref{fig:InconsistentReluConstDiags} being produced.
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=0.8\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
+   \end{center}
+      \caption{TAKE ONE CORRECT AND THREE CORRECT CONSTELLATION DIAGRAMS FROM THE NOTEBOOK, PUT THEM IN A MULTIFIGURE; A,B,C,D ETC.}
+   \label{fig:InconsistentReluConstDiags}
+\end{figure}
+   
+
 \subsubsection{Leaky-Relu over ReLu}
 
 \begin{itemize}
@@ -547,6 +560,41 @@ In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal ma
    \item AT THIS POINT I FIRST GOT CORRECT CONSTELLATION DIAGRAMS FOR THE (2,2) CASE.
    \item AFTER THIS I CHANGED THE PLOT FORMAT TO GIVE BE THE SAME FORMAT AS THE O'SHEA PAPER.
 \end{itemize}
+
+As can be seen in Figure \ref{fig:InconsistentReluConstDiags} the constellation diagrams were not consistent at all. Occasionally, roughly one in ten times, the model would converge to the correct QPSK constellation diagram. However often it would either have multiple input points converge to the same channel symbol, or would converge to a diagram which was clearly not optimal.
+
+Some research suggested that this might be to do with "neuron death" giving dependence on initialisation values. This is a problem characteristic of the ReLu activation function, shown in Figure \ref{fig:ReluAndLrActivationFunction}a. The ReLu activation function outputs zero for all non-positive inputs, meaning that if weights are initially set so that a neuron consistently outputs a negative value pre-activation-function, it will consitently output a zero.
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=0.8\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
+   \end{center}
+      \caption{INSERT GRAPHS OF RELU AND LEAKY-RELU ACTIVATION FUNCTIONS HERE; A,B.}
+   \label{fig:ReluAndLrActivationFunction}
+\end{figure}
+
+This means that the weights will not be updated through back-propogation as the partial derivatives of the error with respect to the weights will be zero. As a result the model will not improve for these neurons and will converge at an incorrect solution. 
+
+A suggested solution to this problem was using a "leaky-relu" activation function, shown in \ref{fig:ReluAndLrActivationFunction}b instead. A brief trial of this showed much improved performance, prompting further investigation into alternative activation functions in the section below. 
+
+The improved constellation diagram seen in Figure \ref{fig:Lr22ConstDiags} was consistently produced with each channel symbol being equally spaced, centred around the origin, having an equal magnitude and a phase difference of 90 DEGREES from adjacent points. The only parameter which changed phase of the point in the first quadrant.
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=0.8\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
+   \end{center}
+      \caption{INSERT CONSTELLATION DIAGRAM PRODUCED BY LEAKY-RELU (2,2) CASE HERE.}
+   \label{fig:Lr22ConstDiags}
+\end{figure}
+
+\subsubsection{Comparing different activation functions}
+
+\begin{itemize}
+   \item Compared four activation functions to see which one had the best verification error.
+   \item Compared the leaky-relu activation function against the tanh activation function and found it marginally outperformed it, therefore proceeded from then on with the leaky-relu activation function. Although normally with leaky-relu for my hidden layers and a tanh layer as my output to capture non-linearity.
+\end{itemize}
+
+
 
 \subsection{Adding non learned encoding}
 
@@ -558,14 +606,6 @@ In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal ma
 
 \begin{itemize}
    \item Original plot of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2) 
-\end{itemize}
-
-
-\subsubsection{Comparing different activation functions}
-
-\begin{itemize}
-   \item Compared four activation functions to see which one had the best verification error.
-   \item Compared the leaky-relu activation function against the tanh activation function and found it marginally outperformed it, therefore proceeded from then on with the leaky-relu activation function. Although normally with leaky-relu for my hidden layers and a tanh layer as my output to capture non-linearity.
 \end{itemize}
 
 \subsubsection{(7,4) Autoencoder and t-SNE Constellation Diagrams}

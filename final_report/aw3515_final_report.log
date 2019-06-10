@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  9 JUN 2019 22:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  10 JUN 2019 19:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -304,21 +304,21 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (./aw3515_final_report.aux)
 \openout1 = `aw3515_final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 25.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) ABD: EveryShipout initializing macros (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
@@ -358,7 +358,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box36
 Package atbegshi Info: Package `everyshi' patched.
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 25.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -366,33 +366,33 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 24.
-LaTeX Info: Redefining \pageref on input line 24.
-LaTeX Info: Redefining \nameref on input line 24.
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
 <../figures/cover_photo.png, id=4, 433.62pt x 289.08pt>
 File: ../figures/cover_photo.png Graphic file (type png)
 <use ../figures/cover_photo.png>
-Package pdftex.def Info: ../figures/cover_photo.png  used on input line 44.
+Package pdftex.def Info: ../figures/cover_photo.png  used on input line 45.
 (pdftex.def)             Requested size: 256.07178pt x 170.71451pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 49.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 49.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 49.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/cover_photo.png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 60.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
  (./aw3515_final_report.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.41 ... learning, RBF and RF}{32}{subsection.4.5}
+l.41 ... learning, RBF and RF}{33}{subsection.4.5}
                                                    [1])
 \tf@toc=\write3
 \openout3 = `aw3515_final_report.toc'.
@@ -401,26 +401,26 @@ l.41 ... learning, RBF and RF}{32}{subsection.4.5}
 <figures/classical_comms_block_diagram.png, id=137, 392.59172pt x 264.99pt>
 File: figures/classical_comms_block_diagram.png Graphic file (type png)
 <use figures/classical_comms_block_diagram.png>
-Package pdftex.def Info: figures/classical_comms_block_diagram.png  used on input line 81.
+Package pdftex.def Info: figures/classical_comms_block_diagram.png  used on input line 82.
 (pdftex.def)             Requested size: 397.48651pt x 268.31303pt.
 <figures/dnn_block_diagram.png, id=140, 268.75406pt x 238.26515pt>
 File: figures/dnn_block_diagram.png Graphic file (type png)
 <use figures/dnn_block_diagram.png>
-Package pdftex.def Info: figures/dnn_block_diagram.png  used on input line 89.
+Package pdftex.def Info: figures/dnn_block_diagram.png  used on input line 90.
 (pdftex.def)             Requested size: 397.48651pt x 352.39786pt.
  [3] [4 <./figures/classical_comms_block_diagram.png>]
 <figures/oShea_autoencoder_layout.PNG, id=173, 339.51843pt x 161.47829pt>
 File: figures/oShea_autoencoder_layout.PNG Graphic file (type png)
 <use figures/oShea_autoencoder_layout.PNG>
-Package pdftex.def Info: figures/oShea_autoencoder_layout.PNG  used on input line 127.
+Package pdftex.def Info: figures/oShea_autoencoder_layout.PNG  used on input line 128.
 (pdftex.def)             Requested size: 397.48651pt x 189.05693pt.
  [5 <./figures/dnn_block_diagram.png>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 144.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 145.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 145.
  [6 <./figures/oShea_autoencoder_layout.PNG>] [7] [8]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
@@ -429,46 +429,46 @@ Missing character: There is no ™ in font ptmr7t!
 <figures/oShea_autoencoder_hamming_comp.PNG, id=269, 239.77078pt x 200.62453pt>
 File: figures/oShea_autoencoder_hamming_comp.PNG Graphic file (type png)
 <use figures/oShea_autoencoder_hamming_comp.PNG>
-Package pdftex.def Info: figures/oShea_autoencoder_hamming_comp.PNG  used on input line 230.
+Package pdftex.def Info: figures/oShea_autoencoder_hamming_comp.PNG  used on input line 231.
 (pdftex.def)             Requested size: 397.48651pt x 332.61722pt.
 <figures/oShea_autoencoder_TS_QAM.PNG, id=273, 243.15843pt x 231.11343pt>
 File: figures/oShea_autoencoder_TS_QAM.PNG Graphic file (type png)
 <use figures/oShea_autoencoder_TS_QAM.PNG>
-Package pdftex.def Info: figures/oShea_autoencoder_TS_QAM.PNG  used on input line 240.
+Package pdftex.def Info: figures/oShea_autoencoder_TS_QAM.PNG  used on input line 241.
 (pdftex.def)             Requested size: 397.48651pt x 377.79773pt.
  [10 <./figures/oShea_autoencoder_hamming_comp.PNG>]
 <figures/oShea_autoencoder_RTN_rayleigh_comp.PNG, id=286, 242.78203pt x 199.11891pt>
 File: figures/oShea_autoencoder_RTN_rayleigh_comp.PNG Graphic file (type png)
 <use figures/oShea_autoencoder_RTN_rayleigh_comp.PNG>
-Package pdftex.def Info: figures/oShea_autoencoder_RTN_rayleigh_comp.PNG  used on input line 254.
+Package pdftex.def Info: figures/oShea_autoencoder_RTN_rayleigh_comp.PNG  used on input line 255.
 (pdftex.def)             Requested size: 397.48651pt x 325.99805pt.
 <figures/oShea_CNN_Rx_classification.PNG, id=289, 243.15843pt x 199.49532pt>
 File: figures/oShea_CNN_Rx_classification.PNG Graphic file (type png)
 <use figures/oShea_CNN_Rx_classification.PNG>
-Package pdftex.def Info: figures/oShea_CNN_Rx_classification.PNG  used on input line 264.
+Package pdftex.def Info: figures/oShea_CNN_Rx_classification.PNG  used on input line 265.
 (pdftex.def)             Requested size: 397.48651pt x 326.11203pt.
  [11 <./figures/oShea_autoencoder_TS_QAM.PNG>] [12 <./figures/oShea_autoencoder_RTN_rayleigh_comp.PNG>]
 <figures/Aoudia_relative_training_speeds.PNG, id=306, 297.73735pt x 241.27641pt>
 File: figures/Aoudia_relative_training_speeds.PNG Graphic file (type png)
 <use figures/Aoudia_relative_training_speeds.PNG>
-Package pdftex.def Info: figures/Aoudia_relative_training_speeds.PNG  used on input line 281.
+Package pdftex.def Info: figures/Aoudia_relative_training_speeds.PNG  used on input line 282.
 (pdftex.def)             Requested size: 397.48651pt x 322.12692pt.
  [13 <./figures/oShea_CNN_Rx_classification.PNG>]
 <figures/Aoudia_AWGN_performance.PNG, id=319, 296.23172pt x 240.9pt>
 File: figures/Aoudia_AWGN_performance.PNG Graphic file (type png)
 <use figures/Aoudia_AWGN_performance.PNG>
-Package pdftex.def Info: figures/Aoudia_AWGN_performance.PNG  used on input line 295.
+Package pdftex.def Info: figures/Aoudia_AWGN_performance.PNG  used on input line 296.
 (pdftex.def)             Requested size: 397.48651pt x 323.25276pt.
 <figures/Aoudia_RBF_performance.PNG, id=322, 295.85532pt x 239.39438pt>
 File: figures/Aoudia_RBF_performance.PNG Graphic file (type png)
 <use figures/Aoudia_RBF_performance.PNG>
-Package pdftex.def Info: figures/Aoudia_RBF_performance.PNG  used on input line 303.
+Package pdftex.def Info: figures/Aoudia_RBF_performance.PNG  used on input line 304.
 (pdftex.def)             Requested size: 397.48651pt x 321.64156pt.
  [14 <./figures/Aoudia_relative_training_speeds.PNG>] [15 <./figures/Aoudia_AWGN_performance.PNG>]
 <figures/Varasteh_novel_constellation_diagrams.PNG, id=340, 237.88875pt x 226.59656pt>
 File: figures/Varasteh_novel_constellation_diagrams.PNG Graphic file (type png)
 <use figures/Varasteh_novel_constellation_diagrams.PNG>
-Package pdftex.def Info: figures/Varasteh_novel_constellation_diagrams.PNG  used on input line 323.
+Package pdftex.def Info: figures/Varasteh_novel_constellation_diagrams.PNG  used on input line 324.
 (pdftex.def)             Requested size: 397.48651pt x 378.63617pt.
 Missing character: There is no Î in font ptmr7t!
 Missing character: There is no » in font ptmr7t!
@@ -482,237 +482,347 @@ Missing character: There is no » in font ptmr7t!
 <figures/time_freq_coherence.PNG, id=354, 325.215pt x 344.78813pt>
 File: figures/time_freq_coherence.PNG Graphic file (type png)
 <use figures/time_freq_coherence.PNG>
-Package pdftex.def Info: figures/time_freq_coherence.PNG  used on input line 349.
+Package pdftex.def Info: figures/time_freq_coherence.PNG  used on input line 350.
 (pdftex.def)             Requested size: 397.48651pt x 421.44057pt.
 <figures/fast_slow_flat_freq_selec_fading.PNG, id=361, 552.18797pt x 295.47891pt>
 File: figures/fast_slow_flat_freq_selec_fading.PNG Graphic file (type png)
 <use figures/fast_slow_flat_freq_selec_fading.PNG>
-Package pdftex.def Info: figures/fast_slow_flat_freq_selec_fading.PNG  used on input line 359.
+Package pdftex.def Info: figures/fast_slow_flat_freq_selec_fading.PNG  used on input line 360.
 (pdftex.def)             Requested size: 397.48651pt x 212.70857pt.
  [18] [19 <./figures/time_freq_coherence.PNG>] [20 <./figures/fast_slow_flat_freq_selec_fading.PNG>] [21] [22]
 <figures/initial_ae_output.png, id=423, 586.81734pt x 47.05078pt>
 File: figures/initial_ae_output.png Graphic file (type png)
 <use figures/initial_ae_output.png>
-Package pdftex.def Info: figures/initial_ae_output.png  used on input line 469.
+Package pdftex.def Info: figures/initial_ae_output.png  used on input line 470.
 (pdftex.def)             Requested size: 397.48651pt x 31.86989pt.
  [23]
-<figures/ae1_1_with_noise.png, id=429, 584.93532pt x 27.47766pt>
+<figures/ae1_1_with_noise.png, id=430, 584.93532pt x 27.47766pt>
 File: figures/ae1_1_with_noise.png Graphic file (type png)
 <use figures/ae1_1_with_noise.png>
-Package pdftex.def Info: figures/ae1_1_with_noise.png  used on input line 481.
+Package pdftex.def Info: figures/ae1_1_with_noise.png  used on input line 482.
 (pdftex.def)             Requested size: 397.48651pt x 18.6728pt.
-<figures/most_likely_symbol_io.PNG, id=431, 402.75468pt x 68.12953pt>
+<figures/most_likely_symbol_io.PNG, id=432, 402.75468pt x 68.12953pt>
 File: figures/most_likely_symbol_io.PNG Graphic file (type png)
 <use figures/most_likely_symbol_io.PNG>
-Package pdftex.def Info: figures/most_likely_symbol_io.PNG  used on input line 495.
+Package pdftex.def Info: figures/most_likely_symbol_io.PNG  used on input line 496.
 (pdftex.def)             Requested size: 397.48651pt x 67.23843pt.
  [24 <./figures/initial_ae_output.png> <./figures/ae1_1_with_noise.png> <./figures/most_likely_symbol_io.PNG>]
-<figures/wrong_constellation_diagram.png, id=444, 433.62pt x 289.08pt>
+<figures/wrong_constellation_diagram.png, id=446, 433.62pt x 289.08pt>
 File: figures/wrong_constellation_diagram.png Graphic file (type png)
 <use figures/wrong_constellation_diagram.png>
-Package pdftex.def Info: figures/wrong_constellation_diagram.png  used on input line 511.
+Package pdftex.def Info: figures/wrong_constellation_diagram.png  used on input line 512.
 (pdftex.def)             Requested size: 397.48651pt x 265.00404pt.
-<figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG, id=446, 167.12437pt x 112.54547pt>
+<figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG, id=447, 167.12437pt x 112.54547pt>
 File: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG Graphic file (type png)
 <use figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>
-Package pdftex.def Info: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG  used on input line 521.
+Package pdftex.def Info: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG  used on input line 520.
 (pdftex.def)             Requested size: 397.48651pt x 267.72412pt.
  [25 <./figures/wrong_constellation_diagram.png>]
-File: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG Graphic file (type png)
-<use figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>
-Package pdftex.def Info: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG  used on input line 547.
-(pdftex.def)             Requested size: 397.48651pt x 267.72412pt.
- [26 <./figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>]
-File: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG Graphic file (type png)
-<use figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>
-Package pdftex.def Info: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG  used on input line 570.
-(pdftex.def)             Requested size: 397.48651pt x 267.72412pt.
- [27]
-File: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG Graphic file (type png)
-<use figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>
-Package pdftex.def Info: figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG  used on input line 584.
-(pdftex.def)             Requested size: 397.48651pt x 267.72412pt.
- [28] [29] [30]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 669.
+<figures/ae2_2_correctish_relu_const_diag.png, id=462, 433.62pt x 289.08pt>
+File: figures/ae2_2_correctish_relu_const_diag.png Graphic file (type png)
+<use figures/ae2_2_correctish_relu_const_diag.png>
+Package pdftex.def Info: figures/ae2_2_correctish_relu_const_diag.png  used on input line 548.
+(pdftex.def)             Requested size: 99.36972pt x 66.24438pt.
+
+Underfull \hbox (badness 7981) in paragraph at lines 549--549
+[]\OT1/ptm/m/n/10.95 (a) |The first batch
+ []
+
+<figures/ae2_2_wrong_const_diag_1d.png, id=463, 293.22047pt x 194.60204pt>
+File: figures/ae2_2_wrong_const_diag_1d.png Graphic file (type png)
+<use figures/ae2_2_wrong_const_diag_1d.png>
+Package pdftex.def Info: figures/ae2_2_wrong_const_diag_1d.png  used on input line 554.
+(pdftex.def)             Requested size: 99.36972pt x 65.94704pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 555--555
+[]\OT1/ptm/m/n/10.95 (b) |An in-cor-rect
+ []
+
+
+Underfull \hbox (badness 2469) in paragraph at lines 555--555
+\OT1/ptm/m/n/10.95 con-stel-la-tion di-a-gram
+ []
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 555--555
+\OT1/ptm/m/n/10.95 where all the points
+ []
+
+
+Underfull \hbox (badness 6944) in paragraph at lines 555--555
+\OT1/ptm/m/n/10.95 only var-ied in one
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 555--555
+\OT1/ptm/m/n/10.95 di-men-sion, how-ever
+ []
+
+
+Underfull \hbox (badness 3657) in paragraph at lines 555--555
+\OT1/ptm/m/n/10.95 were not placed on
+ []
+
+<figures/ae2_2_wrong_const_diag_3points.png, id=464, 283.81032pt x 192.72pt>
+File: figures/ae2_2_wrong_const_diag_3points.png Graphic file (type png)
+<use figures/ae2_2_wrong_const_diag_3points.png>
+Package pdftex.def Info: figures/ae2_2_wrong_const_diag_3points.png  used on input line 560.
+(pdftex.def)             Requested size: 99.36972pt x 67.47652pt.
+<figures/ae2_2_wrong_qpsk_kite_w_title.png, id=465, 278.91704pt x 194.60204pt>
+File: figures/ae2_2_wrong_qpsk_kite_w_title.png Graphic file (type png)
+<use figures/ae2_2_wrong_qpsk_kite_w_title.png>
+Package pdftex.def Info: figures/ae2_2_wrong_qpsk_kite_w_title.png  used on input line 566.
+(pdftex.def)             Requested size: 99.36972pt x 69.32916pt.
+[26 <./figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG>]
+<figures/l2_ae_inconsistent1.png, id=484, 201.00093pt x 196.86047pt>
+File: figures/l2_ae_inconsistent1.png Graphic file (type png)
+<use figures/l2_ae_inconsistent1.png>
+Package pdftex.def Info: figures/l2_ae_inconsistent1.png  used on input line 591.
+(pdftex.def)             Requested size: 99.36972pt x 97.32156pt.
+<figures/l2_ae_inconsistent2.png, id=485, 201.00093pt x 196.86047pt>
+File: figures/l2_ae_inconsistent2.png Graphic file (type png)
+<use figures/l2_ae_inconsistent2.png>
+Package pdftex.def Info: figures/l2_ae_inconsistent2.png  used on input line 597.
+(pdftex.def)             Requested size: 99.36972pt x 97.32156pt.
+<figures/l2_ae_inconsistent4.png, id=486, 201.00093pt x 197.23688pt>
+File: figures/l2_ae_inconsistent4.png Graphic file (type png)
+<use figures/l2_ae_inconsistent4.png>
+Package pdftex.def Info: figures/l2_ae_inconsistent4.png  used on input line 603.
+(pdftex.def)             Requested size: 99.36972pt x 97.50764pt.
+
+Underfull \hbox (badness 1072) in paragraph at lines 604--604
+[]\OT1/ptm/m/n/10.95 (c) |(2,2) au-toen-coder
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 604--604
+\OT1/ptm/m/n/10.95 con-ver-gence to three
+ []
+
+<figures/l2_ae4_2_inconsistent.png, id=487, 200.24812pt x 197.61328pt>
+File: figures/l2_ae4_2_inconsistent.png Graphic file (type png)
+<use figures/l2_ae4_2_inconsistent.png>
+Package pdftex.def Info: figures/l2_ae4_2_inconsistent.png  used on input line 609.
+(pdftex.def)             Requested size: 99.36972pt x 98.0646pt.
+[27 <./figures/ae2_2_correctish_relu_const_diag.png> <./figures/ae2_2_wrong_const_diag_1d.png> <./figures/ae2_2_wrong_const_diag_3points.png> <./figures/ae2_2_wrong_qpsk_kite_w_title.png>]
+<figures/relu_activation_function.png, id=499, 191.21437pt x 175.0289pt>
+File: figures/relu_activation_function.png Graphic file (type png)
+<use figures/relu_activation_function.png>
+Package pdftex.def Info: figures/relu_activation_function.png  used on input line 628.
+(pdftex.def)             Requested size: 99.36972pt x 90.95946pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 629--629
+[]\OT1/ptm/m/n/10.95 (a) |ReLu ac-ti-va-tion
+ []
+
+<figures/leaky_relu_activation_function.png, id=500, 191.21437pt x 175.0289pt>
+File: figures/leaky_relu_activation_function.png Graphic file (type png)
+<use figures/leaky_relu_activation_function.png>
+Package pdftex.def Info: figures/leaky_relu_activation_function.png  used on input line 634.
+(pdftex.def)             Requested size: 99.36972pt x 90.95946pt.
+[28 <./figures/l2_ae_inconsistent1.png> <./figures/l2_ae_inconsistent2.png> <./figures/l2_ae_inconsistent4.png> <./figures/l2_ae4_2_inconsistent.png> <./figures/relu_activation_function.png> <./figures/leaky_relu_activation_function.png>]
+<figures/leaky_relu_qpsk_constellation_diagram.png, id=518, 433.62pt x 289.08pt>
+File: figures/leaky_relu_qpsk_constellation_diagram.png Graphic file (type png)
+<use figures/leaky_relu_qpsk_constellation_diagram.png>
+Package pdftex.def Info: figures/leaky_relu_qpsk_constellation_diagram.png  used on input line 653.
+(pdftex.def)             Requested size: 198.73946pt x 132.4932pt.
+<figures/leaky_relu_16_QAM_constellation_diagram.png, id=519, 433.62pt x 289.08pt>
+File: figures/leaky_relu_16_QAM_constellation_diagram.png Graphic file (type png)
+<use figures/leaky_relu_16_QAM_constellation_diagram.png>
+Package pdftex.def Info: figures/leaky_relu_16_QAM_constellation_diagram.png  used on input line 659.
+(pdftex.def)             Requested size: 198.73946pt x 132.4932pt.
+ [29 <./figures/leaky_relu_qpsk_constellation_diagram.png> <./figures/leaky_relu_16_QAM_constellation_diagram.png>]
+<figures/first_act_f_comparisson.png, id=530, 433.62pt x 289.08pt>
+File: figures/first_act_f_comparisson.png Graphic file (type png)
+<use figures/first_act_f_comparisson.png>
+Package pdftex.def Info: figures/first_act_f_comparisson.png  used on input line 699.
+(pdftex.def)             Requested size: 198.73946pt x 132.4932pt.
+<figures/first_act_f_comparisson_logy.png, id=531, 433.62pt x 289.08pt>
+File: figures/first_act_f_comparisson_logy.png Graphic file (type png)
+<use figures/first_act_f_comparisson_logy.png>
+Package pdftex.def Info: figures/first_act_f_comparisson_logy.png  used on input line 705.
+(pdftex.def)             Requested size: 198.73946pt x 132.4932pt.
+ [30 <./figures/first_act_f_comparisson.png> <./figures/first_act_f_comparisson_logy.png>] [31]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 783.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (991.16753pt too wide) in paragraph at lines 671--671
+Overfull \hbox (991.16753pt too wide) in paragraph at lines 785--785
  []         \OT1/pcr/m/n/12 https://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdfhttps://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdf[] 
  []
 
-[31] [32] [33]
+[32] [33] [34]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 782.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 896.
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Overfull \hbox (13.41345pt too wide) in paragraph at lines 782--782
+Overfull \hbox (13.41345pt too wide) in paragraph at lines 896--896
 []|\OT1/ptm/b/n/10.95 Likelihood
  []
 
 
-Overfull \hbox (7.60867pt too wide) in paragraph at lines 782--782
+Overfull \hbox (7.60867pt too wide) in paragraph at lines 896--896
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/b/n/10.95 Harm
  []
 
 
-Overfull \hbox (10.43355pt too wide) in paragraph at lines 782--782
+Overfull \hbox (10.43355pt too wide) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Repetitive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 strain
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 in-jury
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 782--782
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Eye
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 782--782
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Back
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 User's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 poor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Trip
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 Haz-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Electric
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--782
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-LaTeX Warning: Float too large for page by 1.24652pt on input line 785.
+LaTeX Warning: Float too large for page by 1.24652pt on input line 899.
 
-(./aw3515_final_report.bbl [34] [35]
+(./aw3515_final_report.bbl [35] [36]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
@@ -721,33 +831,38 @@ Underfull \hbox (badness 5475) in paragraph at lines 133--135
 []\OT1/ptm/m/n/10.95 T. J. O'Shea and J. Cor-gan, ``Con-vo-lu-tional ra-dio mod-u-la-tion recog-ni-tion net-works,'' \OT1/ptm/m/it/10.95 CoRR\OT1/ptm/m/n/10.95 ,
  []
 
-[36]
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 155--159
 \OT1/pcr/m/n/10.95 com / @andriylazorenko / tensorflow-[]performance-[]test-[]cpu-[]vs-[]gpu-[]79fcd39170c$[]\OT1/ptm/m/n/10.95 .
  []
 
+
+Underfull \hbox (badness 1308) in paragraph at lines 161--164
+[]\OT1/ptm/m/n/10.95 ``Alistair Wal-lace project github.'' []$\OT1/pcr/m/n/10.95 https : / / github . com / alistairwallace97 / DNN _ short _
+ []
+
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 793.
- [37]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 793.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 907.
+ [38]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 907.
  (./aw3515_final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 793.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 793.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 793.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 907.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 907.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 907.
  ) 
 Here is how much of TeX's memory you used:
- 8073 strings out of 492982
- 122244 string characters out of 6134896
- 312273 words of memory out of 5000000
- 11337 multiletter control sequences out of 15000+600000
- 29032 words of font info for 69 fonts, out of 8000000 for 9000
+ 8169 strings out of 492982
+ 125548 string characters out of 6134896
+ 312690 words of memory out of 5000000
+ 11409 multiletter control sequences out of 15000+600000
+ 30128 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,43p,960b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on aw3515_final_report.pdf (38 pages, 1353102 bytes).
+ 42i,11n,43p,960b,521s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on aw3515_final_report.pdf (39 pages, 1712270 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
- 488 compressed objects within 5 object streams
- 154 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 670 PDF objects out of 1000 (max. 8388607)
+ 528 compressed objects within 6 object streams
+ 164 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

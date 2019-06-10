@@ -13,6 +13,8 @@
 \usepackage{tabularx}
 \usepackage{placeins}
 \usepackage{float}
+\usepackage{svg}
+
 
 \usepackage[breaklinks=true,bookmarks=false]{hyperref}
 \newcommand{\code}{\textit}
@@ -712,15 +714,58 @@ Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
 
 \subsection{Adding non learned encoding}
 
-
-\subsubsection{Adding hamming hard decision encoding}
-
-
 \subsubsection{Adding BPSK encoding}
 
 \begin{itemize}
+   \item BPSK theory
+   \item Adding BPSK (2,2) and (8,8)
+\end{itemize}
+
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=0.2\linewidth]{figures/bpsk_const_diag.jpg}
+   \caption{BPSK constellation diagram.}
+   \label{fig:BspkConstDiag}
+\end{figure}
+
+Binary phase shift keying (BPSK) is the $m = 2$ case of phase shift keying (PSK), also known as 2-PSK. It has two points, seperated by $180^\circ$. It's constellation diagram is shown in Figure \ref{fig:BspkConstDiag}, with two points placed symetrically around the origin on the real axis. It's encoding is given by equation \ref{eq:BpskEncoding}.
+
+\begin{subequations}
+\begin{align}
+   s_i(t) &= A_c \cos(2\pi ft + \pi(1-i)), \mbox{ i = 0,1} \label{eq:BpskEncoding} \\
+   \therefore s_0(t) &= -A_c \\
+   \mbox{and } s_1(t) &= A_c
+\end{align}
+\end{subequations}
+
+Compared to the other m-PSK methods BPSK's channel symbols are the furthest separated and therefore it has the highest tolerance to noise, making it the most robust PSK. This is because it only encodes one bit, so it sacrifices data rate. BPSK's theoretical BER is given by Equation \ref{eq:BpskTheoreticalBer}.
+
+\begin{equation}
+   P_b = \frac{1}{2}erfc\left(\sqrt{\frac{E_b}{N_0}}\right)
+   \label{eq:BpskTheoreticalBer}
+\end{equation}
+
+This relationship means that the theoretical block error rate (BLER) can be calculated to ensure that the experimental graphs found later are correct.
+
+BLER is defined by the European Telecommunication Standards Institue as \textit{"the ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"}~\cite{BlerEtsiDefinition}.
+
+This is taken to mean that if any of the bits in a block are incorrect, then the block is taken as wrong. The BLER is then the percentage of blocks which have any bits which are incorrect. This gives the following relationship between $P_{be}$ and $P_e$. 
+
+\begin{align}
+   P_{be} &= 1 - (1-p_e)^n \\
+   P_{be} &= 1 - \left(1-\frac{1}{2}erfc\left(\sqrt{\frac{E_b}{N_0}}\right)\right)^n
+   \label{eq:BpskTheoBler}
+\end{align}
+
+
+
+\subsubsection{Adding hamming hard decision encoding}
+
+\begin{itemize}
+   \item Hamming HD theory
    \item Original plot of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2) 
 \end{itemize}
+
 
 \subsubsection{(7,4) Autoencoder and t-SNE Constellation Diagrams}
 
@@ -730,8 +775,6 @@ Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
    \item Found the t-SNE method of dimensionality reduction introduces some randomness and so the constellation diagram is slightly different each time.
    \item Had to normalise the outputs of the t-SNE dimensionality reduction to zero-mean and unit power, despite it's input being stationary satisfying the afore-mentioned conditions
 \end{itemize}
-
-\subsubsection{Adding BPSK (2,2) and (8,8)}
 
 \subsubsection{Adding Hamming MLD + MLD explanation}
 

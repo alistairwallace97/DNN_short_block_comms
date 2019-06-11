@@ -174,4 +174,8 @@ L.~Andrews, {\em Special Functions of Mathematics for Engineers}.
 E.~T.~S. Institute, ``Final draft etsi en 301 908-8,'' {\em Candidate
   Harmonized European Standard (Telecommunications series)}, vol.~V1.1.1, 2016.
 
+\bibitem{HammingOriginalPaper}
+R.~W. {Hamming}, ``Error detecting and error correcting codes,'' {\em The Bell
+  System Technical Journal}, vol.~29, pp.~147--160, April 1950.
+
 \end{thebibliography}

@@ -646,6 +646,15 @@ A suggested solution to this problem was using a "leaky-relu" activation functio
 
 The improved (2,2) constellation diagram seen in Figure \ref{fig:Lr22ConstDiags}a was consistently produced with each channel symbol being equally spaced, centred around the origin, having an equal magnitude and a phase difference of $90^{\circ}$ from adjacent points. The only parameter which changed phase of the point in the first quadrant. The (4,2) constellation diagram shown in Figure \ref{fig:Lr22ConstDiags}b was also produced for the first time and was then consistently reproduced. 
 
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=0.4\linewidth]{figures/autoencoder_2_2_bler_EbNo_leaky_vs_relu.png}
+   \caption{A comparison of the BLER performance of two leaky-ReLu and ReLu based (2,2) autoencoder models.}
+   \label{fig:ReluVsLrBlerAcrossSnrs}
+\end{figure}
+
+The BLER of two ReLu and Leaky-ReLu based models were also found over a range of SNRs. This was done to ensure that the metric of test error at training SNR was valid for evaluating model quality. It could be possible that some activation functions performed better at some SNRs and worse at others. The results of this are shown in Figure \ref{fig:ReluVsLrBlerAcrossSnrs}. The leaky-ReLu model consistently outperforms the ReLu model across all $\frac{E_b}{N_0}$ ratios. This both confirms that leaky-ReLu is a better activation function for this problem and that test error at training SNR is a valid metric for assessing model quality.
+
 Now that successful models had been reproduced all of the layers in the models were named so that the weights could be saved and loaded into new models to avoid the time overhead of retraining larger models. The model weights were saved in the \code{.h5} format because neither the JSON nor YAML formats worked with the custom \code{GaussianNoise} and \code{MostLikelySymbol} layers.
 
 \begin{figure}[t]
@@ -805,22 +814,141 @@ After the solving of this second issue the simulated BLER of the BPSK was indist
 
 \begin{itemize}
    \item Hamming HD theory
-   \item Original plot of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2) 
+   \item Original plot of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2). Figure \ref{fig:BlerOriginalHammingBpskAe22}. 
+   \item Difference by setting Rr=4/7. Figure \ref{fig:HammingCorrectRrComp}
 \end{itemize}
 
+Hamming codes are a family of linear block code that allow error detection and correction. They were invented by Richard W. Hamming in 1950, where he laid out the general theory and used the (7,4) as the main example~\cite{HammingOriginalPaper}.
+
+Mathematically there are an infinite number of potential Hamming codes with the following characteristics.
+
+\begin{align}
+   r &\geq 2 \\
+   \mbox{block length } n &= 2^r - 1 \\
+   \mbox{message length } k &= 2^r -r -1
+   \label{eq:GeneralHamming}
+\end{align}
+
+In the r = 3 case we get the most well known Hamming code, and the one used in this paper, the (7,4) code.
+
+\begin{align}
+   r &= 3 \\
+   \therefore n &= 2^3 - 1 = 7 \\
+   \therefore k &= 2^3 -3 -1 = 4
+   \label{eq:Hamming74Characteristics}
+\end{align}
+
+In the (7,4) Hamming code, for every four data bits transmitted three parity bits are added. These three parity bits allow the detection and correction of single errors. The combinations of the parity bits are given by Figure \ref{fig:HammingParityVennDiagram} and Table \ref{tab:Hamming74Parity}. 
+
+\begin{table}[H]
+   \begin{center}
+   \begin{tabular}{|l|c|c|c|}
+   \hline
+   Activation Function & Mean & Min & $\sigma$\\
+   \hline\hline
+   ReLu & $0.55835$ & $0.05784$ & $2.3023e-1$ \\
+   Tanh & $0.00156$ & $0.00151$ & $3.0000e-5$ \\
+   Sigmoid & $0.29459$ & $0.29413$ & $3.2000e-4$\\
+   Linear & $0.00157$ & $0.00153$ & $4.0000e-5$\\
+   Softmax & $0.43870$ & $0.29450$ & $9.4200e-2$\\
+   Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
+   \hline
+   \end{tabular}
+   \end{center}
+   \caption{A table showing which parity bits cover which data bits in a (7,4) Hamming code.}
+   \label{tab:Hamming74Parity}
+   \end{table}
+   
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.2\linewidth]{figures/hamming_parity_venn_diagram.png}
+   \caption{Venn diagram showing parity and data bits for a Hamming (7,4) code. Data bits are denoted $s_i$ and parity bits are denoted $t_i$.}
+   \label{fig:HammingParityVennDiagram}
+\end{figure}
+
+
+WHENEVER I INTRODUCE THE G AND H MATRICES NOTE THAT H IS THE SAME AT Table \ref{tab:Hamming74Parity}.
+
+\begin{align}
+   G &= \begin{pmatrix}
+      1 & 0 & 0 & 0 & 1 & 1 & 0\\ 
+      0 & 1 & 0 & 0 & 1 & 0 & 1\\ 
+      0 & 0 & 1 & 0 & 0 & 1 & 1\\ 
+      0 & 0 & 0 & 1 & 1 & 1 & 1
+      \end{pmatrix} \\
+   H &= \begin{pmatrix}
+      1 & 0 & 1 & 0 & 1 & 0 & 1\\ 
+      0 & 1 & 1 & 0 & 0 & 1 & 1\\ 
+      0 & 0 & 0 & 1 & 1 & 1 & 1
+      \end{pmatrix}
+   p = \begin{pmatrix}
+      1\\ 
+      0\\ 
+      1\\ 
+      1
+      \end{pmatrix} \\ 
+   R_{ham} = \begin{pmatrix}
+      0 & 0 & 1 & 0 & 0 & 0 & 0\\ 
+      0 & 0 & 0 & 0 & 1 & 0 & 0\\ 
+      0 & 0 & 0 & 0 & 0 & 1 & 0\\ 
+      0 & 0 & 0 & 0 & 0 & 0 & 1
+      \end{pmatrix}
+\end{align}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/bler_vs_eb_only_three.png}
+   \caption{Original graph of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2) (Pre setting Rr correctly).}
+   \label{fig:BlerOriginalHammingBpskAe22}
+\end{figure}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/hamming_correct_Rr_comparison.png}
+   \caption{Comparison of benefit setting $R_r$ to the correct value.}
+   \label{fig:HammingCorrectRrComp}
+\end{figure}
 
 \subsubsection{(7,4) Autoencoder and t-SNE Constellation Diagrams}
 
 \begin{itemize}
    \item Made a (7,4) autoencoder model and compared it's performance against the others.
-   \item Used t-SNE to get constellation diagrams for the (7,4) model, both with and without noise.
+   \item Used t-SNE to get constellation diagrams for the (7,4) model, both with and without noise. Figure \ref{fig:tSneConstellationDiags}
    \item Found the t-SNE method of dimensionality reduction introduces some randomness and so the constellation diagram is slightly different each time.
    \item Had to normalise the outputs of the t-SNE dimensionality reduction to zero-mean and unit power, despite it's input being stationary satisfying the afore-mentioned conditions
 \end{itemize}
 
+\begin{figure*}[t!]
+   \centering
+   \begin{subfigure}[t]{0.2\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/leaky_relu_7_4_constellation_diagram.png}
+       \caption{t-SNE dimension reduced constellation diagram for a (7,4) autoencoder model.}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.2\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_with_noise_200.png}
+       \caption{Received symbols with noise.}
+   \end{subfigure}
+   \caption{t-SNE constellation diagrams}
+   \label{fig:tSneConstellationDiags}
+\end{figure*}
+
+
 \subsubsection{Adding Hamming MLD + MLD explanation}
 
 PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
+
+Figure \ref{fig:HammingBlerAll}.
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/hamming_7_4_bler_vs_EbNo_comparison.png}
+   \caption{Comparison of all Hamming encoding BLERs.}
+   \label{fig:HammingBlerAll}
+\end{figure}
 
 \subsection{Reproducing Figure 3a and 3b from the O'Shea paper}
 
@@ -839,7 +967,7 @@ PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
 \begin{itemize}
    \item Decided that the reason the (8,8) and (7,4) models might be underperforming may be because of a lack of layers, so tried increasing the number of layers and making the final layer of each block have a tanh activation funciton to try and capture non-linearity.
    \item I realised that my 8$\_$8 was actually and 8$\_$4, so I've adjusted that and I'm retraining the model to see what kind of validation$\_$loss it gets. The best 8$\_$4 accuracy found was 1.06, an initial re-training with no tapering gave a val$\_$loss of 0.0750.
-   \item Trained models with 2,3,4 and 5 layers and tapered layer widths.
+   \item Trained models with 2,3,4 and 5 layers and tapered layer widths. Figure \ref{fig:NumLayersBler}
    \begin{itemize}
       \item Yet to test their performances, they're still training.
    \end{itemize}
@@ -851,6 +979,13 @@ PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
    \item Retrained all models with the sigmas specified to the correct Rr
    \item Adapt the bpsk$\_$get$\_$bler function so that the transmit power is the same for all of them
 \end{itemize}
+
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=0.8\linewidth]{figures/autoencoder_8_8_bler_EbNo_2-5_layers.png}
+   \caption{Comparison of different number of layers for the (8,8) autoencoder model.}
+   \label{fig:NumLayersBler}
+\end{figure}
 
 \subsubsection{Meeting with Morteza}
 
@@ -883,6 +1018,23 @@ PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
    \item Hamming hard decision doesn't look right, it seems to be significantly underperforming. I'm going to come back to this later because I want to move onto reinforcement learning.
 \end{itemize}
 
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=0.8\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
+   \end{center}
+      \caption{Final reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
+   \label{fig:OSheaFigure3a}
+\end{figure}
+
+\begin{figure}[t]
+   \begin{center}
+      \includegraphics[width=0.8\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
+   \end{center}
+      \caption{Final reproduction of ~\cite{oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.}
+   \label{fig:OSheaFigure3b}
+\end{figure}
+
+
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
 \FloatBarrier
@@ -893,6 +1045,11 @@ PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
 
 \FloatBarrier
 \section{Evaluation}
+
+\begin{itemize}
+   \item O'Shea et al did not consider that comparing the (7,4) autoencoder to Hamming MLD did not take into account that the autoencoder was one hot encoded, so had an information content of 2 bits, whereas Hamming MLD had an information content of 4 bits. See extra line on graph.
+   \item Learned model performed very poorly on Rayleigh Slow Fading, it is likely it would perform even more poorly on Rayleigh Fast Fading.
+\end{itemize}
 
 \FloatBarrier
 \section{Conclusions}

@@ -30,24 +30,24 @@
 \contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace {}Adding non learned encoding}{30}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}Adding BPSK encoding}{30}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}Adding hamming hard decision encoding}{33}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}(7,4) Autoencoder and t-SNE Constellation Diagrams}{33}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Adding Hamming MLD + MLD explanation}{33}{subsubsection.4.3.4}
-\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{33}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Initial figures looking wrong}{33}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{33}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{34}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{35}{subsubsection.4.4.4}
-\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{35}{subsection.4.5}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{35}{section.5}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{35}{section.6}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{35}{section.7}
-\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Conclusions}{35}{section.8}
-\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Further Work}{35}{section.9}
-\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{36}{appendix.A}
-\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{36}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{36}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{36}{subsection.B.2}
-\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{36}{subsubsection.B.2.1}
-\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{36}{subsubsection.B.2.2}
-\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{37}{subsubsection.B.2.3}
-\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{37}{subsection.B.3}
+\contentsline {subsubsection}{\numberline {4.3.3}(7,4) Autoencoder and t-SNE Constellation Diagrams}{34}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.4}Adding Hamming MLD + MLD explanation}{35}{subsubsection.4.3.4}
+\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{36}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Initial figures looking wrong}{36}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{36}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{37}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{38}{subsubsection.4.4.4}
+\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{38}{subsection.4.5}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{41}{section.5}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{41}{section.6}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{41}{section.7}
+\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Conclusions}{41}{section.8}
+\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Further Work}{41}{section.9}
+\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{42}{appendix.A}
+\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{42}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{42}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{42}{subsection.B.2}
+\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{42}{subsubsection.B.2.1}
+\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{42}{subsubsection.B.2.2}
+\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{43}{subsubsection.B.2.3}
+\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{43}{subsection.B.3}

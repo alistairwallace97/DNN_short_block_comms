@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  11 JUN 2019 00:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  11 JUN 2019 13:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -201,69 +201,43 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box33
 \@float@everytoks=\toks24
 \@floatcapt=\box34
-) (/usr/share/texlive/texmf-dist/tex/latex/svg/svg.sty
-Package: svg 2017/11/29 v2.01 (include SVG pictures)
- (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2017/09/07 v3.24 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
- (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2017/09/07 v3.24 KOMA-Script package (loading files)
-)) (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 69.
-)
-\c@svg@param@lastpage=\count111
-\c@svg@param@currpage=\count112
-) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/transparent.sty
-Package: transparent 2016/05/16 v1.1 Transparency via pdfTeX's color stack (HO)
- (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-)) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count111
+\lst@gtempboxa=\box35
+\lst@token=\toks25
+\lst@length=\count112
+\lst@currlwidth=\dimen136
+\lst@column=\count113
+\lst@pos=\count114
+\lst@lostspace=\dimen137
+\lst@width=\dimen138
+\lst@newlines=\count115
+\lst@lineno=\count116
+\lst@maxwidth=\dimen139
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count117
+\lst@skipnumbers=\count118
+\lst@framebox=\box36
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -271,7 +245,11 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO)
 Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
@@ -286,16 +264,20 @@ Package atveryend Info: \enddocument detected (standard20110627).
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen136
-\Hy@linkcounter=\count113
-\Hy@pagecounter=\count114
+\@linkdim=\dimen140
+\Hy@linkcounter=\count119
+\Hy@pagecounter=\count120
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count115
+\Hy@SavedSpaceFactor=\count121
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
@@ -308,16 +290,16 @@ Package hyperref Info: Plain pages OFF on input line 4524.
 Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks OFF on input line 4768.
-\c@Hy@tempcnt=\count116
+\c@Hy@tempcnt=\count122
  (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen137
-\Fld@menulength=\count117
-\Field@Width=\dimen138
-\Fld@charsize=\dimen139
+\XeTeXLinkMargin=\dimen141
+\Fld@menulength=\count123
+\Field@Width=\dimen142
+\Fld@charsize=\dimen143
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
@@ -327,15 +309,15 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
 LaTeX Info: Redefining \ref on input line 6439.
 LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count118
-\c@Item=\count119
-\c@Hfootnote=\count120
+\Hy@abspage=\count124
+\c@Item=\count125
+\c@Hfootnote=\count126
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count121
-\c@bookmark@seq@number=\count122
+\Fld@listcount=\count127
+\c@bookmark@seq@number=\count128
  (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
@@ -361,19 +343,25 @@ LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 27.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) ABD: EveryShipout initializing macros (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+) ABD: EveryShipout initializing macros (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
-\scratchdimen=\dimen140
-\scratchbox=\box35
-\nofMPsegments=\count124
-\nofMParguments=\count125
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count126
-\MPscratchDim=\dimen141
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count129
+\scratchdimen=\dimen144
+\scratchbox=\box37
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen145
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -389,8 +377,10 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box36
+\c@lstlisting=\count135
+\AtBeginShipoutBox=\box38
 Package atbegshi Info: Package `everyshi' patched.
 Package hyperref Info: Link coloring OFF on input line 27.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -398,7 +388,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count129
+\c@section@level=\count136
 )
 LaTeX Info: Redefining \ref on input line 27.
 LaTeX Info: Redefining \pageref on input line 27.
@@ -426,7 +416,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
  (./aw3515_final_report.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ... learning, RBF and RF}{34}{subsection.4.5}
+l.40 ... learning, RBF and RF}{35}{subsection.4.5}
                                                    [1])
 \tf@toc=\write3
 \openout3 = `aw3515_final_report.toc'.
@@ -679,198 +669,204 @@ Package pdftex.def Info: figures/first_act_f_comparisson_logy.png  used on input
 <figures/bpsk_const_diag.jpg, id=530, 94.85437pt x 100.12407pt>
 File: figures/bpsk_const_diag.jpg Graphic file (type jpg)
 <use figures/bpsk_const_diag.jpg>
-Package pdftex.def Info: figures/bpsk_const_diag.jpg  used on input line 726.
+Package pdftex.def Info: figures/bpsk_const_diag.jpg  used on input line 721.
 (pdftex.def)             Requested size: 99.36972pt x 104.89197pt.
- [30 <./figures/first_act_f_comparisson.png> <./figures/first_act_f_comparisson_logy.png> <./figures/bpsk_const_diag.jpg>] [31] [32]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 826.
+ [30 <./figures/first_act_f_comparisson.png> <./figures/first_act_f_comparisson_logy.png> <./figures/bpsk_const_diag.jpg>]
+<figures/bpsk_theo_Rr1_and_original.png, id=545, 433.62pt x 289.08pt>
+File: figures/bpsk_theo_Rr1_and_original.png Graphic file (type png)
+<use figures/bpsk_theo_Rr1_and_original.png>
+Package pdftex.def Info: figures/bpsk_theo_Rr1_and_original.png  used on input line 766.
+(pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
+ [31] [32 <./figures/bpsk_theo_Rr1_and_original.png>] [33]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 868.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (991.16753pt too wide) in paragraph at lines 828--828
+Overfull \hbox (991.16753pt too wide) in paragraph at lines 870--870
  []         \OT1/pcr/m/n/12 https://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdfhttps://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdf[] 
  []
 
-[33] [34] [35]
+[34] [35] [36]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 939.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 981.
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Overfull \hbox (13.41345pt too wide) in paragraph at lines 939--939
+Overfull \hbox (13.41345pt too wide) in paragraph at lines 981--981
 []|\OT1/ptm/b/n/10.95 Likelihood
  []
 
 
-Overfull \hbox (7.60867pt too wide) in paragraph at lines 939--939
+Overfull \hbox (7.60867pt too wide) in paragraph at lines 981--981
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/b/n/10.95 Harm
  []
 
 
-Overfull \hbox (10.43355pt too wide) in paragraph at lines 939--939
+Overfull \hbox (10.43355pt too wide) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Repetitive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 strain
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 in-jury
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 939--939
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Eye
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 939--939
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Back
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 User's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 poor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Trip
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 Haz-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Electric
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 939--939
+Underfull \hbox (badness 10000) in paragraph at lines 981--981
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-LaTeX Warning: Float too large for page by 1.24652pt on input line 942.
+LaTeX Warning: Float too large for page by 1.24652pt on input line 984.
 
-(./aw3515_final_report.bbl [36] [37]
+(./aw3515_final_report.bbl [37] [38]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
-
+ [39]
 Underfull \hbox (badness 5475) in paragraph at lines 133--135
 []\OT1/ptm/m/n/10.95 T. J. O'Shea and J. Cor-gan, ``Con-vo-lu-tional ra-dio mod-u-la-tion recog-ni-tion net-works,'' \OT1/ptm/m/it/10.95 CoRR\OT1/ptm/m/n/10.95 ,
  []
 
-[38]
+
 Underfull \hbox (badness 10000) in paragraph at lines 155--159
 \OT1/pcr/m/n/10.95 com / @andriylazorenko / tensorflow-[]performance-[]test-[]cpu-[]vs-[]gpu-[]79fcd39170c$[]\OT1/ptm/m/n/10.95 .
  []
@@ -881,27 +877,27 @@ Underfull \hbox (badness 1308) in paragraph at lines 161--164
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 950.
- [39]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 950.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 992.
+ [40]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 992.
  (./aw3515_final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 950.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 950.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 950.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 992.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 992.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 992.
  ) 
 Here is how much of TeX's memory you used:
- 9371 strings out of 492982
- 146657 string characters out of 6134896
- 356619 words of memory out of 5000000
- 12566 multiletter control sequences out of 15000+600000
+ 9386 strings out of 492982
+ 143706 string characters out of 6134896
+ 333699 words of memory out of 5000000
+ 12586 multiletter control sequences out of 15000+600000
  30128 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,43p,960b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on aw3515_final_report.pdf (40 pages, 1729972 bytes).
+ 42i,11n,43p,960b,1623s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on aw3515_final_report.pdf (41 pages, 1772959 bytes).
 PDF statistics:
- 691 PDF objects out of 1000 (max. 8388607)
- 546 compressed objects within 6 object streams
- 173 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 727 PDF objects out of 1000 (max. 8388607)
+ 578 compressed objects within 6 object streams
+ 189 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 

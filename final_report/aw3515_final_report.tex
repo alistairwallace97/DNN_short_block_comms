@@ -13,7 +13,7 @@
 \usepackage{tabularx}
 \usepackage{placeins}
 \usepackage{float}
-\usepackage{svg}
+\usepackage{listings}
 
 
 \usepackage[breaklinks=true,bookmarks=false]{hyperref}
@@ -716,11 +716,6 @@ Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
 
 \subsubsection{Adding BPSK encoding}
 
-\begin{itemize}
-   \item BPSK theory
-   \item Adding BPSK (2,2) and (8,8)
-\end{itemize}
-
 \begin{figure}[t]
    \centering
    \includegraphics[width=0.2\linewidth]{figures/bpsk_const_diag.jpg}
@@ -738,12 +733,21 @@ Binary phase shift keying (BPSK) is the $m = 2$ case of phase shift keying (PSK)
 \end{align}
 \end{subequations}
 
-Compared to the other m-PSK methods BPSK's channel symbols are the furthest separated and therefore it has the highest tolerance to noise, making it the most robust PSK. This is because it only encodes one bit, so it sacrifices data rate. BPSK's theoretical BER is given by Equation \ref{eq:BpskTheoreticalBer}.
+Compared to the other m-PSK methods BPSK's channel symbols are the furthest separated and therefore it has the highest tolerance to noise, making it the most robust PSK. This is because it only encodes one bit, so it sacrifices data rate. BPSK's theoretical BER is given by Equation \ref{eq:BpskTheoreticalBer} from~\cite{BpskPe}.
 
 \begin{equation}
    P_b = \frac{1}{2}erfc\left(\sqrt{\frac{E_b}{N_0}}\right)
    \label{eq:BpskTheoreticalBer}
 \end{equation}
+
+Where the erfc function is defined by~\cite{ErfcDefinition} as:
+
+\begin{equation}
+   erfc = \frac{2}{\sqrt{\pi}}\int_{x=0}^{\infty}e^{-t^2}dt
+   \label{eq:ErfcDef}
+\end{equation}
+
+The $erfc$ function gives the probability that a $\left| Y \right| \ge x$ where $Y \sim \mathcal{N}(0,\frac{1}{2})$. So $\frac{1}{2}*erfc(x)$ gives the tail probability of a normal distribution ($Y$). 
 
 This relationship means that the theoretical block error rate (BLER) can be calculated to ensure that the experimental graphs found later are correct.
 
@@ -757,7 +761,45 @@ This is taken to mean that if any of the bits in a block are incorrect, then the
    \label{eq:BpskTheoBler}
 \end{align}
 
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/bpsk_theo_Rr1_and_original.png}
+   \caption{BPSK BLER performance over a range of SNRs.}
+   \label{fig:BspkBlerComp}
+\end{figure}
 
+This theoretical check was actually very useful as it unearthed the second of two bugs in the BPSK encoding and decoding. The graph that made these bugs obvious is shown in Figure \ref{fig:BspkBlerComp}. Stating that results are wrong based on a other results requires a large amount of confidence in the correcting set of results. The theoretical results have this confidence due to matching the values displayed in the paper and the equations producing them being widely agreed upon.
+
+For reference the simulation of the BPSK encoding in the AWGN channel was run by the process outlined in sudo code below. The exact code (which is almost identical) can be found at~\cite{AwGithub}.
+
+\begin{lstlisting}
+   # Encode into bpsk
+   bpsk_encoded = bpsk_encode_vec(test_data)
+   # Add AWGN noise
+   noise = std * np.random.randn(bpsk_encoded.shape)
+   received = bpsk_encoded + noise
+   # Decode from bpsk back to bits
+   bpsk_decoded = bpsk_decode_vec(received)
+   # Get Block error rate
+   return get_block_error_rate(test_data, bpsk_decoded)
+\end{lstlisting}
+
+Note that \code{bpsk$\_$encode} and \code{bpsk$\_$decode} were vectorised because it was found that this reduced the latency of the simulation process by approximately $60\%$. This was important, as to give smooth curves the BPSK BLER was tested over a very large test data set and also for 25 different $\frac{E_b}{N_0}$
+
+The first bug was that the noise standard deviation was being calculated incorrectly from the $\frac{E_b}{N_0}$. According to the O'Shea paper the variance is calculated from $\frac{E_b}{N_0}$ using the equation below~\cite{oShea}.
+
+\begin{equation}
+   \sigma^2 = \left(2R\frac{E_b}{N_0} \right)^{-1}
+   \label{eq:SigmaFromEbN0}
+\end{equation}
+
+The paper is not entirely clear with it's definition of $n$, as to whether $n$ is the number of real channel uses or the number of complex channel uses. Originally it was decided the later was correct, meaning that $R = \frac{k}{n_c}$. This was found to be incorrect as it gave incorrect $\sigma$s and this led to if being found that $n$ must be the number of real bits. This gave the change from the solid lines ro the dashed lines in Figure \ref{fig:BspkBlerComp}. The $n_c$ being lower than $n_r$ was making the $R$ two times larger, which was decreasing the variance of the channel noise by a factor of two. This gave the lower error rates shown by the solid lines. The jaggedness of the lines at the lowest error rates was due to insufficiently sized data sets to smoothly represent a error rate in the region of $10^-7$.
+
+At this point the second bug was found.
+
+NEED TO FIND OUT WHAT IS WRONG WITH MY BPSK ENCODING. I'VE SPENT A WHILE TRYING TO DEBUG IT BUT I CAN'T SEE WHERE I COULD POSSIBLY HAVE AN ERROR, IT IS SUCH A SIMPLE ENCODING AND DECODING METHOD.
+
+After the solving of this second issue the simulated BLER of the BPSK was indistinguishable from the theoretical BLER. Note that all of the code for the BPSK encoding and decoding can be found in \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}.
 
 \subsubsection{Adding hamming hard decision encoding}
 

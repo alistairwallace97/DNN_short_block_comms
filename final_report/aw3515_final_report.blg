@@ -3,44 +3,46 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: aw3515_final_report.aux
 The style file: ieeetr.bst
 Database file #1: egbib.bib
-You've used 36 entries,
+Warning--empty booktitle in BpskPe
+You've used 38 entries,
             1876 wiz_defined-function locations,
-            701 strings with 9709 characters,
-and the built_in function-call counts, 8744 in all, are:
-= -- 839
-> -- 319
+            712 strings with 9971 characters,
+and the built_in function-call counts, 9040 in all, are:
+= -- 864
+> -- 327
 < -- 0
-+ -- 122
-- -- 86
-* -- 596
-:= -- 1221
-add.period$ -- 40
-call.type$ -- 36
-change.case$ -- 36
++ -- 126
+- -- 88
+* -- 609
+:= -- 1264
+add.period$ -- 43
+call.type$ -- 38
+change.case$ -- 37
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 482
-empty$ -- 890
-format.name$ -- 86
-if$ -- 2163
+cite$ -- 39
+duplicate$ -- 503
+empty$ -- 932
+format.name$ -- 88
+if$ -- 2237
 int.to.chr$ -- 0
-int.to.str$ -- 36
-missing$ -- 32
-newline$ -- 115
-num.names$ -- 35
-pop$ -- 141
+int.to.str$ -- 38
+missing$ -- 35
+newline$ -- 122
+num.names$ -- 37
+pop$ -- 154
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 314
+skip$ -- 317
 stack$ -- 0
 substring$ -- 490
-swap$ -- 184
+swap$ -- 185
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 71
-width$ -- 38
-write$ -- 335
+warning$ -- 1
+while$ -- 73
+width$ -- 40
+write$ -- 352
+(There was 1 warning)

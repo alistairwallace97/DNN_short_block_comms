@@ -162,6 +162,14 @@ A.~Lazorenko, ``A medium corporation: Tensorflow performance testing, cpu vs
   \url{https://github.com/alistairwallace97/DNN_short_block_comms}.
 \newblock Last Updated: 07-06-2019.
 
+\bibitem{BpskPe}
+M.~Divya, ``Bit error rate performance of bpsk modulation and ofdm-bpsk with
+  rayleigh multipath channel,'' 2013.
+
+\bibitem{ErfcDefinition}
+L.~Andrews, {\em Special Functions of Mathematics for Engineers}.
+\newblock Oxford science publications, SPIE Optical Engineering Press, 1998.
+
 \bibitem{BlerEtsiDefinition}
 E.~T.~S. Institute, ``Final draft etsi en 301 908-8,'' {\em Candidate
   Harmonized European Standard (Telecommunications series)}, vol.~V1.1.1, 2016.

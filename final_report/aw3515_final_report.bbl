@@ -178,4 +178,8 @@ E.~T.~S. Institute, ``Final draft etsi en 301 908-8,'' {\em Candidate
 R.~W. {Hamming}, ``Error detecting and error correcting codes,'' {\em The Bell
   System Technical Journal}, vol.~29, pp.~147--160, April 1950.
 
+\bibitem{HammingMoonBook}
+T.~K. Moon, {\em Error Correction Coding: Mathematical Methods and Algorithms}.
+\newblock New York, NY, USA: Wiley-Interscience, 2005.
+
 \end{thebibliography}

@@ -14,6 +14,8 @@
 \usepackage{placeins}
 \usepackage{float}
 \usepackage{listings}
+\usepackage{colortbl}
+
 
 
 \usepackage[breaklinks=true,bookmarks=false]{hyperref}
@@ -724,6 +726,7 @@ Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
 \subsection{Adding non learned encoding}
 
 \subsubsection{Adding BPSK encoding}
+\label{sec:AddingBpsk}
 
 \begin{figure}[t]
    \centering
@@ -808,15 +811,9 @@ At this point the second bug was found.
 
 NEED TO FIND OUT WHAT IS WRONG WITH MY BPSK ENCODING. I'VE SPENT A WHILE TRYING TO DEBUG IT BUT I CAN'T SEE WHERE I COULD POSSIBLY HAVE AN ERROR, IT IS SUCH A SIMPLE ENCODING AND DECODING METHOD.
 
-After the solving of this second issue the simulated BLER of the BPSK was indistinguishable from the theoretical BLER. Note that all of the code for the BPSK encoding and decoding can be found in \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}.
+After the solving of this second issue the simulated BLER of the BPSK was indistinguishable from the theoretical BLER. Note that all of the code for the BPSK encoding and decoding can be found in the \textit{Implementing Uncoded BPSK} section of \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}.
 
 \subsubsection{Adding hamming hard decision encoding}
-
-\begin{itemize}
-   \item Hamming HD theory
-   \item Original plot of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2). Figure \ref{fig:BlerOriginalHammingBpskAe22}. 
-   \item Difference by setting Rr=4/7. Figure \ref{fig:HammingCorrectRrComp}
-\end{itemize}
 
 Hamming codes are a family of linear block code that allow error detection and correction. They were invented by Richard W. Hamming in 1950, where he laid out the general theory and used the (7,4) as the main example~\cite{HammingOriginalPaper}.
 
@@ -838,24 +835,38 @@ In the r = 3 case we get the most well known Hamming code, and the one used in t
    \label{eq:Hamming74Characteristics}
 \end{align}
 
-In the (7,4) Hamming code, for every four data bits transmitted three parity bits are added. These three parity bits allow the detection and correction of single errors. The combinations of the parity bits are given by Figure \ref{fig:HammingParityVennDiagram} and Table \ref{tab:Hamming74Parity}. 
+In the (7,4) Hamming code, for every four data bits transmitted three parity bits are added. These three parity bits allow the detection and correction of single errors. The combinations of the parity bits are given by Figure \ref{fig:HammingParityVennDiagram} and Table \ref{tab:Hamming74Parity}. Note that the (7,4) Hamming code cannot detect or correct multiple errors. 
+
+However given that the probabilities of one, two and k errors are given by Equation \ref{eq:HammingPe1}, b and d respectively, if $p_e$ is small then the higher order terms will be negligible. For each extra number of errors you become able to correct you will reduce your BER by a factor of $p_e$.
+
+\begin{subequations}
+\begin{align}
+   p_{e1} &= 1 - \left[(1-p_e)^{4} + 4p_e(1-p_e)^{3} \right] \label{eq:HammingPe1} \\
+   p_{e2} &= 1 - \left[ (1-p_e)^{4} + 4p_e(1-p_e)^{3} + 6p_e^2(1-p_e)^{2} \right] \label{eq:HammingPe2} \\
+   p_{ek} &= 1 - \left[ \sum_{i=1}^{k}{n \choose i}p_e^i(1-p_e)^{n-i} \right] \\
+   \therefore &= \sum_{i=k+1}^{n}{n \choose i}p_e^i(1-p_e)^{n-i}  
+   \label{eq:HammingPeN} \\
+   \mbox{where: }0 &\leq k \leq n 
+\end{align}
+\end{subequations}
+
+Hence, despite the fact that the (7,4) Hamming code can only remove single errors this should remove the vast majority of errors and will reduce the BER by approximately a factor of $p_e$, which is likely to be $\approx10^{-3}$.
 
 \begin{table}[H]
    \begin{center}
-   \begin{tabular}{|l|c|c|c|}
+   \begin{tabular}{|l|c|c|c|c|c|c|c|}
    \hline
-   Activation Function & Mean & Min & $\sigma$\\
+   Bit \# & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
    \hline\hline
-   ReLu & $0.55835$ & $0.05784$ & $2.3023e-1$ \\
-   Tanh & $0.00156$ & $0.00151$ & $3.0000e-5$ \\
-   Sigmoid & $0.29459$ & $0.29413$ & $3.2000e-4$\\
-   Linear & $0.00157$ & $0.00153$ & $4.0000e-5$\\
-   Softmax & $0.43870$ & $0.29450$ & $9.4200e-2$\\
-   Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
+   Transmitter Bit & $\mathbf{p_1}$ & $\mathbf{p_2}$ & $\mathbf{d_1}$ & $\mathbf{p_3}$ & $\mathbf{d_2}$ & $\mathbf{d_3}$ & $\mathbf{d_4}$ \\
+   \hline
+   $\mathbf{p_1}$ & \cellcolor{green}Yes & \cellcolor{red}No & \cellcolor{green}Yes & \cellcolor{red}No & \cellcolor{green}Yes & \cellcolor{red}No & \cellcolor{green}Yes \\
+   $\mathbf{p_2}$ & \cellcolor{red}No & \cellcolor{green}Yes & \cellcolor{green}Yes & \cellcolor{red}No & \cellcolor{red}No & \cellcolor{green}Yes & \cellcolor{green}Yes \\
+   $\mathbf{p_3}$ & \cellcolor{red}No & \cellcolor{red}No & \cellcolor{red}No & \cellcolor{green}Yes & \cellcolor{green}Yes & \cellcolor{green}Yes & \cellcolor{green}Yes \\
    \hline
    \end{tabular}
    \end{center}
-   \caption{A table showing which parity bits cover which data bits in a (7,4) Hamming code.}
+   \caption{A table showing which parity bits interact with which data bits in a (7,4) Hamming code.}
    \label{tab:Hamming74Parity}
    \end{table}
    
@@ -867,28 +878,24 @@ In the (7,4) Hamming code, for every four data bits transmitted three parity bit
    \label{fig:HammingParityVennDiagram}
 \end{figure}
 
-
-WHENEVER I INTRODUCE THE G AND H MATRICES NOTE THAT H IS THE SAME AT Table \ref{tab:Hamming74Parity}.
+Because the Hamming codes are linear codes, all the encoding and decoding can be performed using linear algebra. To perform the encoding and decoding three matrices are needed. The generator matrix $G$, the parity matrix $H$ and $R$ the decoding matrix~\cite{HammingMoonBook} which are all defined below.
 
 \begin{align}
-   G &= \begin{pmatrix}
-      1 & 0 & 0 & 0 & 1 & 1 & 0\\ 
-      0 & 1 & 0 & 0 & 1 & 0 & 1\\ 
-      0 & 0 & 1 & 0 & 0 & 1 & 1\\ 
-      0 & 0 & 0 & 1 & 1 & 1 & 1
+   \mbox{Generator Matrix: }\mathbf{G} &= \begin{pmatrix}
+      1 & 1 & 0 & 1\\ 
+      1 & 0 & 1 & 1\\ 
+      1 & 0 & 0 & 0\\ 
+      0 & 1 & 1 & 1\\ 
+      0 & 1 & 0 & 0\\ 
+      0 & 0 & 1 & 0\\ 
+      0 & 0 & 0 & 1 \\
       \end{pmatrix} \\
-   H &= \begin{pmatrix}
+   \mbox{Parity Check Matrix: }\mathbf{H} &= \begin{pmatrix}
       1 & 0 & 1 & 0 & 1 & 0 & 1\\ 
       0 & 1 & 1 & 0 & 0 & 1 & 1\\ 
       0 & 0 & 0 & 1 & 1 & 1 & 1
-      \end{pmatrix}
-   p = \begin{pmatrix}
-      1\\ 
-      0\\ 
-      1\\ 
-      1
-      \end{pmatrix} \\ 
-   R_{ham} = \begin{pmatrix}
+      \end{pmatrix} \\
+   \mbox{Decoding Matrix: }\mathbf{R_{ham}} &= \begin{pmatrix}
       0 & 0 & 1 & 0 & 0 & 0 & 0\\ 
       0 & 0 & 0 & 0 & 1 & 0 & 0\\ 
       0 & 0 & 0 & 0 & 0 & 1 & 0\\ 
@@ -896,19 +903,65 @@ WHENEVER I INTRODUCE THE G AND H MATRICES NOTE THAT H IS THE SAME AT Table \ref{
       \end{pmatrix}
 \end{align}
 
+The Hamming encoding step is simple, the transmitter message is produced from the column vector $\mathbf{p}$ by doing the matrix multiplication below in Equation \ref{eq:HammingEncoding}, then taking the second modulus of each element. This is equivalent to taking the last least significant bit of the number in binary. For instance $1 \rightarrow 1$, $2 \rightarrow 0$, $3 \rightarrow 1$.
+
+\begin{equation}
+   \mathbf{s} = mod_2(\mathbf{Gp}) = LSB(\mathbf{Gp})
+   \label{eq:HammingEncoding}
+\end{equation}
+
+The sent message $\mathbf{s}$ then passes through a channel where an error may or may not be added. The received vector is denoted:
+
+\begin{equation}
+   \mathbf{r} = \mathbf{s} + \mathbf{e}
+\end{equation}
+
+Where $\mathbf{e}$ may be the zero vector. The syndrome vector $\mathbf{z}$ is obtained by matrix multiplying by $\mathbf{H}$. If e has less than or equal to one non-zero element then the result will be H.
+
+\begin{align}
+   \mathbf{H_r} &= \mathbf{H}(\mathbf{x} + \mathbf{e}_i) \\
+   &= \mathbf{Hx} + \mathbf{He}_i \\
+   &= \mathbf{0} + \mathbf{He}_i \\
+   &= \mathbf{He}_i \\
+   \mathbf{z} &= mod_2\left(\mathbf{Hr}\right)
+\end{align}
+
+Noting that $\mathbf{r}$ has been rounded $\mathbf{z}$ is a three bit binary number. If only one bit has been changed then this number corresponds to the index (indexed from one to seven) of the bit which has an error. The value of this bit can be simply flipped to correct the error.
+
+After the error correction stage the message must be decoded. The message is simply recovered my matrix multiplying by $\mathbf{R}$.
+
+\begin{equation}
+   \hat{\mathbf{p}} = \mathbf{Rp}
+\end{equation}
+
+It should be reiterated that the Hamming (7,4) will incorrectly diagnose multiple bit errors and so will not be able to correct them. As with the previous section the code for the Hamming (7,4) Hard Encoding can be found in the \textit{Hamming Hard Decision Encoded BPSK} section of the \code{initial$\_$dnn$\_$comms.ipynb} notebook in ~\cite{AwGithub}.
+
+\subsubsection{Initial Hamming HD performance and debugging}
+
 \begin{figure}
    \centering
    \includegraphics[width=0.6\linewidth]{figures/bler_vs_eb_only_three.png}
-   \caption{Original graph of BPSK (4,4), Hamming(7,4) vs Autoencoder (2,2) (Pre setting Rr correctly).}
+   \caption{Original graph of BPSK (4,4), Hamming(7,4) and Autoencoder (2,2) BLER performance, before setting Rr correctly.}
    \label{fig:BlerOriginalHammingBpskAe22}
 \end{figure}
+
+After first producing the Hamming (7,4) encoding method it was tested seperately. It was tested using unit several unit test vectors with deterministic errors added. The results of these unit vectors at each stage of the process were compared with results calculated by hand. It was also tested with Gaussian distributed errors added, first with a standard deviation of zero, and then with small standard deviations.
+
+After this seperate training the Hamming (7,4) source encoding was combined with BPSK channel encoding, then it's performance evaluated over a range of SNRs. This performance was then compared to the already produced (2,2) leaky-relu autoencoder model and the BPSK (4,4) model which gave the results shown in Figure \ref{fig:BlerOriginalHammingBpskAe22}
+
+
+These results did not appear to be correct, despite all three of the encoding schemes having very similar performance across the whole range of SNRs. Thjs aspect was potentially compatible with Figures 3a and 3b because the (2,2) Autoencoder model would be expected to be slightly better than the (4,4) BPSK and slightly worse than the Hamming (7,4) hard decision encoding.
 
 \begin{figure}
    \centering
    \includegraphics[width=0.6\linewidth]{figures/hamming_correct_Rr_comparison.png}
-   \caption{Comparison of benefit setting $R_r$ to the correct value.}
+   \caption{Comparison Hamming HD BLER performance with correct and incorrect values of $R_r$.}
    \label{fig:HammingCorrectRrComp}
 \end{figure}
+
+However at $\frac{E_b}{N_0} = 8$ all three of the encoding schemes were achieving BLERs of $10^{-6}$, which was significantly better than the $\approx10^{-3.5}$ results in the paper. The correct relative performance suggested that there was an error with the way the noise variance was being calculated from the $\frac{E_b}{N_0}$.
+
+This intuition was correct, this led to the discovery $n$ being the number of real bits instead of number of complex bits discussed in the Section \ref{sec:AddingBpsk} on adding BPSK. After this error was corrected the Hamming HD BLER performance was a lot more conservative. The difference is shown in Figure \ref{fig:HammingCorrectRrComp}
 
 \subsubsection{(7,4) Autoencoder and t-SNE Constellation Diagrams}
 

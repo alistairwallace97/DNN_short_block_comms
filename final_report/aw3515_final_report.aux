@@ -217,14 +217,14 @@
 \newlabel{eq:BpskEncoding}{{4a}{31}{Adding BPSK encoding}{equation.4.4a}{}}
 \newlabel{eq:BpskTheoreticalBer}{{5}{31}{Adding BPSK encoding}{equation.4.5}{}}
 \newlabel{eq:ErfcDef}{{6}{31}{Adding BPSK encoding}{equation.4.6}{}}
-\newlabel{eq:BpskTheoBler}{{8}{31}{Adding BPSK encoding}{equation.4.8}{}}
 \citation{AwGithub}
 \citation{oShea}
 \@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces BPSK BLER performance over a range of SNRs.\relax }}{32}{figure.caption.28}}
 \newlabel{fig:BspkBlerComp}{{26}{32}{BPSK BLER performance over a range of SNRs.\relax }{figure.caption.28}{}}
-\newlabel{eq:SigmaFromEbN0}{{9}{32}{Adding BPSK encoding}{equation.4.9}{}}
+\newlabel{eq:BpskTheoBler}{{8}{32}{Adding BPSK encoding}{equation.4.8}{}}
 \citation{AwGithub}
 \citation{HammingOriginalPaper}
+\newlabel{eq:SigmaFromEbN0}{{9}{33}{Adding BPSK encoding}{equation.4.9}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Adding hamming hard decision encoding}{33}{subsubsection.4.3.2}}
 \newlabel{eq:GeneralHamming}{{12}{33}{Adding hamming hard decision encoding}{equation.4.12}{}}
 \newlabel{eq:Hamming74Characteristics}{{15}{33}{Adding hamming hard decision encoding}{equation.4.15}{}}
@@ -241,30 +241,36 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Original graph of BPSK (4,4), Hamming(7,4) and Autoencoder (2,2) BLER performance, before setting Rr correctly.\relax }}{36}{figure.caption.31}}
 \newlabel{fig:BlerOriginalHammingBpskAe22}{{28}{36}{Original graph of BPSK (4,4), Hamming(7,4) and Autoencoder (2,2) BLER performance, before setting Rr correctly.\relax }{figure.caption.31}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Initial Hamming HD performance and debugging}{36}{subsubsection.4.3.3}}
+\citation{oShea}
+\citation{oShea}
 \@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Comparison Hamming HD BLER performance with correct and incorrect values of $R_r$.\relax }}{37}{figure.caption.32}}
 \newlabel{fig:HammingCorrectRrComp}{{29}{37}{Comparison Hamming HD BLER performance with correct and incorrect values of $R_r$.\relax }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces t-SNE constellation diagrams\relax }}{37}{figure.caption.33}}
-\newlabel{fig:tSneConstellationDiags}{{30}{37}{t-SNE constellation diagrams\relax }{figure.caption.33}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}(7,4) Autoencoder and t-SNE Constellation Diagrams}{37}{subsubsection.4.3.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Adding Hamming MLD + MLD explanation}{37}{subsubsection.4.3.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Comparison of all Hamming encoding BLERs.\relax }}{38}{figure.caption.34}}
-\newlabel{fig:HammingBlerAll}{{31}{38}{Comparison of all Hamming encoding BLERs.\relax }{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}{37}{subsubsection.4.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces t-SNE constellation diagrams\relax }}{38}{figure.caption.33}}
+\newlabel{fig:tSneConstellationDiags}{{30}{38}{t-SNE constellation diagrams\relax }{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Adding Hamming MLD + MLD explanation}{38}{subsubsection.4.3.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace  {}Reproducing Figure 3a and 3b from the O'Shea paper}{38}{subsection.4.4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Initial figures looking wrong}{38}{subsubsection.4.4.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{38}{subsubsection.4.4.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Comparison of different number of layers for the (8,8) autoencoder model.\relax }}{39}{figure.caption.35}}
-\newlabel{fig:NumLayersBler}{{32}{39}{Comparison of different number of layers for the (8,8) autoencoder model.\relax }{figure.caption.35}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{39}{subsubsection.4.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Initial BLER performance comparison of (2,2), (8,8) and (7,4) autoencoder models. \relax }}{39}{figure.caption.34}}
+\newlabel{fig:AutoencodersAllOriginalComparison}{{31}{39}{Initial BLER performance comparison of (2,2), (8,8) and (7,4) autoencoder models. \relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Comparison of BLER performance of (2,2), (8,8) and (7,4) autoencoder models before and after $Rr$ was set to the correct value. \relax }}{39}{figure.caption.35}}
+\newlabel{fig:AutoencodersAllRr1Comparison}{{32}{39}{Comparison of BLER performance of (2,2), (8,8) and (7,4) autoencoder models before and after $Rr$ was set to the correct value. \relax }{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{39}{subsubsection.4.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces Comparison of all Hamming encoding BLERs.\relax }}{40}{figure.caption.36}}
+\newlabel{fig:HammingBlerAll}{{33}{40}{Comparison of all Hamming encoding BLERs.\relax }{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{40}{subsubsection.4.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces Comparison of different number of layers for the (8,8) autoencoder model.\relax }}{41}{figure.caption.37}}
+\newlabel{fig:NumLayersBler}{{34}{41}{Comparison of different number of layers for the (8,8) autoencoder model.\relax }{figure.caption.37}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{41}{subsubsection.4.4.4}}
 \citation{oShea}
 \citation{oShea}
 \citation{oShea}
 \citation{oShea}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{40}{subsubsection.4.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace  {}Paper 2 - Reinforcement learning, RBF and RF}{40}{subsection.4.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces Final reproduction of \nobreakspace  {}\cite  {oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.\relax }}{41}{figure.caption.36}}
-\newlabel{fig:OSheaFigure3a}{{33}{41}{Final reproduction of ~\cite {oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.\relax }{figure.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces Final reproduction of \nobreakspace  {}\cite  {oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.\relax }}{42}{figure.caption.37}}
-\newlabel{fig:OSheaFigure3b}{{34}{42}{Final reproduction of ~\cite {oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.\relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces Final reproduction of \nobreakspace  {}\cite  {oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.\relax }}{42}{figure.caption.38}}
+\newlabel{fig:OSheaFigure3a}{{35}{42}{Final reproduction of ~\cite {oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.\relax }{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace  {}Paper 2 - Reinforcement learning, RBF and RF}{42}{subsection.4.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {36}{\ignorespaces Final reproduction of \nobreakspace  {}\cite  {oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.\relax }}{43}{figure.caption.39}}
+\newlabel{fig:OSheaFigure3b}{{36}{43}{Final reproduction of ~\cite {oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.\relax }{figure.caption.39}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace  {}Testing}{43}{section.5}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace  {}Results}{43}{section.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace  {}Evaluation}{43}{section.7}}
@@ -275,12 +281,16 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace  {}Ethical considerations}{44}{subsection.B.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace  {}Legal consideration}{44}{subsection.B.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{44}{subsubsection.B.2.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{44}{subsubsection.B.2.2}}
 \bibstyle{ieeetr}
 \bibdata{egbib}
 \bibcite{oShea}{1}
 \bibcite{Aoudia}{2}
 \bibcite{ChannelEncodingOptimality}{3}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{45}{subsubsection.B.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{45}{subsubsection.B.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace  {}Safety Plan}{45}{subsection.B.3}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Risk assessment in table form\relax }}{46}{table.caption.40}}
+\newlabel{tab:RiskAssessment}{{3}{46}{Risk assessment in table form\relax }{table.caption.40}{}}
 \bibcite{EE3CommsSystemsNotesL4}{4}
 \bibcite{oShea0}{5}
 \bibcite{NonLinearities}{6}
@@ -289,10 +299,6 @@
 \bibcite{NeuralProgramInterpreters}{9}
 \bibcite{NnUniversalApproximators}{10}
 \bibcite{FpgaGpuBetterUtilisation}{11}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{45}{subsubsection.B.2.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace  {}Safety Plan}{45}{subsection.B.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Risk assessment in table form\relax }}{46}{table.caption.38}}
-\newlabel{tab:RiskAssessment}{{3}{46}{Risk assessment in table form\relax }{table.caption.38}{}}
 \bibcite{WiredAppleNeuralEngine}{12}
 \bibcite{NnLowFp}{13}
 \bibcite{Eyeriss}{14}

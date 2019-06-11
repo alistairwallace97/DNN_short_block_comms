@@ -31,14 +31,14 @@
 \contentsline {subsubsection}{\numberline {4.3.1}Adding BPSK encoding}{30}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}Adding hamming hard decision encoding}{33}{subsubsection.4.3.2}
 \contentsline {subsubsection}{\numberline {4.3.3}Initial Hamming HD performance and debugging}{36}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}(7,4) Autoencoder and t-SNE Constellation Diagrams}{37}{subsubsection.4.3.4}
-\contentsline {subsubsection}{\numberline {4.3.5}Adding Hamming MLD + MLD explanation}{37}{subsubsection.4.3.5}
+\contentsline {subsubsection}{\numberline {4.3.4}Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}{37}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}Adding Hamming MLD + MLD explanation}{38}{subsubsection.4.3.5}
 \contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{38}{subsection.4.4}
 \contentsline {subsubsection}{\numberline {4.4.1}Initial figures looking wrong}{38}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{38}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{39}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{40}{subsubsection.4.4.4}
-\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{40}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{39}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{40}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{41}{subsubsection.4.4.4}
+\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{42}{subsection.4.5}
 \contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{43}{section.5}
 \contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{43}{section.6}
 \contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{43}{section.7}
@@ -49,6 +49,6 @@
 \contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{44}{subsection.B.1}
 \contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{44}{subsection.B.2}
 \contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{44}{subsubsection.B.2.1}
-\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{44}{subsubsection.B.2.2}
+\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{45}{subsubsection.B.2.2}
 \contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{45}{subsubsection.B.2.3}
 \contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{45}{subsection.B.3}

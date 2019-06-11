@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  11 JUN 2019 22:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  11 JUN 2019 23:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -421,7 +421,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
  (./aw3515_final_report.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.41 ... learning, RBF and RF}{40}{subsection.4.5}
+l.41 ... learning, RBF and RF}{42}{subsection.4.5}
                                                    [1])
 \tf@toc=\write3
 \openout3 = `aw3515_final_report.toc'.
@@ -681,13 +681,13 @@ File: figures/bpsk_const_diag.jpg Graphic file (type jpg)
 <use figures/bpsk_const_diag.jpg>
 Package pdftex.def Info: figures/bpsk_const_diag.jpg  used on input line 733.
 (pdftex.def)             Requested size: 99.36972pt x 104.89197pt.
- [30 <./figures/first_act_f_comparisson.png> <./figures/first_act_f_comparisson_logy.png>]
-<figures/bpsk_theo_Rr1_and_original.png, id=552, 433.62pt x 289.08pt>
+ [30 <./figures/first_act_f_comparisson.png> <./figures/first_act_f_comparisson_logy.png>] [31 <./figures/bpsk_const_diag.jpg>]
+<figures/bpsk_theo_Rr1_and_original.png, id=568, 433.62pt x 289.08pt>
 File: figures/bpsk_theo_Rr1_and_original.png Graphic file (type png)
 <use figures/bpsk_theo_Rr1_and_original.png>
 Package pdftex.def Info: figures/bpsk_theo_Rr1_and_original.png  used on input line 778.
 (pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
- [31 <./figures/bpsk_const_diag.jpg>] [32 <./figures/bpsk_theo_Rr1_and_original.png>]
+ [32 <./figures/bpsk_theo_Rr1_and_original.png>]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
@@ -700,250 +700,254 @@ File: figures/hamming_parity_venn_diagram.png Graphic file (type png)
 Package pdftex.def Info: figures/hamming_parity_venn_diagram.png  used on input line 876.
 (pdftex.def)             Requested size: 99.36972pt x 96.7008pt.
  [34 <./figures/hamming_parity_venn_diagram.png>] [35]
-<figures/bler_vs_eb_only_three.png, id=641, 433.62pt x 289.08pt>
+<figures/bler_vs_eb_only_three.png, id=642, 433.62pt x 289.08pt>
 File: figures/bler_vs_eb_only_three.png Graphic file (type png)
 <use figures/bler_vs_eb_only_three.png>
 Package pdftex.def Info: figures/bler_vs_eb_only_three.png  used on input line 943.
 (pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
-<figures/hamming_correct_Rr_comparison.png, id=643, 433.62pt x 289.08pt>
+<figures/hamming_correct_Rr_comparison.png, id=644, 433.62pt x 289.08pt>
 File: figures/hamming_correct_Rr_comparison.png Graphic file (type png)
 <use figures/hamming_correct_Rr_comparison.png>
 Package pdftex.def Info: figures/hamming_correct_Rr_comparison.png  used on input line 957.
 (pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
- [36 <./figures/bler_vs_eb_only_three.png>]
-<figures/leaky_relu_7_4_constellation_diagram.png, id=655, 433.62pt x 289.08pt>
+ [36 <./figures/bler_vs_eb_only_three.png>] [37 <./figures/hamming_correct_Rr_comparison.png>]
+<figures/tSNE_7_4_constellation_diagram_unnormalised.png, id=672, 433.62pt x 289.08pt>
+File: figures/tSNE_7_4_constellation_diagram_unnormalised.png Graphic file (type png)
+<use figures/tSNE_7_4_constellation_diagram_unnormalised.png>
+Package pdftex.def Info: figures/tSNE_7_4_constellation_diagram_unnormalised.png  used on input line 996.
+(pdftex.def)             Requested size: 149.05838pt x 99.371pt.
+<figures/leaky_relu_7_4_constellation_diagram.png, id=673, 433.62pt x 289.08pt>
 File: figures/leaky_relu_7_4_constellation_diagram.png Graphic file (type png)
 <use figures/leaky_relu_7_4_constellation_diagram.png>
-Package pdftex.def Info: figures/leaky_relu_7_4_constellation_diagram.png  used on input line 979.
-(pdftex.def)             Requested size: 99.36972pt x 66.24438pt.
-
-Underfull \hbox (badness 1881) in paragraph at lines 980--980
-[]\OT1/ptm/m/n/10.95 (a) |t-SNE di-men-sion
- []
-
-
-Underfull \hbox (badness 4886) in paragraph at lines 980--980
-\OT1/ptm/m/n/10.95 re-duced con-stel-la-tion
- []
-
-<figures/tSNE_7_4_constellation_diagram_with_noise_200.png, id=656, 433.62pt x 289.08pt>
+Package pdftex.def Info: figures/leaky_relu_7_4_constellation_diagram.png  used on input line 1002.
+(pdftex.def)             Requested size: 149.05838pt x 99.371pt.
+<figures/tSNE_7_4_constellation_diagram_with_noise_200.png, id=674, 433.62pt x 289.08pt>
 File: figures/tSNE_7_4_constellation_diagram_with_noise_200.png Graphic file (type png)
 <use figures/tSNE_7_4_constellation_diagram_with_noise_200.png>
-Package pdftex.def Info: figures/tSNE_7_4_constellation_diagram_with_noise_200.png  used on input line 985.
-(pdftex.def)             Requested size: 99.36972pt x 66.24438pt.
-<figures/hamming_7_4_bler_vs_EbNo_comparison.png, id=658, 433.62pt x 289.08pt>
+Package pdftex.def Info: figures/tSNE_7_4_constellation_diagram_with_noise_200.png  used on input line 1008.
+(pdftex.def)             Requested size: 149.05838pt x 99.371pt.
+<figures/autoencoders248_bler_EbNo_original_comparison.png, id=675, 433.62pt x 289.08pt>
+File: figures/autoencoders248_bler_EbNo_original_comparison.png Graphic file (type png)
+<use figures/autoencoders248_bler_EbNo_original_comparison.png>
+Package pdftex.def Info: figures/autoencoders248_bler_EbNo_original_comparison.png  used on input line 1019.
+(pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
+<figures/autoencoders248_bler_EbNo_Rr1_comparison.png, id=676, 433.62pt x 289.08pt>
+File: figures/autoencoders248_bler_EbNo_Rr1_comparison.png Graphic file (type png)
+<use figures/autoencoders248_bler_EbNo_Rr1_comparison.png>
+Package pdftex.def Info: figures/autoencoders248_bler_EbNo_Rr1_comparison.png  used on input line 1026.
+(pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
+<figures/hamming_7_4_bler_vs_EbNo_comparison.png, id=678, 433.62pt x 289.08pt>
 File: figures/hamming_7_4_bler_vs_EbNo_comparison.png Graphic file (type png)
 <use figures/hamming_7_4_bler_vs_EbNo_comparison.png>
-Package pdftex.def Info: figures/hamming_7_4_bler_vs_EbNo_comparison.png  used on input line 1001.
+Package pdftex.def Info: figures/hamming_7_4_bler_vs_EbNo_comparison.png  used on input line 1040.
 (pdftex.def)             Requested size: 298.11678pt x 198.75523pt.
-[37 <./figures/hamming_correct_Rr_comparison.png> <./figures/leaky_relu_7_4_constellation_diagram.png> <./figures/tSNE_7_4_constellation_diagram_with_noise_200.png>] [38 <./figures/hamming_7_4_bler_vs_EbNo_comparison.png>]
-<figures/autoencoder_8_8_bler_EbNo_2-5_layers.png, id=675, 433.62pt x 289.08pt>
+ [38 <./figures/tSNE_7_4_constellation_diagram_unnormalised.png> <./figures/leaky_relu_7_4_constellation_diagram.png> <./figures/tSNE_7_4_constellation_diagram_with_noise_200.png>] [39 <./figures/autoencoders248_bler_EbNo_original_comparison.png> <./figures/autoencoders248_bler_EbNo_Rr1_comparison.png>]
+<figures/autoencoder_8_8_bler_EbNo_2-5_layers.png, id=694, 433.62pt x 289.08pt>
 File: figures/autoencoder_8_8_bler_EbNo_2-5_layers.png Graphic file (type png)
 <use figures/autoencoder_8_8_bler_EbNo_2-5_layers.png>
-Package pdftex.def Info: figures/autoencoder_8_8_bler_EbNo_2-5_layers.png  used on input line 1038.
+Package pdftex.def Info: figures/autoencoder_8_8_bler_EbNo_2-5_layers.png  used on input line 1077.
 (pdftex.def)             Requested size: 397.48651pt x 265.00404pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 1056.
+ [40 <./figures/hamming_7_4_bler_vs_EbNo_comparison.png>]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 1095.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (991.16753pt too wide) in paragraph at lines 1058--1058
+Overfull \hbox (991.16753pt too wide) in paragraph at lines 1097--1097
  []         \OT1/pcr/m/n/12 https://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdfhttps://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdf[] 
  []
 
-[39 <./figures/autoencoder_8_8_bler_EbNo_2-5_layers.png>]
-<figures/o_shea_3a_bler_vs_eb.png, id=681, 433.62pt x 289.08pt>
+[41 <./figures/autoencoder_8_8_bler_EbNo_2-5_layers.png>]
+<figures/o_shea_3a_bler_vs_eb.png, id=707, 433.62pt x 289.08pt>
 File: figures/o_shea_3a_bler_vs_eb.png Graphic file (type png)
 <use figures/o_shea_3a_bler_vs_eb.png>
-Package pdftex.def Info: figures/o_shea_3a_bler_vs_eb.png  used on input line 1076.
+Package pdftex.def Info: figures/o_shea_3a_bler_vs_eb.png  used on input line 1115.
 (pdftex.def)             Requested size: 397.48651pt x 265.00404pt.
-<figures/o_shea_3b_bler_vs_eb.png, id=684, 433.62pt x 289.08pt>
+<figures/o_shea_3b_bler_vs_eb.png, id=710, 433.62pt x 289.08pt>
 File: figures/o_shea_3b_bler_vs_eb.png Graphic file (type png)
 <use figures/o_shea_3b_bler_vs_eb.png>
-Package pdftex.def Info: figures/o_shea_3b_bler_vs_eb.png  used on input line 1084.
+Package pdftex.def Info: figures/o_shea_3b_bler_vs_eb.png  used on input line 1123.
 (pdftex.def)             Requested size: 397.48651pt x 265.00404pt.
- [40] [41 <./figures/o_shea_3a_bler_vs_eb.png>] [42 <./figures/o_shea_3b_bler_vs_eb.png>] [43
-
-] [44]
+ [42 <./figures/o_shea_3a_bler_vs_eb.png>] [43 <./figures/o_shea_3b_bler_vs_eb.png>] [44]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1191.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1230.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Overfull \hbox (13.41345pt too wide) in paragraph at lines 1191--1191
+Overfull \hbox (13.41345pt too wide) in paragraph at lines 1230--1230
 []|\OT1/ptm/b/n/10.95 Likelihood
  []
 
 
-Overfull \hbox (7.60867pt too wide) in paragraph at lines 1191--1191
+Overfull \hbox (7.60867pt too wide) in paragraph at lines 1230--1230
 []|\OT1/ptm/b/n/10.95 Potential
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/b/n/10.95 Harm
  []
 
 
-Overfull \hbox (10.43355pt too wide) in paragraph at lines 1191--1191
+Overfull \hbox (10.43355pt too wide) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Repetitive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 strain
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 in-jury
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 1191--1191
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Eye
  []
 
 
-Overfull \hbox (0.6714pt too wide) in paragraph at lines 1191--1191
+Overfull \hbox (0.6714pt too wide) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Excessive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 use of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Back
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 User's
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 poor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Trip
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 Haz-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Electric
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 []|\OT1/ptm/m/n/10.95 Often
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 work
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 lap-top
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
 \OT1/ptm/m/n/10.95 plugged
  []
 
 
-LaTeX Warning: Float too large for page by 1.24652pt on input line 1194.
+LaTeX Warning: Float too large for page by 1.24652pt on input line 1233.
 
 (./aw3515_final_report.bbl [45] [46]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
-
+ [47]
 Underfull \hbox (badness 5475) in paragraph at lines 133--135
 []\OT1/ptm/m/n/10.95 T. J. O'Shea and J. Cor-gan, ``Con-vo-lu-tional ra-dio mod-u-la-tion recog-ni-tion net-works,'' \OT1/ptm/m/it/10.95 CoRR\OT1/ptm/m/n/10.95 ,
  []
 
-[47]
+
 Underfull \hbox (badness 10000) in paragraph at lines 155--159
 \OT1/pcr/m/n/10.95 com / @andriylazorenko / tensorflow-[]performance-[]test-[]cpu-[]vs-[]gpu-[]79fcd39170c$[]\OT1/ptm/m/n/10.95 .
  []
@@ -953,28 +957,28 @@ Underfull \hbox (badness 1308) in paragraph at lines 161--164
 []\OT1/ptm/m/n/10.95 ``Alistair Wal-lace project github.'' []$\OT1/pcr/m/n/10.95 https : / / github . com / alistairwallace97 / DNN _ short _
  []
 
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1202.
- [48]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1202.
+[48])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1241.
+ [49]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1241.
  (./aw3515_final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1202.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1202.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1202.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1241.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1241.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1241.
  ) 
 Here is how much of TeX's memory you used:
- 9555 strings out of 492982
- 147655 string characters out of 6134896
- 337661 words of memory out of 5000000
- 12697 multiletter control sequences out of 15000+600000
+ 9575 strings out of 492982
+ 148622 string characters out of 6134896
+ 338939 words of memory out of 5000000
+ 12711 multiletter control sequences out of 15000+600000
  30128 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,43p,960b,877s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on aw3515_final_report.pdf (49 pages, 1983482 bytes).
+Output written on aw3515_final_report.pdf (50 pages, 2020667 bytes).
 PDF statistics:
- 851 PDF objects out of 1000 (max. 8388607)
- 670 compressed objects within 7 object streams
- 233 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 873 PDF objects out of 1000 (max. 8388607)
+ 685 compressed objects within 7 object streams
+ 236 named destinations out of 1000 (max. 500000)
+ 241 words of extra memory for PDF output out of 10000 (max. 10000000)
 

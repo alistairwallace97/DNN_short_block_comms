@@ -765,7 +765,7 @@ This relationship means that the theoretical block error rate (BLER) can be calc
 
 BLER is defined by the European Telecommunication Standards Institue as \textit{"the ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"}~\cite{BlerEtsiDefinition}.
 
-This is taken to mean that if any of the bits in a block are incorrect, then the block is taken as wrong. The BLER is then the percentage of blocks which have any bits which are incorrect. This gives the following relationship between $P_{be}$ and $P_e$. 
+This is taken to mean that if any of the bits in a block are incorrect, then the block is taken as wrong. The BLER is then the percentage of blocks which have any bits which are incorrect. As the noise for each block is assumed to be i.i.d, the above definition gives the following relationship between $P_{be}$ and $P_e$ in Equation \ref{eq:BpskTheoBler}. Note that this assumes stationarity, which is often not a valid assumption in wireless channels.
 
 \begin{align}
    P_{be} &= 1 - (1-p_e)^n \\
@@ -963,31 +963,70 @@ However at $\frac{E_b}{N_0} = 8$ all three of the encoding schemes were achievin
 
 This intuition was correct, this led to the discovery $n$ being the number of real bits instead of number of complex bits discussed in the Section \ref{sec:AddingBpsk} on adding BPSK. After this error was corrected the Hamming HD BLER performance was a lot more conservative. The difference is shown in Figure \ref{fig:HammingCorrectRrComp}
 
-\subsubsection{(7,4) Autoencoder and t-SNE Constellation Diagrams}
+\subsubsection{Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}
 
 \begin{itemize}
    \item Made a (7,4) autoencoder model and compared it's performance against the others.
-   \item Used t-SNE to get constellation diagrams for the (7,4) model, both with and without noise. Figure \ref{fig:tSneConstellationDiags}
-   \item Found the t-SNE method of dimensionality reduction introduces some randomness and so the constellation diagram is slightly different each time.
-   \item Had to normalise the outputs of the t-SNE dimensionality reduction to zero-mean and unit power, despite it's input being stationary satisfying the afore-mentioned conditions
+   \item Note that it is interesting that the 7,4 has a constant instantaneous power constraint, but the t-SNE constellation diagram is the same as if it had an average power constraint.
+   \item Produced and (8,8) autoencoder as well, compared their performances in Figure \ref{fig:AutoencodersAllOriginalComparison}
+   \item Show the decrease in performance after $R_r$ was set to the correct value in Figure \ref{fig:AutoencodersAllRr1Comparison}
+   \item (8,8) and (7,4) are clearly underperforming, however this will be addressed in the section after next.
 \end{itemize}
+
+After producing the (4,4) BPSK, (7,4) Hamming HD and autoencoder (2,2) encoding schemes the (7,4) model was produced so that it could be compared against the Hamming HD encoding scheme. This required a different model making function and structure as it could not transmit complex channel symbols. The previous models had transmitted $n_c$ complex channel symbols, however as 7 is an odd number this required a shape of transmitter signals and a new regularisation function. Despite these necessary changes an initial (7,4) model was produced without too many issues. 
+
+The first check on that the autoencoder was performing correctly was to plot the constellation diagram. However this again required a new method. The constellation diagram for the (7,4) model has seven dimensions. So as in the O'Shea paper this was reduced to two dimension using t-SNE. This was done using the \code{sklearn} libraries \code{TSNE} function. 
+
+However some processing was required to produce the (7,4) tSNE constellation diagrams from ~\cite{oShea}'s Figures 4c and 4d. Firstly, despite the input to the tSNE function being normalised to have a constant unit instantaneous power constraint, the output has neither a non-zero power constraint, neither a zero mean. The constellation diagram was not at all stationary but an example of a typical constellation diagram is shown in Figure \ref{fig:tSneConstellationDiags}a.
+
+Because on the lack of power constraint the output had to be manually scaled after the t-SNE processing. First the mean was set to zero, and then the signal was scaled to have an average power unit power. At this point a constellation diagram similar to ~\cite{oShea}'s Figure 4c was produced, an example is shown in Figure \ref{fig:tSneConstellationDiags}b. However it should also be noted that due to the t-SNE being a stochastic method, the constellation diagram changed every time. The central point is very rarely centred on zero and there are often less nice looking diagrams than Figure \ref{fig:tSneConstellationDiags}b. It is suggested that a perfect looking constellation diagram cannot be representative of a randomly selected iteration of the model.
+
+Lastly a constellation diagram was produced of the channel symbols received at the transmitter from sending 200 of the full $M=16$ one-hot-encoded message sets through the AWGN channel. This constellation diagram is shown in Figure \ref{fig:tSneConstellationDiags}c. It was found that the small numbers of symbols transmitted with noise were much less likely to converge to a correct looking diagram, however increasing the number of symbols improved this somewhat, although not to the level of the constellations without noise like Figure \ref{fig:tSneConstellationDiags}b.
+
+As the (7,4) model produced correct looking constellation diagrams, with the input to the t-SNE reduction being consistent an (8,8) model was produced and their BLER performances assessed.
+
+At the same time an (8,8) autoencoder model was produced ...
+
+
 
 \begin{figure*}[t!]
    \centering
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_unnormalised.png}
+      \caption{Unprocessed t-SNE constellation diagram.}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.3\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/leaky_relu_7_4_constellation_diagram.png}
        \caption{t-SNE dimension reduced constellation diagram for a (7,4) autoencoder model.}
    \end{subfigure}
    ~
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.3\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_with_noise_200.png}
-       \caption{Received symbols with noise.}
+       \caption{200 full sets of all $M$ received symbols with noise.}
    \end{subfigure}
    \caption{t-SNE constellation diagrams}
    \label{fig:tSneConstellationDiags}
 \end{figure*}
+
+
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/autoencoders248_bler_EbNo_original_comparison.png}
+   \caption{Initial BLER performance comparison of (2,2), (8,8) and (7,4) autoencoder models. }
+   \label{fig:AutoencodersAllOriginalComparison}
+\end{figure}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/autoencoders248_bler_EbNo_Rr1_comparison.png}
+   \caption{Comparison of BLER performance of (2,2), (8,8) and (7,4) autoencoder models before and after $Rr$ was set to the correct value. }
+   \label{fig:AutoencodersAllRr1Comparison}
+\end{figure}
 
 
 \subsubsection{Adding Hamming MLD + MLD explanation}

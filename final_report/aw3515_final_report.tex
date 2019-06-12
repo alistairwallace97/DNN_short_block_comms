@@ -81,21 +81,25 @@
 
 This project is on machine learning for communications with short block lengths. A typical communication system is shown in Figure \ref{fig:ClassicalCommsBlockDiagram}. As can be seen, it has many discrete modular parts, all of which are optimised individually, however, it has been shown that this gives sub-optimal performance~\cite{ChannelEncodingOptimality}.
 
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/classical_comms_block_diagram.png}
-\end{center}
-   \caption{A block diagram of a classical communications system. Taken from ~\cite{EE3CommsSystemsNotesL4}.}
-\label{fig:ClassicalCommsBlockDiagram}
-\end{figure}
+\begin{figure*}[t!]
+   \centering
+   \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/classical_comms_block_diagram.png}
+      \caption{A block diagram of a classical communications system. Taken from ~\cite{EE3CommsSystemsNotesL4}.}
+      \label{fig:ClassicalCommsBlockDiagram}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/dnn_block_diagram.png}
+       \caption{A block diagram of a DNN based communication system. Based on a diagram from ~\cite{EE3CommsSystemsNotesL4}.}
+       \label{fig:DNNCommsBlockDiagram}
+   \end{subfigure}
+   \caption{A comparison of a classical and DNN based architecture to show how the DNNs simplify the architecture.}
+   \label{fig:tSneConstellationDiags}
+\end{figure*}
 
-\begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/dnn_block_diagram.png}
-\end{center}
-   \caption{A block diagram of a DNN based communication system. Based on a diagram from ~\cite{EE3CommsSystemsNotesL4}.}
-\label{fig:DNNCommsBlockDiagram}
-\end{figure}
 
 The idea of this research is to replace all the individually optimised modules with one deep neural network (DNN) each for the transmitter and receiver. This involves replacing everything within each blue box in Figure \ref{fig:ClassicalCommsBlockDiagram} with one neural network (NN), as is shown in Figure \ref{fig:DNNCommsBlockDiagram}. 
 
@@ -128,11 +132,10 @@ The paper then went on to investigate training two adversarial networks, but the
 
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/oShea_autoencoder_layout.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_layout.PNG}
    \caption{A diagram of the structure of the autoencoder model. Taken from~\cite{oShea}}
-\label{fig:oSheaAutoencoderLayout}
+   \label{fig:oSheaAutoencoderLayout}
 \end{figure}
 
 The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results were the main deliverables. Each of these sections would require writing some python code and then using this to reproduce the graphs and constellation diagrams. The authors stated that Keras "has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. Consequently Keras has also been used here to reproduce the results.
@@ -231,19 +234,17 @@ First O'Shea and Hoydis demonstrated it was possible to learn a full end-to-end 
 The autoencoder based model was competitive with or outperformed state of the art, in this case Hamming MLD (maximum likelihood decoding), DBPSK, TS-QAM (time sharing quadrature amplitude modulation) and boosted trees. It also offered the potential of being applied to channels which were differentiable, but where the optimal solutions were not known. 
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/oShea_autoencoder_hamming_comp.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_hamming_comp.PNG}
    \caption{Comparing block error rate for different SNRs of a learned autoencoder model with current state of the art, Hamming MLD. Taken from~\cite{oShea}}
-\label{fig:oSheaAutoencoderHamming}
+   \label{fig:oSheaAutoencoderHamming}
 \end{figure}
 
 O'Shea and Hoydis then extended this to an adversarial network of many Rx Tx pairs competing for capacity. Next showing this was the same as a single larger MIMO NN which could be optimised in one go with a common or individual performance metric. The jointly learned metric outperformed a TS-QAM system across a range of SNRs as can be seen in \ref{fig:oSheaAutoencoderTsQam}.
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/oShea_autoencoder_TS_QAM.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_TS_QAM.PNG}
    \caption{Comparing block error rate for different SNRs of a learned autoencoder model with a TS-QAM system for a multi-agent communication system. From~\cite{oShea}}
 \label{fig:oSheaAutoencoderTsQam}
 \end{figure}
@@ -255,9 +256,8 @@ After this the authors added an RTN (radio transfer network). RTNs can perform a
 The learned system with added RTN's performance over a Rayleigh channel, with 3 ($L = 3$) fading taps, can be seen in Figure \ref{fig:oSheaRtnRayleigh}. It should also be noted that not only did the RTN consistently outperform current state of the art, it also converged significantly faster than the normal autoencoder. This can be seen in Figure 10 of ~\cite{oShea}.
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/oShea_autoencoder_RTN_rayleigh_comp.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_RTN_rayleigh_comp.PNG}
    \caption{BLER versus Eb/N0 for various communication schemes over a channel with L = 3 Rayleigh fading taps. Taken from~\cite{oShea}}
 \label{fig:oSheaRtnRayleigh}
 \end{figure}
@@ -265,9 +265,8 @@ The learned system with added RTN's performance over a Rayleigh channel, with 3 
 Lastly O'Shea and Hoydis used a convolutional neural network (CNN) on raw coplex valued in-phase and quaternary (IQ) samples and found that it outperformed traditional classification techniques using expert features. This is consistent with the current trend that learned features are better than expert ones. 
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/oShea_CNN_Rx_classification.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/oShea_CNN_Rx_classification.PNG}
    \caption{Classification performance comparison versus SNR. Taken from~\cite{oShea}}
 \label{fig:oSheaCnnRxClassification}
 \end{figure}
@@ -282,9 +281,8 @@ As highlighted in the conclusion of the O'Shea paper, if an autoencoder like NN 
 They produced a novel algorithm which solves the problem by iterating between the supervised training at the receiver and reinforcement learning (RL) at the transmitter. They showed it worked as well as supervised methods using additive white Gaussian noise (AWGN) and using Rayleigh block-fading (RBF) channels. Their method converged slower on AWGN but faster on RBF as can be seen in Figure \ref{fig:AoudiaTrainingSpeeds}. This is the first step towards learning comms systems over any type of channel without any prior assumptions. 
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/Aoudia_relative_training_speeds.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/Aoudia_relative_training_speeds.PNG}
    \caption{Evolution of the error rate over the first 500 iterations. Taken from~\cite{Aoudia}}
 \label{fig:AoudiaTrainingSpeeds}
 \end{figure}
@@ -296,17 +294,15 @@ The "alternating training algorithm" trains the receiver first then the transmit
 The authors found that the alternating method took longer to converge with for the AWGN channel but less time for the RBF channel than the supervised learning method. However it had the same end performance as the supervised method in both cases. This performance can be seen in Figures \ref{fig:AoudiaPerformanceAwgn} and \ref{fig:AoudiaPerformanceRbf}.
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/Aoudia_AWGN_performance.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/Aoudia_AWGN_performance.PNG}
    \caption{Alternative training vs autoencoder methods for AWGN Channel. Taken from~\cite{Aoudia}}
 \label{fig:AoudiaPerformanceAwgn}
 \end{figure}
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/Aoudia_RBF_performance.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/Aoudia_RBF_performance.PNG}
    \caption{Alternative training vs autoencoder methods for RBF Channel. Taken from~\cite{Aoudia}}
 \label{fig:AoudiaPerformanceRbf}
 \end{figure}
@@ -324,9 +320,8 @@ This paper, written by Varasteh, Piovano and Clerkx has a slightly different foc
 There is a fundamental trade-off between the information rate and the power rate and so the NNs are optimised using a joint loss function. The observed results were inline with previously known theoretical results, particularly in that as you raise the demand for energy, the constellation diagram converges to one point a long way out along one of the axes, and the others closely clustering around the origin. However while this is what they would expect from the theory, it would not be possible to find these results theoretically or using numerical methods. So these found constellation, which can be found in Figure \ref{fig:VarastehConstellationDiagrams}, diagrams are novel and significant.
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/Varasteh_novel_constellation_diagrams.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/Varasteh_novel_constellation_diagrams.PNG}
    \caption{Representation of 16-symbols modulation for different values of λ (different information rate and power demand at the receiver) with SNR 20 dB. By increasing λ, the delivered power at the receiver increases. Taken from~\cite{Clerkx}}
 \label{fig:VarastehConstellationDiagrams}
 \end{figure}
@@ -350,9 +345,8 @@ Fading can be categorised into large or small scale, fast or slow and flat or fr
 In a learned communication system these factors could be taken account of, and as long as they were stationary an optimal communication system could be learned with no assumptions. Taking advantage of these factors is something a traditional communication would find more difficult.
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/time_freq_coherence.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/time_freq_coherence.PNG}
    \caption{A figure to demonstrate the meaning of coherence time ($T_{coh}$) and coherence bandwidth ($B_{coh}$) from~\cite{EE3CommsSystemsNotesL4}}
 \label{fig:coherence_illus}
 \end{figure}
@@ -360,9 +354,8 @@ In a learned communication system these factors could be taken account of, and a
 To explain fast and slow fading we must first explain the meaning of coherence time. Coherence time is the time for which a channel is roughly constant as is shown by the diagram in Figure \ref{fig:coherence_illus}. There is little consensus as to exactly what fast and slow fading means~\cite{WirelessTextbookC2}. One interpretation is that a channel is fast fading if the coherence time is less than the delay requirement of the application, whereas is defined as slow fading if the coherence time is greater than the delay requirement of the application. However another definition which is shown in ~\cite{EE3CommsSystemsNotesL4} and is demonstrated in Figure \ref{fig:fast_slow_flat_freq_selec_fading} is that fading is fast if the time per channel symbol ($T_{cs}$) is greater than the coherence time ($T_{coh}$).
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/fast_slow_flat_freq_selec_fading.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/fast_slow_flat_freq_selec_fading.PNG}
    \caption{A figure showing how to classify a channel as fast/slow and flat/frequency selective fading taken from~\cite{EE3CommsSystemsNotesL4}}
 \label{fig:fast_slow_flat_freq_selec_fading}
 \end{figure}
@@ -470,9 +463,8 @@ The development was started by building a simple autoencoder model in using Kera
 The model had a single dense layer transmitter, L2 normalisation layer, a Gaussian channel layer and a single dense layer receiver. This meant when tested after training over 1000 epochs it gave the input output relationship shown in Figure \ref{fig:CodeInitialOutput}.
 
 \begin{figure}[t]
-\begin{center}
+   \centering
    \includegraphics[width=0.8\linewidth]{figures/initial_ae_output.png}
-\end{center}
    \caption{The input output of the initial autoencoder model during testing. }
 \label{fig:CodeInitialOutput}
 \end{figure}
@@ -482,9 +474,8 @@ The model had a single dense layer transmitter, L2 normalisation layer, a Gaussi
 Clearly no noise has been added in the testing case. This was because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer can be found by searching for "class GaussianNoise" in the \code{initial$\_$dnn$\_$comms.ipynb} notebook from the project github~\cite{AwGithub}. This changed the input output relationship to the one shown in Figure \ref{fig:CodeGaussianNoise2}.
 
 \begin{figure}[t]
-\begin{center}
+   \centering
    \includegraphics[width=0.8\linewidth]{figures/ae1_1_with_noise.png}
-\end{center}
    \caption{The input output of the autoencoder model with gaussian noise added at test time. }
 \label{fig:CodeGaussianNoise2}
 \end{figure}
@@ -496,9 +487,8 @@ The output of the receiver was a softmax layer, which gave an aposteri probabili
 To deal with this another custom layer was added to the output of the model which would take in the aposteri probability distribution and output the most likely symbol. An example of input output of this layer is shown in Figure \ref{fig:MostLikelySymbolLayer}.
 
 \begin{figure}[t]
-\begin{center}
+   \centering
    \includegraphics[width=0.8\linewidth]{figures/most_likely_symbol_io.PNG}
-\end{center}
    \caption{The input output of the MostLikelySymbol layer for a randomly generated discrete pdf input. }
 \label{fig:MostLikelySymbolLayer}
 \end{figure}
@@ -512,17 +502,15 @@ Next the channel symbols were turned into complex numbers to represent the in-ph
 This allowed channel symbols to be meaningfully plotted. Some channel symbols for a (2,2) autoencoder are shown in Figure \ref{fig:WrongConstellationDiagram}, but there are clearly only three constellation points, despite the fact there should be four as it should converge to a QPSK constellation diagram. This was because the model had not learnt the $(1,1)$ channel symbol and so the first and third symbols were mapped to the same channel symbol. This was clearly an error, however it's source was not yet found until later. 
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/wrong_constellation_diagram.png}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/wrong_constellation_diagram.png}
    \caption{A constellation diagram produced by a trained (2,2) model which is clearly wrong. }
 \label{fig:WrongConstellationDiagram}
 \end{figure}
 
 \begin{figure}[t]
-\begin{center}
-   \includegraphics[width=0.8\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
-\end{center}
+   \centering
+   \includegraphics[width=0.5\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
    \caption{An example of a correct QPSK constellation diagram taken from ~\cite{EE3CommsSystemsNotesL4}. }
 \label{fig:CommsSystemsConstelDiagEg}
 \end{figure}
@@ -1070,7 +1058,7 @@ Figure \ref{fig:HammingBlerAll}.
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.8\linewidth]{figures/autoencoder_8_8_bler_EbNo_2-5_layers.png}
+   \includegraphics[width=0.5\linewidth]{figures/autoencoder_8_8_bler_EbNo_2-5_layers.png}
    \caption{Comparison of different number of layers for the (8,8) autoencoder model.}
    \label{fig:NumLayersBler}
 \end{figure}
@@ -1107,17 +1095,17 @@ Figure \ref{fig:HammingBlerAll}.
 \end{itemize}
 
 \begin{figure}[t]
-   \begin{center}
-      \includegraphics[width=0.8\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
-   \end{center}
+      \centering
+      \includegraphics[width=0.5\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
+
       \caption{Final reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
    \label{fig:OSheaFigure3a}
 \end{figure}
 
 \begin{figure}[t]
-   \begin{center}
-      \includegraphics[width=0.8\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
-   \end{center}
+      \centering
+      \includegraphics[width=0.5\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
+
       \caption{Final reproduction of ~\cite{oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.}
    \label{fig:OSheaFigure3b}
 \end{figure}

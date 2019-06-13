@@ -1,54 +1,54 @@
-\contentsline {section}{\numberline {1}\hskip -1em.\nobreakspace {}Introduction}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}\hskip -1em.\nobreakspace {}Introduction to the subject}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}\hskip -1em.\nobreakspace {}Project deliverables}{4}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Side note on autoencoders}{4}{subsubsection.1.2.1}
-\contentsline {subsubsection}{\numberline {1.2.2}Project deliverables continued}{4}{subsubsection.1.2.2}
-\contentsline {subsection}{\numberline {1.3}\hskip -1em.\nobreakspace {}Motivation}{6}{subsection.1.3}
-\contentsline {section}{\numberline {2}\hskip -1em.\nobreakspace {}Background}{7}{section.2}
-\contentsline {subsection}{\numberline {2.1}\hskip -1em.\nobreakspace {}General background}{8}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}\hskip -1em.\nobreakspace {}Paper 1 - An introduction to deep learning for the physical layer}{8}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}\hskip -1em.\nobreakspace {}Paper 2 - End-to-end learning of communication systems without a channel model}{11}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}\hskip -1em.\nobreakspace {}Paper 3 - A learning approach to wireless information and power transfer signal and system design}{13}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}\hskip -1em.\nobreakspace {}Background communications theory}{15}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}Types of fading}{15}{subsubsection.2.5.1}
-\contentsline {subsubsection}{\numberline {2.5.2}Capacity and block lengths}{16}{subsubsection.2.5.2}
-\contentsline {subsection}{\numberline {2.6}\hskip -1em.\nobreakspace {}Additional notes}{17}{subsection.2.6}
-\contentsline {subsection}{\numberline {2.7}\hskip -1em.\nobreakspace {}Analysis of competing products}{18}{subsection.2.7}
-\contentsline {subsection}{\numberline {2.8}\hskip -1em.\nobreakspace {}Analysis of necessary software tools}{18}{subsection.2.8}
-\contentsline {subsection}{\numberline {2.9}\hskip -1em.\nobreakspace {}Analysis of necessary hardware}{19}{subsection.2.9}
-\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace {}Evaluation Strategy}{19}{section.3}
-\contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace {}Design and Implementation}{20}{section.4}
-\contentsline {subsection}{\numberline {4.1}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{20}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Initial autoencoder model}{20}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Adding noise at test time}{20}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Adding a most likely symbol layer}{20}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}Making the channel symbols complex numbers}{21}{subsubsection.4.1.4}
-\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{22}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Batch vs L2 normalisation}{22}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Leaky-Relu over ReLu}{24}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Comparing different activation functions}{25}{subsubsection.4.2.3}
-\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace {}Adding non learned encoding}{26}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Adding BPSK encoding}{26}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Adding hamming hard decision encoding}{29}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}Initial Hamming HD performance and debugging}{32}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}{33}{subsubsection.4.3.4}
-\contentsline {subsubsection}{\numberline {4.3.5}Adding Hamming MLD + MLD explanation}{35}{subsubsection.4.3.5}
-\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{36}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Initial figures looking wrong}{36}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}Finding errors}{36}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}Meeting with Morteza}{37}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}{38}{subsubsection.4.4.4}
-\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{38}{subsection.4.5}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{39}{section.5}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{39}{section.6}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{39}{section.7}
-\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Conclusions}{39}{section.8}
-\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Further Work}{39}{section.9}
-\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{40}{appendix.A}
-\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{40}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{40}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{40}{subsection.B.2}
-\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{40}{subsubsection.B.2.1}
-\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{41}{subsubsection.B.2.2}
-\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{41}{subsubsection.B.2.3}
-\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{41}{subsection.B.3}
+\contentsline {section}{\numberline {1}\hskip -1em.\nobreakspace {}MUST DO BEFORE SUBMISSION}{3}{section.1}
+\contentsline {section}{\numberline {2}\hskip -1em.\nobreakspace {}Introduction}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}\hskip -1em.\nobreakspace {}Introduction to the subject}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}\hskip -1em.\nobreakspace {}Project deliverables}{3}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Side note on autoencoders}{4}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Project deliverables continued}{5}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}\hskip -1em.\nobreakspace {}Motivation}{7}{subsection.2.3}
+\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace {}Background}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace {}General background}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}\hskip -1em.\nobreakspace {}Paper 1 - An introduction to deep learning for the physical layer}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}\hskip -1em.\nobreakspace {}Paper 2 - End-to-end learning of communication systems without a channel model}{11}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}\hskip -1em.\nobreakspace {}Paper 3 - A learning approach to wireless information and power transfer signal and system design}{13}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}\hskip -1em.\nobreakspace {}Background communications theory}{15}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Types of fading}{15}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Capacity and block lengths}{16}{subsubsection.3.5.2}
+\contentsline {subsection}{\numberline {3.6}\hskip -1em.\nobreakspace {}Additional notes}{18}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}\hskip -1em.\nobreakspace {}Analysis of competing products}{18}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}\hskip -1em.\nobreakspace {}Analysis of necessary software tools}{19}{subsection.3.8}
+\contentsline {subsection}{\numberline {3.9}\hskip -1em.\nobreakspace {}Analysis of necessary hardware}{19}{subsection.3.9}
+\contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace {}Evaluation Strategy}{19}{section.4}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Design and Implementation}{20}{section.5}
+\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{20}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Initial autoencoder model}{20}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Adding noise at test time}{20}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Adding a most likely symbol layer}{20}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Making the channel symbols complex numbers}{21}{subsubsection.5.1.4}
+\contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace {}Paper 1 - Producing an Autoencoder}{23}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Batch vs L2 normalisation}{23}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Leaky-Relu over ReLu}{24}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Comparing different activation functions}{26}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}\hskip -1em.\nobreakspace {}Adding non learned encoding}{27}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Adding BPSK encoding}{27}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Adding hamming hard decision encoding}{30}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Initial Hamming HD performance and debugging}{33}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}{33}{subsubsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.5}Adding Hamming MLD + MLD explanation}{36}{subsubsection.5.3.5}
+\contentsline {subsection}{\numberline {5.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{39}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Finding errors and improving performance}{39}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Finding incorrect scaling}{40}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}Upshots of meeting/getting final curves - BCH coding and Hamming HD looking incorrect}{41}{subsubsection.5.4.3}
+\contentsline {subsection}{\numberline {5.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{42}{subsection.5.5}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Testing}{43}{section.6}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Results}{43}{section.7}
+\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Evaluation}{43}{section.8}
+\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Conclusions}{43}{section.9}
+\contentsline {section}{\numberline {10}\hskip -1em.\nobreakspace {}Further Work}{43}{section.10}
+\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{44}{appendix.A}
+\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{44}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{44}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{44}{subsection.B.2}
+\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{44}{subsubsection.B.2.1}
+\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{45}{subsubsection.B.2.2}
+\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{45}{subsubsection.B.2.3}
+\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{45}{subsection.B.3}

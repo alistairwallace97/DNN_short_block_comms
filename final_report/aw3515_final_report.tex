@@ -25,6 +25,8 @@
 
 \def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
 \def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+\newcommand\genfigsize{0.5}
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 \begin{document}
 
@@ -64,6 +66,17 @@
 %%%%%%%%% Contents Page
 \tableofcontents
 \pagebreak
+
+\section{MUST DO BEFORE SUBMISSION}
+
+\begin{itemize}
+   \item Correct Figure 1b Block, Diagram.
+   \begin{itemize}
+      \item Transmitter and Receiver the wrong way round.
+      \item Receiver spelt "Reveiver"
+   \end{itemize} 
+   \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
+\end{itemize}
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}   
@@ -133,7 +146,7 @@ The paper then went on to investigate training two adversarial networks, but the
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_layout.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/oShea_autoencoder_layout.PNG}
    \caption{A diagram of the structure of the autoencoder model. Taken from~\cite{oShea}}
    \label{fig:oSheaAutoencoderLayout}
 \end{figure}
@@ -235,7 +248,7 @@ The autoencoder based model was competitive with or outperformed state of the ar
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_hamming_comp.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/oShea_autoencoder_hamming_comp.PNG}
    \caption{Comparing block error rate for different SNRs of a learned autoencoder model with current state of the art, Hamming MLD. Taken from~\cite{oShea}}
    \label{fig:oSheaAutoencoderHamming}
 \end{figure}
@@ -244,7 +257,7 @@ O'Shea and Hoydis then extended this to an adversarial network of many Rx Tx pai
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_TS_QAM.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/oShea_autoencoder_TS_QAM.PNG}
    \caption{Comparing block error rate for different SNRs of a learned autoencoder model with a TS-QAM system for a multi-agent communication system. From~\cite{oShea}}
 \label{fig:oSheaAutoencoderTsQam}
 \end{figure}
@@ -257,7 +270,7 @@ The learned system with added RTN's performance over a Rayleigh channel, with 3 
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/oShea_autoencoder_RTN_rayleigh_comp.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/oShea_autoencoder_RTN_rayleigh_comp.PNG}
    \caption{BLER versus Eb/N0 for various communication schemes over a channel with L = 3 Rayleigh fading taps. Taken from~\cite{oShea}}
 \label{fig:oSheaRtnRayleigh}
 \end{figure}
@@ -266,7 +279,7 @@ Lastly O'Shea and Hoydis used a convolutional neural network (CNN) on raw coplex
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/oShea_CNN_Rx_classification.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/oShea_CNN_Rx_classification.PNG}
    \caption{Classification performance comparison versus SNR. Taken from~\cite{oShea}}
 \label{fig:oSheaCnnRxClassification}
 \end{figure}
@@ -282,7 +295,7 @@ They produced a novel algorithm which solves the problem by iterating between th
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/Aoudia_relative_training_speeds.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/Aoudia_relative_training_speeds.PNG}
    \caption{Evolution of the error rate over the first 500 iterations. Taken from~\cite{Aoudia}}
 \label{fig:AoudiaTrainingSpeeds}
 \end{figure}
@@ -295,14 +308,14 @@ The authors found that the alternating method took longer to converge with for t
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/Aoudia_AWGN_performance.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/Aoudia_AWGN_performance.PNG}
    \caption{Alternative training vs autoencoder methods for AWGN Channel. Taken from~\cite{Aoudia}}
 \label{fig:AoudiaPerformanceAwgn}
 \end{figure}
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/Aoudia_RBF_performance.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/Aoudia_RBF_performance.PNG}
    \caption{Alternative training vs autoencoder methods for RBF Channel. Taken from~\cite{Aoudia}}
 \label{fig:AoudiaPerformanceRbf}
 \end{figure}
@@ -321,7 +334,7 @@ There is a fundamental trade-off between the information rate and the power rate
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/Varasteh_novel_constellation_diagrams.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/Varasteh_novel_constellation_diagrams.PNG}
    \caption{Representation of 16-symbols modulation for different values of λ (different information rate and power demand at the receiver) with SNR 20 dB. By increasing λ, the delivered power at the receiver increases. Taken from~\cite{Clerkx}}
 \label{fig:VarastehConstellationDiagrams}
 \end{figure}
@@ -346,7 +359,7 @@ In a learned communication system these factors could be taken account of, and a
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/time_freq_coherence.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/time_freq_coherence.PNG}
    \caption{A figure to demonstrate the meaning of coherence time ($T_{coh}$) and coherence bandwidth ($B_{coh}$) from~\cite{EE3CommsSystemsNotesL4}}
 \label{fig:coherence_illus}
 \end{figure}
@@ -355,7 +368,7 @@ To explain fast and slow fading we must first explain the meaning of coherence t
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/fast_slow_flat_freq_selec_fading.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/fast_slow_flat_freq_selec_fading.PNG}
    \caption{A figure showing how to classify a channel as fast/slow and flat/frequency selective fading taken from~\cite{EE3CommsSystemsNotesL4}}
 \label{fig:fast_slow_flat_freq_selec_fading}
 \end{figure}
@@ -426,6 +439,7 @@ One of the project specifications given to the author was to do the project in p
 The main software tool that being used is Keras with a Tensorflow backend. These are both open source machine learning libraries designed to make machine learning easier at a higher level. Allowing users to describe complicated networks in many fewer lines of code. The other reason that Keras has been chosed is that the two paper's being reproduced both specify that they used Keras~\cite{oShea,Aoudia}. 
 
 \subsection{Analysis of necessary hardware}
+\label{sec:HardwareAnalysis}
 
 The main hardware specification is what device is needed to be able to train and test Keras models on. While any modern cpu core will be able to run Keras, it would be significantly faster to train and test on a graphical processing unit (GPU) as shown here~\cite{TensorflowBenchmarking}. But tensorflow and keras can still run on a simple cpu, and this requirement will be satisfied by any modern laptop or desktop. 
 
@@ -503,14 +517,14 @@ This allowed channel symbols to be meaningfully plotted. Some channel symbols fo
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/wrong_constellation_diagram.png}
+   \includegraphics[width=\genfigsize\linewidth]{figures/wrong_constellation_diagram.png}
    \caption{A constellation diagram produced by a trained (2,2) model which is clearly wrong. }
 \label{fig:WrongConstellationDiagram}
 \end{figure}
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
+   \includegraphics[width=\genfigsize\linewidth]{figures/EE3-03_comms_systems_qpsk_constellation_diagram.PNG}
    \caption{An example of a correct QPSK constellation diagram taken from ~\cite{EE3CommsSystemsNotesL4}. }
 \label{fig:CommsSystemsConstelDiagEg}
 \end{figure}
@@ -638,7 +652,7 @@ The improved (2,2) constellation diagram seen in Figure \ref{fig:Lr22ConstDiags}
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.4\linewidth]{figures/autoencoder_2_2_bler_EbNo_leaky_vs_relu.png}
+   \includegraphics[width=\genfigsize\linewidth]{figures/autoencoder_2_2_bler_EbNo_leaky_vs_relu.png}
    \caption{A comparison of the BLER performance of two leaky-ReLu and ReLu based (2,2) autoencoder models.}
    \label{fig:ReluVsLrBlerAcrossSnrs}
 \end{figure}
@@ -678,12 +692,12 @@ The results can be seen in Figure \ref{fig:ActivationFuncComparison} and Table \
 \hline
 Activation Function & Mean & Min & $\sigma$\\
 \hline\hline
-ReLu & $0.55835$ & $0.05784$ & $2.3023e-1$ \\
-Tanh & $0.00156$ & $0.00151$ & $3.0000e-5$ \\
-Sigmoid & $0.29459$ & $0.29413$ & $3.2000e-4$\\
-Linear & $0.00157$ & $0.00153$ & $4.0000e-5$\\
-Softmax & $0.43870$ & $0.29450$ & $9.4200e-2$\\
-Leaky ReLu & $0.00156$ & $0.00147$ & $3.0000e-5$\\
+ReLu & $0.55835$ & $0.05784$ & $2.30e-1$ \\
+Tanh & $0.00156$ & $0.00151$ & $3.00e-5$ \\
+Sigmoid & $0.29459$ & $0.29413$ & $3.20e-4$\\
+Linear & $0.00157$ & $0.00153$ & $4.00e-5$\\
+Softmax & $0.43870$ & $0.29450$ & $9.42e-2$\\
+Leaky ReLu & $0.00156$ & $0.00147$ & $3.00e-5$\\
 \hline
 \end{tabular}
 \end{center}
@@ -922,7 +936,19 @@ After the error correction stage the message must be decoded. The message is sim
    \hat{\mathbf{p}} = \mathbf{Rp}
 \end{equation}
 
-It should be reiterated that the Hamming (7,4) will incorrectly diagnose multiple bit errors and so will not be able to correct them. As with the previous section the code for the Hamming (7,4) Hard Encoding can be found in the \textit{Hamming Hard Decision Encoded BPSK} section of the \code{initial$\_$dnn$\_$comms.ipynb} notebook in ~\cite{AwGithub}.
+It should be reiterated that the Hamming (7,4) will incorrectly diagnose multiple bit errors and so will not be able to correct them. As with the previous section the exact code for the Hamming (7,4) Hard Encoding can be found in the \textit{Hamming Hard Decision Encoded BPSK} section of the \code{initial$\_$dnn$\_$comms.ipynb} notebook in ~\cite{AwGithub}, but some psuedo code for end-to-end encoding and decoding process is provided below.
+
+\begin{lstlisting}[escapeinside={(*}{*)}]
+   # Encode the one_hot_encoded_vectors into bits
+   (*$s$*) = hamming_7_4_encode((*$p$*), G)   
+   # Add noise
+   (*$e$*) = std * np.random.randn((*$s$*).shape)
+   (*$r$*) = (*$s$*) + (*$e$*)
+   # Do error correction and decode message
+   (*$\hat{p}$*) = hamming_7_4_decode_and_correct((*$r$*), H, R_ham)
+   # Get Block error rate
+   bler = get_block_error_rate((*$p$*), (*$\hat{p}$*))
+\end{lstlisting}
 
 \subsubsection{Initial Hamming HD performance and debugging}
 
@@ -942,7 +968,7 @@ These results did not appear to be correct, despite all three of the encoding sc
 
 \begin{figure}
    \centering
-   \includegraphics[width=0.6\linewidth]{figures/hamming_correct_Rr_comparison.png}
+   \includegraphics[width=\genfigsize\linewidth]{figures/hamming_correct_Rr_comparison.png}
    \caption{Comparison Hamming HD BLER performance with correct and incorrect values of $R_r$.}
    \label{fig:HammingCorrectRrComp}
 \end{figure}
@@ -1014,101 +1040,206 @@ At the end of this section the (7,4) and (8,8) autoencoder models are clearly si
 
 \subsubsection{Adding Hamming MLD + MLD explanation}
 
-PUT A LOAD OF MATHS IN HERE EXPAINING HOW IT WORKS, SHOULD BE RELATIVELY EASY.
+Maximum likelihood decoding is a simple concept. The probability of each possible codeword $s$ in a codebook $s\epsilon S$ having been sent, given a received signal $r$ is calculated. Then the codeword with the maximum likelihood of having been sent is selected. This is mathematically formulated below.
 
-Figure \ref{fig:HammingBlerAll}.
+\begin{align}
+   \hat{s} &= \underset{i}{\argmax\left[P\left(s_i\;\middle|\;r\right)\right]} \\
+    &= \underset{i}{\argmax}\left[\frac{P\left(s_i\cap r\right)}{P\left(r\right)}\right]
+\end{align}
+
+Now note that, as this will be computed for all of the possible $s_i$s and the relative size is the only thing which is cared about, the $P\left(r\right)$ can be taken out as a common factor.
+
+\begin{align}
+   \therefore \hat{s} &= \underset{i}{\argmax}\left[P\left(s_i\cap r\right)\right] \nonumber
+\end{align}
+
+Now given that $s_i$ and $r$ are each made up of $n$ bits, and that as the channel here is AWGN, the noise applied to each bit is treated as independent and identically distributed. Therefore Equation \ref{eq:HammingNoiseIid} is true.
+
+\begin{align}
+   P\left(s_i\cap r\right) &= \prod_{j=1}^{n} P\left(s_{i,j}\cap r_j\right)
+   \label{eq:HammingNoiseIid}
+\end{align}
+
+Now let $n$ be the Gaussian noise vector which is added in the channel. So Equation \ref{eq:HammingPsAndR} can be found from the below equations.
+
+\begin{align}
+   r &= s + n \nonumber\\
+   \therefore n_j &= r_j - s_{j} \nonumber\\
+   \therefore P\left(s_i\cap r\right) &= P\left(N=n_j\right) \nonumber\\
+   &= P\left(N=r_j - s_j\right) \nonumber\\
+   \mbox{so as: } N \sim \mathcal{N}\left( 0,\sigma^2\right) \nonumber\\
+   P\left(s_{i,j}\cap r_j\right) &= \frac{1}{\sqrt{2\pi\sigma^2}}e^{\frac{(r_j - s_{i,j})^2}{2\sigma^2}} \nonumber\\
+   \therefore \mbox{ from \ref{eq:HammingNoiseIid}: }P\left(s_i\cap r\right) &= \prod_{j=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}}e^{\frac{(r_j - s_{i,j})^2}{2\sigma^2}}
+   \label{eq:HammingPsAndR}
+\end{align}
+
+Therefore the final operator for finding the maximum likelihood estimate of $s$ is given by the two equations summarised below.
+
+\begin{subequations}
+\begin{align}
+   \hat{s} &= \underset{i}{\argmax}\left[P\left(s_i\cap r\right)\right] \label{eq:HammingFinalSHat}\\
+   \mbox{where: } P\left(s_i\cap r\right) &= \prod_{j=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}}e^{\frac{(r_j - s_{i,j})^2}{2\sigma^2}}
+\end{align}
+\end{subequations}
+
+To find the maximum likelihood sent message the operator in Equation \ref{eq:HammingFinalSHat} is evaluated on every received codeword. Pseudo code illustrating how the performance of this method was evaluated for a set of messaged denoted $p$ is shown below. The exact code can be found in the \textit{Hamming Encoding with MLD} section of the \code{initial$\_$dnn$\_$comms.ipynb}.
+
+\begin{lstlisting}[escapeinside={(*}{*)}]
+   # Encode the one_hot_encoded_vectors into bits
+   (*$s$*) = hamming_7_4_encode((*$p$*), G)   
+   # Add noise
+   (*$n$*) = std * np.random.randn((*$s$*).shape)
+   (*$r$*) = (*$s$*) + (*$n$*)
+   # Do maximum likelihood decoding
+   (*$\hat{s}$*) = ml_decode((*$r$*),bpsk(hamming((*$S$*))),std)
+   # Convert ML message out of BPSK
+   (*$\hat{p}$*) = bpsk_decode_vec((*$\hat{s}$*))
+   # Get Block error rate
+   bler = get_block_error_rate((*$p$*), (*$\hat{p}$*))
+\end{lstlisting}
+
+Note that the process is made more efficient by entirely skipping the linear algebra of hamming decoding. The bpsk and hamming encoded codewords are used for maximum likelihood decoding instead of the codewords, then the encoded messages are mapped directly back to their original message counterparts using a look-up table. The BPSK decoding step was left in as it was very simple and had been vectorised for numpy making it very efficient already. 
+
+After the Hamming MLD had been implemented it's performance was assessed over a range of SNRs. It performed very well first time, with the only fault being that it was run over too small a data set giving jaggedly lines at low error rates. The performance can be see in Figure \ref{fig:HammingMldBlerAll}.
 
 \begin{figure}
    \centering
    \includegraphics[width=0.6\linewidth]{figures/hamming_7_4_bler_vs_EbNo_comparison.png}
    \caption{Comparison of all Hamming encoding BLERs.}
-   \label{fig:HammingBlerAll}
+   \label{fig:HammingMldBlerAll}
 \end{figure}
+
+Part of the reason for it's superior performance is that Hamming MLD can correct some multiple bit errors which Hamming HD can not. For instance, in the case where $s = 0,0,0,0,0,0,0$ and $r = 0.5,0.5,0,0,0,0,0$. With Hamming HD the 0.5s would be rounded to 1s, at which point there would be two incorrect bits which could not be decoded by Hamming HD. But in Hamming MLD there is no rounding and this sequence is still closer by Hamming distance to the $s = 0,0,0,0,0,0,0$ codeword than to all other of the codewords.
+
+Out of curiosity the extra performance gain from only transmitting a four bit one-hot encoded vector instead of a a normal four bit vector was investigated. This was interesting because the autoencoders receive $M$ bit one hot encoded vectors instead of $k$ bit normal binary vectors. It was hoped that some parallels might be able to be drawn between the performance gains of the two methods switching between the two. 
+
+The performance of the MLD only transmitting one-hot encoded vectors is shown by Line "\textit{ML half rate}" in Figure \ref{fig:HammingMldBlerAll}. There is a relatively marginal improvement in performance which does not make up for the halfing of the date rate. It should be noted that the autoencoder models are still transmitting the same information content per symbol as the Hamming models they are being compared against as they input a 16 bit one-hot-encoded vector instead of a 4 bit binary encoded vector.
+
+The small improvement in performance suggests that the autoencoder models could likely, given enough training time significantly improve their data throughput by inputting a binary instead of a one-hot-encoded vector, without significantly increasing the BLER.
 
 \subsection{Reproducing Figure 3a and 3b from the O'Shea paper}
 
-\subsubsection{Initial figures looking wrong}
+\subsubsection{Finding errors and improving performance}
+
 \label{sec:Improving88And74}
 
-\begin{itemize}
-   \item Produced Figure's 3a and 3b from the O'Shea paper, however the ordering of the capabilities of the encoding methods is not in the right order. The (8,8) and (7,4) autoencoders underperform, and BPSK over performs.
-   \begin{itemize}
-      \item The ordering is odd, I would expect it to be from best to worst: (7,4), (2,2), (8,8). But it is actually currently: (2,2), (7,4), (8,8).
-      \item I have yet to find out what Hamming Maximum Likelihood Decision is.
-   \end{itemize}
-\end{itemize}
+At this point all of the models had been implemented, so the focus of this section was to find any bugs and improve the models to give equal or better performance to those in the paper. The ordering of the models was the opposite of what would be expected. From best to worst the ordering was (2,2), (7,4) then (8,8), whereas it would be expected (7,4), (8,8) then (2,2). Additionally BPSK was significantly overperforming.  
 
-\subsubsection{Finding errors}
+The first place to start was that the (7,4) and (8,8) models were significantly underperforming. It was thought that the more complex models might be underperforming from underfitting due to insufficient layers or an unsuitable activation function. At this point the activation function of all the layers other than the final receiver layer had a \code{leaky-ReLu} activation function. It was also thought that the layer widths dropping in one step from 256 to 8 for the (8,8) case may be causing the issue. So a general function was written to produce an $n$ layer model, with the last layer having a \code{tanh} activation function to capture non-linearity. This model also had linearly tapered layer widths to try and improve the fitting of the function. 
 
-\begin{itemize}
-   \item Decided that the reason the (8,8) and (7,4) models might be underperforming may be because of a lack of layers, so tried increasing the number of layers and making the final layer of each block have a tanh activation funciton to try and capture non-linearity.
-   \item I realised that my 8$\_$8 was actually and 8$\_$4, so I've adjusted that and I'm retraining the model to see what kind of validation$\_$loss it gets. The best 8$\_$4 accuracy found was 1.06, an initial re-training with no tapering gave a val$\_$loss of 0.0750.
-   \item Trained models with 2,3,4 and 5 layers and tapered layer widths. Figure \ref{fig:NumLayersBler}
-   \begin{itemize}
-      \item Yet to test their performances, they're still training.
-   \end{itemize}
-   \item Realised that the (7,4) model was being unfairly normalised. The (8,8) and (2,2) models are normalised so that they have unit power for each complex channel symbol. Whereas the (7,4) model is being normalised so that it has unit power for all 7 bits. So I need to multiply all the values post normalisation by sqrt(3.5) to make it even.
-   \begin{itemize}
-      \item I need to check if this applies to the BPSK stuff as well.
-   \end{itemize}
-   \item Switched to and AWS notebook so that it trained faster.
-   \item Retrained all models with the sigmas specified to the correct Rr
-   \item Adapt the bpsk$\_$get$\_$bler function so that the transmit power is the same for all of them
-\end{itemize}
+In the development of the generalised $n$ layer model it was found that due to a bug in the \code{make$\_$model} function the (8,8) model was actually implementing an (8,4) model. Retifying this error instantaneously improved the validation loss during training at an $\frac{E_b}{N_0} = 7db$ from 1.06 to 0.0750. The performance of the different layered models with the (8,4) bug corrected can be seen in Figure \ref{fig:NumLayersBler}.
 
 \begin{figure}[t]
    \centering
-   \includegraphics[width=0.5\linewidth]{figures/autoencoder_8_8_bler_EbNo_2-5_layers.png}
+   \includegraphics[width=\genfigsize\linewidth]{figures/autoencoder_8_8_bler_EbNo_2-5_layers.png}
    \caption{Comparison of different number of layers for the (8,8) autoencoder model.}
    \label{fig:NumLayersBler}
 \end{figure}
 
-\subsubsection{Meeting with Morteza}
+
+The four and five layer models were seperably worse, and the two layer model very marginally outperformed the three layer model, however the margin negligible. In machine learning it is customary to increase the complexity of the model, and pick the complexity at which the training error stopped significantly improving to avoid overfitting.
+
+However as in this project the data is synthetically generated, exceptionally uniform, the noise is newly generated for each transmission and the data sets used for training and testing are very large there is not much worry of overfitting.
+
+So where normally decisions on hyperparameters would only be made based on performance over the validation set, in this project decisions have consistently been made based on performance on the test set. This section is no different. 
+
+Two layers was selected as the number of layers, because it had the best (although very marginally) performance over the test set. Additionally it was the simplest model complexity wise and so trained more quickly and was less likely to overfit.
+
+Due to the indistinguishable performance of the last layer being a \code{tanh} activation function it was left in as it had a good theoretical backing. The \code{tanh} function exhibits linear like behaviour for small values, but can also introduce non-linearity, which the \code{leaky-ReLu} function could not.
+
+After the discovery of the (8,4) bug and the confirmation that the number of layers and lack of non-linearity was not the issue with the (8,8) model, the (8,8) autoencoder was performing better, but still not well enough. 
+
+\subsubsection{Finding incorrect scaling}
+\label{sec:CorrectingScaling}
+
+The continued lack of performance and easy find of the (8,4) bug led to the (7,4) model being investigated instead. It was realised that the models were being unfairly normalised. All the complex models were being normalised such that each complex channel symbol had an instantaneous power of 1. However the (7,4) model was being normalised such that each (7,1) channel encoded message had an instantaneous power of 1. This meant an average power of $\frac{1}{7}$ for each channel bit, whereas the complex (2,2) and (8,8) models had an average power of $\frac{1}{2}$ per channel bit. Going further it was realised that this was again unfair when compared to BPSK, which had a power of 1 per bit. 
+
+Due to uncertainty about what the correct average power per channel bit should be a meeting was aranged with the co-supervisor who confirmed that there should be an average power of 1 per channel bit. So a total power of $n_r$ per channel message. 
+
+To solve this problem a scaling layer was added after the normalisation layer. The normalisation layer normalised the last axis of the transmitter tensor to have and L2-norm (power) of 1. The following layer then multiplied the channel symbols by a factor of $\sqrt(N_r)$ to give a message power of $N_r$. 
+
+In order to get the correct results for all models quickly, training of the models and running of the performance cells was switched to an AWS instance. The instance used was a g3.4xlarge, the hardware details of which are described in Section \ref{sec:HardwareAnalysis}. This model has a GPU and 16 CPU cores. This resulted in training models approximately fifteen times faster and allowed the performance loops to be effectively parallelised with a speedup of approximately ten times. 
+
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/autoencoders_correct_scaling_comparison.png}
+   \caption{Comparison of performance of all autoencoder models before and after introducing correct scaling.}
+   \label{fig:AutoencodersAllScalingComp}
+\end{figure}
+
+The improvements of performance from introducing correct scaling of the channel symbols can be see in Figure \ref{fig:AutoencodersAllScalingComp}. The results show that the larger models were being unfairly penalised as the (2,2) autoencoder marginally improves, whereas the (7,4) and (8,8) models both significantly improve by factors of $\approx 10^5$ at the high SNRs. 
+
+The (8,8) model worked first time, however the (7,4) took a little longer to get working as there was a bug where the scaling layer was being skipped.
+
+After this correction the (7,4) model performs more or less inline with what it should according to ~\cite{oShea}, as does the (2,2) model. However the (8,8) model far outperforms it's counterpart from ~\cite{oShea}. In fact the (8,8) model had to be rerun on the AWS instance with larger data set to give a smooth curve at such low error rates. 
+
+At this point the next iteration of ~\cite{oShea}'s Figure 3a and 3b were plotted. The results can be seen in Figure \ref{fig:OSheaFig3Incorrect88}.
+
+\begin{figure*}[t!]
+   \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
+       \caption{Final reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
+       \label{fig:OSheaFigure3aIncorrect88}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/o_shea_3b_bler_vs_eb_88_scaled_incorrectly.png}
+       \caption{Penultimate reproduction of 3b, with overperforming (8,8) model due to incorrect scaling.}
+       \label{fig:OSheaFigure3bIncorrect88}
+   \end{subfigure}
+   \caption{t-SNE constellation diagrams}
+   \label{fig:OSheaFig3Incorrect88}
+\end{figure*}
+
+\subsubsection{Upshots of meeting/getting final curves - BCH coding and Hamming HD looking incorrect}
 
 \begin{itemize}
-   \item Batch normalise for the (7,4) case
-   \item For BLER convert incorrect symbols anyway then find the BER
-   \item Hamming MLD is just calculate the probability that a given received set of seven channel uses could have come from any of the transmitted symbols, then pick the symbol with the highest posterior probability.
-   \item Set the power normalisation to be n for each row, not 1, that way on average each transmitter bit has 1 unit of power.
-   \item First I set the average power of the complex models to be 1 per bit.
-   \begin{itemize}
-      \item Done for (2,2) -> success, (7,4) no success
-   \end{itemize}
-   \item Next I checked the definition of BLER, I'm pretty sure that my previous definition of BLER. It's defined here:
-   \begin{itemize}
-      \item \begin{verbatim}
-         https://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdfhttps://www.etsi.org/deliver/etsi_en/301900_301999/30190808/01.01.01_30/en_30190808v010101v.pdf
-         \end{verbatim}
-      \item "BLER (BLock Error Ratio): ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"
-   \end{itemize}
-\end{itemize}
-
-\subsubsection{Upshots of meeting/getting final curves - BCH coding and Hamming HD looking correct}
-
-\begin{itemize}
-   \item Retrained 7,4 and 8,8 with scaled channel symbols. Fixed the problem with 7,4 and 8,8 worked first time.
-   \item Replotted graphs and 2,2 and 7,4 look alright, 8,8 is too good due to not a big enough data set so going to rerun on AWS where I have the bigger data set.
-   \item Need to add Hamming MLD today and maybe fix BPSK / Hamming HD.
-   \item Finished Hamming MLD, ran over a small data set and it looks good, going to run over a large data set when I leave at the end of the day.
+   \item Batch normalise for the (7,4) case.
    \item Rerunning 8,8 at the moment to get a smoother curve. BPSK underperforms what it does in the O'Shea paper, but with my definition of BLER I am confident I am encoding and decoding it correctly so I'm fine with this.
    \item Hamming hard decision doesn't look right, it seems to be significantly underperforming. I'm going to come back to this later because I want to move onto reinforcement learning.
+   \item Realised that the reason (8,8) was overperforming is that I'm scaling by a factor of $\sqrt{N_r}$, but for the complex model it should just be a factor of $\sqrt{N_r}$ because it's only being L2 normalised across the complexity axis.
 \end{itemize}
 
-\begin{figure}[t]
-      \centering
-      \includegraphics[width=0.5\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
+At this point after submitting a draft of the first two sections of the report to the supervisors the returning advice was to compare the performance against BCH codes instead. Consequently BCH codes will be investigated later in this section.
 
-      \caption{Final reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
-   \label{fig:OSheaFigure3a}
+The current differences between ~\cite{oShea}'s Figure 3a and 3b, comared to Figure \ref{fig:OSheaFig3Incorrect88}a and b are that the (8,8) model significantly overperforms and the Hamming (7,4) HD significantly underperforms. The first of these to be investigated was the (8,8) autoencoder. 
+
+It was noticed while writing up Section \ref{sec:CorrectingScaling} that the reason for this was the scaling being incorrectly applied to the (8,8) complex model. As the L2-normalisation is applied to the last dimension, the same method cannot be applied to the (7,4) non-complex and (8,8) complex models. 
+
+The (7,4) model's channel symbols must be multiplied by a factor of $\sqrt{N_r}$ because the last dimension is the (7,) dimension. However the last dimension in the complex model is the complexity dimension of shape (2,). So the channel symbols must be scaled by a factor of $\sqrt{2}$. This means that the performance of the (2,2) model is correct by chance, however the symbols of the (8,8) model are being scaled up incorrectly by an extra factor of 2.
+
+This was rectified giving the performance shown in Figure \ref{fig:Autoencoders88ScalingCorrected}.
+
+\begin{figure}[t]
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/autoencoders_correct_scaling_comparison.png}
+   \caption{Comparison of performance of all autoencoder models after (8,8)s scaling was corrected.}
+   \label{fig:Autoencoders88ScalingCorrected}
 \end{figure}
 
-\begin{figure}[t]
-      \centering
-      \includegraphics[width=0.5\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
+ADD DESCRIPTION HERE DESCRIBING THE PERFORMANCE OF THE (8,8) MODEL ONCE IT WAS SCALED PROPERLY BY $\sqrt{2}$.
 
-      \caption{Final reproduction of ~\cite{oShea}'s Figure 3b, before adding BCH codes and redebugging Hamming HD.}
-   \label{fig:OSheaFigure3b}
-\end{figure}
+\begin{figure*}[t!]
+   \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
+       \caption{Final reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
+       \label{fig:OSheaFigure3a}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
+       \caption{Final reproduction of 3b, with overperforming (8,8) model due to incorrect scaling.}
+       \label{fig:OSheaFigure3b}
+   \end{subfigure}
+   \caption{t-SNE constellation diagrams}
+   \label{fig:OSheaFig3}
+\end{figure*}
 
 
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}

@@ -162,6 +162,11 @@ A.~Lazorenko, ``A medium corporation: Tensorflow performance testing, cpu vs
   \url{https://github.com/alistairwallace97/DNN_short_block_comms}.
 \newblock Last Updated: 07-06-2019.
 
+\bibitem{IncBatchSize}
+S.~L. Smith, P.-J. Kindermans, and Q.~V. Le, ``Don't decay the learning rate,
+  increase the batch size,'' in {\em International Conference on Learning
+  Representations}, 2018.
+
 \bibitem{BpskPe}
 M.~Divya, ``Bit error rate performance of bpsk modulation and ofdm-bpsk with
   rayleigh multipath channel,'' 2013.

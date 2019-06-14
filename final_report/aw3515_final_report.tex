@@ -67,16 +67,16 @@
 \tableofcontents
 \pagebreak
 
-\section{MUST DO BEFORE SUBMISSION}
+% \section{MUST DO BEFORE SUBMISSION}
 
-\begin{itemize}
-   \item Correct Figure 1b Block, Diagram.
-   \begin{itemize}
-      \item Transmitter and Receiver the wrong way round.
-      \item Receiver spelt "Reveiver"
-   \end{itemize} 
-   \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
-\end{itemize}
+% \begin{itemize}
+%    \item Correct Figure 1b Block, Diagram.
+%    \begin{itemize}
+%       \item Transmitter and Receiver the wrong way round.
+%       \item Receiver spelt "Reveiver"
+%    \end{itemize} 
+%    \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
+% \end{itemize}
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}   
@@ -724,6 +724,26 @@ Leaky ReLu & $0.00156$ & $0.00147$ & $3.00e-5$\\
    \label{fig:ActivationFuncComparison}
 \end{figure}
 
+\subsubsection{Model training methods}
+
+A number of methods were used during the training of the models to improve the performance of the end model. Firstly it was found that increasing the batch size during training improved the end validation loss. This is supported by the findings of~\cite{IncBatchSize}, which suggest that increasing the batch size is in practice equivalent to decaying the learning rate. The batch size was started at the relatively large batch size of 1000. This lowest point is still relatively large as the noise is randomly generated for each message which is transmitted. Hence the batch size of 1000 is chosen to reduce the dependence on individual noise. This is by the law of large numbers illustrated in Equations \ref{eq:LawLargeNumbers} as a reminder.
+
+\begin{align}
+   \mbox{if: } y &= \frac{x_1 + x_2 +\dots + x_n}{n} \nonumber\\
+   \mbox{then }  \mathop{\mathbb{E}}[y] &= \mathop{\mathbb{E}}[x] \nonumber\\
+   \mbox{and } Var(y) &= \frac{\sigma_x}{\sqrt{n}}
+   \label{eq:LawLargeNumbers}
+\end{align}
+
+Hence as the batch size is increased the variance of the batch's noise decreases with $\sqrt{\mbox{Batch Size}}$. It is theorised that the model should converge faster if trained at a higher noise variance with a larger batch size, due to the higher noise variance giving larger loss gradients, and the larger batch size smoothing out the gradients to give an equally stationary loss surface. However this has not been tested empirically.
+
+In practice the batch size was varied in three steps, $1000$, $\sqrt{M}*1000$, $M*1000$. It was found that initial progress was made more quickly at a batch size of 1000, because there were more weight updates per epoch, then after the model performance converged at this batch size the batch size was increased and this process repeated twice more. After the batch size was increased each time the performance would at first improve quickly for a few epochs, before slowing and eventually congerging again.
+
+Another method used during the training of the models was to use the EarlyStopping callback in Keras. This was used to try and bring a constant process to training method. The EarlyStopping callback monitored the validation loss and would stop training if the validation loss did not improve after 20 epochs. This method works if the model is being trained over a large number of epochs like 1000, howver not if the model is being trained over 30 epochs. It also has the dissadvantage that it is not stopping at the best model, it is stopping 20 epochs later, so if the validation loss significantly increases due to overfitting in these final 20 epochs then the quality of the end model will be significantly affected. However having a patience parameter of 20 also has the advantage that it can cope with longer flat sections of the loss surface. This has proved useful quite a few times during the training of the larger models, when the validation loss has hardly improved for 20 epochs, before dropping off again more steeply. 
+
+After moving on to reproducing~\cite{Aoudia} the ModelCheckpoint callback was introduced. This would save the model after every epoch, if and only if the validation loss had improved from the current best. This was a better way of ensuring the best model was saved and allowed the patience parameter of the EarlyStopping callback to be increased to improve it's ability to deal with small gradients and flat sections of the loss function.
+
+Training multiple many models with different initialisations should have been used for final models, however due to the consistency of the \code{leaky-ReLu} and \code{tanh} activation functions shown in Table \ref{tab:ActivationFuncComparison} this was not done for the majority of models, however may be used for getting the last few $\%$ of performance out of the final models.  
 
 \subsection{Adding non learned encoding}
 
@@ -811,7 +831,7 @@ The paper is not entirely clear with it's definition of $n$, as to whether $n$ i
 
 At this point the second bug was found.
 
-NEED TO FIND OUT WHAT IS WRONG WITH MY BPSK ENCODING. I'VE SPENT A WHILE TRYING TO DEBUG IT BUT I CAN'T SEE WHERE I COULD POSSIBLY HAVE AN ERROR, IT IS SUCH A SIMPLE ENCODING AND DECODING METHOD.
+% NEED TO FIND OUT WHAT IS WRONG WITH MY BPSK ENCODING. I'VE SPENT A WHILE TRYING TO DEBUG IT BUT I CAN'T SEE WHERE I COULD POSSIBLY HAVE AN ERROR, IT IS SUCH A SIMPLE ENCODING AND DECODING METHOD.
 
 After the solving of this second issue the simulated BLER of the BPSK was indistinguishable from the theoretical BLER. Note that all of the code for the BPSK encoding and decoding can be found in the \textit{Implementing Uncoded BPSK} section of \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}.
 
@@ -876,7 +896,7 @@ Hence, despite the fact that the (7,4) Hamming code can only remove single error
 \begin{figure}
    \centering
    \includegraphics[width=0.2\linewidth]{figures/hamming_parity_venn_diagram.png}
-   \caption{Venn diagram showing parity and data bits for a Hamming (7,4) code. Data bits are denoted $s_i$ and parity bits are denoted $t_i$.}
+   \caption{Venn diagram showing parity and data bits for a Hamming (7,4) code. Data bits are denoted $s_i$ and parity bits are denoted $t_i$ taken from~\cite{HammingMoonBook}.}
    \label{fig:HammingParityVennDiagram}
 \end{figure}
 
@@ -977,67 +997,6 @@ However at $\frac{E_b}{N_0} = 8$ all three of the encoding schemes were achievin
 
 This intuition was correct, this led to the discovery $n$ being the number of real bits instead of number of complex bits discussed in the Section \ref{sec:AddingBpsk} on adding BPSK. After this error was corrected the Hamming HD BLER performance was a lot more conservative. The difference is shown in Figure \ref{fig:HammingCorrectRrComp}
 
-\subsubsection{Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}
-
-After producing the (4,4) BPSK, (7,4) Hamming HD and autoencoder (2,2) encoding schemes the (7,4) model was produced so that it could be compared against the Hamming HD encoding scheme. This required a different model making function and structure as it could not transmit complex channel symbols. The previous models had transmitted $n_c$ complex channel symbols, however as 7 is an odd number this required a shape of transmitter signals and a new regularisation function. Despite these necessary changes an initial (7,4) model was produced without too many issues. 
-
-The first check on that the autoencoder was performing correctly was to plot the constellation diagram. However this again required a new method. The constellation diagram for the (7,4) model has seven dimensions. So as in the O'Shea paper this was reduced to two dimension using t-SNE. This was done using the \code{sklearn} libraries \code{TSNE} function. 
-
-\begin{figure*}[t!]
-   \centering
-   \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_unnormalised.png}
-      \caption{Unprocessed t-SNE constellation diagram.}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[t]{0.3\textwidth}
-       \centering
-       \includegraphics[width=\linewidth]{figures/leaky_relu_7_4_constellation_diagram.png}
-       \caption{t-SNE dimension reduced constellation diagram for a (7,4) autoencoder model.}
-   \end{subfigure}
-   ~
-   \begin{subfigure}[t]{0.3\textwidth}
-       \centering
-       \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_with_noise_200.png}
-       \caption{200 full sets of all $M$ received symbols with noise.}
-   \end{subfigure}
-   \caption{t-SNE constellation diagrams}
-   \label{fig:tSneConstellationDiags}
-\end{figure*}
-
-However some processing was required to produce the (7,4) tSNE constellation diagrams from ~\cite{oShea}'s Figures 4c and 4d. Firstly, despite the input to the tSNE function being normalised to have a constant unit instantaneous power constraint, the output has neither a non-zero power constraint, neither a zero mean. The constellation diagram was not at all stationary but an example of a typical constellation diagram is shown in Figure \ref{fig:tSneConstellationDiags}a.
-
-Because of the lack of power constraint the output had to be manually scaled after the t-SNE processing. First the mean was set to zero, and then the signal was scaled to have an average power unit power. At this point a constellation diagram similar to ~\cite{oShea}'s Figure 4c was produced, an example is shown in Figure \ref{fig:tSneConstellationDiags}b. However it should also be noted that due to the t-SNE being a stochastic method, the constellation diagram changed every time. The central point is very rarely centred on zero and there are often less nice looking diagrams than Figure \ref{fig:tSneConstellationDiags}b. It is suggested that a perfect looking constellation diagram cannot be representative of a randomly selected iteration of the model.
-
-Lastly a constellation diagram was produced of the channel symbols received at the transmitter from sending 200 of the full $M=16$ one-hot-encoded message sets through the AWGN channel. This constellation diagram is shown in Figure \ref{fig:tSneConstellationDiags}c. It was found that the small numbers of symbols transmitted with noise were much less likely to converge to a correct looking diagram, however increasing the number of symbols improved this somewhat, although not to the level of the constellations without noise like Figure \ref{fig:tSneConstellationDiags}b.
-
-It is interesting that a (7,4) model with constant power constraint, once fed through t-SNE produces the same constellation diagram as ~\cite{oShea}'s Figure 4c did with a constant power constraint. This suggests that a similar process is performed by the t-SNE dimensionality reduction techinque. 
-
-As the (7,4) model produced correct looking constellation diagrams, with the input to the t-SNE reduction being consistent an (8,8) model was produced and their BLER performances assessed. The initial performance of all the autoencoder models, with a relu model added for reference can be seen in Figure \ref{fig:AutoencodersAllOriginalComparison}.
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.6\linewidth]{figures/autoencoders248_bler_EbNo_original_comparison.png}
-   \caption{Initial BLER performance comparison of (2,2), (8,8) and (7,4) autoencoder models. }
-   \label{fig:AutoencodersAllOriginalComparison}
-\end{figure}
-
-The results from Figure \ref{fig:AutoencodersAllOriginalComparison} don't look correct. We expect the (7,4) autoencoder to have the best performance, followed by (8,8) and then a larger gap to (2,2). However in Figure \ref{fig:AutoencodersAllOriginalComparison} the (2,2) autoencoder is far and away the best of the models. Followed by the (7,4) autoencoder and then the (8,8) autoencoder. Also the (2,2) autoencoder model has a BLER $\approx10^2$ times lower than that achieved in ~\cite{oShea} accross the whole range of SNRs, which is suspicious. The (8,8) and (7,4) both significantly underperform in terms of BLER compared to those achieved in the paper. The only thing that does look correct is that \code{leaky-ReLu} outperforms \code{ReLu}. 
-
-At this point the discovery that $Rr$ was not being set to the correct value mentioned in the two previous sections was made and applied to the leaky-ReLu models. The difference that this made can be seen in Figure \ref{fig:AutoencodersAllRr1Comparison}.
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.6\linewidth]{figures/autoencoders248_bler_EbNo_Rr1_comparison.png}
-   \caption{Comparison of BLER performance of (2,2), (8,8) and (7,4) autoencoder models before and after $Rr$ was set to the correct value. }
-   \label{fig:AutoencodersAllRr1Comparison}
-\end{figure}
-
-The results after setting the $Rr$ correctly look just as incorrect as the results that preceded them, although differently. Before, the (2,2) autoencoder outperformed the results in the paper, now all three models clearly significantly underperform the results in the paper. The relative ordering is still wrong in the same way, although the shape of the (8,8) autoencoder's BLER looked more promising. This was because it started off with poor performance and then showed strong improvement over the high SNRs, which was what was found in ~\cite{oShea}'s Figure 3b.
-
-At the end of this section the (7,4) and (8,8) autoencoder models are clearly significantly underperforming. This was seen as a problem and so was addressed in the section after next (Section\ref{sec:Improving88And74}). However it was noticed that, apart from in extreme cases, it was hard to tell if the (7,4) model was overperforming or underperforming. In ~\cite{oShea} the (7,4) autoencoder produced indistinguishable performance from the Hamming (7,4) MLD method. So the next section focussed on producing Hamming (7,4) MLD, in order to be able to better assess performance of the (7,4) model.
-
 \subsubsection{Adding Hamming MLD + MLD explanation}
 
 Maximum likelihood decoding is a simple concept. The probability of each possible codeword $s$ in a codebook $s\epsilon S$ having been sent, given a received signal $r$ is calculated. Then the codeword with the maximum likelihood of having been sent is selected. This is mathematically formulated below.
@@ -1119,6 +1078,67 @@ The small improvement in performance suggests that the autoencoder models could 
 
 \subsection{Reproducing Figure 3a and 3b from the O'Shea paper}
 
+\subsubsection{Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}
+
+After producing the (4,4) BPSK, (7,4) Hamming HD and autoencoder (2,2) encoding schemes the (7,4) model was produced so that it could be compared against the Hamming HD encoding scheme. This required a different model making function and structure as it could not transmit complex channel symbols. The previous models had transmitted $n_c$ complex channel symbols, however as 7 is an odd number this required a shape of transmitter signals and a new regularisation function. Despite these necessary changes an initial (7,4) model was produced without too many issues. 
+
+The first check on that the autoencoder was performing correctly was to plot the constellation diagram. However this again required a new method. The constellation diagram for the (7,4) model has seven dimensions. So as in the O'Shea paper this was reduced to two dimension using t-SNE. This was done using the \code{sklearn} libraries \code{TSNE} function. 
+
+\begin{figure*}[t!]
+   \centering
+   \begin{subfigure}[t]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_unnormalised.png}
+      \caption{Unprocessed t-SNE constellation diagram.}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.3\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/leaky_relu_7_4_constellation_diagram.png}
+       \caption{t-SNE dimension reduced constellation diagram for a (7,4) autoencoder model.}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.3\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_with_noise_200.png}
+       \caption{200 full sets of all $M$ received symbols with noise.}
+   \end{subfigure}
+   \caption{t-SNE constellation diagrams}
+   \label{fig:tSneConstellationDiags}
+\end{figure*}
+
+However some processing was required to produce the (7,4) tSNE constellation diagrams from ~\cite{oShea}'s Figures 4c and 4d. Firstly, despite the input to the tSNE function being normalised to have a constant unit instantaneous power constraint, the output has neither a non-zero power constraint, neither a zero mean. The constellation diagram was not at all stationary but an example of a typical constellation diagram is shown in Figure \ref{fig:tSneConstellationDiags}a.
+
+Because of the lack of power constraint the output had to be manually scaled after the t-SNE processing. First the mean was set to zero, and then the signal was scaled to have an average power unit power. At this point a constellation diagram similar to ~\cite{oShea}'s Figure 4c was produced, an example is shown in Figure \ref{fig:tSneConstellationDiags}b. However it should also be noted that due to the t-SNE being a stochastic method, the constellation diagram changed every time. The central point is very rarely centred on zero and there are often less nice looking diagrams than Figure \ref{fig:tSneConstellationDiags}b. It is suggested that a perfect looking constellation diagram cannot be representative of a randomly selected iteration of the model.
+
+Lastly a constellation diagram was produced of the channel symbols received at the transmitter from sending 200 of the full $M=16$ one-hot-encoded message sets through the AWGN channel. This constellation diagram is shown in Figure \ref{fig:tSneConstellationDiags}c. It was found that the small numbers of symbols transmitted with noise were much less likely to converge to a correct looking diagram, however increasing the number of symbols improved this somewhat, although not to the level of the constellations without noise like Figure \ref{fig:tSneConstellationDiags}b.
+
+It is interesting that a (7,4) model with constant power constraint, once fed through t-SNE produces the same constellation diagram as ~\cite{oShea}'s Figure 4c did with a constant power constraint. This suggests that a similar process is performed by the t-SNE dimensionality reduction techinque. 
+
+As the (7,4) model produced correct looking constellation diagrams, with the input to the t-SNE reduction being consistent an (8,8) model was produced and their BLER performances assessed. The initial performance of all the autoencoder models, with a relu model added for reference can be seen in Figure \ref{fig:AutoencodersAllOriginalComparison}.
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/autoencoders248_bler_EbNo_original_comparison.png}
+   \caption{Initial BLER performance comparison of (2,2), (8,8) and (7,4) autoencoder models. }
+   \label{fig:AutoencodersAllOriginalComparison}
+\end{figure}
+
+The results from Figure \ref{fig:AutoencodersAllOriginalComparison} don't look correct. We expect the (7,4) autoencoder to have the best performance, followed by (8,8) and then a larger gap to (2,2). However in Figure \ref{fig:AutoencodersAllOriginalComparison} the (2,2) autoencoder is far and away the best of the models. Followed by the (7,4) autoencoder and then the (8,8) autoencoder. Also the (2,2) autoencoder model has a BLER $\approx10^2$ times lower than that achieved in ~\cite{oShea} accross the whole range of SNRs, which is suspicious. The (8,8) and (7,4) both significantly underperform in terms of BLER compared to those achieved in the paper. The only thing that does look correct is that \code{leaky-ReLu} outperforms \code{ReLu}. 
+
+At this point the discovery that $Rr$ was not being set to the correct value mentioned in the two previous sections was made and applied to the leaky-ReLu models. The difference that this made can be seen in Figure \ref{fig:AutoencodersAllRr1Comparison}.
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.6\linewidth]{figures/autoencoders248_bler_EbNo_Rr1_comparison.png}
+   \caption{Comparison of BLER performance of (2,2), (8,8) and (7,4) autoencoder models before and after $Rr$ was set to the correct value. }
+   \label{fig:AutoencodersAllRr1Comparison}
+\end{figure}
+
+The results after setting the $Rr$ correctly look just as incorrect as the results that preceded them, although differently. Before, the (2,2) autoencoder outperformed the results in the paper, now all three models clearly significantly underperform the results in the paper. The relative ordering is still wrong in the same way, although the shape of the (8,8) autoencoder's BLER looked more promising. This was because it started off with poor performance and then showed strong improvement over the high SNRs, which was what was found in ~\cite{oShea}'s Figure 3b.
+
+At the end of this section the (7,4) and (8,8) autoencoder models are clearly significantly underperforming. This was seen as a problem and so was addressed in the section after next (Section\ref{sec:Improving88And74}). However it was noticed that, apart from in extreme cases, it was hard to tell if the (7,4) model was overperforming or underperforming. In ~\cite{oShea} the (7,4) autoencoder produced indistinguishable performance from the Hamming (7,4) MLD method. So the next section focussed on producing Hamming (7,4) MLD, in order to be able to better assess performance of the (7,4) model.
+
 \subsubsection{Finding errors and improving performance}
 
 \label{sec:Improving88And74}
@@ -1194,14 +1214,7 @@ At this point the next iteration of ~\cite{oShea}'s Figure 3a and 3b were plotte
    \label{fig:OSheaFig3Incorrect88}
 \end{figure*}
 
-\subsubsection{Upshots of meeting/getting final curves - BCH coding and Hamming HD looking incorrect}
-
-\begin{itemize}
-   \item Batch normalise for the (7,4) case.
-   \item Rerunning 8,8 at the moment to get a smoother curve. BPSK underperforms what it does in the O'Shea paper, but with my definition of BLER I am confident I am encoding and decoding it correctly so I'm fine with this.
-   \item Hamming hard decision doesn't look right, it seems to be significantly underperforming. I'm going to come back to this later because I want to move onto reinforcement learning.
-   \item Realised that the reason (8,8) was overperforming is that I'm scaling by a factor of $\sqrt{N_r}$, but for the complex model it should just be a factor of $\sqrt{N_r}$ because it's only being L2 normalised across the complexity axis.
-\end{itemize}
+\subsubsection{Final corrections and BCH coding}
 
 At this point after submitting a draft of the first two sections of the report to the supervisors the returning advice was to compare the performance against BCH codes instead. Consequently BCH codes will be investigated later in this section.
 
@@ -1220,8 +1233,6 @@ This was rectified giving the performance shown in Figure \ref{fig:Autoencoders8
    \label{fig:Autoencoders88ScalingCorrected}
 \end{figure}
 
-ADD DESCRIPTION HERE DESCRIBING THE PERFORMANCE OF THE (8,8) MODEL ONCE IT WAS SCALED PROPERLY BY $\sqrt{2}$.
-
 \begin{figure*}[t!]
    \centering
   \begin{subfigure}[t]{0.45\textwidth}
@@ -1234,13 +1245,20 @@ ADD DESCRIPTION HERE DESCRIBING THE PERFORMANCE OF THE (8,8) MODEL ONCE IT WAS S
    \begin{subfigure}[t]{0.45\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
-       \caption{Final reproduction of 3b, with overperforming (8,8) model due to incorrect scaling.}
+       \caption{Final reproduction of 3b, three lines identical, (8,8) autoencoder slightly underperforming.}
        \label{fig:OSheaFigure3b}
    \end{subfigure}
    \caption{t-SNE constellation diagrams}
    \label{fig:OSheaFig3}
 \end{figure*}
 
+After correcting the incorrect scaling of the (8,8) autoencoder to a factor of $\sqrt{2}$ the results graph looks as it does in Figure ~\cite{fig:OSheaFigure3b}. This is now very similar to Figure 3a from ~\cite{oShea}. Three of the lines are identical, the (2,2) autoencoder and both the BPSK models. The (8,8) autoencoder line is similar in that it starts in tangent with the (8,8) BPSK and finishes with the lowest error rate. However it slightly underperforms it's counterpart from ~\cite{oShea}. It crosses the (2,2) lines at $\approx7$ as opposed to $\approx5.5$. The BLER seems to be roughly a factor of 5 out. This suggests there may be some small change to the architecture that can be made to improve performance. However the number of layers and activation functions have already been varied. One option left is dropout regularisation. This is where some fraction of the neurons are switched off randomly at training time, which is done primarily to avoid overfitting. However this hasn't been trialed so far because the data sets are very uniform, very large, and the noise is newly randomly generated every time the model transmits a message. Because of this it seems unlikely that the model could overfit. 
+
+Additionally the (7,4) autoencoder in Figure \ref{fig:OSheaFigure3a} is also slightly underperforming at the high SNRs. As this margin is so small it will be tackled by retraining and using the ModelCheckpoint callback to ensure that the model with the best validation loss achieved during the training process is saved. Also the model will be retrained over a large number of initialisations to remove any small dependence on initialisation values. This has not been used before due to the very large time commitment that is needed for training a large number of models fully. 
+
+The last inconsistency in Figure \ref{fig:OSheaFig3} is that the Hamming HD encoding is significantly underperforming. A reasonable amount of time has been committed to debugging this and the underlying BPSK, however it seems to perform correctly in all unit tests and have the correct amount of noise being applied so the author can not see what is being implemented incorrectly. 
+
+INSERT BCH CODING RESULTS SECTION HERE. 
 
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
@@ -1254,7 +1272,6 @@ ADD DESCRIPTION HERE DESCRIBING THE PERFORMANCE OF THE (8,8) MODEL ONCE IT WAS S
 \section{Evaluation}
 
 \begin{itemize}
-   \item O'Shea et al did not consider that comparing the (7,4) autoencoder to Hamming MLD did not take into account that the autoencoder was one hot encoded, so had an information content of 2 bits, whereas Hamming MLD had an information content of 4 bits. See extra line on graph.
    \item Learned model performed very poorly on Rayleigh Slow Fading, it is likely it would perform even more poorly on Rayleigh Fast Fading.
 \end{itemize}
 

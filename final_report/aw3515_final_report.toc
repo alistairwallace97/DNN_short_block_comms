@@ -39,11 +39,10 @@
 \contentsline {subsubsection}{\numberline {4.4.3}Finding incorrect scaling}{40}{subsubsection.4.4.3}
 \contentsline {subsubsection}{\numberline {4.4.4}Final corrections and BCH coding}{41}{subsubsection.4.4.4}
 \contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{43}{subsection.4.5}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Testing}{43}{section.5}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Results}{43}{section.6}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Evaluation}{43}{section.7}
-\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Conclusions}{44}{section.8}
-\contentsline {section}{\numberline {9}\hskip -1em.\nobreakspace {}Further Work}{44}{section.9}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Results}{43}{section.5}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Evaluation}{43}{section.6}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Conclusions}{43}{section.7}
+\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Future Work}{43}{section.8}
 \contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{44}{appendix.A}
 \contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{44}{appendix.B}
 \contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{44}{subsection.B.1}

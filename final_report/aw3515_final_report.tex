@@ -1,4 +1,6 @@
 \documentclass[12pt,onecolumn,letterpaper]{article}
+\renewcommand{\baselinestretch}{1.2} 
+
 
 \usepackage{cvpr}
 \usepackage{times}
@@ -64,8 +66,6 @@
 \end{titlepage}
 
 %%%%%%%%% Contents Page
-\tableofcontents
-\pagebreak
 
 % \section{MUST DO BEFORE SUBMISSION}
 
@@ -84,8 +84,19 @@
    
    The report reproduces results from two recent papers ~\cite{oShea,Aoudia} on the subject, exploring unsupervised models and investigating supervised models with additive white Gaussian noise (AWGN), Rayleigh block fading (RBF). It then goes further by applying the above methods to Ricean fading (RF) channels.
    
-   The report produced predominantly similar results to ~\cite{oShea} for supervised models, giving identical performance for two of the three ($n$,$k$) configurations. However, differences were found, sometimes showing lower performance of the technology in question or less aesthetic t-distributed stochastic neighbor embedding (t-SNE) based constellation diagrams, which the original authors overlooked.
+   The report produced predominantly similar results to ~\cite{oShea} for supervised models, giving identical performance for two of the three ($n$,$k$) configurations. However, differences were found, sometimes showing lower performance of the technology in question or less aesthetic t-distributed stochastic neighbour embedding (t-SNE) based constellation diagrams, which the original authors overlooked.
 \end{abstract}
+\pagebreak
+
+\section*{Acknowledgements}
+This project is the culmination of not only my work, but also the help given by others. I would like to help my supervisor Bruno Clerckx for his advice, supervision and feedback on the written sections of the report. Secondly I would like to thank 
+my co-supervisor Morteza Varasteh for always being reachable for assistance, for his help with the implementation of of the project and for helping me understand the underlying fundamentals of communication.
+
+\pagebreak
+
+
+\tableofcontents
+\pagebreak
 
 \FloatBarrier
 \section{Introduction}
@@ -420,10 +431,6 @@ This is fine if you are pre-training the network for a stationary channel you ca
 
 \subsection{Analysis of competing products}
 
-\begin{itemize}
-    \item The first paper I am replicating claims there had not been much adoption of ML in commercial use ~\cite{oShea}. (Because of unspecified reasons "listed above")
-\end{itemize}
-
 The O'Shea paper~\cite{oShea} being replicated claimed there had not been much adoption of ML in commercial use ~\cite{oShea}, which at the time of writing was true, however this has now changed. After some research the main commercial competition found was a start-up called DeepSig. One of it's two co-founders was Tim O'Shea, the co-author of the two founding papers on the subject of end-to-end learned communication systems. It currently has two commercial products OmniSIG and OmniPHY.
 
 OmniSIG is a software package that allows training and monitoring of a communication system on a range of hardware devices. The package claims to often provide a 4-10 dB improvement and 10x reductions in computational complexity ~\cite{DeepsigOmnisig}. OmniPHY seems to be similar system however the information on DeepSig's website is not very informative about what the product does, other than it learns a communication system, much like the OmniSig~\cite{DeepsigOmniphy}. DeepSig appears to be in it's infancy, and the author has been unable to find any other companies which are working in this area, suggesting it is still a very new corporate area. Additionally it is not entirely surprising that DeepSig seems to be the first, as it's founder is one of the founders of the field. 
@@ -518,7 +525,7 @@ This allowed channel symbols to be meaningfully plotted. Some channel symbols fo
 \begin{figure}[t]
    \centering
    \includegraphics[width=\genfigsize\linewidth]{figures/wrong_constellation_diagram.png}
-   \caption{A constellation diagram produced by a trained (2,2) model which is clearly wrong. }
+   \caption{A constellation diagram produced by a trained (2,2) model which was clearly wrong. }
 \label{fig:WrongConstellationDiagram}
 \end{figure}
 
@@ -1258,12 +1265,50 @@ Additionally the (7,4) autoencoder in Figure \ref{fig:OSheaFigure3a} is also sli
 
 The last inconsistency in Figure \ref{fig:OSheaFig3} is that the Hamming HD encoding is significantly underperforming. A reasonable amount of time has been committed to debugging this and the underlying BPSK, however it seems to perform correctly in all unit tests and have the correct amount of noise being applied so the author can not see what is being implemented incorrectly. 
 
+
 INSERT BCH CODING RESULTS SECTION HERE. 
+
+\begin{itemize}
+   \item "BCH codes use variant check matrices to extend ideas from Hamming and Reed-Solomon codes.
+   BCH codes can keep a fixed alphabet, and
+   correct many errors." (Taken from the same as below)
+   \item "Unfortunately, BCH codes suffer from the
+   same shortcoming as Hamming and RS codes:
+   as block size increases, they become worse
+   and worse in the sense that the relative error
+   correction rate goes to 0 (and/or information
+   rate goes to 0)." taken from \begin{verbatim}
+      http://www-users.math.umn.edu/~garrett/coding/Overheads/19_hamming_bch.pdf
+   \end{verbatim}
+   \item BCH codes are a generalisation of Hamming codes for multiple error corrections.
+   \item BCH codes have the nice property that the number of errors they will be able to correct is specified as a variable design parameter. 
+   \item For any integers $m \geq 3$ and $t < 2^{m-1}$ there exists a BCH code with block length $n = 2^{m}-1$, with $n-k\leq mt$ parity bits and a minimum distance $d_{min} \geq 2t+1$ (often referred to as the designed distance).
+   \item A single error correcting code of length $n = 2^m - 1$ is a Hamming code. So a Hamming code is a special case of a BCH code.
+\end{itemize}
+
+SEE BCH Encoding SECTION FOR REFERENCES.
+
+WHY BCH CODING WOULD BE MORE SUITABLE THAN HAMMING
+
+WHAT I FOUND, WHY MY IMPLEMENTATION MIGHT HAVE BEEN WRONG.
 
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
+\begin{itemize}
+   \item Introduction to Rayleigh and Ricean fading
+   \item Description of architecture of models in the paper
+   \item Rayleigh slow fading model and results
+   \item Rayleigh block fading attempt 
+\end{itemize}
+
 \FloatBarrier
 \section{Results}
+
+\begin{itemize}
+   \item I mainly produced the same results as them.
+   \item 
+\end{itemize}
+
 
 \FloatBarrier
 \section{Evaluation}
@@ -1274,6 +1319,12 @@ INSERT BCH CODING RESULTS SECTION HERE.
 
 \FloatBarrier
 \section{Conclusions}
+
+\begin{itemize}
+   \item I couldn't replicate their performance with their architectures. I found that they underperformed their results.
+   \item This method is unlikely to produce results from Rayleigh Fast Fading channels, potentially RNNs would be better there as they could maybe learn waterfilling?
+   \item 
+\end{itemize}
 
 
 \FloatBarrier

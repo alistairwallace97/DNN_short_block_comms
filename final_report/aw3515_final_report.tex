@@ -1400,7 +1400,13 @@ After producing the supervised AWGN model it was decided to investigate RSF befo
    \label{fig:RsfArchitectures}
 \end{figure*}
 
+These architectures show the addition of an expert feature as an advancement from the AWGN supervised models. This is the \code{HEstimator} section, which makes an estimate of the $\mathbf{h}$ parameter from Equation \ref{eq:RaylieghDef} for that message. There is then a \code{y$\_$over$\_$h} layer which implements complex division of the received signal by the output of the \code{HEstimator}. Note that the received signal has shape (batch$\_$size,$N_c$,2) and estimated h has shape (batch$\_$size,2). So a $\hat{h}$ is found for each overall message which is sent, and then all four of the transmitter complex channel symbols are divided by this factor. 
 
+The transmitter architecture has also changed 
+
+The receiver architecture has changed 
+
+The h-estimator layer structure is taken from the architecture in the paper.
 
 
 \subsubsection{Investigation into RBF}

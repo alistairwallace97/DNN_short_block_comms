@@ -67,16 +67,19 @@
 
 %%%%%%%%% Contents Page
 
-% \section{MUST DO BEFORE SUBMISSION}
+\section*{MUST DO BEFORE SUBMISSION}
 
-% \begin{itemize}
-%    \item Correct Figure 1b Block, Diagram.
-%    \begin{itemize}
-%       \item Transmitter and Receiver the wrong way round.
-%       \item Receiver spelt "Reveiver"
-%    \end{itemize} 
-%    \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
-% \end{itemize}
+\begin{itemize}
+   \item Correct Figure 1b Block, Diagram.
+   \begin{itemize}
+      \item Transmitter and Receiver the wrong way round.
+      \item Receiver spelt "Reveiver"
+   \end{itemize} 
+   \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
+   \item Got through and find all typos
+   \item Remove pseudo code snippets, not necessary.
+\end{itemize}
+
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}   
@@ -89,8 +92,8 @@
 \pagebreak
 
 \section*{Acknowledgements}
-This project is the culmination of not only my work, but also the help given by others. I would like to help my supervisor Bruno Clerckx for his advice, supervision and feedback on the written sections of the report. Secondly I would like to thank 
-my co-supervisor Morteza Varasteh for always being reachable for assistance, for his help with the implementation of of the project and for helping me understand the underlying fundamentals of communication.
+This project is the culmination of not only my work, but also the help given by others. I would like to thank my supervisor Bruno Clerckx for his advice, supervision and feedback on the written sections of the report. Secondly I would like to thank 
+my co-supervisor Morteza Varasteh for always being reachable for assistance, for his help with the implementation of the project and for helping me understand the underlying fundamentals of communication.
 
 \pagebreak
 
@@ -1266,40 +1269,143 @@ Additionally the (7,4) autoencoder in Figure \ref{fig:OSheaFigure3a} is also sli
 The last inconsistency in Figure \ref{fig:OSheaFig3} is that the Hamming HD encoding is significantly underperforming. A reasonable amount of time has been committed to debugging this and the underlying BPSK, however it seems to perform correctly in all unit tests and have the correct amount of noise being applied so the author can not see what is being implemented incorrectly. 
 
 
-INSERT BCH CODING RESULTS SECTION HERE. 
+BCH codes were investigated on the direction of a project supervisor. BCH codes are a generalisation of Hamming codes for multiple error corrections, where the number of errors which can be corrected is specified as a variable design parameter $t$. For any integers $m \geq 3$ and $t < 2^{m-1}$ there exists a BCH code with the characteristics described in Equations \ref{eq:BchCharacteristics} where $k$ is the number of data bits. Note that the minimum distance is ofter referred to as the designed distance.
 
-\begin{itemize}
-   \item "BCH codes use variant check matrices to extend ideas from Hamming and Reed-Solomon codes.
-   BCH codes can keep a fixed alphabet, and
-   correct many errors." (Taken from the same as below)
-   \item "Unfortunately, BCH codes suffer from the
-   same shortcoming as Hamming and RS codes:
-   as block size increases, they become worse
-   and worse in the sense that the relative error
-   correction rate goes to 0 (and/or information
-   rate goes to 0)." taken from \begin{verbatim}
-      http://www-users.math.umn.edu/~garrett/coding/Overheads/19_hamming_bch.pdf
-   \end{verbatim}
-   \item BCH codes are a generalisation of Hamming codes for multiple error corrections.
-   \item BCH codes have the nice property that the number of errors they will be able to correct is specified as a variable design parameter. 
-   \item For any integers $m \geq 3$ and $t < 2^{m-1}$ there exists a BCH code with block length $n = 2^{m}-1$, with $n-k\leq mt$ parity bits and a minimum distance $d_{min} \geq 2t+1$ (often referred to as the designed distance).
-   \item A single error correcting code of length $n = 2^m - 1$ is a Hamming code. So a Hamming code is a special case of a BCH code.
-\end{itemize}
+\begin{align}
+   \mbox{block length: }& n = 2^{m}-1 \nonumber\\
+   \mbox{parity bits: }& n-k\leq mt \nonumber\\
+   \mbox{minimum distance: }& d_{min} \geq 2t+1
+   \label{eq:BchCharacteristics}
+\end{align}
 
-SEE BCH Encoding SECTION FOR REFERENCES.
+The (7,4) Hamming code examined above is a special case of the BCH code where $m=3$ and $t=1$. It would have been interesting to look at the next BCH code up where $k=4$ and $t=2$, or in the same ratio. The \code{python-bchlib} library~\cite{BchGithub} written by J.Kent was used for encoding and decoding. It seemed a good idea to start with the $m=3$ and $t=1$ case as it is the same as Hamming (7,4) so the results should be easily comparible.
 
-WHY BCH CODING WOULD BE MORE SUITABLE THAN HAMMING
+\begin{figure}
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/gaussian_pdf.png}
+   \caption{Gaussian pdf for illustration.}
+   \label{fig:GaussianPdf}
+\end{figure}
 
-WHAT I FOUND, WHY MY IMPLEMENTATION MIGHT HAVE BEEN WRONG.
+The implementation code for this section can be found in the \textit{BCH$\ $Encoding} section of \code{initial$\_$dnn$\_$comms.ipynb}. It required a seperate noise generation section function as the \code{bchlib} encoding functions output bytearrays instead of numpy arrays.  The noise function is called \code{gaussian$\_$bitflip}, It works on the basis that the noise is AWGN distributed, so has the pdf shown in Figure \ref{fig:GaussianPdf}. The red highlighted area from Figure \ref{fig:GaussianPdf} represents the probability of error for a transmitter BPSK signal. The \code{gaussian$\_$bitflip} function takes in normal binary encoded signals and assumes that they would have been encoded into BPSK and then passed through an AWGN channel. So $p_e$ is given by Equation ref{eq:GaussianBitflip}.
+
+\begin{align}
+   p_e =& P(X \leq -1) \nonumber\\
+   =& CDF(-1)
+   \label{eq:GaussianBitflip}
+\end{align}
+
+So the function goes through every bit sent, and with probability $p_e$ flips the bit by XORing (exclusive or'ing) with 1 $<<$ bit$\_$number, which is the number one logically shifted left by bit$\_$number bits. This function therefore directly replicates the effect of encoding into BPSK, adding gaussian noise, picking the most likely symbol and decoding back to binary. Using this function the two lines in Figure \ref{fig:BchT1VsT2} were produced to compare the BLER of a BCH code with $t=1$ and $t=2$. 
+
+\begin{figure*}[t!]
+   \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/bch_t1_vs_t2.png}
+       \caption{A figure to show the performance of two BCH codes with $t=1$ and $t=2$ respectively.}
+       \label{fig:BchT1VsT2}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.45\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/o_shea_3a_bler_vs_eb_bch.png}
+       \caption{The reporduction of ~\cite{oShea}'s Figure 3a with BCH encoding added for extra comparison.}
+       \label{fig:OSheaFigure3aBch}
+   \end{subfigure}
+   \caption{t-SNE constellation diagrams}
+   \label{fig:BchFigures}
+\end{figure*}
+
+As expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. 
+
+IF THE RESULTS LOOK GOOD THEN I COULD USE BCH1 INSTEAD OF HAMMING (7,4) AS MY HAMMING (7,4) LINE.
+
+CONVERT TO THIS COULD BE IMPLEMENTED WITH MORE INFORMATION IF IMPLEMENTED IN MATLAB ETC.
+
+Unfortunately the results from this method and library were not at all satisfactory. The BLER for the above case are shown in Figure \ref{fig:BchT1VsT2}. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section. The results are clearly wrong in that the BLER converges to $\approx0.2445$ at very high SNRs. The suspected reasons for this are that the BCH polynomial prime used (8129) is unsuitable or  
+
+It was suggested in a second meeting that this could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't recently familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
 
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
 \begin{itemize}
-   \item Introduction to Rayleigh and Ricean fading
+   \item Introduction to Rayleigh
    \item Description of architecture of models in the paper
    \item Rayleigh slow fading model and results
    \item Rayleigh block fading attempt 
 \end{itemize}
+
+\subsection{Rayleigh Fading}
+
+Rayleigh fading is a type of fading which models a channel in which there is not a clearl line of sight between the receiver and the transmitter, this is a good approximation for signal propogation through the troposhpere and ionoshpere as well as built up areas like cites~\cite{RayleighProakis}. The fading implemented in this report is assumed to be flat and slow. The large and small scale fading are assumed to be stationary. Rayleigh fading is implemented by the equation below.
+
+\begin{align}
+   \mathbf{r} = \mathbf{s}*\mathbf{h} + \mathbf{n} \mbox{ }&\nonumber\\
+   \mbox{where:}\mathbf{h} &= h_r + jh_i \nonumber\\
+   \mathbf{n} &= n_r + jn_i \nonumber\\
+   n_r,n_i &\sim \mathcal{N}(0,\sigma_a^2) \nonumber\\
+   h_r,h_i &\sim \mathcal{N}(0,\sigma_m^2) \nonumber\\
+   \label{eq:RaylieghDef}
+\end{align}
+
+$\mathbf{s}$ and $\mathbf{r}$ are the complex sent and received signals respectively. In all types of rayleigh fading a different realisation of $n$ is used for every sent signal, but the same does not apply to $h$. In RBF (rayleigh block fading) the multiplicative factor $h$ stays the same for the whole block of sent messages. In rayleigh slow fading (RSF) h changes every message that is sent but remains the same for each bit of the message, whereas rayleigh fast fading (RFF) would have both $h$ and $n$ changing during the sending of each symbol, so each symbol would be transmitter over multiple fades. The Aoudia paper examined RBF.
+
+
+
+\subsubsection{Investigation into RSF}
+
+The first objective was to reproduce the supervised AWGN graph from ~\cite{Aoudia}. This was very easily done by simply using the (8,8) model from the previous section to produce Figure \ref{fig:AwgnSupervised}.
+
+\begin{figure}
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/aoudia_paper/awgn_supervised.png}
+   \caption{Reproduction of ~\cite{Aoudia}'s Figure 6a, only supervised line currently present.}
+   \label{fig:AwgnSupervised}
+\end{figure}
+
+COMMENT ON WHETHER THIS LINE LOOKS LIKE THE ONE IN THE PAPER.
+
+After producing the supervised AWGN model it was decided to investigate RSF before RBF. This was because they required very similar noise layers, but the RSF model would have a significantly simpler architecture. This architecture can be seen in Figure \ref{fig:RsfSupervisedArch}. The architectures of the individual blocks can be seen in Figure \ref{fig:RsfArchitectures}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/aoudia_paper/autoencoder_rsf_arch.png}
+   \caption{The architecture of the whole end-to-end system of }
+   \label{fig:RsfSupervisedArch}
+\end{figure}
+
+\begin{figure*}[t!]
+   \centering
+  \begin{subfigure}[t]{0.3\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/aoudia_paper/transmitter_rsf_arch.png}
+       \caption{A block diagram of the RSF transmitter architecture.}
+       \label{fig:RsfTxArch}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.3\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/aoudia_paper/h_estimator_rsf_arch.png}
+       \caption{A block diagram of the RSF $\hat{h}$ estimator architecture.}
+       \label{fig:RsfHestArch}
+   \end{subfigure}
+   ~
+   \begin{subfigure}[t]{0.3\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/aoudia_paper/receiver_rsf_arch.png}
+       \caption{A block diagram of the RSF receiver architecture.}
+       \label{fig:RsfRxArch}
+   \end{subfigure}
+   \caption{Block diagrams showing the architectures of all the submodels of the RSF autoencoder model shown in Figure \ref{fig:RsfSupervisedArch}.}
+   \label{fig:RsfArchitectures}
+\end{figure*}
+
+
+
+
+\subsubsection{Investigation into RBF}
+
+
 
 \FloatBarrier
 \section{Results}

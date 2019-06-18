@@ -5,45 +5,45 @@ The style file: ieeetr.bst
 Database file #1: egbib.bib
 Warning--I didn't find a database entry for "fig:OSheaFigure3b"
 Warning--empty booktitle in BpskPe
-You've used 41 entries,
+You've used 43 entries,
             1876 wiz_defined-function locations,
-            733 strings with 10460 characters,
-and the built_in function-call counts, 9669 in all, are:
-= -- 923
-> -- 346
+            743 strings with 10665 characters,
+and the built_in function-call counts, 9927 in all, are:
+= -- 949
+> -- 351
 < -- 0
-+ -- 134
-- -- 93
-* -- 648
-:= -- 1351
-add.period$ -- 47
-call.type$ -- 41
-change.case$ -- 39
++ -- 137
+- -- 94
+* -- 656
+:= -- 1383
+add.period$ -- 51
+call.type$ -- 43
+change.case$ -- 40
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 541
-empty$ -- 1004
-format.name$ -- 93
-if$ -- 2395
+cite$ -- 44
+duplicate$ -- 554
+empty$ -- 1042
+format.name$ -- 94
+if$ -- 2465
 int.to.chr$ -- 0
-int.to.str$ -- 41
-missing$ -- 39
-newline$ -- 132
-num.names$ -- 40
-pop$ -- 169
+int.to.str$ -- 43
+missing$ -- 41
+newline$ -- 140
+num.names$ -- 41
+pop$ -- 183
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 335
+skip$ -- 339
 stack$ -- 0
 substring$ -- 518
-swap$ -- 196
+swap$ -- 197
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 78
-width$ -- 43
-write$ -- 379
+while$ -- 79
+width$ -- 45
+write$ -- 396
 (There were 2 warnings)

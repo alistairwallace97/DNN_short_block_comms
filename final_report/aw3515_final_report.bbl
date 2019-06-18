@@ -187,4 +187,13 @@ R.~W. {Hamming}, ``Error detecting and error correcting codes,'' {\em The Bell
 T.~K. Moon, {\em Error Correction Coding: Mathematical Methods and Algorithms}.
 \newblock New York, NY, USA: Wiley-Interscience, 2005.
 
+\bibitem{BchGithub}
+``{J.Kent's} python-bchlib bch encoding github.''
+  \url{https://github.com/jkent/python-bchlib}.
+\newblock Accessed: 07-06-2019.
+
+\bibitem{RayleighProakis}
+J.~G. Proakis, {\em Digital Communications}.
+\newblock McGraw-Hill, 1995.
+
 \end{thebibliography}

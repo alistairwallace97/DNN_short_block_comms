@@ -38,16 +38,19 @@
 \contentsline {subsubsection}{\numberline {4.4.2}Finding errors and improving performance}{45}{subsubsection.4.4.2}
 \contentsline {subsubsection}{\numberline {4.4.3}Finding incorrect scaling}{46}{subsubsection.4.4.3}
 \contentsline {subsubsection}{\numberline {4.4.4}Final corrections and BCH coding}{48}{subsubsection.4.4.4}
-\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{51}{subsection.4.5}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Results}{51}{section.5}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Evaluation}{51}{section.6}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Conclusions}{51}{section.7}
-\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Future Work}{51}{section.8}
-\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{52}{appendix.A}
-\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{52}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{52}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{52}{subsection.B.2}
-\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{52}{subsubsection.B.2.1}
-\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{53}{subsubsection.B.2.2}
-\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{53}{subsubsection.B.2.3}
-\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{53}{subsection.B.3}
+\contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{52}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}\hskip -1em.\nobreakspace {}Rayleigh Fading}{52}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Investigation into RSF}{53}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Investigation into RBF}{53}{subsubsection.4.6.2}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Results}{56}{section.5}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Evaluation}{56}{section.6}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Conclusions}{56}{section.7}
+\contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}Future Work}{56}{section.8}
+\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{57}{appendix.A}
+\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{57}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{57}{subsection.B.1}
+\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{57}{subsection.B.2}
+\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{57}{subsubsection.B.2.1}
+\contentsline {subsubsection}{\numberline {B.2.2}Use of data}{58}{subsubsection.B.2.2}
+\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{58}{subsubsection.B.2.3}
+\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{58}{subsection.B.3}

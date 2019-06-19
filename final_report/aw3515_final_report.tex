@@ -1437,6 +1437,15 @@ This architecture describes above, despite being identical to the architecture o
 
 The BLERs in this graph range from $99.55\%$ at the low SNRs to $31.78\%$ at the higest SNRs which is clearly extremely poor and nowhere near the performance shown in ~\cite{Aoudia}'s Figure 6b which ranges from $\approx1$ to $8*10^{-3}$. To try and combat this more dense layers were tried with many combinations of activation functions. Two, three and four dense layers were tried with all \code{tanh}, all \code{leaky-relu} and all \code{relu} activation functions. However none of these had improved performance. Several combinations of \code{leaky-relu} and \code{tanh} activation functions were tried. Training at the higher SNRs of 40db, 80db and no noise were all tried as well. Training until convergence ($\approx10-20$ epochs) at each SNR and then reducing the SNR was trialed, despite the fact this could not be done with a real channel. However none of these methods reduced the validation loss by more than a couple of $\%$. 
 
+\begin{figure}
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/aoudia_paper/rsf_unsuccessful_alt_archs.png}
+   \caption{Examples of some different tried activation function combinations when trialing two layers.}
+   \label{fig:RsfActivationFuncCombs}
+\end{figure}
+
+An example of four of the combinations of different activation functions can be seen in Figure \ref{fig:RsfActivationFuncCombs}. Here all three of the combinations different to that used in the Aoudia paper all underperform it. The \textit{2l-lin-lin-relu} describes a model, with two layers in the \code{transmitter} and \code{receiver} blocks. The first \code{lin} refers to the activation function in the hidden layers of the receiver and the non-first layers in transmitter. The second \code{lin} refers to the activation functions of the non-first layers in the \code{h$\_$estimator} block, the \code{relu} refers to the activation function of the final layer of the receiver prior to the softmax layer.
+
 About four days was spent exclusively trying to improve the performance of the supervised RSF autoencoder, with no success. This suggests that learned communication systems perform poorly in as non-stationary an environment as RSF. It makes sense that the communication system should perform worse in a RSF environment than an RBF environment. This is because in the RBF environment the $h$ factor from Equation \ref{eq:RaylieghDef} stays the same for the whole block, which could be up to 1000 messages. This means that $h$ can be estimated a lot more accurately as the variance of the estimate $\hat{h}$ decreases with $\sqrt{n}$. After the factor $h$ is removed the noise $n$ can then be removed a lot more effectively. Whereas in RSF $h$ only stays the same for the channel bits of a given message, which is too few to estimate once the additive noise $n$ has been added. 
 
 The inability to estimate the $h$ factor of the channel noise effectively makes removing the RSF very difficult, as the multiplicative noise is much more damaging than the additive noise. 

@@ -43,13 +43,13 @@
 \contentsline {subsubsection}{\numberline {4.5.2}Investigation into RSF}{52}{subsubsection.4.5.2}
 \contentsline {subsubsection}{\numberline {4.5.3}Investigation into RBF}{57}{subsubsection.4.5.3}
 \contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Results and Discussion}{59}{section.5}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Conclusions}{59}{section.6}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Future Work}{59}{section.7}
-\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{60}{appendix.A}
-\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{60}{appendix.B}
-\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{60}{subsection.B.1}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Conclusions}{60}{section.6}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Future Work}{60}{section.7}
+\contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{61}{appendix.A}
+\contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{61}{appendix.B}
+\contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{61}{subsection.B.1}
 \contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{61}{subsection.B.2}
 \contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{61}{subsubsection.B.2.1}
 \contentsline {subsubsection}{\numberline {B.2.2}Use of data}{61}{subsubsection.B.2.2}
-\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{61}{subsubsection.B.2.3}
+\contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{62}{subsubsection.B.2.3}
 \contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{62}{subsection.B.3}

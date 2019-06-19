@@ -162,6 +162,11 @@ A.~Lazorenko, ``A medium corporation: Tensorflow performance testing, cpu vs
   \url{https://github.com/alistairwallace97/DNN_short_block_comms}.
 \newblock Last Updated: 07-06-2019.
 
+\bibitem{ReluAndLeakyReluGraphs}
+S.~Sharma, ``{J.Kent's} sigmoid, tanh, softmax, relu, leaky relu explained.''
+  \url{https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6}.
+\newblock Accessed: 01-06-2019.
+
 \bibitem{IncBatchSize}
 S.~L. Smith, P.-J. Kindermans, and Q.~V. Le, ``Don't decay the learning rate,
   increase the batch size,'' in {\em International Conference on Learning

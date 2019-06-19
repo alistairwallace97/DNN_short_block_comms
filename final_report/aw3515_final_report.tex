@@ -465,15 +465,13 @@ This generality could be further evaluated by doing the same for some rare or ha
 \FloatBarrier
 \section{Design and Implementation}
 
-\subsection{Paper 1 - Producing an Autoencoder}
+\subsection{Producing an autoencoder based learned communication system.}
 
-An autoencoder based communication system which could be trained was been produced relatively quickly, however it originally contained a bug causing it to not use all of the possible communication symbols. This was suspected to be due to the regularisation method, however was slow to fix.
+An autoencoder based communication system which could be trained was produced relatively quickly, however it originally contained a bug causing it to not use all of the possible communication symbols. This was suspected to be due to the regularisation method, however was slow to fix.
 
 \subsubsection{Initial autoencoder model}
 
-The development was started by building a simple autoencoder model in using Keras with a Tensorflow back-end. This was trained on the $M=2$ ($k=1$) case with one hot encoded inputs and outputs. 
-
-The model had a single dense layer transmitter, L2 normalisation layer, a Gaussian channel layer and a single dense layer receiver. This meant when tested after training over 1000 epochs it gave the input output relationship shown in Figure \ref{fig:CodeInitialOutput}.
+The development was started by building a simple autoencoder model in using Keras with a Tensorflow back-end. This was trained on the $M=2$, ($k=1$) case with one hot encoded inputs and outputs. The model had a single dense \code{ReLu} layer transmitter, L2 normalisation layer, a Gaussian channel layer and a single dense \code{ReLu} layer receiver. After training over 1000 epochs of the two possible inputs it gave the input output relationship shown in Figure \ref{fig:CodeInitialOutput}.
 
 \begin{figure}[t]
    \centering
@@ -484,7 +482,7 @@ The model had a single dense layer transmitter, L2 normalisation layer, a Gaussi
 
 \subsubsection{Adding noise at test time}
 
-Clearly no noise has been added in the testing case. This was because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer can be found by searching for ``class GaussianNoise" in the \code{initial$\_$dnn$\_$comms.ipynb} notebook from the project github~\cite{AwGithub}. This changed the input output relationship to the one shown in Figure \ref{fig:CodeGaussianNoise2}.
+Clearly in Figure \ref{fig:CodeInitialOutput} no noise has been added in the testing case. This was because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer can be found by searching for ``class GaussianNoise" in the \code{initial$\_$dnn$\_$comms.ipynb} notebook from the project github~\cite{AwGithub}. This changed the input output relationship to the one shown in Figure \ref{fig:CodeGaussianNoise2}.
 
 \begin{figure}[t]
    \centering
@@ -495,9 +493,7 @@ Clearly no noise has been added in the testing case. This was because the built 
 
 \subsubsection{Adding a most likely symbol layer}
 
-The output of the receiver was a softmax layer, which gave an aposteri probability distribution for the sent symbol, given the received signal. However at test time it is desirable to know the bit error rate (BER), which requires discrete bits.
-
-To deal with this another custom layer was added to the output of the model which would take in the aposteri probability distribution and output the most likely symbol. An example of input output of this layer is shown in Figure \ref{fig:MostLikelySymbolLayer}.
+The output of the receiver was a softmax layer, which gives an aposteri probability distribution for the sent symbol given the received signal. However at test time it is desirable to know the bit error rate (BER), which requires discrete bits. To deal with this another custom layer was added to the output of the model which would take in the aposteri probability distribution and output the most likely symbol. An example of input output of this layer is shown in Figure \ref{fig:MostLikelySymbolLayer}.
 
 \begin{figure}[t]
    \centering
@@ -512,7 +508,7 @@ This layer was originally written using a numpy based function, however this wou
 
 Next the channel symbols were turned into complex numbers to represent the in-phase and quaternary sections of the transmitted signal. This required modifying the channel nodes of the model to have an extra dimension, which in turn forced a change in the regularisation layer.
 
-This allowed channel symbols to be meaningfully plotted. Some channel symbols for a (2,2) autoencoder are shown in Figure \ref{fig:WrongConstellationDiagram}, but there are clearly only three constellation points, despite the fact there should be four as it should converge to a QPSK constellation diagram. This was because the model had not learnt the $(1,1)$ channel symbol and so the first and third symbols were mapped to the same channel symbol. This was clearly an error, however it's source was not yet found until later. 
+This allowed channel symbols to be meaningfully plotted. Some channel symbols for a (2,2) autoencoder are shown in Figure \ref{fig:WrongConstellationDiagram}, but there are clearly only three constellation points, despite the fact there should be four as it should converge to a QPSK constellation diagram. This was because the model had not learnt the $(1,1)$ channel symbol and so the first and third symbols were mapped to the same channel symbol. This was clearly an error, however the source was not found until later. 
 
 \begin{figure}[t]
    \centering
@@ -530,8 +526,6 @@ This allowed channel symbols to be meaningfully plotted. Some channel symbols fo
 
 Another obvious error from this constellation diagram was that the four points were only mapped to binary x and y coordinates. A normal QPSK constellation diagram would be expected to look more like what is shown in Figure \ref{fig:CommsSystemsConstelDiagEg}. In Figure \ref{fig:CommsSystemsConstelDiagEg} all of the points have an equal magnitude from the origin but are at phases $90^{\circ}$ apart, to maximise separation for a given transmission power. This suggested that there was an error in the regularisation layer, which made this the focus for the next section. 
 
-\subsection{Paper 1 - Producing an Autoencoder}
-
 \subsubsection{Batch vs L2 normalisation}
 \label{sec:BatchVsL2Normalisation}
 
@@ -540,8 +534,8 @@ L2 normalisation and batch normalisation are defined below by Constraint \ref{eq
 \begin{subequations}
 \begin{align}
    \left[\sum_{i=1}^{n}\left \| x_i \right \|^2\right]^{\frac{1}{2}} &= 1 \label{eq:L2Normalisations}\\
-   \mu_B &= \frac{1}{n} \sum_{i=1}^{n}x_i \\
-   \sigma_B^2 &= \frac{1}{n} \sum_{i=1}^{n} \left(x_i - \mu_B \right)^2 \\
+   \mu_B &= \frac{1}{n} \sum_{i=1}^{n}x_i \nonumber\\
+   \sigma_B^2 &= \frac{1}{n} \sum_{i=1}^{n} \left(x_i - \mu_B \right)^2 \nonumber\\
    y &= \frac{x_i - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}}
    \label{eq:BatchNormalisation}
 \end{align}
@@ -580,13 +574,11 @@ L2 normalisation and batch normalisation are defined below by Constraint \ref{eq
 Batch normalisation was briefly investigated, and initially gave the promising looking constellation diagram shown in Figure \ref{fig:BatchNormConstDiags}a. This was a vast improvement on the previous constellation diagram shown in Figure \ref{fig:WrongConstellationDiagram}. This motivated further investigation into batch normalisation to try and get the final small changes needed to reproduce QPSK. During this investigation 
 the batch size was changed, the data size increased and axis over which BatchRegularization was performed was changed.
 
-However all of these changes resulted in worse constellation diagrams than the original diagram shown in Figure \ref{fig:BatchNormConstDiags}a. Eventually it was found that this diagram was also unreproducible, and this result seemed to have been a missleading fluke caused by the inconsistency of the model's performance from one intialisation to another.
+However all of these changes resulted in worse constellation diagrams than the original diagram shown in Figure \ref{fig:BatchNormConstDiags}a. Eventually it was found that this diagram was also unreproducible, and this result seemed to have been a missleading fluke caused by the inconsistency of the model's performance from one intialisation to another. The missleading results were also partially due to a bug causing a layer to be bypassed. After lots of additional testing batch normalisation was rejected in favour of the original L2 normalisation, however over a different axis. 
 
-The missleading results were also partially due to a bug, causing of a layer being bypassed. After lots of testing batch normalisation was rejected in favour of the original L2 normalisation, however over a different axis. 
+Because the variance of a zero mean signal is equal to the signal power, batch normalisation simulates a unit average power constraint with zero DC component. However to obtain the QPSK constellation a constant instantaneous power constraint was needed, which was emulated by L2 normalisation in the last layer of the transmitter. This means that the L2 normalisation method was more appropriate and reintroduction of the L2 normalisation led to the contellation diagrams in Figure \ref{fig:InconsistentReluConstDiags} being produced. 
 
-Batch normalisation simulates a unit average power constraint with zero DC component. However to obtain the QPSK constellation a constant instantaneous power constraint was needed, which was emulated by L2 normalisation in the last layer of the transmitter. This means that the L2 normalisation method was more appropriate and reintroduction of the L2 normalisation led to the contellation diagrams in Figure \ref{fig:InconsistentReluConstDiags} being produced. 
-
-These constellation diagrams, while still inconsistent and not always correct, were always varying in two dimensions and had a unit instantaneous power budget so were an improvement on the constellations produced from the batch normalisation.
+These constellation diagrams, while still inconsistent and not always correct, were always varying in two dimensions and had a unit instantaneous power budget so were an improvement on the constellations produced from the batch normalisation. Additionally, even if the results had been worse, L2 normalisation would still have been chosen to replicate QPSK as this choice has theoretical backing, so any results suggesting otherwise suggest either a bug or an interesting result which should be investigated. It is important in a more heuristic area such as machine learning to make as many choices based on hard theory as possible, as it gives more intuition to the other choices and significantly reduces the number of combinations of hyperparameters which must be investigated empyrically.
 
 At this point the style of the constellation diagrams was changed to match the style of those in the paper for easier comparison. The square format made identifying QPSK and 16 QAM constellations simpler.
    
@@ -621,11 +613,7 @@ At this point the style of the constellation diagrams was changed to match the s
 
 \subsubsection{Leaky-Relu over ReLu}
 
-As can be seen in Figure \ref{fig:InconsistentReluConstDiags} the constellation diagrams were not consistent at all. Occasionally, roughly one in ten times, the (2,2) model would converge to the correct QPSK constellation diagram. However often it would either have multiple input points converge to the same channel symbol, or would converge to a diagram which was clearly not optimal.
-
-Meanwhile the (4,2) model was underfitting and consistently converging to one channel symbol instead of sixteen, but the exact channel symbol changed each time. This suggested that the model was underfitting, either due to insufficient layers or an inappropriate activation function.
-
-Some research suggested that both these issues might be to do with ``neuron death" giving dependence on initialisation values. This is a problem characteristic of the ReLu activation function, shown in Figure \ref{fig:ReluAndLrActivationFunction}a. The ReLu activation function outputs zero for all non-positive inputs, meaning that if weights are initially set so that a neuron consistently outputs a negative value pre-activation-function, it will consitently output a zero.
+As can be seen in Figure \ref{fig:InconsistentReluConstDiags} the constellation diagrams were not consistent at all. Occasionally, roughly one in ten times, the (2,2) model would converge to the correct QPSK constellation diagram. However often it would either have multiple input points converge to the same channel symbol, or would converge to a diagram which was clearly not optimal. Meanwhile the (4,2) model was underfitting and consistently converging to one channel symbol instead of sixteen, but the exact channel symbol changed each time. This suggested that the model was underfitting, either due to insufficient layers or an inappropriate activation function.
 
 \begin{figure*}[t!]
    \centering
@@ -640,15 +628,15 @@ Some research suggested that both these issues might be to do with ``neuron deat
        \includegraphics[width=\linewidth]{figures/leaky_relu_activation_function.png}
        \caption{Leaky-ReLu activation function, typically $a\approx0.01$.}
    \end{subfigure}
-   \caption{}
+   \caption{Graphs taken from ~\cite{ReluAndLeakyReluGraphs}.}
    \label{fig:ReluAndLrActivationFunction}
 \end{figure*}
 
-This means that the weights will not be updated through back-propogation as the partial derivatives of the error with respect to the weights will be zero. As a result the model will not improve for these neurons and will converge at an incorrect solution. 
+Some research suggested that both these issues might be to do with ``neuron death" giving dependence on initialisation values. This is a problem characteristic of the ReLu activation function, shown in Figure \ref{fig:ReluAndLrActivationFunction}a. The ReLu activation function outputs zero for all non-positive inputs, meaning that if weights are initially set so that a neuron consistently outputs a negative value pre-activation-function, it will consitently output a zero. This means that the weights will not be updated through back-propogation as the partial derivatives of the error with respect to the weights will be zero. As a result the model will not improve for these neurons and will converge at an incorrect solution. 
 
-A suggested solution to this problem was using a ``leaky-relu" activation function, shown in \ref{fig:ReluAndLrActivationFunction}b instead. A brief trial of this showed much improved performance, prompting further investigation into alternative activation functions in the section below. 
+A suggested solution to this problem was using a ``leaky-relu" activation function, shown in \ref{fig:ReluAndLrActivationFunction}b instead. The typical value of $\alpha\approx0.01$ gets most of the benefits of a normal ReLu function, while still having a non-zero output for all non-zero inputs. This means there is a gradient for all non-zero inputs, so back propogation can always update the weights. A brief trial of the leaky-ReLu activation function showed much improved performance, prompting further investigation into alternative activation functions in the section below. 
 
-The improved (2,2) constellation diagram seen in Figure \ref{fig:Lr22ConstDiags}a was consistently produced with each channel symbol being equally spaced, centred around the origin, having an equal magnitude and a phase difference of $90^{\circ}$ from adjacent points. The only parameter which changed phase of the point in the first quadrant. The (4,2) constellation diagram shown in Figure \ref{fig:Lr22ConstDiags}b was also produced for the first time and was then consistently reproduced. 
+The improved (2,2) constellation diagram seen in Figure \ref{fig:Lr22ConstDiags}a was consistently produced with each channel symbol being equally spaced, centred around the origin, having an equal magnitude and a phase difference of $90^{\circ}$ from adjacent points. The only parameter which changed was the phase relative to 0 of the points in each quadrant (rotation). The (4,2) constellation diagram shown in Figure \ref{fig:Lr22ConstDiags}b was also produced for the first time and was then consistently reproduced which is obviously a massive improvement on Figure \ref{fig:InconsistentReluConstDiags}d.
 
 \begin{figure}[t]
    \centering
@@ -657,9 +645,9 @@ The improved (2,2) constellation diagram seen in Figure \ref{fig:Lr22ConstDiags}
    \label{fig:ReluVsLrBlerAcrossSnrs}
 \end{figure}
 
-The BLER of two ReLu and Leaky-ReLu based models were also found over a range of SNRs. This was done to ensure that the metric of test error at training SNR was valid for evaluating model quality. It could be possible that some activation functions performed better at some SNRs and worse at others. The results of this are shown in Figure \ref{fig:ReluVsLrBlerAcrossSnrs}. The leaky-ReLu model consistently outperforms the ReLu model across all $\frac{E_b}{N_0}$ ratios. This both confirms that leaky-ReLu is a better activation function for this problem and that test error at training SNR is a valid metric for assessing model quality.
+The BLER of two ReLu and Leaky-ReLu based models were also examined over a range of SNRs. This was done to ensure that the metric of test error at training SNR was valid for evaluating model quality. It could be possible that some activation functions performed better at some SNRs and worse at others. The results of this are shown in Figure \ref{fig:ReluVsLrBlerAcrossSnrs}. The leaky-ReLu model consistently outperforms the ReLu model across all $\frac{E_b}{N_0}$ ratios. This both confirms that leaky-ReLu is a better activation function for this problem and that test error at training SNR is a valid metric for assessing model quality.
 
-Now that successful models had been reproduced all of the layers in the models were named so that the weights could be saved and loaded into new models to avoid the time overhead of retraining larger models. The model weights were saved in the \code{.h5} format because neither the JSON nor YAML formats worked with the custom \code{GaussianNoise} and \code{MostLikelySymbol} layers.
+Now that successful models had been reproduced, all of the layers in the models were named so that the weights could be saved and loaded into new models to avoid the time overhead of retraining larger models. The model weights were saved in the \code{.h5} format because neither the JSON nor YAML formats worked with the custom \code{GaussianNoise} and \code{MostLikelySymbol} layers.
 
 \begin{figure}[t]
    \centering
@@ -739,11 +727,11 @@ Hence as the batch size is increased the variance of the batch's noise decreases
 
 In practice the batch size was varied in three steps, $1000$, $\sqrt{M}*1000$, $M*1000$. It was found that initial progress was made more quickly at a batch size of 1000, because there were more weight updates per epoch, then after the model performance converged at this batch size the batch size was increased and this process repeated twice more. After the batch size was increased each time the performance would at first improve quickly for a few epochs, before slowing and eventually congerging again.
 
-Another method used during the training of the models was to use the EarlyStopping callback in Keras. This was used to try and bring a constant process to training method. The EarlyStopping callback monitored the validation loss and would stop training if the validation loss did not improve after 20 epochs. This method works if the model is being trained over a large number of epochs like 1000, howver not if the model is being trained over 30 epochs. It also has the dissadvantage that it is not stopping at the best model, it is stopping 20 epochs later, so if the validation loss significantly increases due to overfitting in these final 20 epochs then the quality of the end model will be significantly affected. However having a patience parameter of 20 also has the advantage that it can cope with longer flat sections of the loss surface. This has proved useful quite a few times during the training of the larger models, when the validation loss has hardly improved for 20 epochs, before dropping off again more steeply. 
+Another method used during the training of the models was to use the EarlyStopping callback in Keras. This was used to try and bring a constant process to training method. The EarlyStopping callback monitored the validation loss and would stop training if the validation loss did not improve after 20 epochs. This method works if the model is being trained over a large number of epochs such as 1000, however not if the model is being trained over 30 epochs. It also has the dissadvantage that it is not stopping at the best model, it is stopping 20 epochs later, so if the validation loss significantly increases due to overfitting in these final 20 epochs then the quality of the end model will be significantly affected. However having a patience parameter of 20 also has the advantage that it can cope with longer flat sections of the loss surface. This has proved useful quite a few times during the training of the larger models, when the validation loss has hardly improved for 20 epochs, before dropping off again more steeply. 
 
-After moving on to reproducing~\cite{Aoudia} the ModelCheckpoint callback was introduced. This would save the model after every epoch, if and only if the validation loss had improved from the current best. This was a better way of ensuring the best model was saved and allowed the patience parameter of the EarlyStopping callback to be increased to improve it's ability to deal with small gradients and flat sections of the loss function.
+After moving on to the second set of deliverables reproducing~\cite{Aoudia} later in the implementation,  the ModelCheckpoint callback was introduced. This would save the model after every epoch, if and only if the validation loss had improved from the current best. This was a better way of ensuring the best model was saved and allowed the patience parameter of the EarlyStopping callback to be increased to improve it's ability to deal with small gradients and flat sections of the loss function, without reducing the quality of the output model.
 
-Training multiple many models with different initialisations should have been used for final models, however due to the consistency of the \code{leaky-ReLu} and \code{tanh} activation functions shown in Table \ref{tab:ActivationFuncComparison} this was not done for the majority of models, however may be used for getting the last few $\%$ of performance out of the final models.  
+Training many models with different initialisations should have been used for final models, however due to the consistency of the \code{leaky-ReLu} and \code{tanh} activation functions shown in Table \ref{tab:ActivationFuncComparison} and the very large time commitment that this method takes, this was not done for the majority of models. This method may still be used for getting the last few $\%$ of performance out of the final models though.
 
 \subsection{Adding non learned encoding}
 
@@ -767,7 +755,7 @@ Binary phase shift keying (BPSK) is the $m = 2$ case of phase shift keying (PSK)
 \end{align}
 \end{subequations}
 
-Compared to the other m-PSK methods BPSK's channel symbols are the furthest separated and therefore it has the highest tolerance to noise, making it the most robust PSK. This is because it only encodes one bit, so it sacrifices data rate. BPSK's theoretical BER is given by Equation \ref{eq:BpskTheoreticalBer} from~\cite{BpskPe}.
+Compared to the other m-PSK methods BPSK's channel symbols are the furthest separated and therefore it has the highest tolerance to noise, making it the most robust PSK. This is because it only encodes one bit, so it gains in robustness by sacrificing data rate. BPSK's theoretical BER is given by Equation \ref{eq:BpskTheoreticalBer} taken from~\cite{BpskPe}.
 
 \begin{equation}
    P_b = \frac{1}{2}erfc\left(\sqrt{\frac{E_b}{N_0}}\right)
@@ -781,13 +769,11 @@ Where the erfc function is defined by~\cite{ErfcDefinition} as:
    \label{eq:ErfcDef}
 \end{equation}
 
-The $erfc$ function gives the probability that a $\left| Y \right| \ge x$ where $Y \sim \mathcal{N}(0,\frac{1}{2})$. So $\frac{1}{2}*erfc(x)$ gives the tail probability of a normal distribution ($Y$). 
-
-This relationship means that the theoretical block error rate (BLER) can be calculated to ensure that the experimental graphs found later are correct.
+The $erfc$ function gives the probability that a $\left| Y \right| \ge x$ where $Y \sim \mathcal{N}(0,\frac{1}{2})$. So $\frac{1}{2}\times erfc(x)$ gives the tail probability of a normal distribution ($Y$). This relationship means that the theoretical block error rate (BLER) can be calculated to ensure that the experimental graphs found later are correct.
 
 BLER is defined by the European Telecommunication Standards Institue as \textit{``the ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"}~\cite{BlerEtsiDefinition}.
 
-This is taken to mean that if any of the bits in a block are incorrect, then the block is taken as wrong. The BLER is then the percentage of blocks which have any bits which are incorrect. As the noise for each block is assumed to be i.i.d, the above definition gives the following relationship between $P_{be}$ and $P_e$ in Equation \ref{eq:BpskTheoBler}. Note that this assumes stationarity, which is often not a valid assumption in wireless channels.
+This is taken to mean that if any of the bits in a block are incorrect, then the block is counted as incorrect. The BLER is then the percentage of blocks which have any bits which are incorrect. As the noise for each block is assumed to be i.i.d, the above definition gives the following relationship between $P_{be}$ and $P_e$ in Equation \ref{eq:BpskTheoBler}. Note that this assumes a stationarity AWGN channel, which is often not a valid assumption in wireless channels.
 
 \begin{align}
    P_{be} &= 1 - (1-p_e)^n \\
@@ -802,7 +788,7 @@ This is taken to mean that if any of the bits in a block are incorrect, then the
    \label{fig:BspkBlerComp}
 \end{figure}
 
-This theoretical check was actually very useful as it unearthed a bug in the BPSK encoding and decoding. The graph that made these bugs obvious is shown in Figure \ref{fig:BspkBlerComp}. Stating that results are wrong based on a other results requires a large amount of confidence in the correcting set of results. The theoretical results have this confidence due to matching the values displayed in the paper and the equations producing them being widely agreed upon.
+This theoretical check was actually very useful as it unearthed a bug in the BPSK encoding and decoding. The graph that made these bugs obvious is shown in Figure \ref{fig:BspkBlerComp}. Stating that results are wrong based on a other results requires a large amount of confidence in the correcting set of results. However the theoretical results have this confidence due to matching the values displayed in the paper and the equations producing them being widely agreed upon.
 
 The implementation code for the BPSK encoding and decoding can be found in the \textit{Implementing Uncoded BPSK} section of \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}. Note that the \code{bpsk$\_$encode} and \code{bpsk$\_$decode} functions were vectorised because it was found that this reduced the latency of the simulation process by approximately $60\%$. This was important, as to give smooth curves the BPSK BLER was tested over a very large test data set and also for 25 different $\frac{E_b}{N_0}$ ratios.
 
@@ -837,7 +823,7 @@ In the r = 3 case we get the most well known Hamming code, and the one used in t
    \label{eq:Hamming74Characteristics}
 \end{align}
 
-In the (7,4) Hamming code, for every four data bits transmitted three parity bits are added. These three parity bits allow the detection and correction of single errors. The combinations of the parity bits are given by Figure \ref{fig:HammingParityVennDiagram} and Table \ref{tab:Hamming74Parity}. Note that the (7,4) Hamming code cannot detect or correct multiple errors. 
+In the (7,4) Hamming code, for every four data bits transmitted three parity bits are added. These three parity bits allow the detection and correction of single errors within the block of seven transmitted bits. The combinations of the parity bits are given by Figure \ref{fig:HammingParityVennDiagram} and Table \ref{tab:Hamming74Parity}. Note that the (7,4) Hamming code cannot detect or correct multiple errors. 
 
 However given that the probabilities of one, two and k errors are given by Equation \ref{eq:HammingPe1}, b and d respectively, if $p_e$ is small then the higher order terms will be negligible. For each extra number of errors you become able to correct you will reduce your BER by a factor of $p_e$.
 
@@ -928,9 +914,7 @@ Where $\mathbf{e}$ may be the zero vector. The syndrome vector $\mathbf{z}$ is o
    \mathbf{z} &= mod_2\left(\mathbf{Hr}\right)
 \end{align}
 
-Noting that $\mathbf{r}$ has been rounded $\mathbf{z}$ is a three bit binary number. If only one bit has been changed then this number corresponds to the index (indexed from one to seven) of the bit which has an error. The value of this bit can be simply flipped to correct the error.
-
-After the error correction stage the message must be decoded. The message is simply recovered my matrix multiplying by $\mathbf{R}$.
+Noting that $\mathbf{r}$ has been rounded $\mathbf{z}$ is a three bit binary number. If only one bit has been changed then this number corresponds to the index (indexed from one to seven) of the bit which has an error. The value of this bit can be simply flipped to correct the error. After the error correction stage the message must be decoded. The message is simply recovered my matrix multiplying by $\mathbf{R}$.
 
 \begin{equation}
    \hat{\mathbf{p}} = \mathbf{Rp}

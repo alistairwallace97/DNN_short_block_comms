@@ -80,6 +80,7 @@
    \item Remove pseudo code snippets, not necessary.
    \item Update abstract to include appropriate content.
    \item Implement Clerckx comments on the introduction/background section.
+   \item Remove table from safety plan.
 \end{itemize}
 
 
@@ -368,6 +369,7 @@ In conclusion, this paper had some significant and completely new results, for i
 \subsection{Background communications theory}
 
 \subsubsection{Types of fading}
+\label{sec:TypesOfFading}
 
 Fading can be categorised into large or small scale, fast or slow and flat or frequency selective. Large scale fading is is due to path loss of signal as a function of distance and shadowing by large objects, such as buildings and hills. Because of it's large spacial size it is usually frequency independent. Small scale fading is due to constructive and destructive interference of multiple signal paths between the transmitter and the receiver. This smaller spacial scale is of the order of the carrier wavelength and is therefore a function of frequency. 
 
@@ -1493,9 +1495,10 @@ Another issue with the RBF model was that with large block sizes it became extre
    \hline
    Block Size & Compile Time (s) & h$\_$est parameters & training s/step\\
    \hline\hline
-   10 & $4.75$ & $1662$ & $173\mu s$ \\
-   100 & $33.45$ & $16062$ & ? \\
-   1000 & $1241.67$ & ? & ? \\
+   10 & $4.75$ & $1,662$ & $173\mu s$ \\
+   100 & $33.45$ & $16,062$ & ? \\
+   1000 & $1,241.67$ & $160,062$ & ? \\
+   n & n/a& $8*20n$ + $62$ & n/a \\
    \hline
    \end{tabular}
    \end{center}
@@ -1510,23 +1513,36 @@ Because of the issues listed above the investigation of an supervised autoencdoe
 
 \begin{itemize}
    \item I mainly produced the same results as them.
-   \item 
+   \item The final two graphs from the first paper
+   \item The results from the RSF section
 \end{itemize}
 
+This section will go over the end results of the first and second set of deliverables. 
 
 \FloatBarrier
 \section{Conclusions}
 
-\begin{itemize}
-   \item Learned model performed very poorly on Rayleigh Slow Fading, it is likely it would perform even more poorly on Rayleigh Fast Fading. This is novel, no one has done this before.
-\end{itemize}
-
+\subsection{AWGN autoencoder and unlearned communication systems comparison}
 
 \begin{itemize}
    \item I couldn't replicate their performance with their architectures. I found that they underperformed their results.
-   \item This method is unlikely to produce results from Rayleigh Fast Fading channels, potentially RNNs would be better there as they could maybe learn waterfilling?
+   \item I reproduced their results mainly.
+   \item I got different results for Hamming (7,4) and BCH.
+   \item I confirmed that a learned communication system can replicate the performance of Hammign (7,4) MLD, which is an efficient coding scheme.
+   \item I confirmed that a learned communication system could learn QPSK, 16-QAM and an unusual pentagon like constellation diagram, with no prior knowledge of encoding schemes. 
    \item 
 \end{itemize}
+
+The main conclusion of the first section of deliverables from the report is that 
+
+\subsection{Novel investigation of learned communication system over an RSF channel}
+
+One novel area investigated in this report was the performance of supervised learned communication systems in the presence of Rayleigh slow fading. The performance of autoencoder-like learned communication systems had been investaged over Rayleigh block fading channels, but as far as the author can find, no paper has investaged Rayleigh slow fading. Contrary to the name, RSF is actually faster fading that RBF. RBF can be thought of as "\textit{really slow}" rayleigh fading. 
+
+The meaning of the speed of the fading is how long the $h$ parameter from Equation \ref{eq:RaylieghDef} remains constant. In slow fading there is a new realisation of $h$ for each message sent, in block fading $h$ remains the same for the whole block of messages, and in fast fading each channel symbol would be transmitted over multiple fades. It was found in this paper that learned communication systems perform very poorly over an RSF channel, as the $N_r$ bits sent for each message are not enough to effectively estimate $h$. As the multiplicative noise is far more distruptive than the additive noise not being able to estimate $\hat{h}$ accurately prevents the communication system from removing the additive noise effectively and so communicate with a reasonable bit error rate. What can be learnt from this is that not only do learned communication systems perform poorly over channels as non-stationary as an RSF channel, but they would also perform even worse over an fast fading rayleigh channel. Consequently this area can be ruled out of further research. 
+
+The normal way of dealing with fast fading is called waterfilling, which involves transmitting only when the channel is not in deep fade. (See Section \ref{sec:TypesOfFading} for more explanation). It is theorised that a better way of combatting a fast fading channel would be to use an RNN, which can learn any algorithm, as then if waterfilling is optimal, it could learn it. However this is a subject for another project as it would require substantial work.
+
 
 
 \FloatBarrier

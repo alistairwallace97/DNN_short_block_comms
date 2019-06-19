@@ -1225,7 +1225,7 @@ At this point the next iteration of ~\cite{oShea}'s Figure 3a and 3b were plotte
        \caption{Penultimate reproduction of 3b, with overperforming (8,8) model due to incorrect scaling.}
        \label{fig:OSheaFigure3bIncorrect88}
    \end{subfigure}
-   \caption{t-SNE constellation diagrams}
+   \caption{Reproductions of ~\cite{oShea} after fixing the majority of the scaling issues.}
    \label{fig:OSheaFig3Incorrect88}
 \end{figure*}
 
@@ -1237,9 +1237,7 @@ The current differences between ~\cite{oShea}'s Figure 3a and 3b, comared to Fig
 
 It was noticed while writing up Section \ref{sec:CorrectingScaling} that the reason for this was the scaling being incorrectly applied to the (8,8) complex model. As the L2-normalisation is applied to the last dimension, the same method cannot be applied to the (7,4) non-complex and (8,8) complex models. 
 
-The (7,4) model's channel symbols must be multiplied by a factor of $\sqrt{N_r}$ because the last dimension is the (7,) dimension. However the last dimension in the complex model is the complexity dimension of shape (2,). So the channel symbols must be scaled by a factor of $\sqrt{2}$. This means that the performance of the (2,2) model is correct by chance, however the symbols of the (8,8) model are being scaled up incorrectly by an extra factor of 2.
-
-This was rectified giving the performance shown in Figure \ref{fig:Autoencoders88ScalingCorrected}.
+The (7,4) model's channel symbols must be multiplied by a factor of $\sqrt{N_r}$ because the last dimension is the (7,) dimension. However the last dimension in the complex model is the complexity dimension of shape (2,). So the channel symbols must be scaled by a factor of $\sqrt{2}$. This means that the performance of the (2,2) model is correct by chance, however the symbols of the (8,8) model are being scaled up incorrectly by an extra factor of 2. This was rectified giving the performance shown in Figure \ref{fig:Autoencoders88ScalingCorrected}.
 
 \begin{figure}[t]
    \centering
@@ -1248,33 +1246,28 @@ This was rectified giving the performance shown in Figure \ref{fig:Autoencoders8
    \label{fig:Autoencoders88ScalingCorrected}
 \end{figure}
 
+After the correcting of the scaling the final graphs results were produced for the lines in ~\cite{oShea}'s Figure 3a and b. The graphs for these can be see in Figure \ref{fig:OSheaFig3} and will be discussed in the results section. 
+
 \begin{figure*}[t!]
    \centering
-  \begin{subfigure}[t]{0.45\textwidth}
+   \begin{subfigure}[t]{0.45\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/o_shea_3a_bler_vs_eb.png}
-       \caption{Final reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
+       \caption{Penultimate reproduction of ~\cite{oShea}'s Figure 3a, before adding BCH codes and redebugging Hamming HD.}
        \label{fig:OSheaFigure3a}
    \end{subfigure}
    ~
    \begin{subfigure}[t]{0.45\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
-       \caption{Final reproduction of 3b, three lines identical, (8,8) autoencoder slightly underperforming.}
+       \caption{Penultimate reproduction of 3b, three lines identical, (8,8) autoencoder slightly underperforming.}
        \label{fig:OSheaFigure3b}
    \end{subfigure}
-   \caption{t-SNE constellation diagrams}
+   \caption{Penultimate reproductions of ~\cite{oShea}'s Figures 3a and b.}
    \label{fig:OSheaFig3}
 \end{figure*}
 
-After correcting the incorrect scaling of the (8,8) autoencoder to a factor of $\sqrt{2}$ the results graph looks as it does in Figure ~\cite{fig:OSheaFigure3b}. This is now very similar to Figure 3a from ~\cite{oShea}. Three of the lines are identical, the (2,2) autoencoder and both the BPSK models. The (8,8) autoencoder line is similar in that it starts in tangent with the (8,8) BPSK and finishes with the lowest error rate. However it slightly underperforms it's counterpart from ~\cite{oShea}. It crosses the (2,2) lines at $\approx7$ as opposed to $\approx5.5$. The BLER seems to be roughly a factor of 5 out. This suggests there may be some small change to the architecture that can be made to improve performance. However the number of layers and activation functions have already been varied. One option left is dropout regularisation. This is where some fraction of the neurons are switched off randomly at training time, which is done primarily to avoid overfitting. However this hasn't been trialed so far because the data sets are very uniform, very large, and the noise is newly randomly generated every time the model transmits a message. Because of this it seems unlikely that the model could overfit. 
-
-Additionally the (7,4) autoencoder in Figure \ref{fig:OSheaFigure3a} is also slightly underperforming at the high SNRs. As this margin is so small it will be tackled by retraining and using the ModelCheckpoint callback to ensure that the model with the best validation loss achieved during the training process is saved. Also the model will be retrained over a large number of initialisations to remove any small dependence on initialisation values. This has not been used before due to the very large time commitment that is needed for training a large number of models fully. 
-
-The last inconsistency in Figure \ref{fig:OSheaFig3} is that the Hamming HD encoding is significantly underperforming. A reasonable amount of time has been committed to debugging this and the underlying BPSK, however it seems to perform correctly in all unit tests and have the correct amount of noise being applied so the author can not see what is being implemented incorrectly. 
-
-
-BCH codes were investigated on the direction of a project supervisor. BCH codes are a generalisation of Hamming codes for multiple error corrections, where the number of errors which can be corrected is specified as a variable design parameter $t$. For any integers $m \geq 3$ and $t < 2^{m-1}$ there exists a BCH code with the characteristics described in Equations \ref{eq:BchCharacteristics} where $k$ is the number of data bits. Note that the minimum distance is ofter referred to as the designed distance.
+Lastly BCH codes were investigated on the direction of a project supervisor. BCH codes are a generalisation of Hamming codes for multiple error corrections, where the number of errors which can be corrected is specified as a variable design parameter $t$. For any integers $m \geq 3$ and $t < 2^{m-1}$ there exists a BCH code with the characteristics described in Equations \ref{eq:BchCharacteristics} where $k$ is the number of data bits. Note that the minimum distance is ofter referred to as the designed distance.
 
 \begin{align}
    \mbox{block length: }& n = 2^{m}-1 \nonumber\\
@@ -1300,7 +1293,7 @@ The implementation code for this section can be found in the \textit{BCH$\ $Enco
    \label{eq:GaussianBitflip}
 \end{align}
 
-So the function goes through every bit sent, and with probability $p_e$ flips the bit by XORing (exclusive or'ing) with 1 $<<$ bit$\_$number, which is the number one logically shifted left by bit$\_$number bits. This function therefore directly replicates the effect of encoding into BPSK, adding gaussian noise, picking the most likely symbol and decoding back to binary. Using this function the two lines in Figure \ref{fig:BchT1VsT2} were produced to compare the BLER of a BCH code with $t=1$ and $t=2$. 
+So the function goes through every bit sent, and with probability $p_e$ flips the bit by XORing (exclusive or'ing) with 1 $<<$ bit$\_$number, which is the number one logically shifted left by bit$\_$number bits. This function therefore directly replicates the effect of encoding into BPSK, adding gaussian noise, picking the most likely symbol and decoding back to binary. Using this function the two lines in Figure \ref{fig:BchT1VsT2} were produced to compare the BLER of a BCH code with $t=1$ and $t=2$. These lines will also be discussed in the results section.
 
 \begin{figure*}[t!]
    \centering
@@ -1317,15 +1310,10 @@ So the function goes through every bit sent, and with probability $p_e$ flips th
        \caption{The reporduction of ~\cite{oShea}'s Figure 3a with BCH encoding added for extra comparison.}
        \label{fig:OSheaFigure3aBch}
    \end{subfigure}
-   \caption{t-SNE constellation diagrams}
+   \caption{Figures to show the relative BLER performance of BCH encoding with $t=1$ and $t=2$.}
    \label{fig:BchFigures}
 \end{figure*}
 
-As expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. From Figure \ref{fig:OSheaFigure3aBch} it can be seen that the $t=1$ line outperforms the Hamming (7,4) line on the whole, however it still underperforms what the Hamming (7,4) line should produce according to both~\cite{oShea}'s Figure 3a and also the common sense that adding Hamming encoding should not decrease the performance from normal BPSK.
-
-Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH codes still do not pass this common sense test of improving the BLER of the uncoded BPSK. This shows that there must be an error in this section. A suspected causes of this error was that the BCH polynomial prime used (8129) was unsuitable. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section.  
-
-It was suggested in a second meeting the day before the deadline that BCH encoding could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't recently familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
 
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
@@ -1347,6 +1335,7 @@ $\mathbf{s}$ and $\mathbf{r}$ are the complex sent and received signals respecti
 Rayleigh fading channels are a good type of channel to examine the performance of the learned communication system. The reason for this is that, as described above they model well the effect of a signal propogating through a built up area like a city. A city with a very complex, but stationary large scale fading function would be an environment where a learned communication system could perform particularly well. This is because it could learn an optimal communication system for taking advantage of these large scale fading effects in a way that a normal communication system could not.
 
 \subsubsection{Investigation into RSF}
+\label{sec:InvestigateRsf}
 
 The first objective was to reproduce the supervised AWGN graph from ~\cite{Aoudia}. This was very easily done by simply using the (8,8) model from the previous section to produce Figure \ref{fig:AwgnSupervised}.
 
@@ -1519,6 +1508,66 @@ Because of the issues listed above the investigation of an supervised autoencdoe
 
 This section will go over the end results of the first and second set of deliverables. 
 
+\subsection{O'Shea \etal paper final reproduced results}
+
+\begin{figure*}[t!]
+   \centering
+   \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/o_shea_3a_bler_vs_eb_bch.png}
+      \caption{The reporduction of ~\cite{oShea}'s Figure 3a with BCH encoding added for extra comparison.}
+      \label{fig:OSheaFigure3aBch}
+  \end{subfigure}
+ ~
+   \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/o_shea_3b_bler_vs_eb.png}
+      \caption{Final reproduction of 3b, three lines identical, (8,8) autoencoder slightly underperforming.}
+      \label{fig:OSheaFigure3b}
+   \end{subfigure}
+\caption{Final reproductions of ~\cite{oShea}'s Figure 3a and b.}
+\label{fig:OSheaFigureFinal}
+\end{figure*}
+
+After correcting the incorrect scaling of the (8,8) autoencoder to a factor of $\sqrt{2}$ the results graph looks as it does in Figure \ref{fig:OSheaFigure3b}. This is now very similar to Figure 3a from ~\cite{oShea}. Three of the lines are identical, the (2,2) autoencoder and both the BPSK models. The (8,8) autoencoder line is similar in that it starts in tangent with the (8,8) BPSK and finishes with the lowest error rate. However it slightly underperforms it's counterpart from ~\cite{oShea}. It crosses the (2,2) lines at $\frac{E_b}{N_0}\approx7$ as opposed to $\frac{E_b}{N_0}\approx5.5$. The BLER seems to be roughly a factor of 5 out. This suggests there may be some small change to the architecture that can be made to improve performance. However the number of layers and activation functions have already been varied. One option left is dropout regularisation. This is where some fraction of the neurons are switched off randomly at training time, which is done primarily to avoid overfitting. However this hasn't been trialed so far because the data sets are very uniform, very large, and the noise is newly randomly generated every time the model transmits a message. Because of this it seems unlikely that the model could overfit. 
+
+Additionally the (7,4) autoencoder in Figure \ref{fig:OSheaFigure3aBch} is also slightly underperforming at the high SNRs. As this margin is so small it will be tackled by retraining and using the ModelCheckpoint callback to ensure that the model with the best validation loss achieved during the training process is saved. Also the model will be retrained over a large number of initialisations to remove any small dependence on initialisation values. This has not been used before due to the very large time commitment that is needed for training a large number of models fully. 
+
+Another inconsistency in Figure \ref{fig:OSheaFigureFinal} is that the Hamming HD encoding is significantly underperforming. A reasonable amount of time has been committed to debugging this and the underlying BPSK, however it seems to perform correctly in all unit tests and have the correct amount of noise being applied so the author can not see what is being implemented incorrectly. 
+
+For the BCH lines in Figure \ref{fig:OSheaFigure3aBch}, as expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. From Figure \ref{fig:OSheaFigure3aBch} it can be seen that the $t=1$ line outperforms the Hamming (7,4) line on the whole, however it still underperforms what the Hamming (7,4) line should produce according to both~\cite{oShea}'s Figure 3a and also the common sense observation that adding Hamming encoding should not decrease the performance from normal BPSK.
+
+Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH codes still do not pass this common sense test of improving the BLER of the uncoded BPSK. This shows that there must be an error in this section. A suspected causes of this error was that the BCH polynomial prime used (8129) was unsuitable. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section. It was suggested in a meeting the day before the deadline that BCH encoding could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
+
+\subsection{Aoudia \etal paper AWGN and RSF results}
+
+\begin{figure*}[t!]
+   \centering
+   \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/aoudia_paper/awgn_supervised.png}
+      \caption{Reproduction of ~\cite{Aoudia}'s Figure 6a's supervised AWGN model BLER performance.}
+      \label{fig:AwgnSupervisedResults}
+   \end{subfigure}
+ ~
+   \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/aoudia_paper/autoencoder_rsf_bler.png}
+      \caption{The poor BLER performance of the supervised RSF autoencoder.}
+      \label{fig:RsfSupervisedResults}
+   \end{subfigure}
+   \caption{Summary of the results from the reproduction of the Aoudia paper.}
+   \label{fig:AoudiaFinalResults}
+\end{figure*}
+
+The performance of the supervised learned models in an AWGN and RSF channel can be seen in Figure \ref{fig:AoudiaFinalResults}. As discussed in Section \ref{sec:InvestigateRsf}, the AWGN (8,8) model which gave comparible performance to the (8,8) model from the O'Shea paper, significantly underperformed the supervised AWGN model from the Aoudia paper. This performance is shown by the \code{L2 power constraint} line in Figure \ref{fig:AwgnSupervisedResults}. The error rates in the Aoudia paper ranged from $\approx 1$  to $\approx 10^{-7}$ from the SNRs of -4 to 13db. Whereas the results from the O'Shea paper model ranged from $\approx 1$  to $\approx 10^{-4.5}$ across the same range. This seems suspicious, it seems unlikely that the result model from one paper would have a BLER which was $\approx10^3$ lower at the higher SNRs. This suggests that the two papers have measured error rate differently and so the results are not directly comparible. To improve comparability between all results it was decided to continue measuring error using the BLER metric used for the first paper in the second paper. 
+
+With this clarified there is not very much to learn from this result, other than that there was more or less identical performance found from the supervised AWGN models with a constant L2 power constraint as used in the O'Shea paper and an average power constraint in the Aoudia paper. This is not very surprising as the messages are transmitted with equal probability, so each message's channels symbol should logically be equally weighted. If the probabilities were unequal then a different result would be expected. The average pwoer constraint on average marginally outperformed the L2 power constraint but the difference was negligible. 
+
+The performance of the supervised RSF model was very poor as can be seen in Figure \ref{fig:RsfSupervisedResults} and as was discussed in Section \ref{sec:InvestigateRsf}. "The BLERs in this graph range from $99.55\%$ at the low SNRs to $31.78\%$ at the higest SNRs which is clearly extremely poor and nowhere near the performance shown in ~\cite{Aoudia}'s Figure 6b which ranges from $\approx1$ to $8*10^{-3}$." As mentioned in Section \ref{sec:InvestigateRsf} a lot of time was spent trying many different combination of hyperparameters to try and improve the performance of this model. However none of the otehr methods tried outperformed the architecture specified in the paper. This suggests two things, firstly that learned communication systems perform very poorly over channels with as short coherence times as an RSF channel.
+
+Secondly it suggests that Aoudia \etal optimised their hyperparameters and activation function choices effectively. This is in contrast to the O'Shea paper where using the results from the paper could not be reproduced using the architecture specified in the paper. Other hyperparameters and activation function combinations were found to give superior performance. 
+
 \FloatBarrier
 \section{Conclusions}
 
@@ -1543,8 +1592,6 @@ The meaning of the speed of the fading is how long the $h$ parameter from Equati
 
 The normal way of dealing with fast fading is called waterfilling, which involves transmitting only when the channel is not in deep fade. (See Section \ref{sec:TypesOfFading} for more explanation). It is theorised that a better way of combatting a fast fading channel would be to use an RNN, which can learn any algorithm, as then if waterfilling is optimal, it could learn it. However this is a subject for another project as it would require substantial work.
 
-
-
 \FloatBarrier
 \section{Future Work}
 
@@ -1561,6 +1608,10 @@ Some extra comparisons which could be done are to check that the developed metho
 To better assess the generality of a learned communction system learned networks and current state of the art could be compared over common fading environments such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. A wide scale assessment of the performance of learned networks over many different types of channels is currently missing from the literature. This is quite important to do as learned communication systems are likely to be have impressive performance in environments with complex stationary large scale fading as they can adapt to give the locally optimal communication system. After which, more interestingly the same could be done for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
 
 A final idea potentially worth investigating would be to add an RTN layer to the unsupervised reinforcement learning models. In ~\cite{oShea} the RTN autoencoders consistently outperformed the normal autoencoders for all SNRs. The unsupervised models are very promising, so it would be interesting to see if there performance could be improved by adding the RTN networks.
+
+\section{User Guide}
+
+A user guide has been written and can be found in the \code{readme.md} file of the project github~\cite{AwGithub}, this is visible below the list of files on the page the link takes you to. It seemed more appropriate to put this with the code as opposed to in the report where there are not even code snippets. By referencing it here the user guide is just as accessible as if it had been written out here in the report.
 
 \FloatBarrier
 \appendix

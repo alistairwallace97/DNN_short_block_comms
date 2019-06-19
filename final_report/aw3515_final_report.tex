@@ -71,8 +71,6 @@
 
 \begin{itemize}
    \item Got through and find all typos
-   \item Update abstract to include appropriate content.
-   \item Implement Clerckx comments on the introduction/background section.
 \end{itemize}
 
 
@@ -80,16 +78,15 @@
 \begin{abstract}   
    This report focused on applying recent developments in machine learning to the field of communications to improve performance over channels which are unknown or difficult to model. It has been shown that optimising each stage of a communication system individually gives suboptimal performance, leading to investigating end-to-end learnt communication systems, where the optimal communication system can be learnt for a particular channel, environment and for specific hardware non-idealities.
    
-   The report reproduces results from two recent papers ~\cite{oShea,Aoudia} on the subject, exploring unsupervised models and investigating supervised models with additive white Gaussian noise (AWGN), Rayleigh block fading (RBF). It then goes further by applying the above methods to Ricean fading (RF) channels.
+   The report reproduces results from two recent papers ~\cite{oShea,Aoudia} on the subject, investigating supervised models in the presence of additive white Gaussian noise (AWGN), Rayleigh block fading (RBF) and Rayleigh slow fading (RSF). 
    
-   The report produced predominantly similar results to ~\cite{oShea} for supervised models, giving identical performance for two of the three ($n$,$k$) configurations. However, differences were found, sometimes showing lower performance of the technology in question or less aesthetic t-distributed stochastic neighbour embedding (t-SNE) based constellation diagrams, which the original authors overlooked.
+   The report produced predominantly similar results to ~\cite{oShea} for supervised models, giving identical performance for two of the three ($n$,$k$) configurations. However, differences were found, sometimes showing lower performance of the technology in question or less aesthetic t-distributed stochastic neighbour embedding (t-SNE) based constellation diagrams.
 \end{abstract}
 \pagebreak
 
 \section*{Acknowledgements}
-This project is the culmination of not only my work, but also the help given by others. I would like to thank my supervisor Bruno Clerckx for his advice, supervision and feedback on the written sections of the report. Secondly I would like to thank 
-my co-supervisor Morteza Varasteh for always being reachable for assistance, for his help with the implementation of the project and for helping me understand the underlying fundamentals of communication.
-
+This project is the culmination of not only my work, but also the help given by others. I would like to thank my supervisor Dr Bruno Clerckx for his advice, supervision and feedback on the written sections of the report. Secondly I would like to thank 
+my co-supervisor Dr Morteza Varasteh for always being reachable for assistance, for his help with the implementation of the project and for helping me understand the underlying fundamentals of communication. Thirdly I would like to thank my second marker Dr Cong Ling for taking time to help me understand BCH encoding at short notice.
 \pagebreak
 
 
@@ -129,19 +126,15 @@ Normally the information goes through two sets of encoding, source encoding to c
 
 \subsection{Project deliverables}
 
-The main aim of this project is to reproduce the results from two recent papers ~\cite{oShea,Aoudia} on the subject. The secondary deliverable was a potential extra objective for if the project was finished early. This deliverable was left unspecified, but would be to do something new. For instance tackling the limitation of being limited to short block lengths, or investigating potential opportunities such as learning an optimal communication system for a channel which could not be mathematically modelled, or could be modelled but couldn't be solved.
+The development of the systems described above has been broken down into deliverables to make planning easier. The main aim of this project is to reproduce the results from two recent papers ~\cite{oShea,Aoudia} on the subject. The secondary deliverable was a potential extra objective for if the project was finished early. This deliverable was left unspecified, but would be to do something new. For instance tackling the limitation of being limited to short block lengths, or investigating potential opportunities such as learning an optimal communication system for a channel which could not be mathematically modelled, or could be modelled but couldn't be solved.
 
 The two papers originally contributed five deliverables, four from the first and one from the second. However the project supervisor advised that only the first deliverable from each paper were important and so only these deliverables were attempted. 
 
-The first paper, by O'Shea \etal~\cite{oShea}, was only the second paper on the subject, following a paper 8 months earlier by one of the same authors~\cite{oShea0}. The O'Shea paper first demonstrated that an end-to-end communication system could be learned in an autoencoder like method, the structure of which can be seen in Figure \ref{fig:oSheaAutoencoderLayout}. 
-
-It trained a range of autoencoders across a range of ($n$,$k$) combinations for which the constellation diagrams and performance over different signal to noise ratios (SNRs). These autoencoders had several different types of regularisations which affected their constellation diagrams. Their performance was compared to non-learned methods of encoding, such as BPSK and QAM for channel encoding and Hamming maximum likelihood and hard decision for source encoding. 
+The first paper, by O'Shea \etal~\cite{oShea}, was only the second paper on the subject, following a paper 8 months earlier by one of the same authors~\cite{oShea0}. The O'Shea paper first demonstrated that an end-to-end communication system could be learned in an autoencoder like method, the structure of which can be seen in Figure \ref{fig:oSheaAutoencoderLayout}. It trained a range of autoencoders across a range of ($n$,$k$) combinations for which the constellation diagrams and performance over different signal to noise ratios (SNRs). These autoencoders had several different types of regularisations which affected their constellation diagrams. Their performance was compared to non-learned methods of encoding, such as BPSK and QAM for channel encoding and Hamming maximum likelihood and hard decision for source encoding. 
 
 \subsubsection{Side note on autoencoders}
 
-Note that while this would be better suited to the background section, it is necessary for understanding the introduction, so it has been placed here.
-
-Autoencoders are a technique used in deep learning (DL) for encoding and compressing data. There are two NNs placed end-to-end, as in Figure \ref{fig:oSheaAutoencoderLayout}. The input to the first network is $s \in \mathcal{M} = \{1,2,\dots,M\}$, where each $s$ can be represented by $k$ bits. The encoder (first network, analogous to the transmitter), compresses $s$ to $x \in \mathcal{N} = \{1,2,\dots,N\}$, represented by $n$ bits. The decoder (second network, analogous to the receiver) decodes $x$ back to $\hat{s}$.
+To understand the introduction a short detour must be made to cover some background on the subject of autoencoders. Autoencoders are a deep learning (DL) technique normally used for encoding and compressing data. There are two NNs placed end-to-end, as in Figure \ref{fig:oSheaAutoencoderLayout} but without the noise layer. The input to the first network is $s \in \mathcal{M} = \{1,2,\dots,M\}$, where each $s$ can be represented by $k$ bits. The encoder (first network, analogous to the transmitter), compresses $s$ to $x \in \mathcal{N} = \{1,2,\dots,N\}$, represented by $n$ bits. The decoder (second network, analogous to the receiver) decodes $x$ back to $\hat{s}$.
 
 Normally with autoencoders $n < k$, because the autoencoder is finding a compressed form of $\mathcal{M}$ which maintains the information content, while reducing the number of bits used. However in this paper because there is noise added in middle layer, as shown in Figure \ref{fig:oSheaAutoencoderLayout}, $n \geq k$ to increase robustness of the transmitted signal to noise (minimise information loss).
 
@@ -150,8 +143,7 @@ Normally with autoencoders $n < k$, because the autoencoder is finding a compres
 
 Moving back to the O'Shea paper, it should be noted that all the following deliverables were written off by the project supervisor and so were not attempted, they are just described to give a better understanding of the O'Shea paper. 
 
-The paper then went on to investigate training two adversarial networks, but then showed that this was the same as optimising one multiple input multiple output (MIMO) NN with one common or multiple individual performance metrics. Thirdly the authors introduced radio transformer networks (RTNs) which improved performance of the learned communication system in all cases. Lastly the authors investigated using NNs for modulation classification. All of these sections were competitive with or outperformed current state of the art. 
-
+The paper then went on to investigate training two adversarial networks, then showed that this was the same as optimising one multiple input multiple output (MIMO) NN with one common or multiple individual performance metrics. Thirdly the authors introduced radio transformer networks (RTNs) which improved performance of the learned communication system in all cases. Lastly the authors investigated using NNs for modulation classification. All of these sections were competitive with or outperformed current state of the art. 
 
 \begin{figure}[t]
    \centering
@@ -160,21 +152,21 @@ The paper then went on to investigate training two adversarial networks, but the
    \label{fig:oSheaAutoencoderLayout}
 \end{figure}
 
-The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results were the main deliverables. Each of these sections would require writing some python code and then using this to reproduce the graphs and constellation diagrams. The authors stated that Keras "has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. Consequently Keras has also been used here to reproduce the results.
+The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results were the main deliverables. Reproducing each of these sections would require writing some python code and then using this to reproduce the graphs and constellation diagrams to assess the performance and functionality of the written code. The authors stated that Keras "has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. As a result of this Keras has also been used here to reproduce the results, with a tensorflow backend being used for lambda functions where necessary.
 
 The second paper by Aoudia and Hoydis improves on the first by removing the need for a differentiable model of the channel. This helps access the technologies' main potential, which is learning general and optimal communication systems for unmodelable or analytically insoluble channels. 
 
 This paper exclusively solved the problem of implementing reinforcement learning to avoid the need for a differentiable channel model. However it should be noted that supervisor advice says this method's implementation is much more difficult and should not be underestimated.
 
-The main twp deliverables are summarised below.
+The main two sets of deliverables are summarised below.
 
 \begin{enumerate}
-   \item Make an autoencoder model and compare it's performance to differential binary phase shift key (DBPSK) and Hamming encoding across a range of signal to noise ratios (SNRs)
+   \item Make an autoencoder model and compare it's performance to binary phase shift key (BPSK) and Hamming encoding across a range of signal to noise ratios (SNRs)
    \begin{itemize}
       \item Produce complex channel symbolled (2,2) and (8,8) autoencoders, then obtain their constellation diagrams.
       \item Produce non-complex channel symbolled (7,4) autoencoder and obtain a t-SNE dimensionally reduced constellation diagram.
-      \item Write encoding and decoding functions for Hamming HD and MLD
       \item Write encoding and decoding functions for BPSK
+      \item Write encoding and decoding functions for Hamming HD and MLD
       \item Compare the performance of various encoding methods and debug until Figures 3a,b from ~\cite{oShea} are reproduced.
    \end{itemize}
    \item Reproduce the unsupervised reinforcement learning model from ~\cite{Aoudia} which uses the alternate training method. The compare the performance of this model against current state of the art and the autoencoder method across a range of SNRs for an AWGN and an RBF channel.
@@ -245,9 +237,9 @@ The second approach, of incorporating DL into communications by replacing the ex
 
 There has also been some initial research into end-to-end learned communication systems in ~\cite{oShea,oShea0}, with further development of a novel algorithm which uses reinforcement learning to avoid needing a channel model in ~\cite{Aoudia}. Deep learning has also been applied to channel decoding ~\cite{AppsDlChannelDecoding}, radio basis functions ~\cite{AppsRadioBasisFunctions} and improving efficiency in radio transmissions ~\cite{AppsCnnRadioEfficiency}.
 
-\subsection{Paper 1 - An introduction to deep learning for the physical layer}
+\subsection{Supervised deep learning based communication systems}
 
-The first paper released on this subject was by O'Shea and Hoydis~\cite{oShea}, in July of 2017. The paper cites that as communications is quite an established field, so improvements have become more marginal and semi-optimal solutions have been found for most problems. Consequently, a deep learning model (DLM) would have to do very well in order to be of any use. 
+A good example of research falling into the category of the second approach from above is "An introduction to deep learning for the physical layer". This was the first paper released on this subject and was written by by O'Shea and Hoydis~\cite{oShea}, in July of 2017. The paper cites that as communications is quite an established field, so improvements have become more marginal and semi-optimal solutions have been found for most problems. Consequently, a deep learning model (DLM) would have to do very well in order to be of any use. 
 
 DLM’s have historically had a lot of success in fields such as image processing, where it is very difficult to write and algorithm which recognises or does something, but easy for a DLM. Whereas in communications rigid, mathematically backed algorithms for encoding and decoding signals can often be written, so DLMs have never been needed.
 
@@ -296,9 +288,9 @@ Lastly O'Shea and Hoydis used a convolutional neural network (CNN) on raw coplex
 In conclusion, comparison with traditional baselines showed extremely competitive BLER, however the inherent autoencoder lack of scalability makes this method impossible for any long block length communication. This method also requires a differentiable mathematical model for the channel, which is severely limiting as a big opportunity for this technology would be to learn optimal communication systems for channels we can't model. This was still a very promising area though with potential uses of optical communications, where the channel impairments are highly non-linear and notoriously difficult to model and compensate for. Or alternatively unusual or complicated channels.
 
 \FloatBarrier
-\subsection{Paper 2 - End-to-end learning of communication systems without a channel model}
+\subsection{Unsupervised learned communication systems}
 
-As highlighted in the conclusion of the O'Shea paper, if an autoencoder like NN is used to learn a communication system then the channel model must be  differentiable. This paper ~\cite{Aoudia}, written by Aoudia and Hoydis in April 2018, exclusively set out to remove the need for a channel model. 
+As highlighted in the conclusion of the O'Shea paper, if an autoencoder like NN is used to learn a communication system then the channel model must be  differentiable. A major advancement in tackling this problem came from "End-to-end learning of communication systems without a channel model"~\cite{Aoudia}, written by Aoudia and Hoydis in April 2018, which exclusively set out to remove the need for a channel model. 
 
 They produced a novel algorithm which solves the problem by iterating between the supervised training at the receiver and reinforcement learning (RL) at the transmitter. They showed it worked as well as supervised methods using additive white Gaussian noise (AWGN) and using Rayleigh block-fading (RBF) channels. Their method converged slower on AWGN but faster on RBF as can be seen in Figure \ref{fig:AoudiaTrainingSpeeds}. This is the first step towards learning comms systems over any type of channel without any prior assumptions. 
 
@@ -335,9 +327,9 @@ Although their algorithm currently requires an additional reliable channel durin
 However the importance of this step should not be underestimated. It allows learned communication systems to be used on channels which are either unknown, or too complex to model, which is arguably the biggest potential benefit of this technology. 
 
 \FloatBarrier
-\subsection{Paper 3 - A learning approach to wireless information and power transfer signal and system design}
+\subsection{Applying learned communication systems to power transfer}
 
-This paper, written by Varasteh, Piovano and Clerkx has a slightly different focus. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder. This paper on learned SWIPT systems is motivated by the fact that designing SWIPT signals and systems analytically is very cumbersome. 
+Learned communication systems are a flexible technology which can be applied to many differenent areas. One application of this technology to a new area was proposed in "A learning approach to wireless information and power transfer signal and system design"~\cite{Clerkx}, written by Varasteh, Piovano and Clerkx. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder. This paper on learned SWIPT systems is motivated by the fact that designing SWIPT signals and systems analytically is very cumbersome. 
 
 There is a fundamental trade-off between the information rate and the power rate and so the NNs are optimised using a joint loss function. The observed results were inline with previously known theoretical results, particularly in that as you raise the demand for energy, the constellation diagram converges to one point a long way out along one of the axes, and the others closely clustering around the origin. However while this is what they would expect from the theory, it would not be possible to find these results theoretically or using numerical methods. So these found constellation, which can be found in Figure \ref{fig:VarastehConstellationDiagrams}, diagrams are novel and significant.
 
@@ -359,6 +351,16 @@ Another interesting observation by the authors was that the delivered power was 
 In conclusion, this paper had some significant and completely new results, for instance the constellation diagrams would be impossible to find analytically because of the computational complexity of finding them. But in this paper they were able to find them using machine learning.
 
 \subsection{Background communications theory}
+
+To understand the potential advantages, challenges and opportunities of learned communication systems it is essential to understand the ways in which common channels are categorised. Knowledge of AWGN channels is taken as given, however in case this is inappropriate an AWGN channel is defined below in Equation \ref{eq:AwgnDef}.
+
+\begin{align}
+   r =& s + n \\
+   \mbox{where: } n \sim& \mathcal{N}(0,\sigma^2)
+   \label{eq:AwgnDef}
+\end{align}
+
+More interesting and realistic models of channels normally involve fading, so the following section gives an overview of different types and categorisations of fading. This will allow the reader to understand the application and testing of the learned communication systems better.
 
 \subsubsection{Types of fading}
 \label{sec:TypesOfFading}
@@ -424,13 +426,13 @@ For all of these cases above where long block lengths are not feasible, short bl
 
 \subsection{Additional notes}
 
-This technique has great potential for providing flexible communication across highly non-linear, unmodelable or mathematically insoluble channels. However it should be noted that in the case of non-stationary channels this method does not really have any potential without significant addition. The method could potentially be adapted to become adaptive, however this may be particularly difficult. This is because even in the most advanced form using the reinforcement learning you still require a noiseless channel between the receiver and the transmitter to communicate back what was received. 
+Given what has been explained in the previous two subsections the reader can now appreciate a fundamental limitation of this technology. While this technique has great potential for providing flexible communication across highly non-linear, unmodelable or mathematically insoluble channels, it should be noted that in the case of non-stationary channels this method does not really have any potential without significant addition. This is because the communication system can only give a locally optimal communication system for noise similar to the noise it has trained on. So if the channel is highly non stationary, then the model would be trained on one type of noise, but then would be sub-optimal for the new environment when the non-stationary channel changed. The method could potentially be adapted to become adaptive, however this may be particularly difficult. This is because even in the most advanced form using the reinforcement learning,a noiseless channel between the receiver and the transmitter is still required to communicate back what was received. 
 
 This is fine if you are pre-training the network for a stationary channel you can train it with a noiseless channel temporarily. However if you are trying to update the weights online then you may lose significant capacity or use valuable resources such as frequency trying to transmit back the received bits to train the transmitter. This weakness for non-stationary channels is very important as most wireless channels are highly non-stationary. 
 
 \subsection{Analysis of competing products}
 
-The O'Shea paper~\cite{oShea} being replicated claimed there had not been much adoption of ML in commercial use ~\cite{oShea}, which at the time of writing was true, however this has now changed. After some research the main commercial competition found was a start-up called DeepSig. One of it's two co-founders was Tim O'Shea, the co-author of the two founding papers on the subject of end-to-end learned communication systems. It currently has two commercial products OmniSIG and OmniPHY.
+Having assessed the technical background of the subject, the commercial background should also be assessed to assess the commercial value of research. The O'Shea paper~\cite{oShea} being replicated claimed there had not been much adoption of ML in commercial use ~\cite{oShea}, which at the time of writing was true, however this has now changed. After some research the main commercial competition found was a start-up called DeepSig. One of it's two co-founders was Tim O'Shea, the co-author of the two founding papers on the subject of end-to-end learned communication systems. It currently has two commercial products OmniSIG and OmniPHY.
 
 OmniSIG is a software package that allows training and monitoring of a communication system on a range of hardware devices. The package claims to often provide a 4-10 dB improvement and 10x reductions in computational complexity ~\cite{DeepsigOmnisig}. OmniPHY seems to be similar system however the information on DeepSig's website is not very informative about what the product does, other than it learns a communication system, much like the OmniSig~\cite{DeepsigOmniphy}. DeepSig appears to be in it's infancy, and the author has been unable to find any other companies which are working in this area, suggesting it is still a very new corporate area. Additionally it is not entirely surprising that DeepSig seems to be the first, as it's founder is one of the founders of the field. 
 
@@ -440,14 +442,14 @@ On the subject of competing papers and academics, due to the nature of the proje
 
 \subsection{Analysis of necessary software tools}
 
-One of the project specifications given to the author was to do the project in python and so this is why the python language was chosen. Although given a free choice python would still have been selected due to the large amount of high quality machine learning libraries available in python, such as Keras and Tensorflow. Another reason is that the large python community contributes to faster debugging and more support. Python 3.6.8 is being used because at the date of starting it is the latest version of python that supports Tensorflow and Keras. 
+Now that the techincal and commercial backgrounds have been assessed the the implementation background should be assessed. This includes analysis of the necessary and potentially useful software tools. One of the project specifications given by the project supervisors was that the project must be implemented in python and so this is why the python language was chosen. Although given a free choice python would still have been selected due to the large amount of high quality machine learning libraries available in python, such as Keras and Tensorflow. Another reason is that the large python community contributes to faster debugging and more support. Python 3.6.8 is being used because at the date of starting it is the latest version of python that supports Tensorflow and Keras. 
 
 The main software tool that being used is Keras with a Tensorflow backend. These are both open source machine learning libraries designed to make machine learning easier at a higher level. Allowing users to describe complicated networks in many fewer lines of code. The other reason that Keras has been chosed is that the two paper's being reproduced both specify that they used Keras~\cite{oShea,Aoudia}. 
 
 \subsection{Analysis of necessary hardware}
 \label{sec:HardwareAnalysis}
 
-The main hardware specification is what device is needed to be able to train and test Keras models on. While any modern cpu core will be able to run Keras, it would be significantly faster to train and test on a graphical processing unit (GPU) as shown here~\cite{TensorflowBenchmarking}. But tensorflow and keras can still run on a simple cpu, and this requirement will be satisfied by any modern laptop or desktop. 
+Given all other background has now been covered, the implementation detail of deciding what hardware should be used to run this software project must be assessed. The main hardware specification is what device is needed to be able to train and test Keras models on. While any modern cpu core will be able to run Keras, it would be significantly faster to train and test on a graphical processing unit (GPU) as shown here~\cite{TensorflowBenchmarking}. But tensorflow and keras can still run on a simple cpu, and this requirement will be satisfied by any modern laptop or desktop. 
 
 The hardware which has been chosen to use is a HP Spectre with an Intel I7 6500u. This was chosen because of the convenience of it being the author's own laptop. This hardware has been used for the majority of the code development and running. However training of large models or many models has been run on an amazon web services (AWS) g3.4xlarge instance to take advantage of the speed up associated with using a GPU.
 

@@ -65,15 +65,6 @@
    \end{tabular}
 \end{titlepage}
 
-%%%%%%%%% Contents Page
-
-\section*{MUST DO BEFORE SUBMISSION}
-
-\begin{itemize}
-   \item Got through and find all typos
-\end{itemize}
-
-
 %%%%%%%%% ABSTRACT
 \begin{abstract}   
    This report focused on applying recent developments in machine learning to the field of communications to improve performance over channels which are unknown or difficult to model. It has been shown that optimising each stage of a communication system individually gives suboptimal performance, leading to investigating end-to-end learnt communication systems, where the optimal communication system can be learnt for a particular channel, environment and for specific hardware non-idealities.
@@ -89,7 +80,7 @@ This project is the culmination of not only my work, but also the help given by 
 my co-supervisor Dr Morteza Varasteh for always being reachable for assistance, for his help with the implementation of the project and for helping me understand the underlying fundamentals of communication. Thirdly I would like to thank my second marker Dr Cong Ling for taking time to help me understand BCH encoding at short notice.
 \pagebreak
 
-
+%%%%%%%%% Contents Page
 \tableofcontents
 \pagebreak
 
@@ -152,7 +143,7 @@ The paper then went on to investigate training two adversarial networks, then sh
    \label{fig:oSheaAutoencoderLayout}
 \end{figure}
 
-The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results were the main deliverables. Reproducing each of these sections would require writing some python code and then using this to reproduce the graphs and constellation diagrams to assess the performance and functionality of the written code. The authors stated that Keras "has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. As a result of this Keras has also been used here to reproduce the results, with a tensorflow backend being used for lambda functions where necessary.
+The details of what the paper achieved will be covered in more detail in the background section, however a high level description was needed as reproducing these results were the main deliverables. Reproducing each of these sections would require writing some python code and then using this to reproduce the graphs and constellation diagrams to assess the performance and functionality of the written code. The authors stated that Keras ``has become our primary tool used to generate the numerical results for this manuscript"~\cite{oShea}. As a result of this Keras has also been used here to reproduce the results, with a tensorflow backend being used for lambda functions where necessary.
 
 The second paper by Aoudia and Hoydis improves on the first by removing the need for a differentiable model of the channel. This helps access the technologies' main potential, which is learning general and optimal communication systems for unmodelable or analytically insoluble channels. 
 
@@ -231,15 +222,15 @@ There has been a sharp rise in the number of applications of NNs to communicatio
 
 Applying DL to communications has been approached in two distinct ways. One way is that researchers have tried to apply DL to communications is by improving current algorithms and methods using DL the other is directly replacing the systems. 
 
-Some examples of the first group are improving belief propagation of code words with both feed forward~\cite{AppsNnBeliefPropogation} and recurrent neural networks~\cite{AppsRnnBeliefPropogation}. With the RNN version giving significantly lower complexity whilst maintaining performance. Another example was that applying DL to MIMO detection gave "state of the art accuracy with significantly lower complexity" in ~\cite{AppsNnDeepMimoDetection}. The previous three examples all built on the novel work of ~\cite{AppsNnDeepUnfolding} in applying expert knowledge to NNs.
+Some examples of the first group are improving belief propagation of code words with both feed forward~\cite{AppsNnBeliefPropogation} and recurrent neural networks~\cite{AppsRnnBeliefPropogation}. With the RNN version giving significantly lower complexity whilst maintaining performance. Another example was that applying DL to MIMO detection gave ``state of the art accuracy with significantly lower complexity" in ~\cite{AppsNnDeepMimoDetection}. The previous three examples all built on the novel work of ~\cite{AppsNnDeepUnfolding} in applying expert knowledge to NNs.
 
-The second approach, of incorporating DL into communications by replacing the existing methods is the more relevant segment to this report. Initial research into the area was kick-started by a group of papers published during 2016-2017. One example is ~\cite{AppsMimoBlindDetection}, where a sequence of pilot bits were sent across the unknown channel during training to build a non-linear channel model. ~\cite{AppsMolecularComms} applied DNNs to molecular communication where the channel model cannot be modelled mathematically and ~\cite{AppsResourceAllocation} used a DNN to model resource allocation for wireless communication as an unknown linear function, giving "orders of magnitude" speed up compared to state of the art optimisation algorithms.
+The second approach, of incorporating DL into communications by replacing the existing methods is the more relevant segment to this report. Initial research into the area was kick-started by a group of papers published during 2016-2017. One example is ~\cite{AppsMimoBlindDetection}, where a sequence of pilot bits were sent across the unknown channel during training to build a non-linear channel model. ~\cite{AppsMolecularComms} applied DNNs to molecular communication where the channel model cannot be modelled mathematically and ~\cite{AppsResourceAllocation} used a DNN to model resource allocation for wireless communication as an unknown linear function, giving ``orders of magnitude" speed up compared to state of the art optimisation algorithms.
 
 There has also been some initial research into end-to-end learned communication systems in ~\cite{oShea,oShea0}, with further development of a novel algorithm which uses reinforcement learning to avoid needing a channel model in ~\cite{Aoudia}. Deep learning has also been applied to channel decoding ~\cite{AppsDlChannelDecoding}, radio basis functions ~\cite{AppsRadioBasisFunctions} and improving efficiency in radio transmissions ~\cite{AppsCnnRadioEfficiency}.
 
 \subsection{Supervised deep learning based communication systems}
 
-A good example of research falling into the category of the second approach from above is "An introduction to deep learning for the physical layer". This was the first paper released on this subject and was written by by O'Shea and Hoydis~\cite{oShea}, in July of 2017. The paper cites that as communications is quite an established field, so improvements have become more marginal and semi-optimal solutions have been found for most problems. Consequently, a deep learning model (DLM) would have to do very well in order to be of any use. 
+A good example of research falling into the category of the second approach from above is ``An introduction to deep learning for the physical layer". This was the first paper released on this subject and was written by by O'Shea and Hoydis~\cite{oShea}, in July of 2017. The paper cites that as communications is quite an established field, so improvements have become more marginal and semi-optimal solutions have been found for most problems. Consequently, a deep learning model (DLM) would have to do very well in order to be of any use. 
 
 DLM’s have historically had a lot of success in fields such as image processing, where it is very difficult to write and algorithm which recognises or does something, but easy for a DLM. Whereas in communications rigid, mathematically backed algorithms for encoding and decoding signals can often be written, so DLMs have never been needed.
 
@@ -290,7 +281,7 @@ In conclusion, comparison with traditional baselines showed extremely competitiv
 \FloatBarrier
 \subsection{Unsupervised learned communication systems}
 
-As highlighted in the conclusion of the O'Shea paper, if an autoencoder like NN is used to learn a communication system then the channel model must be  differentiable. A major advancement in tackling this problem came from "End-to-end learning of communication systems without a channel model"~\cite{Aoudia}, written by Aoudia and Hoydis in April 2018, which exclusively set out to remove the need for a channel model. 
+As highlighted in the conclusion of the O'Shea paper, if an autoencoder like NN is used to learn a communication system then the channel model must be  differentiable. A major advancement in tackling this problem came from ``End-to-end learning of communication systems without a channel model"~\cite{Aoudia}, written by Aoudia and Hoydis in April 2018, which exclusively set out to remove the need for a channel model. 
 
 They produced a novel algorithm which solves the problem by iterating between the supervised training at the receiver and reinforcement learning (RL) at the transmitter. They showed it worked as well as supervised methods using additive white Gaussian noise (AWGN) and using Rayleigh block-fading (RBF) channels. Their method converged slower on AWGN but faster on RBF as can be seen in Figure \ref{fig:AoudiaTrainingSpeeds}. This is the first step towards learning comms systems over any type of channel without any prior assumptions. 
 
@@ -301,9 +292,9 @@ They produced a novel algorithm which solves the problem by iterating between th
 \label{fig:AoudiaTrainingSpeeds}
 \end{figure}
 
-The reason this innovation was so important is that channels are normally black boxes, where only the inputs and outputs can be observed. The authors used a method called "Policy Learning", which is a subsection of RL. RL provides a theoretical foundation for obtaining an estimate of the gradient of an arbitrary loss function with respect to actions taken by an agent. In this case the agent is the transmitter and loss is performance metric provided by the receiver. This would mean knowledge of the channel model and instantaneous channel transfer function is not needed which allows them to train an autoencoder purely from observations. 
+The reason this innovation was so important is that channels are normally black boxes, where only the inputs and outputs can be observed. The authors used a method called ``Policy Learning", which is a subsection of RL. RL provides a theoretical foundation for obtaining an estimate of the gradient of an arbitrary loss function with respect to actions taken by an agent. In this case the agent is the transmitter and loss is performance metric provided by the receiver. This would mean knowledge of the channel model and instantaneous channel transfer function is not needed which allows them to train an autoencoder purely from observations. 
 
-The "alternating training algorithm" trains the receiver first then the transmitter, alternating between training each side while keeping the parameters for the other side fixed. The receiver is trained using mini-batch stochastic gradient descent (SGD) as in other methods. For training the transmitter a random perturbation vector $\mathbf{w}$ is added. This is done for a whole batch of transmitted messages, these messages are then sent across the channel, and received as normal, the losses are calculated, and then transmitted back to the transmitter along a lossless channel. Finally a normal optimisation step is done using SGD where the loss-gradient is estimated using Equation 4 from ~\cite{Aoudia}. 
+The ``alternating training algorithm" trains the receiver first then the transmitter, alternating between training each side while keeping the parameters for the other side fixed. The receiver is trained using mini-batch stochastic gradient descent (SGD) as in other methods. For training the transmitter a random perturbation vector $\mathbf{w}$ is added. This is done for a whole batch of transmitted messages, these messages are then sent across the channel, and received as normal, the losses are calculated, and then transmitted back to the transmitter along a lossless channel. Finally a normal optimisation step is done using SGD where the loss-gradient is estimated using Equation 4 from ~\cite{Aoudia}. 
 
 The authors found that the alternating method took longer to converge with for the AWGN channel but less time for the RBF channel than the supervised learning method. However it had the same end performance as the supervised method in both cases. This performance can be seen in Figures \ref{fig:AoudiaPerformanceAwgn} and \ref{fig:AoudiaPerformanceRbf}.
 
@@ -329,7 +320,7 @@ However the importance of this step should not be underestimated. It allows lear
 \FloatBarrier
 \subsection{Applying learned communication systems to power transfer}
 
-Learned communication systems are a flexible technology which can be applied to many differenent areas. One application of this technology to a new area was proposed in "A learning approach to wireless information and power transfer signal and system design"~\cite{Clerkx}, written by Varasteh, Piovano and Clerkx. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder. This paper on learned SWIPT systems is motivated by the fact that designing SWIPT signals and systems analytically is very cumbersome. 
+Learned communication systems are a flexible technology which can be applied to many differenent areas. One application of this technology to a new area was proposed in ``A learning approach to wireless information and power transfer signal and system design"~\cite{Clerkx}, written by Varasteh, Piovano and Clerkx. The previous two papers focused solely on achieving reliable communications with low error rates, this paper focuses on simultaneous wireless information and power transfer (SWIPT) using a nonlinear model, an autoencoder. This paper on learned SWIPT systems is motivated by the fact that designing SWIPT signals and systems analytically is very cumbersome. 
 
 There is a fundamental trade-off between the information rate and the power rate and so the NNs are optimised using a joint loss function. The observed results were inline with previously known theoretical results, particularly in that as you raise the demand for energy, the constellation diagram converges to one point a long way out along one of the axes, and the others closely clustering around the origin. However while this is what they would expect from the theory, it would not be possible to find these results theoretically or using numerical methods. So these found constellation, which can be found in Figure \ref{fig:VarastehConstellationDiagrams}, diagrams are novel and significant.
 
@@ -346,7 +337,7 @@ The results were promising, the autoencoders and surpassed the performance of st
 
 The symbols near the origin are called the information symbols, and the one far away from the origin is referred to as the power symbol. Additionally the authors found that as the power demand increases, more of the channel symbols are sacrificed to increase the power delivery. Normally by mapping more of the information symbols to the origin. 
 
-Another interesting observation by the authors was that the delivered power was "directly dependent on the channel input average power constraint". This means that two systems trained at the same SNR but with different transmitted powers would have different designs. However they left investigation of this aspect to another paper, along with investigation of the effect of block lengths on delivered power and making a model that features practical limitations of the rectenna non-linearity accurately.
+Another interesting observation by the authors was that the delivered power was ``directly dependent on the channel input average power constraint". This means that two systems trained at the same SNR but with different transmitted powers would have different designs. However they left investigation of this aspect to another paper, along with investigation of the effect of block lengths on delivered power and making a model that features practical limitations of the rectenna non-linearity accurately.
 
 In conclusion, this paper had some significant and completely new results, for instance the constellation diagrams would be impossible to find analytically because of the computational complexity of finding them. But in this paper they were able to find them using machine learning.
 
@@ -403,7 +394,7 @@ Shannon's capacity formula (Equation \ref{eqn:ShannonAwgnCapacity} taken from~\c
     \label{eqn:ShannonAwgnCapacity}
 \end{align}
 
-AWGN channels are now normally decoded using iterative decoding algorithms which are far faster but have very similar performance to maximum likelihood decoders, such as "turbo" and "low density parity check" (LDPC) codes~\cite{WirelessTextbookC5}. Using LDPC codes much lower error probabilities can be achieved by using longer block lengths~\cite{WirelessTextbookC5} to approach maximum theoretical capacity.
+AWGN channels are now normally decoded using iterative decoding algorithms which are far faster but have very similar performance to maximum likelihood decoders, such as ``turbo" and ``low density parity check" (LDPC) codes~\cite{WirelessTextbookC5}. Using LDPC codes much lower error probabilities can be achieved by using longer block lengths~\cite{WirelessTextbookC5} to approach maximum theoretical capacity.
 
 Another driver towards long block lengths is that Shannon's separation theorem proves, that if you separate the source encoding and the channel encoding, then this approach becomes theoretically optimal in the limit of infinitely long block lengths~\cite{ChannelEncodingOptimality}. This has led to most communication being done over very long block lengths. In OFDM if the block length is already very long then coding jointly across sub-carriers cannot increase the rate of reliable communication~\cite{WirelessTextbookC5}.
 
@@ -493,7 +484,7 @@ The model had a single dense layer transmitter, L2 normalisation layer, a Gaussi
 
 \subsubsection{Adding noise at test time}
 
-Clearly no noise has been added in the testing case. This was because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer can be found by searching for "class GaussianNoise" in the \code{initial$\_$dnn$\_$comms.ipynb} notebook from the project github~\cite{AwGithub}. This changed the input output relationship to the one shown in Figure \ref{fig:CodeGaussianNoise2}.
+Clearly no noise has been added in the testing case. This was because the built in GaussianNoise layer in Keras is a training layer and so does not add noise if not in the training phase. To solve this problem a custom layer was added which adds noise both during training and testing as a channel model should. The code for this layer can be found by searching for ``class GaussianNoise" in the \code{initial$\_$dnn$\_$comms.ipynb} notebook from the project github~\cite{AwGithub}. This changed the input output relationship to the one shown in Figure \ref{fig:CodeGaussianNoise2}.
 
 \begin{figure}[t]
    \centering
@@ -558,25 +549,25 @@ L2 normalisation and batch normalisation are defined below by Constraint \ref{eq
 
 \begin{figure*}[t!]
    \centering
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/ae2_2_correctish_relu_const_diag.png}
        \caption{The first batch normalisation model's constellation diagram.}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/ae2_2_wrong_const_diag_1d.png}
        \caption{An incorrect constellation diagram where all the points only varied in one dimension, however were not placed on the origin of the other dimension.}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/ae2_2_wrong_const_diag_3points.png}
        \caption{The common convergence to three instead of four channel symbols.}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/ae2_2_wrong_qpsk_kite_w_title.png}
        \caption{A more promising constellation diagram, with four points varying in two dimensions, however not in the correct shape.}
@@ -634,7 +625,7 @@ As can be seen in Figure \ref{fig:InconsistentReluConstDiags} the constellation 
 
 Meanwhile the (4,2) model was underfitting and consistently converging to one channel symbol instead of sixteen, but the exact channel symbol changed each time. This suggested that the model was underfitting, either due to insufficient layers or an inappropriate activation function.
 
-Some research suggested that both these issues might be to do with "neuron death" giving dependence on initialisation values. This is a problem characteristic of the ReLu activation function, shown in Figure \ref{fig:ReluAndLrActivationFunction}a. The ReLu activation function outputs zero for all non-positive inputs, meaning that if weights are initially set so that a neuron consistently outputs a negative value pre-activation-function, it will consitently output a zero.
+Some research suggested that both these issues might be to do with ``neuron death" giving dependence on initialisation values. This is a problem characteristic of the ReLu activation function, shown in Figure \ref{fig:ReluAndLrActivationFunction}a. The ReLu activation function outputs zero for all non-positive inputs, meaning that if weights are initially set so that a neuron consistently outputs a negative value pre-activation-function, it will consitently output a zero.
 
 \begin{figure*}[t!]
    \centering
@@ -655,7 +646,7 @@ Some research suggested that both these issues might be to do with "neuron death
 
 This means that the weights will not be updated through back-propogation as the partial derivatives of the error with respect to the weights will be zero. As a result the model will not improve for these neurons and will converge at an incorrect solution. 
 
-A suggested solution to this problem was using a "leaky-relu" activation function, shown in \ref{fig:ReluAndLrActivationFunction}b instead. A brief trial of this showed much improved performance, prompting further investigation into alternative activation functions in the section below. 
+A suggested solution to this problem was using a ``leaky-relu" activation function, shown in \ref{fig:ReluAndLrActivationFunction}b instead. A brief trial of this showed much improved performance, prompting further investigation into alternative activation functions in the section below. 
 
 The improved (2,2) constellation diagram seen in Figure \ref{fig:Lr22ConstDiags}a was consistently produced with each channel symbol being equally spaced, centred around the origin, having an equal magnitude and a phase difference of $90^{\circ}$ from adjacent points. The only parameter which changed phase of the point in the first quadrant. The (4,2) constellation diagram shown in Figure \ref{fig:Lr22ConstDiags}b was also produced for the first time and was then consistently reproduced. 
 
@@ -794,7 +785,7 @@ The $erfc$ function gives the probability that a $\left| Y \right| \ge x$ where 
 
 This relationship means that the theoretical block error rate (BLER) can be calculated to ensure that the experimental graphs found later are correct.
 
-BLER is defined by the European Telecommunication Standards Institue as \textit{"the ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"}~\cite{BlerEtsiDefinition}.
+BLER is defined by the European Telecommunication Standards Institue as \textit{``the ratio of blocks received in error to the total number of received blocks, where a block is defined as received in error if the error detection functions in the receiver indicate an error as the result of the Block Check Sequence (BCS)"}~\cite{BlerEtsiDefinition}.
 
 This is taken to mean that if any of the bits in a block are incorrect, then the block is taken as wrong. The BLER is then the percentage of blocks which have any bits which are incorrect. As the noise for each block is assumed to be i.i.d, the above definition gives the following relationship between $P_{be}$ and $P_e$ in Equation \ref{eq:BpskTheoBler}. Note that this assumes stationarity, which is often not a valid assumption in wireless channels.
 
@@ -1049,7 +1040,7 @@ Part of the reason for it's superior performance is that Hamming MLD can correct
 
 Out of curiosity the extra performance gain from only transmitting a four bit one-hot encoded vector instead of a a normal four bit vector was investigated. This was interesting because the autoencoders receive $M$ bit one hot encoded vectors instead of $k$ bit normal binary vectors. It was hoped that some parallels might be able to be drawn between the performance gains of the two methods switching between the two. 
 
-The performance of the MLD only transmitting one-hot encoded vectors is shown by Line "\textit{ML half rate}" in Figure \ref{fig:HammingMldBlerAll}. There is a relatively marginal improvement in performance which does not make up for the halfing of the date rate. It should be noted that the autoencoder models are still transmitting the same information content per symbol as the Hamming models they are being compared against as they input a 16 bit one-hot-encoded vector instead of a 4 bit binary encoded vector.
+The performance of the MLD only transmitting one-hot encoded vectors is shown by Line ``\textit{ML half rate}" in Figure \ref{fig:HammingMldBlerAll}. There is a relatively marginal improvement in performance which does not make up for the halfing of the date rate. It should be noted that the autoencoder models are still transmitting the same information content per symbol as the Hamming models they are being compared against as they input a 16 bit one-hot-encoded vector instead of a 4 bit binary encoded vector.
 
 The small improvement in performance suggests that the autoencoder models could likely, given enough training time significantly improve their data throughput by inputting a binary instead of a one-hot-encoded vector, without significantly increasing the BLER.
 
@@ -1410,7 +1401,7 @@ This in itself is a novel result, as far the author can see no other paper has i
 
 \subsubsection{Investigation into RBF}
 
-RBF can be seen as "\textit{very slow}" rayleigh fading. After the implementation and testing of the RSF fading communication system above the implementation of a supervised RBF communication system was started. To reproduce the results in the paper the BLER would have to improve by a factor of $\approx10^2$, however given the reduction of the variance of the $\hat{h}$ estimator should improve by a factor of $10^{\frac{3}{2}}$ and that the $h$ factor was the main damaging factor of the rayleigh noise there was reasoable confidence that this should be achievable relatively easily. 
+RBF can be seen as ``\textit{very slow}" rayleigh fading. After the implementation and testing of the RSF fading communication system above the implementation of a supervised RBF communication system was started. To reproduce the results in the paper the BLER would have to improve by a factor of $\approx10^2$, however given the reduction of the variance of the $\hat{h}$ estimator should improve by a factor of $10^{\frac{3}{2}}$ and that the $h$ factor was the main damaging factor of the rayleigh noise there was reasoable confidence that this should be achievable relatively easily. 
 
 As locally-optimal receivers and transmitters had been learnt in the RSF section the main task was to implement an architecture which could encode and decode many messages identically in parallel, but add noise to all of them and estimate $h$ to all of them in one go.
 
@@ -1464,7 +1455,7 @@ Because of the issues listed above the investigation of an supervised autoencdoe
 
 This section will go over the end results of the first and second set of deliverables. 
 
-\subsection{O'Shea \etal paper, final reproduced results}
+\subsection{Final reproduced results of O'Shea \etal}
 
 \begin{figure*}[t!]
    \centering
@@ -1485,15 +1476,15 @@ This section will go over the end results of the first and second set of deliver
 \label{fig:OSheaFigureFinal}
 \end{figure*}
 
-After correcting the incorrect scaling of the (8,8) autoencoder to a factor of $\sqrt{2}$ the results graph looks as it does in Figure \ref{fig:OSheaFigure3b}. This is now very similar to Figure 3a from ~\cite{oShea}. Three of the lines are identical, the (2,2) autoencoder and both the BPSK models. The (8,8) autoencoder line is similar in that it starts in tangent with the (8,8) BPSK and finishes with the lowest error rate. However it slightly underperforms it's counterpart from ~\cite{oShea}. It crosses the (2,2) lines at $\frac{E_b}{N_0}\approx7$ as opposed to $\frac{E_b}{N_0}\approx5.5$. The BLER seems to be roughly a factor of 5 out. This suggests there may be some small change to the architecture that can be made to improve performance. However the number of layers and activation functions have already been varied. One option left is dropout regularisation. This is where some fraction of the neurons are switched off randomly at training time, which is done primarily to avoid overfitting. However this hasn't been trialed so far because the data sets are very uniform, very large, and the noise is newly randomly generated every time the model transmits a message. Because of this it seems unlikely that the model could overfit. 
+After correcting the incorrect scaling of the (8,8) autoencoder to a factor of $\sqrt{2}$ the new results graph is shown in Figure \ref{fig:OSheaFigure3b}. This is now very similar to Figure 3a from ~\cite{oShea}. Three of the lines are identical, the (2,2) autoencoder and both the BPSK models. The (8,8) autoencoder line is similar in that it starts in tangent with the (8,8) BPSK and finishes with the lowest error rate. However it slightly underperforms it's counterpart from ~\cite{oShea}. It crosses the (2,2) lines at $\frac{E_b}{N_0}\approx7$ as opposed to $\frac{E_b}{N_0}\approx5.5$. The BLER seems to be roughly a factor of 3 out. This suggests there may be some small change to the architecture that can be made to improve performance. However the number of layers and activation functions have already been optimised. One option left is dropout regularisation. This is where some fraction of the neurons are switched off randomly at training time, which is done primarily to avoid overfitting. However this hasn't been trialed so far because the data sets are very uniform, very large, and the noise is newly randomly generated every time the model transmits a message. Because of this it seems unlikely that the model could overfit. 
 
 Additionally the (7,4) autoencoder in Figure \ref{fig:OSheaFigure3aBch} is also slightly underperforming at the high SNRs. As this margin is so small it will be tackled by retraining and using the ModelCheckpoint callback to ensure that the model with the best validation loss achieved during the training process is saved. Also the model will be retrained over a large number of initialisations to remove any small dependence on initialisation values. This has not been used before due to the very large time commitment that is needed for training a large number of models fully. 
 
 Another inconsistency in Figure \ref{fig:OSheaFigureFinal} is that the Hamming HD encoding is significantly underperforming. A reasonable amount of time has been committed to debugging this and the underlying BPSK, however it seems to perform correctly in all unit tests and have the correct amount of noise being applied so the author can not see what is being implemented incorrectly. 
 
-For the BCH lines in Figure \ref{fig:OSheaFigure3aBch}, as expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. From Figure \ref{fig:OSheaFigure3aBch} it can be seen that the $t=1$ line outperforms the Hamming (7,4) line on the whole, however it still underperforms what the Hamming (7,4) line should produce according to both~\cite{oShea}'s Figure 3a and also the common sense observation that adding Hamming encoding should not decrease the performance from normal BPSK.
+For the BCH lines in Figure \ref{fig:OSheaFigure3aBch}, as expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line it does not. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. From Figure \ref{fig:OSheaFigure3aBch} it can be seen that the $t=1$ line outperforms the Hamming (7,4) line on the whole, however it still underperforms what the Hamming (7,4) line should produce according to both~\cite{oShea}'s Figure 3a and also the common sense observation that adding Hamming encoding should not decrease the performance from normal BPSK.
 
-Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH codes still do not pass this common sense test of improving the BLER of the uncoded BPSK. This shows that there must be an error in this section. A suspected causes of this error was that the BCH polynomial prime used (8129) was unsuitable. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section. It was suggested in a meeting the day before the deadline that BCH encoding could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
+Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH codes still do not pass this common sense test of improving the BLER of the uncoded BPSK at all SNRs. This shows that there must be an error in this section. A suspected causes of this error was that the BCH polynomial prime used (8129) was unsuitable. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section. It was suggested in a meeting the day before the deadline that BCH encoding could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
 
 \subsection{Aoudia \etal paper, AWGN and RSF results}
 
@@ -1516,17 +1507,18 @@ Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH cod
    \label{fig:AoudiaFinalResults}
 \end{figure*}
 
-The performance of the supervised learned models in an AWGN and RSF channel can be seen in Figure \ref{fig:AoudiaFinalResults}. As discussed in Section \ref{sec:InvestigateRsf}, the AWGN (8,8) model which gave comparible performance to the (8,8) model from the O'Shea paper, significantly underperformed the supervised AWGN model from the Aoudia paper. This performance is shown by the \code{L2 power constraint} line in Figure \ref{fig:AwgnSupervisedResults}. The error rates in the Aoudia paper ranged from $\approx 1$  to $\approx 10^{-7}$ from the SNRs of -4 to 13db. Whereas the results from the O'Shea paper model ranged from $\approx 1$  to $\approx 10^{-4.5}$ across the same range. This seems suspicious, it seems unlikely that the result model from one paper would have a BLER which was $\approx10^3$ lower at the higher SNRs. This suggests that the two papers have measured error rate differently and so the results are not directly comparible. To improve comparability between all results it was decided to continue measuring error using the BLER metric used for the first paper in the second paper. 
+The performance of the supervised learned models in an AWGN and RSF channel can be seen in Figure \ref{fig:AoudiaFinalResults}. As discussed in Section \ref{sec:InvestigateRsf}, the AWGN (8,8) model which gave comparible performance to the (8,8) model from the O'Shea paper, significantly underperformed the supervised AWGN model from the Aoudia paper. This performance is shown by the \code{L2 power constraint} line in Figure \ref{fig:AwgnSupervisedResults}. The error rates in the Aoudia paper ranged from $\approx 1$  to $\approx 10^{-7}$ from the SNRs of -4 to 13db. Whereas the results from the O'Shea paper model ranged from $\approx 1$  to $\approx 10^{-4.5}$ across the same range. This seems suspicious, it seems unlikely that the result model from one paper would have a BLER which was $\approx10^3$ lower at the higher SNRs. This suggests that the two papers have measured error rate differently and so the results are not directly comparible. To improve comparability between all results across both papers it was decided to continue measuring error using the BLER metric used for the first paper in the second paper. 
 
-With this clarified there is not very much to learn from this result, other than that there was more or less identical performance found from the supervised AWGN models with a constant L2 power constraint as used in the O'Shea paper and an average power constraint in the Aoudia paper. This is not very surprising as the messages are transmitted with equal probability, so each message's channels symbol should logically be equally weighted. If the probabilities were unequal then a different result would be expected. The average pwoer constraint on average marginally outperformed the L2 power constraint but the difference was negligible. 
+With this clarified there is not very much to learn from this result, other than that there was more or less identical performance found from the supervised AWGN models with a constant L2 power constraint as used in the O'Shea paper and an average power constraint in the Aoudia paper. This is not very surprising as the messages are transmitted with equal probability, so each message's channels symbol should logically be equally weighted. If the probabilities were unequal then a different result would be expected. The average power constraint on overall marginally outperformed the L2 power constraint but the difference was negligible and inconsistent.
 
-The performance of the supervised RSF model was very poor as can be seen in Figure \ref{fig:RsfSupervisedResults} and as was discussed in Section \ref{sec:InvestigateRsf}. "The BLERs in this graph range from $99.55\%$ at the low SNRs to $31.78\%$ at the higest SNRs which is clearly extremely poor and nowhere near the performance shown in ~\cite{Aoudia}'s Figure 6b which ranges from $\approx1$ to $8*10^{-3}$." As mentioned in Section \ref{sec:InvestigateRsf} a lot of time was spent trying many different combination of hyperparameters to try and improve the performance of this model. However none of the otehr methods tried outperformed the architecture specified in the paper. This suggests two things, firstly that learned communication systems perform very poorly over channels with as short coherence times as an RSF channel.
+The performance of the supervised RSF model was very poor as can be seen in Figure \ref{fig:RsfSupervisedResults} and as was discussed in Section \ref{sec:InvestigateRsf}. ``The BLERs in this graph range from $99.55\%$ at the low SNRs to $31.78\%$ at the higest SNRs which is clearly extremely poor and nowhere near the performance shown in ~\cite{Aoudia}'s Figure 6b which ranges from $\approx1$ to $8\times10^{-3}$." As mentioned in Section \ref{sec:InvestigateRsf} a lot of time was spent trying many different combination of hyperparameters to try and improve the performance of this model. However none of the other methods tried outperformed the architecture specified in the paper. 
 
-Secondly it suggests that Aoudia \etal optimised their hyperparameters and activation function choices effectively. This is in contrast to the O'Shea paper where using the results from the paper could not be reproduced using the architecture specified in the paper. Other hyperparameters and activation function combinations were found to give superior performance. 
+This suggests two things, firstly that learned communication systems perform very poorly over channels with as short coherence times as an RSF channel. Secondly it suggests that Aoudia \etal optimised their hyperparameters and activation function choices effectively. This is in contrast to the O'Shea paper where using the results from the paper could not be reproduced using the architecture specified in the paper. Other hyperparameters and activation function combinations were found to give superior performance. 
 
-\subsection{Aoudia \etal paper, other results}
+\subsection{Unsupervised models and RBF supervised model from Aoudia \etal}
 
-Unfortunately due to the incompletion of the second set of deliverables most of the claims from~\cite{Aoudia} can not be confirmed. This is a shame as the reinforcement learning results are arguably the most interesting of all the results examined in the report. 
+Unfortunately due to the incompletion of the second set of deliverables most of the claims from~\cite{Aoudia} can not be confirmed. The RBF autoencoder was never fully correctly implemented as the problem of the awkward architecture was never fully overcome. The plan was to implement the supervised RBF model, before implementing the unsupervised AWGN and then RBF models. So getting stuck on the supervised RBF model prevented the unsupervised models from being implemented. This is a shame as the reinforcement learning results are arguably the most interesting of all the results examined in the report.
+
 
 \FloatBarrier
 \section{Conclusions}
@@ -1535,25 +1527,25 @@ Unfortunately due to the incompletion of the second set of deliverables most of 
 
 \begin{figure*}[t!]
    \centering
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/leaky_relu_7_4_constellation_diagram.png}
        \caption{A (2,2) model replicating QPSK.}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/leaky_relu_qpsk_constellation_diagram.png}
        \caption{(4,2) model replicating 16-QAM.}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/leaky_relu_16_QAM_constellation_diagram.png}
        \caption{(7,4) model.}
    \end{subfigure}
    \hfill
-   \begin{subfigure}[t]{0.2\textwidth}
+   \begin{subfigure}[t]{0.24\textwidth}
        \centering
        \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_with_noise_200.png}
        \caption{(7,4) model, 200 full sets of received symbols.}
@@ -1562,40 +1554,40 @@ Unfortunately due to the incompletion of the second set of deliverables most of 
    \label{fig:OSheaConcConstDiags}
 \end{figure*}
 
-The main conclusion of the first section of deliverables is that the results predominantly support the the results in~\cite{oShea}. It was confirmed that the constellation diagrams show in Figure \ref{fig:OSheaConcConstDiags} could all be learnt purely from channel noise, with no prior knowledge of any encoding theory. It was also novelly found that whether an instantaneous power constraint or an average power constraint was used the model converged to the same constellation diagram. This was also the constellation diagram that O'Shea \etal found was produced by a (2,4) model with with average power constraint. 
+The main conclusion of the first section of deliverables is that the results predominantly support the the results in~\cite{oShea}. It was confirmed that the constellation diagrams show in Figure \ref{fig:OSheaConcConstDiags} could all be learnt purely from channel noise, with no prior knowledge of any encoding theory. It was also novelly found that whether an instantaneous power constraint or an average power constraint was used the (7,4) model converged to the same constellation diagram. This was also the same as the constellation diagram that O'Shea \etal found was produced by a (2,4) model with with average power constraint. 
 
-It was found that some results from the paper were slightly missleading. For instance the (7,4) constellation diagrams were displayed using t-SNE reduction, which is not only random so changes every time even for the same input (7,) constellation diagram, but also has to be rescaled to have the zero-mean and unit power per bit properties that the input (7,) channel symbols have. So the graphs do not look the way they do in the paper without some post dimensionality reduction processing which is not mentioned in the paper.
+However it was found that some results from the paper were slightly missleading. For instance the (7,4) constellation diagrams were displayed using t-SNE dimensionality reduction, which is not only random so changes every time even for the same (7x1) input constellation diagram, but also has to be rescaled to have the zero-mean and unit power per bit properties that the (7x1) input channel symbols have. So the graphs do not look the way they do in the paper without some post dimensionality reduction processing which is not mentioned in the paper.
 
-The BLER performance results of paper were mainly confirmed as was shown in Figure \ref{fig:OSheaFigureFinal}. The results more or less confirm that a (7,4) learned model with no prior knowledge can learn to replicate the efficient performance of Hamming MLD encoding/decoding. This is state of the art for a (7,4) block length parity scenario. The report also confirms that a learned (2,2) autoencoder model produces indistinguishable performance from (2,2) BPSK and that and (8,8) model has a BLER performance of equivalent to (8,8) BPSK at low SNRs, but significantly outperforms all of (8,8) BPSK, (2,2) BPSK and the (2,2) autoencoder model at higher SNRs. The performance is not exactly the same as the (8,8) autoencoder's performance in the O'Shea paper in that the crossing point with (2,2) autoencoder's BLER is slightly different, but it very similar results. 
+The BLER performance results of paper were mainly confirmed as was shown in Figure \ref{fig:OSheaFigureFinal}. The results roughly confirm that a (7,4) learned model with no prior knowledge can learn to replicate the efficient performance of Hamming MLD encoding/decoding. This is state of the art for a (7,4) block length parity scenario. The report also confirms that a learned (2,2) autoencoder model produces indistinguishable performance from (2,2) BPSK and that and (8,8) model has a BLER performance of equivalent to (8,8) BPSK at low SNRs, but significantly outperforms all of (8,8) BPSK, (2,2) BPSK and the (2,2) autoencoder model at higher SNRs. The performance is not exactly the same as the (8,8) autoencoder's performance in the O'Shea paper in that the crossing point with (2,2) autoencoder's BLER is slightly different, but the results are very similar.
 
-The only performance result from the O'Shea paper that this report does not confirm is the performance of the Hamming (7,4) encoded BPSK. However the implementation from  this report is certainly incorrect, it has been debugged for a long period of time and it passes all unit tests, but it provides lower performance than uncoded BPSK. This is intuitively clearly wrong. The same applies to a certain extent to the BCH encoding. This was novelly added to assess how the autoencoder models may perform against more general forms of the Hamming (7,4) HD encoding. However again the performance of this model is inutitively wrong due to it's relative performance to uncoded BPSK. The BCH encoding was implemented very shortly before the report was handed in and so there has not been sufficient time debug this properly.
+The only performance result from the O'Shea paper that this report does not confirm is the performance of the Hamming (7,4) HD encoded BPSK. However the implementation from  this report is certainly incorrect, it has been debugged for a long period of time and it passes all unit tests, but it provides lower performance than uncoded BPSK, which is intuitively clearly wrong. The same applies to a certain extent to the BCH encoding. This was novelly added to assess how the autoencoder models may perform against more general forms of the Hamming (7,4) HD encoding. However again the performance of this model is clearly incorrect due to it's relative performance to uncoded BPSK. The BCH encoding was implemented very shortly before the report was handed in and so there has not been sufficient time debug this properly.
 
-However an interesting finding was that the performances of the learned models from the O'Shea paper could not be replicated with the architectures specified in the paper. The results of these architectures significantly underpeformed the results in the paper. It was found that a combination of \code{leaky-ReLu} and \code{tanh} activation functions gave far better and more consistent validation loss to the \code{ReLu} activation function specified in the paper. This was mainly due to neuron death in the \code{ReLu} autoencoder giving early convergence to sub-optimal solutions and dependence on initialisation values. This suggests either there were inconsistencies between the architecture the authors used and the architecture made in this report from trying to replicate it based on the description in the paper, or that, much less likelily, the authors did not optimise their hyperparameters and activation functions efficiently. 
+However an interesting finding was that the performances of the learned models from the O'Shea paper could not be replicated with the architectures specified in the paper. The results of these architectures significantly underpeformed the results in the paper. It was found that a combination of \code{leaky-ReLu} and \code{tanh} activation functions gave far better and more consistent validation loss to the \code{ReLu} activation function specified in the paper. This was mainly due to ``neuron death" in the \code{ReLu} autoencoder giving early convergence to sub-optimal solutions and dependence on initialisation values. This suggests either there were inconsistencies between the architecture the authors used and the replica architecture made in this report to try and copy the architecture based on the description in the paper, or that, much less likelily, the authors did not optimise their hyperparameters and activation functions efficiently. 
 
 \subsection{Novel investigation of learned communication system over an RSF channel}
 
-A novel area investigated in this report was the performance of supervised learned communication systems in the presence of Rayleigh slow fading. The performance of autoencoder-like learned communication systems had been investaged over Rayleigh block fading channels, but as far as the author can find, no paper has investaged Rayleigh slow fading. Contrary to the name, RSF is actually faster fading that RBF. RBF can be thought of as "\textit{really slow}" rayleigh fading. 
+A novel area investigated in this report was the performance of supervised learned communication systems in the presence of Rayleigh slow fading. The performance of autoencoder-like learned communication systems had been investaged over Rayleigh block fading channels, but as far as the author can find, no paper has investaged Rayleigh slow fading. Contrary to the name, RSF is actually faster fading that RBF. RBF can be thought of as ``\textit{really slow}" rayleigh fading. 
 
-The meaning of the speed of the fading is how long the $h$ parameter from Equation \ref{eq:RaylieghDef} remains constant. In slow fading there is a new realisation of $h$ for each message sent, in block fading $h$ remains the same for the whole block of messages, and in fast fading each channel symbol would be transmitted over multiple fades. It was found in this paper that learned communication systems perform very poorly over an RSF channel, as the $N_r$ bits sent for each message are not enough to effectively estimate $h$. As the multiplicative noise is far more distruptive than the additive noise not being able to estimate $\hat{h}$ accurately prevents the communication system from removing the additive noise effectively and so communicate with a reasonable bit error rate. What can be learnt from this is that not only do learned communication systems perform poorly over channels as non-stationary as an RSF channel, but they would also perform even worse over an fast fading rayleigh channel. Consequently this area can be ruled out of further research. 
+The meaning of the speed of the fading is how long the $h$ parameter, defining the multiplicative part of the rayleigh fading from Equation \ref{eq:RaylieghDef}, remains constant. In slow fading there is a new realisation of $h$ for each message sent, in block fading $h$ remains the same for the whole block of messages and in fast fading each channel symbol would be transmitted over multiple fades. It was found in this report that learned communication systems perform very poorly over an RSF channel, as the $N_r$ bits sent for each message are not enough to effectively estimate $h$. As the multiplicative noise is far more distruptive than the additive noise, not being able to estimate $\hat{h}$ accurately prevents the communication system from removing the additive noise effectively, and therfore prevents communication with a reasonable bit error rate. What can be learnt from this, is that not only do learned communication systems perform poorly over channels as non-stationary as an RSF channel, but they would also perform even worse over an fast fading rayleigh channel. Consequently this area can be ruled out of further research. 
 
-The normal way of dealing with fast fading is called waterfilling, which involves transmitting only when the channel is not in deep fade. (See Section \ref{sec:TypesOfFading} for more explanation). It is theorised that a better way of combatting a fast fading channel would be to use an RNN, which can learn any algorithm, as then if waterfilling is optimal, it could learn it. However this is a subject for another project as it would require substantial work.
+A common method of communication in the presence of a fast fading channel is waterfilling, which involves transmitting only when the channel is not in deep fade. (See Section \ref{sec:TypesOfFading} for more explanation). It is theorised that a better way of combatting a fast fading channel would be to use an RNN, which can learn any algorithm, as then if waterfilling is optimal, it could learn it. However this is a subject for another project as it would require substantial work.
 
 \FloatBarrier
 \section{Future Work}
 
-There is a large amount of interesting future work which could be carried out, some of which is completing the original deliverables which were not covered in this report. However a large amount of the potential future work is examining the performance of this new technology in promising, currently untested areas.
+There is a large amount of interesting future work which could be carried out, some of which involves completing the original deliverables which were not covered in this report. But a large amount of the potential future work is examining the performance of this new technology in promising, currently untested areas.
 
-Starting with the incomplete deliverables, it would be desirable to get the RBF autoencoder working. This would likely give results immediately with very little hyperparameter tweaking. It would also be useful to produce the reinforcement learning models for the AWGN and RBF channels. This is especially important as this is the promising part of the technology. Without the reinforcement learning a differentiable channel model is needed, which significantly detracts from the usefulness of the technology. 
+Starting with the incomplete deliverables, it would be desirable to get the RBF autoencoder working. This would likely give results immediately with very little hyperparameter tweaking because of the previous work optimising the \code{receiver} and \code{transmitter} blocks over the RSF channel. The only change would be the improvement in the estimation of the $h$ parameter for a given message. It would also be useful to produce the reinforcement learning models for the AWGN and RBF channels. This is especially important as this is the arguably the most promising part of the technology. Without the reinforcement learning a differentiable channel model is needed, which significantly detracts from the usefulness of the technology. 
 
-Moving onto non-deliverable future work, it would be interesting to examine how the BLER of the RBF learned communcation system deteriorates as the block size is decreased. This could give a practical guide for what kind of ratio is needed between the $T_{cs}$ and the $T_{coh}$ of a channel (how slow the fading needs to be) for a learned communication system to be a viable option.
+Moving onto non-deliverable future work, it would be interesting to examine how the BLER of the RBF learned communcation system deteriorates as the block size is decreased. This could give a practical guide for what kind of ratio is needed between the $T_{cs}$ of the communication system and the $T_{coh}$ of a channel (how slow the fading needs to be) for a learned communication system to be a viable option.
 
-Another idea which could be investigated is, in the RBF model, assessing the accuracy of the estimation of $h$ with respect to the length of the sequence used to estimate it. If it was found that near comparible accuracy of estimation could be achieved with a small fraction of the block size, then this could be sent as a pilot, in which the $h$ parameter was estimated. Then after this the rest of the block would not have to pass through the h estimator section. This would significantly reduce the complexity of the model. Also as requiring the h estimator section take all the sent bits as an input produces a significant latency bottleneck this could massively reduce the latency of the process.
+Another idea which could be investigated is, in the RBF model, assessing the accuracy of the estimation $\hat{h}$ with respect to the length of the sequence used to estimate it. If it was found that near comparible accuracy of estimation could be achieved with a small fraction of the block size, then this could be sent as a pilot, in which the $h$ parameter was estimated. Then after this the rest of the block would not have to pass through the h estimator section. This would both significantly reduce the complexity of the model, and also, as requiring the h estimator section take all the sent bits as an input produces a significant latency bottleneck, this could massively reduce the latency of the process.
 
-Some extra comparisons which could be done are to check that the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit. The performance could also be checked against and current long block length state of the art codes, such as turbo and LDPC codes for an AWGN channel. This would show the performance which is being sacrificed by not using long block lengths.
+Some additional comparisons which could be done are to check that the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit. The performance could also be checked against and current long block length state of the art codes, such as turbo and LDPC codes for an AWGN channel. This would show the performance which is being sacrificed by using short instead of long block lengths.
 
-To better assess the generality of a learned communction system learned networks and current state of the art could be compared over common fading environments such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. A wide scale assessment of the performance of learned networks over many different types of channels is currently missing from the literature. This is quite important to do as learned communication systems are likely to be have impressive performance in environments with complex stationary large scale fading as they can adapt to give the locally optimal communication system. After which, more interestingly the same could be done for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
+To better assess the generality of a learned communction systems, learned systems and current state of the art could be compared over common fading environments such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. A thorough assessment of the performance of learned networks over many different types of channels is currently missing from the literature. This would be good to do as it would allow empyrical proof of the theorised performances of learned systems over different types of fading. This is could yield impressive results as learned communication systems are likely to be have impressive performance in environments with complex stationary large scale fading as they can adapt to give the locally optimal communication system. After this, the same could be done but for the more interesting cases of rare or hard to model channels, these being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
 
-A final idea potentially worth investigating would be to add an RTN layer to the unsupervised reinforcement learning models. In ~\cite{oShea} the RTN autoencoders consistently outperformed the normal autoencoders for all SNRs. The unsupervised models are very promising, so it would be interesting to see if there performance could be improved by adding the RTN networks.
+A final idea potentially worth investigating would be to add an RTN layer to the unsupervised reinforcement learning models. In ~\cite{oShea} the RTN autoencoders consistently outperformed the normal autoencoders for all SNRs. The unsupervised models are very promising, so it would be interesting to see if their performance could be improved by adding the RTN networks.
 
 \section{User Guide}
 
@@ -1619,7 +1611,7 @@ While this would be bad for current communications engineers, it would lead to g
 
 A search was performed on Espacenet, which was found by direction from the UK government website. This seach of Espacenet was to see if there were any parents which this project might be infringing. Patents were searched for using related key words, however no patents of similar ideas were found. Consequently the project is likely safe from infringing any patents. If there were any significant commercial consequences of this report then a more thorough search could be carried out through a patent attorney, however this would be expensive and is unlikely to be needed.
 
-The legal alternative to patents for protection of intellectual property is referred to as a "trade secret". However these are only legally binding for company employees who have signed a non disclosure agreement (NDA), or if someone is accessing the information either when they do not have the permission to access it, or they are receiving it from someone who doesn't have the permission to access it. Trade secrets become non-binding once the information is publicly available, so as the papers that this paper is reproducing are publicly available it cannot be infringing any trade secrets that the author is unaware of. 
+The legal alternative to patents for protection of intellectual property is referred to as a ``trade secret". However these are only legally binding for company employees who have signed a non disclosure agreement (NDA), or if someone is accessing the information either when they do not have the permission to access it, or they are receiving it from someone who doesn't have the permission to access it. Trade secrets become non-binding once the information is publicly available, so as the papers that this paper is reproducing are publicly available it cannot be infringing any trade secrets that the author is unaware of. 
 
 \subsubsection{Use of data}
 
@@ -1631,7 +1623,7 @@ However it should be made clear that it should be more or less impossible to dec
 
 \subsubsection{Licences of used libraries}
 
-The Keras library has an MIT lisence, which means that users have the right to "use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software" as long as a copyright notice is place in the code. To ensure that this is abided by, if the software from this project is published then Keras will be acknowledged and referenced. Additionally the copyright stamp will be included in the code if it is published. 
+The Keras library has an MIT lisence, which means that users have the right to ``use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software" as long as a copyright notice is place in the code. To ensure that this is abided by, if the software from this project is published then Keras will be acknowledged and referenced. Additionally the copyright stamp will be included in the code if it is published. 
 
 \subsection{Safety Plan}
 

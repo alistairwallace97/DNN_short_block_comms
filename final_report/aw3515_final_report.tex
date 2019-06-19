@@ -67,22 +67,22 @@
 
 %%%%%%%%% Contents Page
 
-\section*{MUST DO BEFORE SUBMISSION}
+% \section*{MUST DO BEFORE SUBMISSION}
 
-\begin{itemize}
-   \item Correct Figure 1b Block, Diagram.
-   \begin{itemize}
-      \item Transmitter and Receiver the wrong way round.
-      \item Receiver spelt "Reveiver"
-   \end{itemize} 
-   \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
-   \item Got through and find all typos
-   \item Remove pseudo code snippets, not necessary.
-   \item Update abstract to include appropriate content.
-   \item Implement Clerckx comments on the introduction/background section.
-   \item Remove table from safety plan.
-   \item Reword the User Guide section.
-\end{itemize}
+% \begin{itemize}
+%    \item Correct Figure 1b Block, Diagram.
+%    \begin{itemize}
+%       \item Transmitter and Receiver the wrong way round.
+%       \item Receiver spelt "Reveiver"
+%    \end{itemize} 
+%    \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
+%    \item Got through and find all typos
+%    \item Remove pseudo code snippets, not necessary.
+%    \item Update abstract to include appropriate content.
+%    \item Implement Clerckx comments on the introduction/background section.
+%    \item Remove table from safety plan.
+%    \item Reword the User Guide section.
+% \end{itemize}
 
 
 %%%%%%%%% ABSTRACT
@@ -1347,7 +1347,7 @@ The first objective was to reproduce the supervised AWGN graph from ~\cite{Aoudi
    \label{fig:AwgnSupervised}
 \end{figure}
 
-COMMENT ON WHETHER THIS LINE LOOKS LIKE THE ONE IN THE PAPER.
+Figure \ref{fig:AwgnSupervised} shows two lines with near indistinguishable performance. The orange line labelled \textit{L2 power constraint} is the (8,8) autoencoder model taken directly from the deliverable for the O'Shea paper. The \textit{Average power constraint} line is the same model but with an average power constraint in accordance with the rest of the Aoudia paper. As can be seen in Figure \ref{fig:AwgnSupervised} this has no significant impact on the performance of the model. 
 
 After producing the supervised AWGN model it was decided to investigate RSF before RBF. This was because they required very similar noise layers, but the RSF model would have a significantly simpler architecture. This architecture can be seen in Figure \ref{fig:RsfSupervisedArch}. The architectures of the individual blocks can be seen in Figure \ref{fig:RsfArchitectures}
 
@@ -1501,15 +1501,9 @@ Because of the issues listed above the investigation of an supervised autoencdoe
 \FloatBarrier
 \section{Results and Discussion}
 
-\begin{itemize}
-   \item I mainly produced the same results as them.
-   \item The final two graphs from the first paper
-   \item The results from the RSF section
-\end{itemize}
-
 This section will go over the end results of the first and second set of deliverables. 
 
-\subsection{O'Shea \etal paper final reproduced results}
+\subsection{O'Shea \etal paper, final reproduced results}
 
 \begin{figure*}[t!]
    \centering
@@ -1540,7 +1534,7 @@ For the BCH lines in Figure \ref{fig:OSheaFigure3aBch}, as expected the $t=2$ li
 
 Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH codes still do not pass this common sense test of improving the BLER of the uncoded BPSK. This shows that there must be an error in this section. A suspected causes of this error was that the BCH polynomial prime used (8129) was unsuitable. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section. It was suggested in a meeting the day before the deadline that BCH encoding could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
 
-\subsection{Aoudia \etal paper AWGN and RSF results}
+\subsection{Aoudia \etal paper, AWGN and RSF results}
 
 \begin{figure*}[t!]
    \centering
@@ -1569,18 +1563,14 @@ The performance of the supervised RSF model was very poor as can be seen in Figu
 
 Secondly it suggests that Aoudia \etal optimised their hyperparameters and activation function choices effectively. This is in contrast to the O'Shea paper where using the results from the paper could not be reproduced using the architecture specified in the paper. Other hyperparameters and activation function combinations were found to give superior performance. 
 
+\subsection{Aoudia \etal paper, other results}
+
+Unfortunately due to the incompletion of the second set of deliverables most of the claims from~\cite{Aoudia} can not be confirmed. This is a shame as the reinforcement learning results are arguably the most interesting of all the results examined in the report. 
+
 \FloatBarrier
 \section{Conclusions}
 
 \subsection{AWGN autoencoder and unlearned communication systems comparison}
-
-\begin{itemize}
-   \item I couldn't replicate their performance with their architectures. I found that they underperformed their results.
-   \item I reproduced their results mainly.
-   \item I got different results for Hamming (7,4) and BCH.
-   \item I confirmed that a learned communication system can replicate the performance of Hammign (7,4) MLD, which is an efficient coding scheme.
-   \item I confirmed that a learned communication system could learn QPSK, 16-QAM and an unusual pentagon like constellation diagram, with no prior knowledge of encoding schemes. 
-\end{itemize}
 
 \begin{figure*}[t!]
    \centering
@@ -1619,7 +1609,7 @@ The BLER performance results of paper were mainly confirmed as was shown in Figu
 
 The only performance result from the O'Shea paper that this report does not confirm is the performance of the Hamming (7,4) encoded BPSK. However the implementation from  this report is certainly incorrect, it has been debugged for a long period of time and it passes all unit tests, but it provides lower performance than uncoded BPSK. This is intuitively clearly wrong. The same applies to a certain extent to the BCH encoding. This was novelly added to assess how the autoencoder models may perform against more general forms of the Hamming (7,4) HD encoding. However again the performance of this model is inutitively wrong due to it's relative performance to uncoded BPSK. The BCH encoding was implemented very shortly before the report was handed in and so there has not been sufficient time debug this properly.
 
-However an interesting finding was that the performances of the learned models from the O'Shea paper could not be replicated with the architectures specified in the paper. It was found that a combination of \code{leaky-ReLu} and \code{tanh} activation functions gave far better and more consistent validation loss to the \code{ReLu} activation function specified in the paper. This was mainly due to neuron death in the \code{ReLu} autoencoder giving early convergence to sub-optimal solutions and dependence on initialisation values. This suggests either there were inconsistencies between the architecture the authors used and the architecture made in this report from trying to replicate it based on the description in the paper, or that, much less likelily, the authors did not optimise their hyperparameters and activation functions efficiently. 
+However an interesting finding was that the performances of the learned models from the O'Shea paper could not be replicated with the architectures specified in the paper. The results of these architectures significantly underpeformed the results in the paper. It was found that a combination of \code{leaky-ReLu} and \code{tanh} activation functions gave far better and more consistent validation loss to the \code{ReLu} activation function specified in the paper. This was mainly due to neuron death in the \code{ReLu} autoencoder giving early convergence to sub-optimal solutions and dependence on initialisation values. This suggests either there were inconsistencies between the architecture the authors used and the architecture made in this report from trying to replicate it based on the description in the paper, or that, much less likelily, the authors did not optimise their hyperparameters and activation functions efficiently. 
 
 \subsection{Novel investigation of learned communication system over an RSF channel}
 

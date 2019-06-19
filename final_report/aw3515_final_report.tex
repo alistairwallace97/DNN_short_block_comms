@@ -81,6 +81,7 @@
    \item Update abstract to include appropriate content.
    \item Implement Clerckx comments on the introduction/background section.
    \item Remove table from safety plan.
+   \item Reword the User Guide section.
 \end{itemize}
 
 
@@ -1579,14 +1580,50 @@ Secondly it suggests that Aoudia \etal optimised their hyperparameters and activ
    \item I got different results for Hamming (7,4) and BCH.
    \item I confirmed that a learned communication system can replicate the performance of Hammign (7,4) MLD, which is an efficient coding scheme.
    \item I confirmed that a learned communication system could learn QPSK, 16-QAM and an unusual pentagon like constellation diagram, with no prior knowledge of encoding schemes. 
-   \item 
 \end{itemize}
 
-The main conclusion of the first section of deliverables from the report is that 
+\begin{figure*}[t!]
+   \centering
+   \begin{subfigure}[t]{0.2\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/leaky_relu_7_4_constellation_diagram.png}
+       \caption{A (2,2) model replicating QPSK.}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[t]{0.2\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/leaky_relu_qpsk_constellation_diagram.png}
+       \caption{(4,2) model replicating 16-QAM.}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[t]{0.2\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/leaky_relu_16_QAM_constellation_diagram.png}
+       \caption{(7,4) model.}
+   \end{subfigure}
+   \hfill
+   \begin{subfigure}[t]{0.2\textwidth}
+       \centering
+       \includegraphics[width=\linewidth]{figures/tSNE_7_4_constellation_diagram_with_noise_200.png}
+       \caption{(7,4) model, 200 full sets of received symbols.}
+   \end{subfigure}
+   \caption{Four model constellation diagrams from learnt only from the channel noise, with no prior knowledge of encoding theory.}
+   \label{fig:OSheaConcConstDiags}
+\end{figure*}
+
+The main conclusion of the first section of deliverables is that the results predominantly support the the results in~\cite{oShea}. It was confirmed that the constellation diagrams show in Figure \ref{fig:OSheaConcConstDiags} could all be learnt purely from channel noise, with no prior knowledge of any encoding theory. It was also novelly found that whether an instantaneous power constraint or an average power constraint was used the model converged to the same constellation diagram. This was also the constellation diagram that O'Shea \etal found was produced by a (2,4) model with with average power constraint. 
+
+It was found that some results from the paper were slightly missleading. For instance the (7,4) constellation diagrams were displayed using t-SNE reduction, which is not only random so changes every time even for the same input (7,) constellation diagram, but also has to be rescaled to have the zero-mean and unit power per bit properties that the input (7,) channel symbols have. So the graphs do not look the way they do in the paper without some post dimensionality reduction processing which is not mentioned in the paper.
+
+The BLER performance results of paper were mainly confirmed as was shown in Figure \ref{fig:OSheaFigureFinal}. The results more or less confirm that a (7,4) learned model with no prior knowledge can learn to replicate the efficient performance of Hamming MLD encoding/decoding. This is state of the art for a (7,4) block length parity scenario. The report also confirms that a learned (2,2) autoencoder model produces indistinguishable performance from (2,2) BPSK and that and (8,8) model has a BLER performance of equivalent to (8,8) BPSK at low SNRs, but significantly outperforms all of (8,8) BPSK, (2,2) BPSK and the (2,2) autoencoder model at higher SNRs. The performance is not exactly the same as the (8,8) autoencoder's performance in the O'Shea paper in that the crossing point with (2,2) autoencoder's BLER is slightly different, but it very similar results. 
+
+The only performance result from the O'Shea paper that this report does not confirm is the performance of the Hamming (7,4) encoded BPSK. However the implementation from  this report is certainly incorrect, it has been debugged for a long period of time and it passes all unit tests, but it provides lower performance than uncoded BPSK. This is intuitively clearly wrong. The same applies to a certain extent to the BCH encoding. This was novelly added to assess how the autoencoder models may perform against more general forms of the Hamming (7,4) HD encoding. However again the performance of this model is inutitively wrong due to it's relative performance to uncoded BPSK. The BCH encoding was implemented very shortly before the report was handed in and so there has not been sufficient time debug this properly.
+
+However an interesting finding was that the performances of the learned models from the O'Shea paper could not be replicated with the architectures specified in the paper. It was found that a combination of \code{leaky-ReLu} and \code{tanh} activation functions gave far better and more consistent validation loss to the \code{ReLu} activation function specified in the paper. This was mainly due to neuron death in the \code{ReLu} autoencoder giving early convergence to sub-optimal solutions and dependence on initialisation values. This suggests either there were inconsistencies between the architecture the authors used and the architecture made in this report from trying to replicate it based on the description in the paper, or that, much less likelily, the authors did not optimise their hyperparameters and activation functions efficiently. 
 
 \subsection{Novel investigation of learned communication system over an RSF channel}
 
-One novel area investigated in this report was the performance of supervised learned communication systems in the presence of Rayleigh slow fading. The performance of autoencoder-like learned communication systems had been investaged over Rayleigh block fading channels, but as far as the author can find, no paper has investaged Rayleigh slow fading. Contrary to the name, RSF is actually faster fading that RBF. RBF can be thought of as "\textit{really slow}" rayleigh fading. 
+A novel area investigated in this report was the performance of supervised learned communication systems in the presence of Rayleigh slow fading. The performance of autoencoder-like learned communication systems had been investaged over Rayleigh block fading channels, but as far as the author can find, no paper has investaged Rayleigh slow fading. Contrary to the name, RSF is actually faster fading that RBF. RBF can be thought of as "\textit{really slow}" rayleigh fading. 
 
 The meaning of the speed of the fading is how long the $h$ parameter from Equation \ref{eq:RaylieghDef} remains constant. In slow fading there is a new realisation of $h$ for each message sent, in block fading $h$ remains the same for the whole block of messages, and in fast fading each channel symbol would be transmitted over multiple fades. It was found in this paper that learned communication systems perform very poorly over an RSF channel, as the $N_r$ bits sent for each message are not enough to effectively estimate $h$. As the multiplicative noise is far more distruptive than the additive noise not being able to estimate $\hat{h}$ accurately prevents the communication system from removing the additive noise effectively and so communicate with a reasonable bit error rate. What can be learnt from this is that not only do learned communication systems perform poorly over channels as non-stationary as an RSF channel, but they would also perform even worse over an fast fading rayleigh channel. Consequently this area can be ruled out of further research. 
 

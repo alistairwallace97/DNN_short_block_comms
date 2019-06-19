@@ -70,9 +70,7 @@
 \section*{MUST DO BEFORE SUBMISSION}
 
 \begin{itemize}
-   \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
    \item Got through and find all typos
-   \item Remove pseudo code snippets, not necessary.
    \item Update abstract to include appropriate content.
    \item Implement Clerckx comments on the introduction/background section.
 \end{itemize}
@@ -811,23 +809,9 @@ This is taken to mean that if any of the bits in a block are incorrect, then the
    \label{fig:BspkBlerComp}
 \end{figure}
 
-This theoretical check was actually very useful as it unearthed the second of two bugs in the BPSK encoding and decoding. The graph that made these bugs obvious is shown in Figure \ref{fig:BspkBlerComp}. Stating that results are wrong based on a other results requires a large amount of confidence in the correcting set of results. The theoretical results have this confidence due to matching the values displayed in the paper and the equations producing them being widely agreed upon.
+This theoretical check was actually very useful as it unearthed a bug in the BPSK encoding and decoding. The graph that made these bugs obvious is shown in Figure \ref{fig:BspkBlerComp}. Stating that results are wrong based on a other results requires a large amount of confidence in the correcting set of results. The theoretical results have this confidence due to matching the values displayed in the paper and the equations producing them being widely agreed upon.
 
-For reference the simulation of the BPSK encoding in the AWGN channel was run by the process outlined in sudo code below. The exact code (which is almost identical) can be found at~\cite{AwGithub}.
-
-\begin{lstlisting}
-   # Encode into bpsk
-   bpsk_encoded = bpsk_encode_vec(test_data)
-   # Add AWGN noise
-   noise = std * np.random.randn(bpsk_encoded.shape)
-   received = bpsk_encoded + noise
-   # Decode from bpsk back to bits
-   bpsk_decoded = bpsk_decode_vec(received)
-   # Get Block error rate
-   return get_block_error_rate(test_data, bpsk_decoded)
-\end{lstlisting}
-
-Note that \code{bpsk$\_$encode} and \code{bpsk$\_$decode} were vectorised because it was found that this reduced the latency of the simulation process by approximately $60\%$. This was important, as to give smooth curves the BPSK BLER was tested over a very large test data set and also for 25 different $\frac{E_b}{N_0}$
+The implementation code for the BPSK encoding and decoding can be found in the \textit{Implementing Uncoded BPSK} section of \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}. Note that the \code{bpsk$\_$encode} and \code{bpsk$\_$decode} functions were vectorised because it was found that this reduced the latency of the simulation process by approximately $60\%$. This was important, as to give smooth curves the BPSK BLER was tested over a very large test data set and also for 25 different $\frac{E_b}{N_0}$ ratios.
 
 The first bug was that the noise standard deviation was being calculated incorrectly from the $\frac{E_b}{N_0}$. According to the O'Shea paper the variance is calculated from $\frac{E_b}{N_0}$ using the equation below~\cite{oShea}.
 
@@ -836,13 +820,7 @@ The first bug was that the noise standard deviation was being calculated incorre
    \label{eq:SigmaFromEbN0}
 \end{equation}
 
-The paper is not entirely clear with it's definition of $n$, as to whether $n$ is the number of real channel uses or the number of complex channel uses. Originally it was decided the later was correct, meaning that $R = \frac{k}{n_c}$. This was found to be incorrect as it gave incorrect $\sigma$s and this led to if being found that $n$ must be the number of real bits. This gave the change from the solid lines ro the dashed lines in Figure \ref{fig:BspkBlerComp}. The $n_c$ being lower than $n_r$ was making the $R$ two times larger, which was decreasing the variance of the channel noise by a factor of two. This gave the lower error rates shown by the solid lines. The jaggedness of the lines at the lowest error rates was due to insufficiently sized data sets to smoothly represent a error rate in the region of $10^-7$.
-
-At this point the second bug was found.
-
-% NEED TO FIND OUT WHAT IS WRONG WITH MY BPSK ENCODING. I'VE SPENT A WHILE TRYING TO DEBUG IT BUT I CAN'T SEE WHERE I COULD POSSIBLY HAVE AN ERROR, IT IS SUCH A SIMPLE ENCODING AND DECODING METHOD.
-
-After the solving of this second issue the simulated BLER of the BPSK was indistinguishable from the theoretical BLER. Note that all of the code for the BPSK encoding and decoding can be found in the \textit{Implementing Uncoded BPSK} section of \code{initial$\_$dnn$\_$comms.ipynb} at~\cite{AwGithub}.
+The paper is not entirely clear with it's definition of $n$, as to whether $n$ is the number of real channel uses or the number of complex channel uses. Originally it was decided the later was correct, meaning that $R = \frac{k}{n_c}$. This was found to be incorrect as it gave incorrect $\sigma$s and this led to if being found that $n$ must be the number of real bits. This gave the change from the solid lines to the dashed lines in Figure \ref{fig:BspkBlerComp}. The $n_c$ being lower than $n_r$ was making the $R$ two times larger, which was decreasing the variance of the channel noise by a factor of two. This gave the lower error rates shown by the solid lines. The jaggedness of the lines at the lowest error rates was due to insufficiently sized data sets to smoothly represent a error rate in the region of $10^-7$. The second bug was a typo causing incorrect slicing of the input array. If it was not for the theoretical lines then this bug would not have been found. After the solving of this issue the simulated BLER of the BPSK was indistinguishable from the theoretical BLER.
 
 \subsubsection{Adding hamming hard decision encoding}
 
@@ -965,19 +943,7 @@ After the error correction stage the message must be decoded. The message is sim
    \hat{\mathbf{p}} = \mathbf{Rp}
 \end{equation}
 
-It should be reiterated that the Hamming (7,4) will incorrectly diagnose multiple bit errors and so will not be able to correct them. As with the previous section the exact code for the Hamming (7,4) Hard Encoding can be found in the \textit{Hamming Hard Decision Encoded BPSK} section of the \code{initial$\_$dnn$\_$comms.ipynb} notebook in ~\cite{AwGithub}, but some psuedo code for end-to-end encoding and decoding process is provided below.
-
-\begin{lstlisting}[escapeinside={(*}{*)}]
-   # Encode the one_hot_encoded_vectors into bits
-   (*$s$*) = hamming_7_4_encode((*$p$*), G)   
-   # Add noise
-   (*$e$*) = std * np.random.randn((*$s$*).shape)
-   (*$r$*) = (*$s$*) + (*$e$*)
-   # Do error correction and decode message
-   (*$\hat{p}$*) = hamming_7_4_decode_and_correct((*$r$*), H, R_ham)
-   # Get Block error rate
-   bler = get_block_error_rate((*$p$*), (*$\hat{p}$*))
-\end{lstlisting}
+It should be reiterated that the Hamming (7,4) will incorrectly diagnose multiple bit errors and so will not be able to correct them. As with the previous section the exact code for the Hamming (7,4) Hard Encoding can be found in the \textit{Hamming Hard Decision Encoded BPSK} section of the \code{initial$\_$dnn$\_$comms.ipynb} notebook in ~\cite{AwGithub}.
 
 \subsubsection{Initial Hamming HD performance and debugging}
 

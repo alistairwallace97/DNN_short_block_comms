@@ -32,30 +32,30 @@
 \contentsline {subsubsection}{\numberline {4.3.1}Adding BPSK encoding}{32}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}Adding hamming hard decision encoding}{35}{subsubsection.4.3.2}
 \contentsline {subsubsection}{\numberline {4.3.3}Initial Hamming HD performance and debugging}{38}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Adding Hamming MLD + MLD explanation}{40}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.4}Adding Hamming MLD + MLD explanation}{39}{subsubsection.4.3.4}
 \contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace {}Reproducing Figure 3a and 3b from the O'Shea paper}{42}{subsection.4.4}
 \contentsline {subsubsection}{\numberline {4.4.1}Initial (7,4) autoencoder, t-SNE constellation diagrams and (8,8) autoencoder}{42}{subsubsection.4.4.1}
 \contentsline {subsubsection}{\numberline {4.4.2}Finding errors and improving performance}{45}{subsubsection.4.4.2}
 \contentsline {subsubsection}{\numberline {4.4.3}Finding incorrect scaling}{46}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}Final corrections and BCH coding}{48}{subsubsection.4.4.4}
+\contentsline {subsubsection}{\numberline {4.4.4}Final corrections and BCH coding}{47}{subsubsection.4.4.4}
 \contentsline {subsection}{\numberline {4.5}\hskip -1em.\nobreakspace {}Paper 2 - Reinforcement learning, RBF and RF}{51}{subsection.4.5}
 \contentsline {subsubsection}{\numberline {4.5.1}Rayleigh Fading}{51}{subsubsection.4.5.1}
-\contentsline {subsubsection}{\numberline {4.5.2}Investigation into RSF}{52}{subsubsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.3}Investigation into RBF}{57}{subsubsection.4.5.3}
-\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Results and Discussion}{59}{section.5}
+\contentsline {subsubsection}{\numberline {4.5.2}Investigation into RSF}{51}{subsubsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Investigation into RBF}{56}{subsubsection.4.5.3}
+\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace {}Results and Discussion}{58}{section.5}
 \contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace {}O'Shea \emph {et al}\onedot paper, final reproduced results}{59}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace {}Aoudia \emph {et al}\onedot paper, AWGN and RSF results}{60}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}\hskip -1em.\nobreakspace {}Aoudia \emph {et al}\onedot paper, other results}{62}{subsection.5.3}
-\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Conclusions}{62}{section.6}
-\contentsline {subsection}{\numberline {6.1}\hskip -1em.\nobreakspace {}AWGN autoencoder and unlearned communication systems comparison}{62}{subsection.6.1}
+\contentsline {subsection}{\numberline {5.3}\hskip -1em.\nobreakspace {}Aoudia \emph {et al}\onedot paper, other results}{61}{subsection.5.3}
+\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace {}Conclusions}{61}{section.6}
+\contentsline {subsection}{\numberline {6.1}\hskip -1em.\nobreakspace {}AWGN autoencoder and unlearned communication systems comparison}{61}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}\hskip -1em.\nobreakspace {}Novel investigation of learned communication system over an RSF channel}{63}{subsection.6.2}
-\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Future Work}{64}{section.7}
+\contentsline {section}{\numberline {7}\hskip -1em.\nobreakspace {}Future Work}{63}{section.7}
 \contentsline {section}{\numberline {8}\hskip -1em.\nobreakspace {}User Guide}{65}{section.8}
 \contentsline {section}{\numberline {A}\hskip -1em.\nobreakspace {}Appendix}{65}{appendix.A}
 \contentsline {section}{\numberline {B}\hskip -1em.\nobreakspace {}Ethical, Legal and Safety Considerations}{65}{appendix.B}
 \contentsline {subsection}{\numberline {B.1}\hskip -1em.\nobreakspace {}Ethical considerations}{65}{subsection.B.1}
-\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{66}{subsection.B.2}
-\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{66}{subsubsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2}\hskip -1em.\nobreakspace {}Legal consideration}{65}{subsection.B.2}
+\contentsline {subsubsection}{\numberline {B.2.1}Infringing patents}{65}{subsubsection.B.2.1}
 \contentsline {subsubsection}{\numberline {B.2.2}Use of data}{66}{subsubsection.B.2.2}
 \contentsline {subsubsection}{\numberline {B.2.3}Licences of used libraries}{66}{subsubsection.B.2.3}
-\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{67}{subsection.B.3}
+\contentsline {subsection}{\numberline {B.3}\hskip -1em.\nobreakspace {}Safety Plan}{66}{subsection.B.3}

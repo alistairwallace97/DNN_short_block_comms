@@ -79,6 +79,7 @@
    \item Got through and find all typos
    \item Remove pseudo code snippets, not necessary.
    \item Update abstract to include appropriate content.
+   \item Implement Clerckx comments on the introduction/background section.
 \end{itemize}
 
 
@@ -181,7 +182,7 @@ The main twp deliverables are summarised below.
       \item Produce non-complex channel symbolled (7,4) autoencoder and obtain a t-SNE dimensionally reduced constellation diagram.
       \item Write encoding and decoding functions for Hamming HD and MLD
       \item Write encoding and decoding functions for BPSK
-      \item Compare the performance of various encoding methods and debug until Figures 3a,b from ~\cite{oShea} were reproduced.
+      \item Compare the performance of various encoding methods and debug until Figures 3a,b from ~\cite{oShea} are reproduced.
    \end{itemize}
    \item Reproduce the unsupervised reinforcement learning model from ~\cite{Aoudia} which uses the alternate training method. The compare the performance of this model against current state of the art and the autoencoder method across a range of SNRs for an AWGN and an RBF channel.
    \begin{itemize}
@@ -1341,6 +1342,8 @@ Rayleigh fading is a type of fading which models a channel in which there is not
 
 $\mathbf{s}$ and $\mathbf{r}$ are the complex sent and received signals respectively. In all types of rayleigh fading a different realisation of $n$ is used for every sent signal, but the same does not apply to $h$. In RBF (rayleigh block fading) the multiplicative factor $h$ stays the same for the whole block of sent messages. In rayleigh slow fading (RSF) h changes every message that is sent but remains the same for each bit of the message, whereas rayleigh fast fading (RFF) would have both $h$ and $n$ changing during the sending of each symbol, so each symbol would be transmitter over multiple fades. The Aoudia paper examined RBF.
 
+Rayleigh fading channels are a good type of channel to examine the performance of the learned communication system. The reason for this is that, as described above they model well the effect of a signal propogating through a built up area like a city. A city with a very complex, but stationary large scale fading function would be an environment where a learned communication system could perform particularly well. This is because it could learn an optimal communication system for taking advantage of these large scale fading effects in a way that a normal communication system could not.
+
 \subsubsection{Investigation into RSF}
 
 The first objective was to reproduce the supervised AWGN graph from ~\cite{Aoudia}. This was very easily done by simply using the (8,8) model from the previous section to produce Figure \ref{fig:AwgnSupervised}.
@@ -1515,7 +1518,7 @@ Because of the issues listed above the investigation of an supervised autoencdoe
 \section{Conclusions}
 
 \begin{itemize}
-   \item Learned model performed very poorly on Rayleigh Slow Fading, it is likely it would perform even more poorly on Rayleigh Fast Fading.
+   \item Learned model performed very poorly on Rayleigh Slow Fading, it is likely it would perform even more poorly on Rayleigh Fast Fading. This is novel, no one has done this before.
 \end{itemize}
 
 
@@ -1529,31 +1532,19 @@ Because of the issues listed above the investigation of an supervised autoencdoe
 \FloatBarrier
 \section{Future Work}
 
-REWORD THIS STUFF INTO FUTURE WORK
+There is a large amount of interesting future work which could be carried out, some of which is completing the original deliverables which were not covered in this report. However a large amount of the potential future work is examining the performance of this new technology in promising, currently untested areas.
 
-\textit{
-Some extra comparisons which will be completed if there is time to check that the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit and current state of the art codes such as turbo and LDPC codes for an AWGN channel.
-}
+Starting with the incomplete deliverables, it would be desirable to get the RBF autoencoder working. This would likely give results immediately with very little hyperparameter tweaking. It would also be useful to produce the reinforcement learning models for the AWGN and RBF channels. This is especially important as this is the promising part of the technology. Without the reinforcement learning a differentiable channel model is needed, which significantly detracts from the usefulness of the technology. 
 
-\textit{
-Another additional comparison which may be done if there is time is to compare the learned networks and current state of the art across common fading channels such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. This would better assess the generality of a learned communction system than has so far been done in the literature.
-}
+Moving onto non-deliverable future work, it would be interesting to examine how the BLER of the RBF learned communcation system deteriorates as the block size is decreased. This could give a practical guide for what kind of ratio is needed between the $T_{cs}$ and the $T_{coh}$ of a channel (how slow the fading needs to be) for a learned communication system to be a viable option.
 
-\textit{
-After which ideally the same could be done for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
-}
+Another idea which could be investigated is, in the RBF model, assessing the accuracy of the estimation of $h$ with respect to the length of the sequence used to estimate it. If it was found that near comparible accuracy of estimation could be achieved with a small fraction of the block size, then this could be sent as a pilot, in which the $h$ parameter was estimated. Then after this the rest of the block would not have to pass through the h estimator section. This would significantly reduce the complexity of the model. Also as requiring the h estimator section take all the sent bits as an input produces a significant latency bottleneck this could massively reduce the latency of the process.
 
-\textit{
-If the main deliverables are finished then further research will be started by investigating adding an RTN layer to the receiver of the reinforcement learning model. The project supervisor had stated that
-if section is reached then he will decide which of the two areas is most current between reinforcement learning and SWIPT and further research will be continued into this area. The details of these deliverables are described in the project specification, however as these will be new areas a different method of evaluating the success and validity of the results.
-}
+Some extra comparisons which could be done are to check that the developed methods are truly competitive with state of the art are comparing the learned systems to Shannon's theoretical capacity limit. The performance could also be checked against and current long block length state of the art codes, such as turbo and LDPC codes for an AWGN channel. This would show the performance which is being sacrificed by not using long block lengths.
 
-\begin{itemize}
-   \item Remember that slow fading with short block lengths was a potentially advantageous environment for learned communication systems
-   \item Also cities with very complicated environments, lots of multipaths, no direct lines of sight, stationary and significant large scale would be an environment where the learned communication system would likely do well.
-   \item Look at the "Types of fading" section for more details.
-\end{itemize}
+To better assess the generality of a learned communction system learned networks and current state of the art could be compared over common fading environments such as Rayleigh and Ricean channels across a range of type of fading, large scale or small scale, fast or slow, flat or frequency selective. A wide scale assessment of the performance of learned networks over many different types of channels is currently missing from the literature. This is quite important to do as learned communication systems are likely to be have impressive performance in environments with complex stationary large scale fading as they can adapt to give the locally optimal communication system. After which, more interestingly the same could be done for some rare or hard to model channels. These being where the learned communication system should have the biggest advantage and so it would be interesting to see if they could deliver on their potential.
 
+A final idea potentially worth investigating would be to add an RTN layer to the unsupervised reinforcement learning models. In ~\cite{oShea} the RTN autoencoders consistently outperformed the normal autoencoders for all SNRs. The unsupervised models are very promising, so it would be interesting to see if there performance could be improved by adding the RTN networks.
 
 \FloatBarrier
 \appendix

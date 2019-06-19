@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  19 JUN 2019 21:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.16)  19 JUN 2019 22:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -807,107 +807,109 @@ File: figures/o_shea_3a_bler_vs_eb_bch.png Graphic file (type png)
 Package pdftex.def Info: figures/o_shea_3a_bler_vs_eb_bch.png  used on input line 1246.
 (pdftex.def)             Requested size: 223.58379pt x 149.0565pt.
  [51 <./figures/bch_t1_vs_t2.png> <./figures/o_shea_3a_bler_vs_eb_bch.png>]
-<figures/aoudia_paper/awgn_supervised.png, id=852, 433.62pt x 289.08pt>
+<figures/aoudia_paper/awgn_supervised.png, id=850, 433.62pt x 289.08pt>
 File: figures/aoudia_paper/awgn_supervised.png Graphic file (type png)
 <use figures/aoudia_paper/awgn_supervised.png>
-Package pdftex.def Info: figures/aoudia_paper/awgn_supervised.png  used on input line 1281.
+Package pdftex.def Info: figures/aoudia_paper/awgn_supervised.png  used on input line 1279.
 (pdftex.def)             Requested size: 248.42812pt x 165.6198pt.
-<figures/aoudia_paper/autoencoder_rsf_arch.png, id=859, 568.1225pt x 629.35126pt>
+ [52 <./figures/aoudia_paper/awgn_supervised.png>]
+<figures/aoudia_paper/autoencoder_rsf_arch.png, id=866, 568.1225pt x 629.35126pt>
 File: figures/aoudia_paper/autoencoder_rsf_arch.png Graphic file (type png)
 <use figures/aoudia_paper/autoencoder_rsf_arch.png>
-Package pdftex.def Info: figures/aoudia_paper/autoencoder_rsf_arch.png  used on input line 1292.
+Package pdftex.def Info: figures/aoudia_paper/autoencoder_rsf_arch.png  used on input line 1290.
 (pdftex.def)             Requested size: 248.42812pt x 275.20605pt.
-<figures/aoudia_paper/transmitter_rsf_arch.png, id=860, 468.75125pt x 851.18pt>
+<figures/aoudia_paper/transmitter_rsf_arch.png, id=867, 468.75125pt x 851.18pt>
 File: figures/aoudia_paper/transmitter_rsf_arch.png Graphic file (type png)
 <use figures/aoudia_paper/transmitter_rsf_arch.png>
-Package pdftex.def Info: figures/aoudia_paper/transmitter_rsf_arch.png  used on input line 1301.
+Package pdftex.def Info: figures/aoudia_paper/transmitter_rsf_arch.png  used on input line 1299.
 (pdftex.def)             Requested size: 149.05838pt x 270.65576pt.
-<figures/aoudia_paper/h_estimator_rsf_arch.png, id=861, 434.62375pt x 406.51875pt>
+<figures/aoudia_paper/h_estimator_rsf_arch.png, id=868, 434.62375pt x 406.51875pt>
 File: figures/aoudia_paper/h_estimator_rsf_arch.png Graphic file (type png)
 <use figures/aoudia_paper/h_estimator_rsf_arch.png>
-Package pdftex.def Info: figures/aoudia_paper/h_estimator_rsf_arch.png  used on input line 1308.
+Package pdftex.def Info: figures/aoudia_paper/h_estimator_rsf_arch.png  used on input line 1306.
 (pdftex.def)             Requested size: 149.05838pt x 139.41791pt.
-<figures/aoudia_paper/receiver_rsf_arch.png, id=862, 390.45876pt x 406.51875pt>
+<figures/aoudia_paper/receiver_rsf_arch.png, id=869, 390.45876pt x 406.51875pt>
 File: figures/aoudia_paper/receiver_rsf_arch.png Graphic file (type png)
 <use figures/aoudia_paper/receiver_rsf_arch.png>
-Package pdftex.def Info: figures/aoudia_paper/receiver_rsf_arch.png  used on input line 1315.
+Package pdftex.def Info: figures/aoudia_paper/receiver_rsf_arch.png  used on input line 1313.
 (pdftex.def)             Requested size: 149.05838pt x 155.18585pt.
- [52] [53 <./figures/aoudia_paper/awgn_supervised.png> <./figures/aoudia_paper/autoencoder_rsf_arch.png>] [54 <./figures/aoudia_paper/transmitter_rsf_arch.png> <./figures/aoudia_paper/h_estimator_rsf_arch.png> <./figures/aoudia_paper/receiver_rsf_arch.png>]
-<figures/aoudia_paper/autoencoder_rsf_bler.png, id=896, 433.62pt x 289.08pt>
+ [53 <./figures/aoudia_paper/autoencoder_rsf_arch.png>] [54 <./figures/aoudia_paper/transmitter_rsf_arch.png> <./figures/aoudia_paper/h_estimator_rsf_arch.png> <./figures/aoudia_paper/receiver_rsf_arch.png>]
+<figures/aoudia_paper/autoencoder_rsf_bler.png, id=893, 433.62pt x 289.08pt>
 File: figures/aoudia_paper/autoencoder_rsf_bler.png Graphic file (type png)
 <use figures/aoudia_paper/autoencoder_rsf_bler.png>
-Package pdftex.def Info: figures/aoudia_paper/autoencoder_rsf_bler.png  used on input line 1364.
+Package pdftex.def Info: figures/aoudia_paper/autoencoder_rsf_bler.png  used on input line 1356.
 (pdftex.def)             Requested size: 248.42812pt x 165.6198pt.
  [55]
 <figures/aoudia_paper/rsf_unsuccessful_alt_archs.png, id=905, 433.62pt x 289.08pt>
 File: figures/aoudia_paper/rsf_unsuccessful_alt_archs.png Graphic file (type png)
 <use figures/aoudia_paper/rsf_unsuccessful_alt_archs.png>
-Package pdftex.def Info: figures/aoudia_paper/rsf_unsuccessful_alt_archs.png  used on input line 1373.
+Package pdftex.def Info: figures/aoudia_paper/rsf_unsuccessful_alt_archs.png  used on input line 1365.
 (pdftex.def)             Requested size: 248.42812pt x 165.6198pt.
  [56 <./figures/aoudia_paper/autoencoder_rsf_bler.png> <./figures/aoudia_paper/rsf_unsuccessful_alt_archs.png>]
 <figures/aoudia_paper/autoencoder_rbf_10e2.png, id=915, 605.26125pt x 629.35126pt>
 File: figures/aoudia_paper/autoencoder_rbf_10e2.png Graphic file (type png)
 <use figures/aoudia_paper/autoencoder_rbf_10e2.png>
-Package pdftex.def Info: figures/aoudia_paper/autoencoder_rbf_10e2.png  used on input line 1394.
+Package pdftex.def Info: figures/aoudia_paper/autoencoder_rbf_10e2.png  used on input line 1384.
 (pdftex.def)             Requested size: 248.42812pt x 258.31418pt.
 <figures/aoudia_paper/autoencoder_rbf_block_architecture.png, id=920, 944.52875pt x 329.23pt>
 File: figures/aoudia_paper/autoencoder_rbf_block_architecture.png Graphic file (type png)
 <use figures/aoudia_paper/autoencoder_rbf_block_architecture.png>
-Package pdftex.def Info: figures/aoudia_paper/autoencoder_rbf_block_architecture.png  used on input line 1403.
+Package pdftex.def Info: figures/aoudia_paper/autoencoder_rbf_block_architecture.png  used on input line 1393.
 (pdftex.def)             Requested size: 472.01192pt x 164.52919pt.
  [57] [58 <./figures/aoudia_paper/autoencoder_rbf_10e2.png> <./figures/aoudia_paper/autoencoder_rbf_block_architecture.png>]
 File: figures/o_shea_3a_bler_vs_eb_bch.png Graphic file (type png)
 <use figures/o_shea_3a_bler_vs_eb_bch.png>
-Package pdftex.def Info: figures/o_shea_3a_bler_vs_eb_bch.png  used on input line 1448.
+Package pdftex.def Info: figures/o_shea_3a_bler_vs_eb_bch.png  used on input line 1438.
 (pdftex.def)             Requested size: 223.58379pt x 149.0565pt.
 File: figures/o_shea_3b_bler_vs_eb.png Graphic file (type png)
 <use figures/o_shea_3b_bler_vs_eb.png>
-Package pdftex.def Info: figures/o_shea_3b_bler_vs_eb.png  used on input line 1455.
+Package pdftex.def Info: figures/o_shea_3b_bler_vs_eb.png  used on input line 1445.
 (pdftex.def)             Requested size: 223.58379pt x 149.0565pt.
  [59] [60]
 File: figures/aoudia_paper/awgn_supervised.png Graphic file (type png)
 <use figures/aoudia_paper/awgn_supervised.png>
-Package pdftex.def Info: figures/aoudia_paper/awgn_supervised.png  used on input line 1479.
+Package pdftex.def Info: figures/aoudia_paper/awgn_supervised.png  used on input line 1469.
 (pdftex.def)             Requested size: 223.58379pt x 149.0565pt.
 File: figures/aoudia_paper/autoencoder_rsf_bler.png Graphic file (type png)
 <use figures/aoudia_paper/autoencoder_rsf_bler.png>
-Package pdftex.def Info: figures/aoudia_paper/autoencoder_rsf_bler.png  used on input line 1486.
+Package pdftex.def Info: figures/aoudia_paper/autoencoder_rsf_bler.png  used on input line 1476.
 (pdftex.def)             Requested size: 223.58379pt x 149.0565pt.
  [61]
 File: figures/leaky_relu_7_4_constellation_diagram.png Graphic file (type png)
 <use figures/leaky_relu_7_4_constellation_diagram.png>
-Package pdftex.def Info: figures/leaky_relu_7_4_constellation_diagram.png  used on input line 1516.
+Package pdftex.def Info: figures/leaky_relu_7_4_constellation_diagram.png  used on input line 1506.
 (pdftex.def)             Requested size: 119.24821pt x 79.49503pt.
 File: figures/leaky_relu_qpsk_constellation_diagram.png Graphic file (type png)
 <use figures/leaky_relu_qpsk_constellation_diagram.png>
-Package pdftex.def Info: figures/leaky_relu_qpsk_constellation_diagram.png  used on input line 1522.
+Package pdftex.def Info: figures/leaky_relu_qpsk_constellation_diagram.png  used on input line 1512.
 (pdftex.def)             Requested size: 119.24821pt x 79.49503pt.
 File: figures/leaky_relu_16_QAM_constellation_diagram.png Graphic file (type png)
 <use figures/leaky_relu_16_QAM_constellation_diagram.png>
-Package pdftex.def Info: figures/leaky_relu_16_QAM_constellation_diagram.png  used on input line 1528.
+Package pdftex.def Info: figures/leaky_relu_16_QAM_constellation_diagram.png  used on input line 1518.
 (pdftex.def)             Requested size: 119.24821pt x 79.49503pt.
 File: figures/tSNE_7_4_constellation_diagram_with_noise_200.png Graphic file (type png)
 <use figures/tSNE_7_4_constellation_diagram_with_noise_200.png>
-Package pdftex.def Info: figures/tSNE_7_4_constellation_diagram_with_noise_200.png  used on input line 1534.
+Package pdftex.def Info: figures/tSNE_7_4_constellation_diagram_with_noise_200.png  used on input line 1524.
 (pdftex.def)             Requested size: 119.24821pt x 79.49503pt.
- [62] [63] [64] [65] [66] (./aw3515_final_report.bbl [67]
+ [62] [63] [64] [65] [66] (./aw3515_final_report.bbl [67] [68]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [68]
+
 Underfull \hbox (badness 5475) in paragraph at lines 133--135
 []\OT1/ptm/m/n/10.95 T. J. O'Shea and J. Cor-gan, ``Con-vo-lu-tional ra-dio mod-u-la-tion recog-ni-tion net-works,'' \OT1/ptm/m/it/10.95 CoRR\OT1/ptm/m/n/10.95 ,
  []
 
+[69]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 147.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 155--159
 \OT1/pcr/m/n/10.95 com / @andriylazorenko / tensorflow-[]performance-[]test-[]cpu-[]vs-[]gpu-[]79fcd39170c$[]\OT1/ptm/m/n/10.95 .
  []
 
-[69]
+
 Underfull \hbox (badness 1308) in paragraph at lines 161--164
 []\OT1/ptm/m/n/10.95 ``Alistair Wal-lace project github.'' []$\OT1/pcr/m/n/10.95 https : / / github . com / alistairwallace97 / DNN _ short _
  []
@@ -923,17 +925,17 @@ Overfull \hbox (5.0382pt too wide) in paragraph at lines 166--169
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1621.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1611.
  [70]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1621.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1611.
  (./aw3515_final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1621.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1621.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1611.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1611.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1621.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1611.
  ) 
 Here is how much of TeX's memory you used:
  9771 strings out of 492982
@@ -944,7 +946,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  42i,14n,43p,1368b,893s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on aw3515_final_report.pdf (71 pages, 2439398 bytes).
+Output written on aw3515_final_report.pdf (71 pages, 2439817 bytes).
 PDF statistics:
  1162 PDF objects out of 1200 (max. 8388607)
  909 compressed objects within 10 object streams

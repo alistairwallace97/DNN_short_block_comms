@@ -78,6 +78,7 @@
    \item Find bug or remove all caps section about unfound bug in BPSK encoding section.
    \item Got through and find all typos
    \item Remove pseudo code snippets, not necessary.
+   \item Update abstract to include appropriate content.
 \end{itemize}
 
 
@@ -544,6 +545,7 @@ Another obvious error from this constellation diagram was that the four points w
 \subsection{Paper 1 - Producing an Autoencoder}
 
 \subsubsection{Batch vs L2 normalisation}
+\label{sec:BatchVsL2Normalisation}
 
 L2 normalisation and batch normalisation are defined below by Constraint \ref{eq:L2Normalisations} and Equation \ref{eq:BatchNormalisation} respectively:
 
@@ -900,7 +902,7 @@ Hence, despite the fact that the (7,4) Hamming code can only remove single error
    \end{center}
    \caption{A table showing which parity bits interact with which data bits in a (7,4) Hamming code.}
    \label{tab:Hamming74Parity}
-   \end{table}
+\end{table}
    
 
 \begin{figure}
@@ -1316,26 +1318,15 @@ So the function goes through every bit sent, and with probability $p_e$ flips th
    \label{fig:BchFigures}
 \end{figure*}
 
-As expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. 
+As expected the $t=2$ line outperforms the $t=1$ line. Although as mentioned above the $t=1$ line should give identical performance to the Hamming (7,4) line. As mentioned earlier the Hamming (7,4) line in Figure \ref{fig:OSheaFig3} underperforms. From Figure \ref{fig:OSheaFigure3aBch} it can be seen that the $t=1$ line outperforms the Hamming (7,4) line on the whole, however it still underperforms what the Hamming (7,4) line should produce according to both~\cite{oShea}'s Figure 3a and also the common sense that adding Hamming encoding should not decrease the performance from normal BPSK.
 
-IF THE RESULTS LOOK GOOD THEN I COULD USE BCH1 INSTEAD OF HAMMING (7,4) AS MY HAMMING (7,4) LINE.
+Despite outperforming the experimental Hamming (7,4) encoding's BLER the BCH codes still do not pass this common sense test of improving the BLER of the uncoded BPSK. This shows that there must be an error in this section. A suspected causes of this error was that the BCH polynomial prime used (8129) was unsuitable. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section.  
 
-CONVERT TO THIS COULD BE IMPLEMENTED WITH MORE INFORMATION IF IMPLEMENTED IN MATLAB ETC.
-
-Unfortunately the results from this method and library were not at all satisfactory. The BLER for the above case are shown in Figure \ref{fig:BchT1VsT2}. Sadly as this was investigated in response to feedback and so the implementation was done just a couple of days before the report was due there was not enough time to properly debug this section. The results are clearly wrong in that the BLER converges to $\approx0.2445$ at very high SNRs. The suspected reasons for this are that the BCH polynomial prime used (8129) is unsuitable or  
-
-It was suggested in a second meeting that this could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't recently familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
+It was suggested in a second meeting the day before the deadline that BCH encoding could be easily implemented in Matlab, however as the rest of the project was already implemented in python, the author wasn't recently familiar with Matlab and the deadline was the following day there was not enough time to investigate this option. 
 
 \subsection{Paper 2 - Reinforcement learning, RBF and RF}
 
-\begin{itemize}
-   \item Introduction to Rayleigh
-   \item Description of architecture of models in the paper
-   \item Rayleigh slow fading model and results
-   \item Rayleigh block fading attempt 
-\end{itemize}
-
-\subsection{Rayleigh Fading}
+\subsubsection{Rayleigh Fading}
 
 Rayleigh fading is a type of fading which models a channel in which there is not a clearl line of sight between the receiver and the transmitter, this is a good approximation for signal propogation through the troposhpere and ionoshpere as well as built up areas like cites~\cite{RayleighProakis}. The fading implemented in this report is assumed to be flat and slow. The large and small scale fading are assumed to be stationary. Rayleigh fading is implemented by the equation below.
 
@@ -1349,8 +1340,6 @@ Rayleigh fading is a type of fading which models a channel in which there is not
 \end{align}
 
 $\mathbf{s}$ and $\mathbf{r}$ are the complex sent and received signals respectively. In all types of rayleigh fading a different realisation of $n$ is used for every sent signal, but the same does not apply to $h$. In RBF (rayleigh block fading) the multiplicative factor $h$ stays the same for the whole block of sent messages. In rayleigh slow fading (RSF) h changes every message that is sent but remains the same for each bit of the message, whereas rayleigh fast fading (RFF) would have both $h$ and $n$ changing during the sending of each symbol, so each symbol would be transmitter over multiple fades. The Aoudia paper examined RBF.
-
-
 
 \subsubsection{Investigation into RSF}
 
@@ -1402,19 +1391,110 @@ After producing the supervised AWGN model it was decided to investigate RSF befo
 
 These architectures show the addition of an expert feature as an advancement from the AWGN supervised models. This is the \code{HEstimator} section, which makes an estimate of the $\mathbf{h}$ parameter from Equation \ref{eq:RaylieghDef} for that message. There is then a \code{y$\_$over$\_$h} layer which implements complex division of the received signal by the output of the \code{HEstimator}. Note that the received signal has shape (batch$\_$size,$N_c$,2) and estimated h has shape (batch$\_$size,2). So a $\hat{h}$ is found for each overall message which is sent, and then all four of the transmitter complex channel symbols are divided by this factor. 
 
-The transmitter architecture has also changed 
+The transmitter architecture has also changed, the new architecture can be seen in Figure \ref{fig:RsfTxArch}. The previous architecture had a single dense \code{leaky-ReLu} layer and a single dense \code{tanh} layer. The new arechitecture starts with an $M$x$M$ embedding layer for feature extraction. This allows each one hot encoded input to activate $M$ different nodes which can then all be used as inputs to the function of the transmitter network. This embedded layer has an exponential linear unit (ELU) activation function. The ELU activation function is defined below in Equation \ref{eq:EluDefinition}.
 
-The receiver architecture has changed 
 
-The h-estimator layer structure is taken from the architecture in the paper.
+\begin{equation}
+   ELU(x)=
+   \begin{cases}
+     x, & \text{if}\ x\geq1 \\
+     \alpha(e^x-1), & x<0
+   \end{cases}
+   \label{eq:EluDefinition}
+\end{equation}
 
+This activation function is good because it can both learn linearity and non-linearity depending on if the weights are trained to make the input greater or less than zero. Next there is a single dense layer with a \code{linear} activation function. There are also a couple of reshape layers in the transmitter to make flatten the input before the dense layer and to make the channel symbols complex. 
+
+The transmitter had a different normalisation scheme as well. The previous normalisaiont scheme was a constant power constraint (L2-Normalisations) of one  per channel bit described in Section \ref{sec:BatchVsL2Normalisation}. The new architecture had an average power constraint defined below in Equation \ref{eq:AvgPowerDef}.
+
+\begin{equation}
+   \mathbb{E}\left[\frac{1}{N}\left\Vert x\right\Vert_2^2\right] = 1
+   \label{eq:AvgPowerDef}
+\end{equation}
+
+This allows the transmitter more flexibility, as if a constant power constraint is optimal it can converge to that from this power constraint. However it also has the options of giving certain channel symbols more power. If the input symbols were unequally frequent then more common symbols might be expected to have more power and less symetric constellation diagrams would be allowed by this power constraint. However in this case each of the messages within $M$ is equally likely. 
+
+The receiver architecture has changed as well. Before the receiver had three dense layers with \code{tanh}, \code{leaky-ReLu} and \code{softmax} activation functions respectively. Now the receiver has only two dense layers, with \code{relu} and \code{softmax} activations respectively. This new architecture is again identitical to the architecture used in~\cite{Aoudia}.
+
+The h-estimator layer structure is also taken from the architecture in the paper. It has two dense layers, one with a \code{tanh} activation function and a second with a \code{linear} activation function. 
+
+Note that throughout this section the SNR will define the standard deviation of the additional noise $n$, the multiplicative noise was left constant with a $\sigma_m = \frac{1}{\sqrt{2}}$ as follows convention. This is the conventional value because it gives an average unit channel gain from the multiplicative noise. This value was used because it is convention, however it should be noted that it is unrealistic as in a real channel it would be expected that the received power be almost always less than the transmitter power. In accordance with this idea $sigma_m = 0.33$ was also trialed, by the theory that the channel gain being less than one $99.7\%$ of the time seemed more realistic. However it was found that actually the exact $\sigma_m$ made very little difference as the weights just scaled to a be larger for a lower $\sigma_m$ giving no noticable difference in performance. Also note that as the power constraint is Equation \ref{eq:AvgPowerDef} the SNR is simplified according to the equations below.
+
+\begin{align}
+   SNR &= \frac{\mathbb{E}\left[\frac{1}{N}\left\Vert x\right\Vert_2^2\right]}{\sigma_a^2} \nonumber\\
+   &= \frac{1}{\sigma_a^2}
+   \label{eq:AoudiaSnrDef}
+\end{align}
+
+This architecture describes above, despite being identical to the architecture of the (8,8) supervised autoencoder in~\cite{Aoudia} performed extremely poorly. The results are show in Figure \ref{fig:RsfBler}.
+
+\begin{figure}
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/aoudia_paper/autoencoder_rsf_bler.png}
+   \caption{The poor BLER performance of the supervised RSF autoencoder.}
+   \label{fig:RsfBler}
+\end{figure}
+
+The BLERs in this graph range from $99.55\%$ at the low SNRs to $31.78\%$ at the higest SNRs which is clearly extremely poor and nowhere near the performance shown in ~\cite{Aoudia}'s Figure 6b which ranges from $\approx1$ to $8*10^{-3}$. To try and combat this more dense layers were tried with many combinations of activation functions. Two, three and four dense layers were tried with all \code{tanh}, all \code{leaky-relu} and all \code{relu} activation functions. However none of these had improved performance. Several combinations of \code{leaky-relu} and \code{tanh} activation functions were tried. Training at the higher SNRs of 40db, 80db and no noise were all tried as well. Training until convergence ($\approx10-20$ epochs) at each SNR and then reducing the SNR was trialed, despite the fact this could not be done with a real channel. However none of these methods reduced the validation loss by more than a couple of $\%$. 
+
+About four days was spent exclusively trying to improve the performance of the supervised RSF autoencoder, with no success. This suggests that learned communication systems perform poorly in as non-stationary an environment as RSF. It makes sense that the communication system should perform worse in a RSF environment than an RBF environment. This is because in the RBF environment the $h$ factor from Equation \ref{eq:RaylieghDef} stays the same for the whole block, which could be up to 1000 messages. This means that $h$ can be estimated a lot more accurately as the variance of the estimate $\hat{h}$ decreases with $\sqrt{n}$. After the factor $h$ is removed the noise $n$ can then be removed a lot more effectively. Whereas in RSF $h$ only stays the same for the channel bits of a given message, which is too few to estimate once the additive noise $n$ has been added. 
+
+The inability to estimate the $h$ factor of the channel noise effectively makes removing the RSF very difficult, as the multiplicative noise is much more damaging than the additive noise. 
+
+This in itself is a novel result, as far the author can see no other paper has investigated the performance of an end-to-end learned communication system in the presence of slow or fast rayleigh fading. The very poor performance of the learned communication system in RSF compared to RBF suggests that the learned communications system would perform even more poorly in a RFF channel and highlights an previously unproven weakness in learned communication systems.
 
 \subsubsection{Investigation into RBF}
 
+RBF can be seen as "\textit{very slow}" rayleigh fading. After the implementation and testing of the RSF fading communication system above the implementation of a supervised RBF communication system was started. To reproduce the results in the paper the BLER would have to improve by a factor of $\approx10^2$, however given the reduction of the variance of the $\hat{h}$ estimator should improve by a factor of $10^{\frac{3}{2}}$ and that the $h$ factor was the main damaging factor of the rayleigh noise there was reasoable confidence that this should be achievable relatively easily. 
 
+As locally-optimal receivers and transmitters had been learnt in the RSF section the main task was to implement an architecture which could encode and decode many messages identically in parallel, but add noise to all of them and estimate $h$ to all of them in one go.
+
+\begin{figure}
+   \centering
+   \includegraphics[width=\genfigsize\linewidth]{figures/aoudia_paper/autoencoder_rbf_10e2.png}
+   \caption{RBF autoencoder overall architecture with an example block size of 100.}
+   \label{fig:RbfOverallArchitecture}
+\end{figure}
+
+The architecture of the proposed model can be seen in Figures \ref{fig:RbfOverallArchitecture} and \ref{fig:RbfOverallArchitectureDrawIo}. Figure \ref{fig:RbfOverallArchitectureDrawIo} gives a more detailed description, showing how the \code{BlockTransmitter} and \code{BlockReceiver} blocks from Figure \ref{fig:RbfOverallArchitecture} are made up of \code{block$\_$size} copies of the single transmitter or receiver in parallel. It should be stressed that these are the same transmitter with the same weights which should be updated in the same way. Note that the number of parameters of the \code{HEstimator} block depends on the \code{block$\_$size}. 
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.95\linewidth]{figures/aoudia_paper/autoencoder_rbf_block_architecture.png}
+   \caption{Alternative representation of the RBF autoencoder overall architecture, showing the make up of the BlockTransmitter and BlockReceiver sections.}
+   \label{fig:RbfOverallArchitectureDrawIo}
+\end{figure}
+
+This architecture is very awkward to implement, because it requires blocks to be made up of many repeated subblocks in parallel, with the same weights shared for all the parallel sub-blocks. It must also be able to update the weights of all three learned modules. 
+
+It took a very long time to be able to form a model which would compile and could fit at all with a non-\code{None} gradient. The \code{transmitter} and \code{receiver} had to be put into seperate models and the receiver had to be split into three parts. It had seperate parts for the $h$ estimating model, the complex division lambda and the decoding part of the receiver. Then a Lambda layer was used to implement the \code{BlockTransmitter} and \code{BlockReceiver} functions. The lambda function was implemented four different ways before it gave a non-\code{None} gradient. The lambda ended up in the form of a list of the encoded channel symbols being made using a for loop, followed by a Keras Concatenate layer.
+
+The debugging was particularly confusing, as each of the individual models worked and gave non-\code{None} gradients, it was only when the \code{BlockReceiver} submodel was combined with the \code{y$\_$over$\_$h} lambda layer that the \code{None} gradient would appear. Also as the model could not be fit, the gradients with respect to given weights could not be found, which meant it could not be debugged line by line.
+
+The final implementation with the Concatenate layer compiled, gave a non-\code{None} gradient, however the only parameters which the overall model could see were those of the HEstimator section, meaning the model did not work. It could not see the weights of the transmitter and receiver blocks, so did not update them by back propogation. This meant that despite the model being able to estimate $h$ significantly more accurately due to the larger block sizes, it did not significantly improve from the baseline validation loss as the receiver and transmitter blocks were not being trained. 
+
+Another issue with the RBF model was that with large block sizes it became extremely slow to initialise and train, meaning that large block sizes would not be able to be effectively investigated. Table \ref{tab:RbfBlockSizeChars} shows the characteristics of the RBF models made with different block sizes. This table illustrates the prohibitive effect on latency of increasing the block size. The ? given for the training s/step and block size of 1000 is there because the model was sat for 20 minutes and it never starting to fit and it never showed it had started the first epoch, so the training s/step could not be found. However the ball park of prohibitively slow as found.
+
+\begin{table}[H]
+   \begin{center}
+   \begin{tabular}{|l|c|c|c|}
+   \hline
+   Block Size & Compile Time (s) & h$\_$est parameters & training s/step\\
+   \hline\hline
+   10 & $4.75$ & $1662$ & $173\mu s$ \\
+   100 & $33.45$ & $16062$ & ? \\
+   1000 & $1241.67$ & ? & ? \\
+   \hline
+   \end{tabular}
+   \end{center}
+   \caption{Activation function performance statistics from ten initialisations}
+   \label{tab:RbfBlockSizeChars}
+\end{table}
+
+Because of the issues listed above the investigation of an supervised autoencdoer model for an RBF channel was a failure. It is hoped that were the issue with the \code{transmitter} and \code{receiver} weights not updating to be resolved the performance would be competitive with that shown in the Aoudia~\cite{Aoudia} paper, however it is hard to know in advance of producing it. 
 
 \FloatBarrier
-\section{Results}
+\section{Results and Discussion}
 
 \begin{itemize}
    \item I mainly produced the same results as them.
@@ -1423,14 +1503,12 @@ The h-estimator layer structure is taken from the architecture in the paper.
 
 
 \FloatBarrier
-\section{Evaluation}
+\section{Conclusions}
 
 \begin{itemize}
    \item Learned model performed very poorly on Rayleigh Slow Fading, it is likely it would perform even more poorly on Rayleigh Fast Fading.
 \end{itemize}
 
-\FloatBarrier
-\section{Conclusions}
 
 \begin{itemize}
    \item I couldn't replicate their performance with their architectures. I found that they underperformed their results.
